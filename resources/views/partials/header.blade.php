@@ -11,7 +11,7 @@
 
         <li><a class="header-typo" href="{{ route('cw-program') }}">Program</a></li>
         <li><a class="header-typo" href="{{ route('cw-alumni') }}">Alumni</a></li>
-        <li><a class="header-typo" href="#">News</a></li>
+        <li><a class="header-typo" href="{{ route('news') }}">News</a></li>
         <li><a class="header-typo" href="https://community.codeweekend.net/home">Community</a></li>
         <li><a class="header-typo" href="{{ route('cw-about') }}">About Us</a></li>
       </ul>

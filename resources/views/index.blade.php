@@ -35,6 +35,8 @@ rel="stylesheet"
 />
 
   <!-- Style -->
+  
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
   <link rel="stylesheet" href="{{ asset('custom.css') }}">
 
   <title>codeweekend website2</title>
