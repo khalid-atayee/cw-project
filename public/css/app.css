@@ -494,6 +494,9 @@ video {
 .tw-w-full {
   width: 100%;
 }
+.tw-max-w-\[80\%\] {
+  max-width: 80%;
+}
 .tw-flex-col {
   flex-direction: column;
 }
