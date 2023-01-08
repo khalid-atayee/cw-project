@@ -2600,7 +2600,7 @@ justify-self: end;/* justify-content: end; */
 }
 .slider-logos {
   width: 100%;
-  display: inline-block;
+  display: inline-flex;
   margin: 0px 0;
 }
 .slider-logos img {
