@@ -328,7 +328,7 @@ ul{
   color: #000;
   position: absolute;
   width: 100%;
-  padding-bottom: 0%;
+  /* padding-bottom: 0%; */
   /* top: 0%; */
 }
 .need-talent a{

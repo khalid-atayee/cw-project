@@ -15,5 +15,7 @@
 @include('partials.faq')
 
 @include('partials.getInTouch')
+@include('partials.signIn')
+@include('partials.signUp')
 @include('partials.footer')
 @endsection
