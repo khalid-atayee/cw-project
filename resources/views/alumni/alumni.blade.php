@@ -3,6 +3,7 @@
 @include('partials.header')
 @include('partials.slider')
 @include('partials.headQuarters')
+@include('partials.signIn')
+@include('partials.signUp')
 @include('partials.footer')
-    
 @endsection
