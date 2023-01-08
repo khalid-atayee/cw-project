@@ -37,7 +37,7 @@ rel="stylesheet"
   <!-- Style -->
   <link rel="stylesheet" href="{{ asset('custom.css') }}">
 
-  <title>codeweekend website</title>
+  <title>codeweekend website2</title>
 </head>
 
 <body>
