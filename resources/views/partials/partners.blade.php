@@ -5,14 +5,14 @@
         <div class="container rounded">
             <h1 class="text-center mission-typo">Our Partners</h1>
             <div class="slider">
-                <div class="slider-logos">
+                <div class="slider-logos tw-max-w-[80%]">
                     <i class="partner "><img class="w-25" src="{{ asset('images/amazon.png') }}" alt=""></i>
                     <i class="partner "><img class="w-25" src="{{ asset('images/apple.png') }}" alt=""></i>
                     <i class="partner "><img class="w-25" src="{{ asset('images/google.jpg') }}" alt=""></i>
                     <i class="partner "><img class="w-25" src="{{ asset('images/microsoft.jpeg') }}" alt=""></i>
 
                 </div>
-                <div class="slider-logos">
+                <div class="slider-logos tw-max-w-[80%]">
                     <i class="partner "><img src="{{ asset('images/amazon.png') }}" alt=""></i>
                     <i class="partner "><img src="{{ asset('images/apple.png') }}" alt=""></i>
                     <i class="partner "><img src="{{ asset('images/google.jpg') }}" alt=""></i>
