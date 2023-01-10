@@ -13,12 +13,14 @@
                     <i class="partner "><img class="w-25" src="{{ asset('images/microsoft.jpeg') }}" alt=""></i>
 
                 </div>
+                </div>
                 <div class="slider-logos tw-max-w-[80%]">
                 <div class="slider-logos row">
                     <i class="partner "><img src="{{ asset('images/amazon.png') }}" alt=""></i>
                     <i class="partner "><img src="{{ asset('images/apple.png') }}" alt=""></i>
                     <i class="partner "><img src="{{ asset('images/google.jpg') }}" alt=""></i>
                     <i class="partner "><img src="{{ asset('images/microsoft.jpeg') }}" alt=""></i>
+                </div>
                 </div>
             </div>
         </div>
