@@ -1,66 +1,105 @@
 
   <!-- footer start here ======
 ====== -->
-<div class="footer-container">
+<footer>
+  <div class="footer-contents">
 
-    <div class="all-part">
-      <div class="logos">
-        <img src="{{ asset('images/codeweekend.png') }}" alt="" class="footer-logo-image">
-        <p class="some-paragraph-titl">Our expertise in user experience design, software development,
-          and disciplined entrepreneurship empowers businesses to scale fast
-          and rapidly innovate.</p>
-       
+      <div class="footer-logo-container text-md-start ">
+          <h1 class="fw-bolder fs-1">CodeWeekend</h1>
+          <p class="opacity-75">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis sunt ea
+              inventore voluptatem
+              fugit! Magni voluptatem sequi, quasi nisi nulla enim tempore. Aliquam quisquam ipsa assumenda sunt
+              possimus? Laudantium, praesentium.</p>
+
+          <div class="icons-for-wider-screen">
+            <div class="footer-icons">
+              <i class="footer-icon">
+                  <a href="#"><img src="{{ asset('images/Vector-1.png') }}" alt=""></a>
+              </i>
+              <i class="footer-icon">
+                  <a href="#"><img src="{{ asset('images/Vector-2.png') }}" alt=""></a>
+              </i>
+              <i class="footer-icon">
+                  <a href="#"><img src="{{ asset('images/Vector-3.png') }}" alt=""></a>
+              </i>
+              <i class="footer-icon">
+                  <a href="#"><img src="{{ asset('images/fb-vector.png') }}" alt=""></a>
+              </i>
+          </div>
+              <p class="text-start mb-0 mt-4  fst-italic ">
+                  &copy; copyright Reserved with CodeWeekend
+              </p>
+          </div>
       </div>
-      <div class="links">
-        <ul class="lists">
-          <h3 class="what-make-different-title">About Us</h3>
-  
-          <li class=" some-paragraph-title"><a href="/">company</a></li>
-          <li class=" some-paragraph-title"><a href="/">what we do</a></li>
-          <li class=" some-paragraph-title"><a href="/">Program</a></li>
-          <li class=" some-paragraph-title"><a href="/">Alumni</a></li>
-          <li class=" some-paragraph-title"><a href="/">Mentors & Organizers</a></li>
-         
-  
-        </ul>
-  
-  
-        <ul class="lists">
-          <h3 class="what-make-different-title">Support</h3>
-         
-          <li class="some-paragraph-title"><a href="/">Apply to codeWeekend Program</a></li>
-          <li class="some-paragraph-title"><a href="/">CodeWeekend Scholarship</a></li>
-          <li class="some-paragraph-title"><a href="/">Contact Us</a></li>
-     
-  
-        </ul>
-  
-  
-  
-        <ul class="lists">
-          <h3 class="what-make-different-title">Recent News</h3>
-          <li class="some-paragraph-title"><a href="/">Home</a></li>
-          <li class="some-paragraph-title"><a href="/">Home</a></li>
-          <li class="some-paragraph-title"><a href="/">Home</a></li>
-          <li class="some-paragraph-title"><a href="/">Home</a></li>
-        
-        </ul>
-  
+      <div class="footer-menu my-3">
+
+          <ul class=" text-center">
+              <li class=" fw-bold text-uppercase">About us</li>
+              <a href="">
+                  <li class="footer-menu-item">Campany</li>
+              </a>
+              <a href="">
+                  <li class="footer-menu-item">What we do?</li>
+              </a>
+              <a href="">
+                  <li class="footer-menu-item">Program</li>
+              </a>
+              <a href="">
+                  <li class="footer-menu-item">Alumni</li>
+              </a>
+              <a href="">
+                  <li class="footer-menu-item">Mentors and Organizers</li>
+              </a>
+          </ul>
+          <ul class=" text-center">
+              <li class=" fw-bold text-uppercase">Support</li>
+              <a href="">
+                  <li class="footer-menu-item">Apply to Bootcamp</li>
+              </a>
+              <a href="">
+                  <li class="footer-menu-item">Scholorship</li>
+              </a>
+              <a href="">
+                  <li class="footer-menu-item">Contact Us</li>
+              </a>
+          </ul>
+          <ul class=" text-center">
+              <li class="fw-bold text-uppercase">Recent News</li>
+              <a href="">
+                  <li class="footer-menu-item">items</li>
+              </a>
+              <a href="">
+                  <li class="footer-menu-item">items</li>
+              </a>
+              <a href="">
+                  <li class="footer-menu-item">items</li>
+              </a>
+          </ul>
       </div>
-      <div class="social-media">
-        <a href="https://facebook.com/CodeWeekend"> <i class="fa-brands fa-facebook"></i></a>
-        <a href="https://instagram.com/CodeWeekend"> <i class="fa-brands fa-instagram"></i></a>
-        <a href="https://twitter.com/CodeWeekend"> <i class="fa-brands fa-twitter"></i></a>
-        <a href="https://linkedin.com/company/CodeWeekend"> <i class="fa-brands fa-linkedin"></i></a>
-  
-      </div>
-      
-    </div>
-    <div class="copyright-container">
-      <p>Copyright © 2023, CodeWeekend institute. All Rights Reserved</p>
-    </div>
   </div>
-  
+  <div class="icons-for-smaller-screens">
+
+      <div class="footer-icons">
+          <i class="footer-icon">
+              <a href="#"><img src="{{ asset('images/Vector-1.png') }}" alt=""></a>
+          </i>
+          <i class="footer-icon">
+              <a href="#"><img src="{{ asset('images/Vector-2.png') }}" alt=""></a>
+          </i>
+          <i class="footer-icon">
+              <a href="#"><img src="{{ asset('images/Vector-3.png') }}" alt=""></a>
+          </i>
+          <i class="footer-icon">
+              <a href="#"><img src="{{ asset('images/fb-vector.png') }}" alt=""></a>
+          </i>
+      </div>
+      <p class="text-start mt-4  fst-italic copywrite-text">
+
+          &copy; copyright Reserved with CodeWeekend
+      </p>
+  </div>
+
+</footer>
   
   
   
