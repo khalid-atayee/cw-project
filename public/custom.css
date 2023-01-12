@@ -2595,12 +2595,12 @@ justify-self: end;/* justify-content: end; */
   margin-top: var(--mt);
 }
 .slider {
-  animation: slidein 30s linear infinite;
+  animation: slidein 20s linear infinite;
   white-space: nowrap;
 }
 .slider-logos {
   width: 100%;
-  display: inline-flex;
+  /* display: inline; */
   margin: 0px 0;
 }
 .slider-logos img {
@@ -2625,6 +2625,12 @@ justify-self: end;/* justify-content: end; */
 @keyframes fade-in {
   0% {
     opacity: 0;
+  }
+  10%{
+    opacity:1;
+  }
+  25%{
+    opacity:1;
   }
   100% {
     opacity: 1;
