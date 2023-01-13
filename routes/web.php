@@ -29,6 +29,10 @@ Route::get('/dashboard',function(){
     return view('admin.dashboard');
 })->name('dashboard');
 Route::get('/chapters',[ChapterController::class,'index'])->name('chapters');
+Route::get('/admin', function(){
+    return view('admin.index');
+});
 
 //Auth routes 
 Route::post('/login',[AuthController::class,'login'])->name('login');
+Route::post('/student/registration',[AuthController::class,'studentRegistration'])->name('studentRegistration');

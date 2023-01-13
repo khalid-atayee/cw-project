@@ -19,6 +19,7 @@ class CreateStudentsTable extends Migration
             $table->string('full_name');
             $table->string('email');
             $table->char('phone',20);
+            $table->string('password');
             $table->foreignIdFor(Chapter::class)->constrained();
             
 
