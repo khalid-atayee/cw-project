@@ -31,19 +31,7 @@
       <img class="responsive" src="{{ asset('images/making-difference.png') }}"
         alt="codeweekend landing page avatar shows a person is following their targeted goal">
     </div>
-    <!-- <div class="specify-location">
-      <div class="location-title">Your Location</div><span class="location-line">|</span>
-      <div class="location-dropdown">
-        <select name="" id="">
-          <option>Specify your location</option>
-          <option value="">Kabul</option>
-          <option value="">NewYork</option>
-          <option value="">Germany</option>
-          <option value="">Washington</option>
-          <option value="">Mumbai</option>
-        </select>
-      </div>
-    </div> -->
+
   </div>
 
   <!-- home page hero section end here -->

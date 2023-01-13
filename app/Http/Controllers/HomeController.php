@@ -19,4 +19,8 @@ class HomeController extends Controller
     function aboutUs(){
         return view('about.aboutUs');
     }
+    function curriculam(){
+        return view('curriculam.curriculamIndex');
+
+    }
 }
