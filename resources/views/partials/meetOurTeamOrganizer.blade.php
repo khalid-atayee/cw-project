@@ -57,7 +57,7 @@
 
         </div>
       </section>
-      <button class="cw-btn meet-our-team-btn">See The Schedule</button>
+      <a href="{{ route('cw-curriculam') }}" class="cw-btn meet-our-team-btn">See The Schedule</a>
 
 
     </div>

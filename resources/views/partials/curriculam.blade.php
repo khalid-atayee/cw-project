@@ -98,6 +98,6 @@
 
 
       <!-- <p class="text-center fst-italic">(click on any card to see the details)</p> -->
-      <a href="curriculam.html" class="cw-btn meet-our-team-btn">See The Schedule</a>
+      <a href="{{ route('cw-curriculam') }}" class="cw-btn meet-our-team-btn">See The Schedule</a>
     </div>
 
