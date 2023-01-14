@@ -19,9 +19,7 @@
         <img src="images/vision.jpg" alt="" class="img-fluid img-thumbnail">
       </div>
     </div>
-
-
-
+    
   </div>
 
 

@@ -6,6 +6,6 @@
 @include('partials.signUp')
 @include('partials.headQuarters')
 @include('partials.signIn')
-@include('partials.signUp')
+{{-- @include('partials.signUp') --}}
 @include('partials.footer')
 @endsection

@@ -130,12 +130,12 @@
 
 
       <div class="alumni-btn-container">
-        <a class="cw-btn" href="#">See More Alumni</a>
+        <a class="cw-btn" href="{{ route('cw-alumni') }}">See More Alumni</a>
     
       </div>
     </div>
     <div class="alumni-btn-container-mob">
-      <a class="cw-btn" href="#">See More Alumni</a>
+      <a class="cw-btn" href="{{ route('cw-alumni') }}">See More Alumni</a>
   
     </div>
   </div>

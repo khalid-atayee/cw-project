@@ -8,7 +8,7 @@
         lorem epsum lorem epsum</p>
 
     </div>
-    <button class="cw-btn " id="signIn-btn">Apply Now</button>
+    <a class="cw-btn " id="signIn-btn" href="{{ Auth::user() ? route('payment.index') : route('students.index')}}">Apply Now</a>
   </div>
 
   <!-- coding bootcamp location end here====
