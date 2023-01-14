@@ -66,4 +66,8 @@ class AuthController extends Controller
         return redirect('/');
 
     }
+    
+    public function studentRegistration(Request $request){
+        dd($request->all());
+    }
 }
