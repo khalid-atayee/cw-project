@@ -1,37 +1,34 @@
 <x-layout>
     <x-slot name="title">
-        All Chapters
+        All Organizers
     </x-slot>
     <x-slot name="header">
-        All Chapters
+        All Organizers
     </x-slot>
     <x-slot name="button">
-        <a class="tw-bg-blue-500 tw-text-white tw-rounded-md tw-p-2" href="{{ route('chapters.create') }}">New Chapter</a>
+        <a class="tw-bg-blue-500 tw-text-white tw-rounded-md tw-p-2" href="{{ route('organizers.create') }}">New Organizer</a>
     </x-slot>
     <div>
         <table class="tw-w-full tw-divide-y-2">
             <thead class="tw-bg-gray-200">
                 <tr class="tw-text-left">
                     <th>ID</th>
-                    <th>Title</th>
-                    <th>City</th>
-                    <th>Fees</th>
-                    <th>Duration</th>
-                    <th>Started date</th>
-                    <th>Ended date</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                    <th>Chapter</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($chapters as $chapter)
+                @foreach ($organizers as $organizer)
                 <tr class="tw-border-b-2 hover:tw-bg-blue-50">
-                    <td class="tw-p-3">{{ $chapter->id }}</td>
-                    <td class="tw-p-3">{{ $chapter->title }}</td>
-                    <td class="tw-p-3">{{ "Kabul" }}</td>
-                    <td class="tw-p-3">{{ $chapter->fees }}</td>
-                    <td class="tw-p-3">{{ $chapter->duration }}</td>
-                    <td class="tw-p-3">{{ $chapter->start_date }}</td>
-                    <td class="tw-p-3">{{ $chapter->end_date }}</td>
+                    <td class="tw-p-3">{{ $organizer->id }}</td>
+                    <td class="tw-p-3">{{ $organizer->name }}</td>
+                    <td class="tw-p-3">{{ $organizer->description }}</td>
+                    <td class="tw-p-3">{{ $organizer->image }}</td>
+                    <td class="tw-p-3">{{ $organizer->chapter }}</td>
+                    
                     <td class="tw-flex tw-space-x-2 tw-p-3">
                         <div>
                             <a class="tw-bg-orange-500 tw-px-2 tw-py-0.5 tw-rounded-md tw-text-white" href="">

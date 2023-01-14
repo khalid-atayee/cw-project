@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Chapter extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
    public function session(){
     return $this->hasMany(Session::class);
    }
@@ -18,5 +21,9 @@ class Chapter extends Model
 
    public function organizer(){
     return $this->hasOne(Organizer::class);
+   }
+
+   public function city(){
+    return $this->belongsTo(City::class);
    }
 }

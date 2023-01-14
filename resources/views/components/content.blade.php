@@ -13,8 +13,17 @@
 
         <div>
 
-            <div>
-                {{ $slot }}
+            <div class="tw-p-3 tw-flex tw-flex-col tw-space-y-2">
+                <div class="tw-flex tw-justify-between tw-bg-border tw-p-3 tw-border-b-2 tw-font-[roboto-bold]">
+                    <h1 class="tw-text-xl">{{ $header ?? "Codeweekend" }}</h1>
+                    <div class="">
+                        {{ $button ?? "Action btn" }}
+                    </div>
+                </div>
+                <div class="">
+                    {{ $slot }}
+                </div>
+                
             </div>
             
         </div>
