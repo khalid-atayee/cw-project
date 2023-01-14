@@ -6,6 +6,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\PaymentGateWayController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\OrganizerController;
@@ -50,9 +51,9 @@ Route::post('payment',[PaymentGateWayController::class, 'call']);
 //Auth routes 
 // authentication routes start here
 Route::get('/logout',[AuthController::class , 'logout'])->name('authentication.logout');
-
-
 Route::post('/login',[AuthController::class,'login'])->name('authentication.login');
+
+
 
 Route::group(['middleware'=>['AuthCheck']], function(){
     // admin panel routes here
@@ -70,6 +71,6 @@ Route::group(['middleware'=>['AuthCheck']], function(){
 
 
 //Auth routes 
-Route::post('/login',[AuthController::class,'login'])->name('login');
-Route::post('/student/registration',[AuthController::class,'studentRegistration'])->name('studentRegistration');
+// Route::post('/login',[AuthController::class,'login'])->name('login');
+// Route::post('/student/registration',[AuthController::class,'studentRegistration'])->name('studentRegistration');
 

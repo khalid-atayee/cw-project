@@ -1,7 +1,7 @@
   <!-- sign up start here -->
   
   <div class="sign-in-main-container signUpToggle" id="signUpId">
-    <form action="{{ route('studentRegistration') }}" method="POST">
+    <form  method="POST">
       @csrf
     <div class="signIn-container">
       

@@ -10,8 +10,7 @@
         $('#'+formId).submit(e=>e.preventDefault());
 
         let data = $('#'+formId).serialize();
-        // $('#'+formId).reset();
-        
+        $('.error').text('');
         
         $.ajax({
             type: method,
@@ -19,7 +18,43 @@
             data: data,
             dataType: "json",
             success: function (response) {
-                location.href="/";
+                if(response.status==210){
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: response.message,
+                        showConfirmButton: false,
+                        timer: 1500
+                        })
+        $('#'+formId)[0].reset();
+
+
+                }
+                if(response.status==200){
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: response.message,
+                        showConfirmButton: false,
+                        timer: 1500
+                        })
+        $('#'+formId)[0].reset();
+
+                    location.href="/";
+
+                }
+                if(response.status==300){
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: response.message,
+                        showConfirmButton: false,
+                        timer: 1500
+                        })
+        $('#'+formId)[0].reset();
+
+
+                }
                 
             },
             error: function (response){

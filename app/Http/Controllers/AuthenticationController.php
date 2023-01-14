@@ -16,8 +16,6 @@ class AuthenticationController extends Controller
         $validator = Validator::make($request->all(),[
             'email'=>'required',
             'password'=>'required',
-          
-
         ],
         [
 

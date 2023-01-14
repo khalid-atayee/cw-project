@@ -35,7 +35,10 @@ class AuthController extends Controller
            }
            $user = User::where('email', '=',$request->email)->first();
            if(!$user){
-            return back().with('fail','we do not recognize your email address');
+            return response()->json(
+                                    ['message'=>'we do not recognize your email address',
+                                    'status'=>210
+                                    ],200) ;
 
            }
            else{
@@ -43,9 +46,9 @@ class AuthController extends Controller
                 $request->session()->regenerate();
                 Auth::login($user);
                 
-                return response()->json(['message'=>'sucessfully logged in'],200);
+                return response()->json(['message'=>'sucessfully logged in', 'status'=>200 ],200);
             }else{
-                // dd('incorrect password');
+                return response()->json(['message'=>'please check your password','status'=>300],200);
             }
 
            }

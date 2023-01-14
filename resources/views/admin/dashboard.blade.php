@@ -11,6 +11,14 @@
             
         </div>
     </div>
+</x-layout> --}}
+<x-layout>
+    <x-slot name="title">Dashboard</x-slot>
+    <x-slot name="header">Codeweekend is the unique platform to innovation</x-slot>
+    <x-slot name="button">Join Us</x-slot>
+    <div>
+        
+    </div>
 </x-layout>
 
 
@@ -29,6 +37,6 @@ closeModal.addEventListener('click', function(){
 })
 
 
-</script> --}}
+</script>
 
-<h1>hi</h1>
+{{-- <h1>hi</h1> --}}
