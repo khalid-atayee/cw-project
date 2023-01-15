@@ -24,17 +24,17 @@
 
 
 <script>
-const openModal = document.getElementById('open-modal')
-const closeModal = document.getElementById('close-modal')
-const modal = document.getElementById('modal')
+// const openModal = document.getElementById('open-modal')
+// const closeModal = document.getElementById('close-modal')
+// const modal = document.getElementById('modal')
 
-openModal.addEventListener("click", function(){
-    modal.style.display = "block"
-    // console.log(modal.style.display)
-})
-closeModal.addEventListener('click', function(){
-    modal.style.display = "none"
-})
+// openModal.addEventListener("click", function(){
+//     modal.style.display = "block"
+//     // console.log(modal.style.display)
+// })
+// closeModal.addEventListener('click', function(){
+//     modal.style.display = "none"
+// })
 
 
 </script>

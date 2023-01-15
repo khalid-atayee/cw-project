@@ -22,6 +22,7 @@ class AuthController extends Controller
              
    
            ],
+           
            [
    
                'email.required'=>'Your Email is required',
