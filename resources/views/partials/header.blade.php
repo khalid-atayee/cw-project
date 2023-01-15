@@ -18,7 +18,36 @@
       <div class="right-btns">
 
         <button class="cw-btn location-btn">Location <i class="fa-solid fa-location-dot"></i></button>
-        <button class="cw-btn" id="signIn-btn" onclick="showModelContainer()">Sign In</button>
+       @if (auth()->user())
+          @if (auth()->user()->authority=='student')
+            
+          <!-- Example single danger button -->
+          <div class="btn-group">
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ Auth::user()->name }}
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="{{ route('authentication.logout') }}">Log out</a>
+            
+            </div>
+          </div>
+          @elseif (auth()->user()->authority=='admin' || auth()->user()->authority=='mentor' || auth()->user()->authority=='organizer')
+          <div class="btn-group">
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ Auth::user()->name }}
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
+              <a class="dropdown-item" href="{{ route('authentication.logout') }}">Log out</a>
+            
+            </div>
+          </div>
+          @endif
+
+      
+       @else
+       <button class="cw-btn" id="signIn-btn" onclick="showModelContainer()">Sign In</button>
+       @endif
       </div>
 
     </div>

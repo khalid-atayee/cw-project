@@ -15,8 +15,8 @@ class Assignment extends Model
 
     public function session(){
         return $this->belongsTo(Session::class);
-
     }
+    
     public function mentor(){
         return $this->belongsTo(Mentor::class);
     }

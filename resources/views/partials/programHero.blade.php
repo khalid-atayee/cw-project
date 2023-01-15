@@ -19,7 +19,7 @@
             <h5> <span class="fw-bold landing-paragraph">Start Date:</span> 02/02/22</h5>
             <h5> <span class="fw-bold landing-paragraph">Duration:</span> 1 Year</h5>
             <h5> <span class="fw-bold landing-paragraph">Fees:</span> $ 2,400</h5>
-            <div class="cw-btn core-btn">Apply Now</div>
+            <a href="{{ Auth::user() ? route('payment.index') : route('students.index')}}" class="cw-btn core-btn">Apply Now</a>
           </div>
 
         </div>

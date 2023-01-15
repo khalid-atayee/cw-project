@@ -5,7 +5,121 @@
         }
     });
 
+
+    function authenticate(url, method, formId){
+        $('#'+formId).submit(e=>e.preventDefault());
+
+        let data = $('#'+formId).serialize();
+        $('.error').text('');
+        
+        $.ajax({
+            type: method,
+            url: url,
+            data: data,
+            dataType: "json",
+            success: function (response) {
+                if(response.status==210){
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: response.message,
+                        showConfirmButton: false,
+                        timer: 1500
+                        })
+        $('#'+formId)[0].reset();
+
+
+                }
+                if(response.status==200){
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: response.message,
+                        showConfirmButton: false,
+                        timer: 1500
+                        })
+        $('#'+formId)[0].reset();
+
+                    location.href="/";
+
+                }
+                if(response.status==300){
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: response.message,
+                        showConfirmButton: false,
+                        timer: 1500
+                        })
+        $('#'+formId)[0].reset();
+
+
+                }
+                
+            },
+            error: function (response){
+                
+                $.each(response.responseJSON.errors, function (key, value) { 
+                $('#error-'+key).text(value);
+
+                 
+            });
+            }
+        });
+    }
+
+    // this function is responsible for posting data to serve
+    function postForm(url,method,formId){
+    $('#'+formId).submit(e=>e.preventDefault());
+
+    let data = $('#'+formId).serialize();
+    $.ajax({
+        type: method,
+        url: url,
+        data: data,
+        dataType: "json",
+        success: function (response) {
+            $('.validation-error').text(''); 
+            Swal.fire({
+                    icon: 'success',
+                    title:response.message,
+                    text:'would like to redirect you to payment page?',
+    
+                    showDenyButton: true,
+                    // showCancelButton: true,
+                    confirmButtonText: 'Yes',
+                    denyButtonText: `No`,
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            location.href="{{ route('payment.index') }}"
+                        }
+                        else if(result.isDenied){
+                            location.href="/"
+
+
+                        }
+
+                    })
+            
+        
+        },
+        error: function(response){
+            console.log(response.responseJSON.errors)
+      
+            $.each(response.responseJSON.errors, function (key, value) { 
+                $('#error-'+key).text(value);
+
+                 
+            });
+        }
+    });
+    
+    }
+
     $(function() {
+
+
+
 
 
 $('.slide-one-item').owlCarousel({

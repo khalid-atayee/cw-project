@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    //
+
 
     function index(){
         return view('home.home');
@@ -23,4 +23,6 @@ class HomeController extends Controller
         return view('curriculam.curriculamIndex');
 
     }
+  
 }
+
