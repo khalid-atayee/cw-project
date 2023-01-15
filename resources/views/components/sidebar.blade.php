@@ -46,7 +46,7 @@
                 </div>
                 <i class="fa fa-angle-left"></i>
             </a>
-            <a id="cities" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="">
+            <a id="cities" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="{{ route('cities.index') }}">
                 <div class="tw-space-x-2">
                     <span><i class="fa fa-globe"></i></span>
                     <span>Cities</span>

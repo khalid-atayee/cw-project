@@ -6,6 +6,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\CityController;
 use App\Http\Controllers\OrganizerController;
 
 /*
@@ -37,6 +38,7 @@ Route::get('/curriculam',[HomeController::class,'curriculam'])->name('cw-curricu
     Route::resources([
         'chapters'=> ChapterController::class,
         'organizers' => OrganizerController::class,
+        'cities' => CityController::class,
     ]);
 
 // });
