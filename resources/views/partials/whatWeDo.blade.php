@@ -1,5 +1,5 @@
  <!-- what we do section start here -->
- <div class="what-we-do-header-content">
+ <div class="what-we-do-header-content" data-aos="fade-down">
 
    <h1 class="mission-typo">What We Do?</h1>
    <p class="some-paragraph-title">CodeWeekend has emerged and evolved to be a web developer accelerator program that
@@ -14,7 +14,7 @@
 
  <section class="what-we-do">
 
-   <div class="what-we-do-container">
+   <div class="what-we-do-container" data-aos="fade-right">
      <div class="what-we-do-content">
        <p class="sdg-pargraph-title">Bootcamp</p>
        <p class="some-paragraph-title">We help you find a job and we have one condition for that, finish the Bootcamp
@@ -27,7 +27,7 @@
    </div>
 
 
-   <div class="what-we-do-container">
+   <div class="what-we-do-container" data-aos="fade-left">
      <img class="responsive-what-we-do" src="{{ asset('images/intership.png') }}" alt="">
      <div class="what-we-do-content">
        <p class="some-paragraph-title">We help you find a job and we have one condition for that, finish the Bootcamp
@@ -39,7 +39,7 @@
      </div>
    </div>
 
-   <div class="what-we-do-container">
+   <div class="what-we-do-container" data-aos="fade-right">
      <div class="what-we-do-content">
        <p class="sdg-pargraph-title">Placement</p>
        <p class="some-paragraph-title">We help you find a job and we have one condition for that, finish the Bootcamp
@@ -51,7 +51,7 @@
      <img class="responsive-what-we-do" src="{{ asset('images/placement.png') }}" alt="">
    </div>
 
-   <a class="read-more-link" href="#">read more <span><i class="fa fa-arrow-right right-arrow"></i></span> </a>
+   <a class="read-more-link" href="#" data-aos="fade-right">read more <span><i class="fa fa-arrow-right right-arrow"></i></span> </a>
    <div class="shape3">
      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
        <path fill="#D9D9D9" d="M52.4,-53.3C62.2,-42.5,60.6,-21.3,59.8,-0.8C59,19.7,59,39.4,49.2,52.2C39.4,65,19.7,70.9,1.2,69.8C-17.3,68.6,-34.7,60.3,-47.6,47.5C-60.5,34.7,-68.9,17.3,-71.3,-2.4C-73.7,-22.1,-69.9,-44.1,-57,-55C-44.1,-65.8,-22.1,-65.3,-0.4,-64.9C21.3,-64.5,42.5,-64.2,52.4,-53.3Z" transform="translate(100 100)" />

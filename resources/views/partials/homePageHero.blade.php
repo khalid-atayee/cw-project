@@ -10,13 +10,13 @@
     <path fill="#D9D9D9" d="M58.2,-35.7C67.7,-17.2,62.4,7.9,50.2,24.6C38,41.2,19,49.6,-4.7,52.3C-28.5,55.1,-56.9,52.2,-69.9,35C-83,17.8,-80.5,-13.6,-66.3,-34.9C-52.1,-56.1,-26,-67.2,-0.8,-66.7C24.4,-66.2,48.7,-54.2,58.2,-35.7Z" transform="translate(100 100)" />
   </svg>
 </div>
-<div class="home-page-hero-section">
+<div class="home-page-hero-section" data-aos="fade-up" data-aos-anchor-placement="top-center">
   <div class="landing-container">
 
     <div class="landing-content">
 
 
-      <span class="largest-typo">Learn To Code,<br> Change your life</span>
+      <span class="largest-typo fw-bold fs-1">Learn To Code,<br> Change your life</span>
       <p class="landing-paragraph textAlign-left">As a team of outstanding consultants, our goal is to assist you and
         your team in elevating your business and maximising it's present on the web.</p>
 
@@ -25,7 +25,7 @@
 
     </div>
 
-    <img class="responsive" src="{{ asset('images/making-difference.png') }}" alt="codeweekend landing page avatar shows a person is following their targeted goal">
+    <img class="responsive d-none d-sm-inline-block" src="{{ asset('images/making-difference.png') }}" alt="codeweekend landing page avatar shows a person is following their targeted goal">
   </div>
 
 </div>
