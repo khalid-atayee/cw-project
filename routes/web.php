@@ -1,15 +1,16 @@
 <?php
 use App\Models\Organizer;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CityController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
-use App\Http\Controllers\ProgramController;
-use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\ChapterController;
-use App\Http\Controllers\PaymentGateWayController;
+use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\OrganizerController;
+use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\PaymentGateWayController;
 
 
 /*
@@ -55,7 +56,7 @@ Route::post('/login',[AuthController::class,'login'])->name('authentication.logi
 
 
 
-Route::group(['middleware'=>['AuthCheck']], function(){
+// Route::group(['middleware'=>['AuthCheck']], function(){
     // admin panel routes here
     Route::get('/dashboard',function(){
         return view('admin.dashboard');
@@ -67,7 +68,7 @@ Route::group(['middleware'=>['AuthCheck']], function(){
         'cities' => CityController::class,
     ]);
     
-});
+// });
 
 
 

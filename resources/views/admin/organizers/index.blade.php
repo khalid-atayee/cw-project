@@ -29,9 +29,9 @@
                     <td class="tw-p-3">{{ $organizer->image }}</td>
                     <td class="tw-p-3">{{ $organizer->chapter }}</td>
                     
-                    <td class="tw-flex tw-space-x-2 tw-p-3">
+                    <td class="tw-flex tw-space-x-2 tw-p-3 tw-items-center">
                         <div>
-                            <a class="tw-bg-orange-500 tw-px-2 tw-py-0.5 tw-rounded-md tw-text-white" href="">
+                            <a class="tw-bg-orange-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white" href="">
                                 <i class="fa fa-eye"></i>
                             </a>
                         </div>
@@ -42,7 +42,7 @@
                         </div>
                         <div>
                             
-                            <form class="" action="{{ route('chapters.destroy',$chapter) }}" onsubmit="return confirm('Are you sure to delete this chapter?')" method="POST">
+                            <form class="" action="{{ route('chapters.destroy',$organizer) }}" onsubmit="return confirm('Are you sure to delete this chapter?')" method="POST">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="tw-bg-red-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white">

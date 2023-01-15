@@ -31,15 +31,6 @@
                 </select>
             </div>
 
-            <div class="tw-flex">
-                <label class="tw-w-[20%] tw-p-2" for="start_date">Start date</label>
-                <input class="tw-w-[80%] tw-border tw-p-2 tw-rounded-md" type="date" name="start_date" id="start_date" />
-            </div>
-
-            <div class="tw-flex">
-                <label class="tw-w-[20%] tw-p-2" for="end_date">End date</label>
-                <input class="tw-w-[80%] tw-border tw-p-2 tw-rounded-md" type="date" name="end_date" id="end_date" />
-            </div>
             <div class="tw-text-right">
                 <button class="tw-bg-blue-500 tw-text-white tw-rounded-md tw-p-2">Save</button>
             </div>

@@ -38,7 +38,15 @@ class OrganizerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        Organizer::create([
+            'name' => $request->organizer_name,
+            'description' => $request->description,
+            'image' => "images",
+            'chapter_id' => $request->chapter_id
+        ]);
+        
+        return redirect()->route('organizers.index');
     }
 
     /**
