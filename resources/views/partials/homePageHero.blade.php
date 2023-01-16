@@ -16,11 +16,11 @@
     <div class="landing-content">
 
 
-      <span class="largest-typo fw-bold fs-1">Learn To Code,<br> Change your life</span>
+      <span class="largest-typo fw-bold">Learn To Code,<br> Change your life</span>
       <p class="landing-paragraph textAlign-left">As a team of outstanding consultants, our goal is to assist you and
         your team in elevating your business and maximising it's present on the web.</p>
 
-      <a class="cw-btn apply-btn btn-primary" href="#">Apply Now</a>
+      <a class="cw-btn apply-btn btn-primary" href="{{ Auth::user() ? route('payment.index') : route('students.index')}}">Apply Now</a>
 
 
     </div>

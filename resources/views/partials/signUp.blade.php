@@ -1,8 +1,10 @@
   <!-- sign up start here -->
   
   <div class="sign-in-main-container signUpToggle" id="signUpId">
-  
+    <form  method="POST">
+      @csrf
     <div class="signIn-container">
+      
       <span class="sign-close-icon" onclick="closeSignUpModel()">
         <i class="fa-solid fa-xmark"></i>
       </span>
@@ -10,28 +12,28 @@
         <h2 class="signIn-title">Sign Up  <span> <i class="fa-solid fa-user icon-title"></i></span></h2>
       </div>
       <div class="inputField-container-form">
-        <label class="some-paragraph-title" for="fname-input">Full name <span style="color: red;">*</span> </label>
-        <input type="text" class="inputField-content sign-form-input" id="fname-input" placeholder="Your Name">
+        <label class="some-paragraph-title" for="full_name">Full name <span style="color: red;">*</span> </label>
+        <input type="text" class="inputField-content sign-form-input" name="full_name" id="full_name" placeholder="Your Name">
       </div>
   
       <div class="inputField-container-form">
-        <label class="some-paragraph-title" for="email-input">Email<span style="color: red;">*</span></label>
-        <input type="text" class="inputField-content sign-form-input" id="email-input" placeholder="Someone@gmail.com">
+        <label class="some-paragraph-title" for="email">Email<span style="color: red;">*</span></label>
+        <input type="text" class="inputField-content sign-form-input" name="email" id="email" placeholder="Someone@gmail.com">
       </div>
   
   
       <div class="inputField-container-form">
-        <label class="some-paragraph-title" for="password-input">Password <span style="color: red;">*</span></label>
-        <input type="text" class="inputField-content sign-form-input" id="password-input" placeholder="*******">
+        <label class="some-paragraph-title" for="password">Password <span style="color: red;">*</span></label>
+        <input type="text" class="inputField-content sign-form-input" name="password" id="password" placeholder="*******">
       </div>
   
       <div class="inputField-container-form">
-        <label class="some-paragraph-title" for="cpassword-input">Confirm Password <span style="color: red;">*</span></label>
-        <input type="text" class="inputField-content sign-form-input" id="cpassword-input" placeholder="*******">
+        <label class="some-paragraph-title" for="password_confirmation">Confirm Password <span style="color: red;">*</span></label>
+        <input type="text" class="inputField-content sign-form-input" name="password_confirmation" id="password_confirmation" placeholder="*******">
       </div>
   
-      <input type="button" value="Sign in" class="Sign-btn-form">
-  
+      <input type="submit" value="Sign Up" class="Sign-btn-form">
+      </form>
       <div class="container-or-sign-in">
         <span>
           <hr>

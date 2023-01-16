@@ -7,8 +7,11 @@
     <h3 class="fs-3 mt-2" data-aos="fade-left">Learn to code and enhance your coding lorem epsum lorem epsum lorem epsum lorem epsum
       lorem epsum lorem epsum</h3>
 
+
   </div>
-  <button class="btn outlined-btn-white fw-bold rounded-pill border-0" id="signIn-btn" data-aos="fade-up">Apply Now</button>
+  <a class="cw-btn btn outlined-btn-white fw-bold rounded-pill border-0" id="signIn-btn" data-aos="fade-up" href="{{ Auth::user() ? route('payment.index') : route('students.index')}}">Apply Now</a>
+</div>
+
 </div>
 
 <!-- coding bootcamp location end here====

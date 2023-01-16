@@ -23,6 +23,7 @@ class CreateStudentsTable extends Migration
             $table->string('location');
             $table->string('email');
             $table->char('phone',20);
+            $table->string('password');
             $table->foreignIdFor(Chapter::class)->constrained();
             $table->text('inroduction');
             $table->text('experiance_educationLevel');

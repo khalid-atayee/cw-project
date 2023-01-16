@@ -1,9 +1,9 @@
 @extends('index')
+<!-- registration page start here -->
 @section('content')
 @include('partials.header')
-@include('partials.news')
+@include('partials.register')
+
 @include('partials.signIn')
-{{-- @include('partials.signUp') --}}
 @include('partials.footer')
-    
 @endsection
