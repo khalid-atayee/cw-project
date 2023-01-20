@@ -5,7 +5,7 @@
 
    <div class="navigate-full">
 
-     <h1 class="cw-logo">CodeWeekend</h1>
+     <h1 class="cw-logo fw-bold">CodeWeekend</h1>
      <ul>
        <li><a class="header-typo" href="{{ route('cw-home') }}"> Home</a></li>
 
@@ -24,7 +24,7 @@
    </div>
 
    <div class="navigate-small">
-     <h1 class="cw-logo">CodeWeekend</h1>
+     <h1 class="cw-logo fw-bold"><a href="homePageHero.blade.php">CodeWeekend</a></h1>
      <div class="font-awesome-container">
        <span class="cw-logo">
 
@@ -42,7 +42,7 @@
    <div class="showMenu" id="navigate-small-mob">
      <div class="navigate-small-menu">
        <div class="navigate-small-header">
-         <h1 class="cw-logo">CodeWeekend</h1>
+         <h1 class="cw-logo fw-bold "><a href="homePageHero.blade.php">CodeWeekend</a></h1>
          <span id="close-btn-menu-mob"><i class="fa-solid fa-xmark"></i></span>
 
        </div>

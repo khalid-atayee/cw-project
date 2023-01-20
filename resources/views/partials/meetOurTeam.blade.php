@@ -2,7 +2,7 @@
   ==== -->
   <div class="meet-our-team-parent-container" data-aos="zoom-out">
 
-    <h2 class="mission-typo" data-aos="fade-up"> Meet Our Team</h2>
+    <h2 class="mission-typo" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500"> Meet Our Team</h2>
     <div class="meet-our-team">
 
       <section class="meet-our-team-container">
@@ -56,7 +56,7 @@
       </section>
       <div class="btn-container text-center mx-auto my-2">
 
-        <button class="btn meet-our-team-btn btn-primary rounded-pill border-0 my-1 ">See All</button>
+        <button class="cw-btn btn-dark-blue mt-2 rounded-pill  my-1 ">See All</button>
 
       </div>
 

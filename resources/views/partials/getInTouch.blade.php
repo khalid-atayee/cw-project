@@ -2,10 +2,10 @@
   ====-->
  <div class="get-in-touch-container">
 
-   <h2 class="mission-typo"> Get In Touch!</h2>
+   <h2 class="mission-typo" data-aos="fade-up"> Get In Touch!</h2>
    <section class="in-touch">
      <div class="in-touch-info">
-       <form action="" method="post">
+       <form action="" method="post" data-aos="fade-right">
          <div class="inputField-container-form input-container-margin">
            <label for="Name" class="what-make-different-title"> Full Name*</label>
            <input type="text" class="get-int-touch-input-field" name="your name" id="1" required>
@@ -20,13 +20,13 @@
          </div>
          <div class="mx-auto text-center">
 
-           <button type="submit" class="cw-btn btn-primary in-touch-btn my-2">Send</button>
+           <button type="submit" class="cw-btn btn-dark-blue in-touch-btn my-2 mt-4" data-aos="fade-up">Send</button>
          </div>
 
        </form>
      </div>
      <!-- <div class="img"> -->
-     <img src="{{ asset('images/question-1.jpg') }}" alt=" question img">
+     <img src="{{ asset('images/question-1.jpg') }}" alt=" question img" data-aos="fade-left">
      <!-- </div> -->
    </section>
  </div>

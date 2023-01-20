@@ -1,5 +1,3 @@
-<!-- footer start here ======
-====== -->
 <!-- footer starts here -->
 <footer>
     <div class="footer-contents ">
@@ -81,16 +79,16 @@
 
         <div class="footer-icons">
             <i class="footer-icon">
-                <a href="#"><img src="Icons/Vector-1.png" alt=""></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
             </i>
             <i class="footer-icon">
-                <a href="#"><img src="Icons/Vector-2.png" alt=""></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
             </i>
             <i class="footer-icon">
-                <a href="#"><img src="Icons/Vector-3.png" alt=""></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
             </i>
             <i class="footer-icon">
-                <a href="#"><img src="Icons/Vector.png" alt=""></a>
+                <a href="#"><i class="fa-solid fa-share-from-square"></i></a>
             </i>
         </div>
         <p class="text-start mt-4  fst-italic copywrite-text">
@@ -101,9 +99,3 @@
 
 </footer>
 <!-- footer ends here -->
-
-
-
-
-<!-- footer end here =======
-  =======-->

@@ -1,6 +1,6 @@
  <!-- slider start here -->
- <div class="alumni-testimonialss">
-   <h1 class="mission-typo">Alumni Testimonials</h1>
+ <div class="alumni-testimonialss" data-aos="flip-down">
+   <h1 class="mission-typo" data-aos="fade-up">Alumni Testimonials</h1>
 
    <div class="container-slider">
 
@@ -21,12 +21,12 @@
 
          <div class="text">
 
-           <h1>&#8220;</h1>
-           <blockquote class="code-camp-text">According to my experience, If you are in love with the world of
+           <blockquote class="quote">According to my experience, If you are in love with the world of
              technology but
              don’t know where to start, then this is the best place for you. It’s a place where people find their true
              potential through working on real-life projects.</p>
-             <!-- <h1 id="qoute-left-">&#8221;</h1> -->
+           </blockquote>
+
 
          </div>
        </div> <!-- .item -->
@@ -42,9 +42,8 @@
 
          </div>
          <div class="text">
-           <h1>&#8220;</h1>
 
-           <blockquote class="code-camp-text ">codeweekend is a wonderful program for any Computer Science student or
+           <blockquote class="quote ">codeweekend is a wonderful program for any Computer Science student or
              graduate to go through! I graduated from the program and now I have a job!
              .</blockquote>
            <!-- <h1 id="qoute-left-">&#8221;</h1> -->
@@ -62,9 +61,8 @@
 
          </div>
          <div class="text">
-           <h1>&#8220;</h1>
 
-           <blockquote class="code-camp-text">codeweekend is not only a software company that will help you in your
+           <blockquote class="quote">codeweekend is not only a software company that will help you in your
              programming journey, besides programming you learn how to have a different idea about technology and
              create
              useful applications. I don't compare my two months of studies in codeweekend with 2 semesters at the
@@ -85,9 +83,8 @@
 
          </div>
          <div class="text">
-           <h1>&#8220;</h1>
 
-           <blockquote class="code-camp-text">codeweekend is not only a software company that will help you in your
+           <blockquote class="quote">codeweekend is not only a software company that will help you in your
              programming journey, besides programming you learn how to have a different idea about technology and
              create
              useful applications. I don't compare my two months of studies in codeweekend with 2 semesters at the
@@ -108,9 +105,8 @@
 
          </div>
          <div class="text">
-           <h1>&#8220;</h1>
 
-           <blockquote class="code-camp-text">codeweekend is not only a software company that will help you in your
+           <blockquote class="quote">codeweekend is not only a software company that will help you in your
              programming journey, besides programming you learn how to have a different idea about technology and
              create
              useful applications. I don't compare my two months of studies in codeweekend with 2 semesters at the
@@ -118,12 +114,6 @@
            <!-- <h1 id="qoute-left-">&#8221;</h1> -->
          </div>
        </div> <!-- .item -->
-
-
-
-
-
-
      </div>
 
 
@@ -131,11 +121,10 @@
 
      <div class="alumni-btn-container">
        <a class="cw-btn outlined-btn-white" href="#">See More Alumni</a>
-
      </div>
    </div>
-   <div class="alumni-btn-container-mob">
-     <a class="cw-btn" href="#">See More Alumni</a>
+   <div class=" alumni-btn-container-mob cw-btn mt-3">
+     <a class="cw-btn btn-dark-blue p-3 " href="#">See More Alumni</a>
 
    </div>
  </div>

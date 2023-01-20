@@ -4,7 +4,7 @@
   <div class="container text-center">
       <!-- form header -->
       <h1 class="h1 fw-bold my-3">Registration Form </h1>
-      <p class="px-1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis ad alias sed libero illo
+      <p class="px-3s mb-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis ad alias sed libero illo
           nemo
           accusamus
           pariatur mollitia deserunt porro cumque illum architecto, perspiciatis quis aut itaque, eveniet
@@ -401,7 +401,7 @@
 
           <div class="d-grid d-md-block text-sm-center  my-4">
 
-              <button type="button" onclick="postForm('{{ route('students.store') }}','POST','formId')" class="btn btn-primary btn-submit">Submit</button>
+              <button type="button" onclick="postForm('{{ route('students.store') }}','POST','formId')" class="btn btn-dark-blue rounded-pill btn-submit">Submit</button>
           </div>
 
       </form>
