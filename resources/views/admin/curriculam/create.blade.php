@@ -1,8 +1,8 @@
 <x-layout>
-    <x-slot name="title">Create New Mentor</x-slot>
-    <x-slot name="header">Create New Mentor</x-slot>
+    <x-slot name="title">Create New Curriculum</x-slot>
+    <x-slot name="header">Create New Curriculum</x-slot>
     <x-slot name="button">
-        <a class="tw-bg-blue-500 tw-rounded-md tw-p-2 tw-text-white" href="{{ route('Mentors.index') }}">All mentors</a>
+        <a class="tw-bg-blue-500 tw-rounded-md tw-p-2 tw-text-white" href="{{ route('curriculum.index') }}">All Curriculum</a>
     </x-slot>
     <div>
         <form class="tw-flex tw-flex-col tw-space-y-2 tw-border tw-p-5 tw-rounded-md tw-shadow" id="form-id">
@@ -20,7 +20,7 @@
                 <label class="tw-w-[20%] tw-p-2" for="chapter_id">Select chapter</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
     
-                <select class=" tw-border tw-p-2 tw-rounded-md" name="chapter_id" id="chapter_id_select">
+                <select class=" tw-border tw-p-2 tw-rounded-md" name="chapter_id" id="chapter_id_select" onchange="changeDropDown('{{ route('curriculum.store') }}','chapter_id_select','POST','multiple-select-field','')">
                     <option disabled selected>Select Chapter</option>
                     @foreach ($chapters as $chapter)
     

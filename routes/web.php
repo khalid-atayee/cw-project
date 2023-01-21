@@ -12,6 +12,7 @@ use App\Http\Controllers\MentorController;
 use App\Http\Controllers\PaymentGateWayController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\OrganizerController;
+use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserManagementController;
 
 /*
@@ -66,8 +67,12 @@ Route::group(['middleware'=>['AuthCheck']], function(){
         'organizers' => OrganizerController::class,
         'Mentors' => MentorController::class,
         'users'=> UserManagementController::class,
-        'curriculum'=>CurriculumController::class
+        'curriculum'=>CurriculumController::class,
+        'sessions'=>SessionController::class
     ]);
+
+    Route::post('sessionCurriculumItem',[SessionController::class,'curriculumItem'])->name('sessions.item');
+    Route::post('submitSessionForm',[SessionController::class,'submitForm'])->name('sessions.submit');
 
     Route::post('curriculamForm',[CurriculumController::class,'postSerializeForm'])->name('curriculum.serializeForm');
     Route::get('admin',[UserManagementController::class,'adminPage'])->name('users.admin');

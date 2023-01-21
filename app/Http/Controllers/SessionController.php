@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\curriculumValidations;
+use App\Http\Requests\sessionValidation;
 use App\Models\Chapter;
 use App\Models\CurriculamTemplate;
+use App\Models\CurriculamTemplateItem;
 use App\Models\Mentor;
+use App\Models\Session;
 use Illuminate\Http\Request;
-use App\Traits\HomeTrait;
 
-
-class CurriculumController extends Controller
+class SessionController extends Controller
 {
-    use HomeTrait;
     /**
      * Display a listing of the resource.
      *
@@ -20,9 +19,9 @@ class CurriculumController extends Controller
      */
     public function index()
     {
-        $curriculumTemplates = CurriculamTemplate::with('organizers','chapters')->get();
-        // dd($curriculumTemplates);
-        return view('admin.curriculam.index',compact('curriculumTemplates'));
+        $sessions = Session::with('chapter','organizer')->get();
+        // dd($sessions);
+        return view('admin.sessions.index',compact('sessions'));
     }
 
     /**
@@ -33,7 +32,8 @@ class CurriculumController extends Controller
     public function create()
     {
         $chapters = Chapter::all();
-        return view('admin.curriculam.create',compact('chapters'));
+
+        return view('admin.sessions.create',compact('chapters'));
     }
 
     /**
@@ -44,8 +44,28 @@ class CurriculumController extends Controller
      */
     public function store(Request $request)
     {
-        $mentors = Mentor::where('chapter_id',$request->chapter_id)->get();
-        return response()->json(['data'=>$mentors,'status'=>200],200);
+            $mentors = Mentor::where('chapter_id',$request->chapter_id)->get();
+            $curriculum = CurriculamTemplate::where('chapter_id',$request->chapter_id)->get();
+            return response()->json(['mentors'=>$mentors ,'curriculum'=>$curriculum , 'status'=>300],200);
+    }
+
+    public function curriculumItem(Request $request){
+        $data = CurriculamTemplateItem::where('curriculam_template_id',$request->chapter_id)->get();
+        return response()->json(['data'=>$data , 'status'=>'curriculumItem'],200);
+    }
+
+
+
+    public function submitForm(sessionValidation $request){
+        $data = Session::create($request->all());
+        if($data){
+            return response()->json(['message'=>'session created successfully','status'=>'success'],200);
+        }
+        else
+        {
+            return response()->json(['message'=>'something went wrong plz check the code','status'=>'error'],200);
+        }
+        
     }
 
     /**
@@ -54,20 +74,6 @@ class CurriculumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
-    public function postSerializeForm(curriculumValidations $request){
-    $data=$this->postCurriculam($request->all());
-    if($data){
-        return response()->json(['message'=>'curriculum successfully created','status'=>'success'],200);
-    }
-    else {
-        return response()->json(['message'=>'something went wrong','status'=>'error'],200);
-    }
-
-   
-
-    
-    }
     public function show($id)
     {
         //

@@ -19,6 +19,7 @@ trait HomeTrait{
         $organizer_id = Organizer::where('chapter_id',$data['chapter_id'])->pluck('id')->first();
         $curriculumTemplate = new CurriculamTemplate();
         $curriculumTemplate->module_name = $data['name'];
+        $curriculumTemplate->chapter_id = $data['chapter_id'];
         $curriculumTemplate->organizer_id = $organizer_id;
         $curriculumTemplate->mentor_ids =json_encode($data['mentors']) ;
         $curriculumTemplate->save();
@@ -47,5 +48,10 @@ trait HomeTrait{
         
     
         
+    }
+
+    function postSession($data){
+        
+
     }
 }

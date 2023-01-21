@@ -17,7 +17,7 @@ class ChapterController extends Controller
      */
     public function index()
     {
-        $chapters = Chapter::all();
+        $chapters = Chapter::with('city')->get();
        
         return view('admin.chapters.index',compact('chapters'));
     }

@@ -21,6 +21,7 @@ class CreateCurriculamTemplatesTable extends Migration
             $table->id();
             $table->string('module_name');
             $table->foreignIdFor(Chapter::class)->constrained();
+            $table->foreignIdFor(Organizer::class)->constrained();
             $table->json('mentor_ids');
             $table->timestamps();
         });
