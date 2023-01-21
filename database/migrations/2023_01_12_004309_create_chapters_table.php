@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\City;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -22,6 +23,7 @@ class CreateChaptersTable extends Migration
             $table->char('duration',100);
             $table->date('start_date');
             $table->date('end_date');
+            $table->foreignIdFor(User::class)->constrained();
             $table->timestamps();
         });
     }

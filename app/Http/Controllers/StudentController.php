@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chapter;
 use App\Models\Student;
 use App\Models\User;
 use Error;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Spatie\Permission\Models\Role;
 
 class StudentController extends Controller
 {
@@ -19,7 +22,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view('register.studentRegister');
+        $chapters = Chapter::all();
+        return view('register.studentRegister',compact('chapters'));
     }
 
     /**
@@ -43,68 +47,86 @@ class StudentController extends Controller
         //
         // dd($request->all()); 
 
-        $validator = Validator::make($request->all(),[
-            'firstname'=>'required',
-            'lastname'=>'required',
-            'gender'=>'required',
-            'dob'=>'required',
-            'location'=>'required',
-            'contact'=>'required',
-            'email'=>'required',
-            'password'=>'required',
-            'chapter'=>'required',
-            'education'=>'required',
-            'experiance'=>'required'
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'firstname' => 'required',
+                'lastname' => 'required',
+                'gender' => 'required',
+                'dob' => 'required',
+                'location' => 'required',
+                'contact' => 'required',
+                'email' => 'required',
+                'password' => 'required',
+                'chapter' => 'required',
+                'education' => 'required',
+                'experiance' => 'required'
 
-        ],
-        [
+            ],
+            [
 
-            'firstname.required'=>'First name is required',
-            'lastname.required'=>'Last name is required',
-            'gender.required'=>'Gender is required',
-            'dob.required'=>'Date of birth is required',
-            'location.required'=>'Please specify your location',
-            'contact.required'=>'Contact is required',
-            'email.required'=>'Email is required',
-            'password.required'=>'Password is required',
-            'chapter.required'=>'Please specify the required',
-            'education.required'=>'Please tell us about your Education background',
-            'experiance.required'=>'Please tell us about your experience',
+                'firstname.required' => 'First name is required',
+                'lastname.required' => 'Last name is required',
+                'gender.required' => 'Gender is required',
+                'dob.required' => 'Date of birth is required',
+                'location.required' => 'Please specify your location',
+                'contact.required' => 'Contact is required',
+                'email.required' => 'Email is required',
+                'password.required' => 'Password is required',
+                'chapter.required' => 'Please specify the required',
+                'education.required' => 'Please tell us about your Education background',
+                'experiance.required' => 'Please tell us about your experience',
 
-        ]
+            ]
 
-    );
-    if($validator->fails()){
-        return response()->json(['errors'=>$validator->errors()],400);
-    }
-    $student = new Student();
-    $student->fname = $request->firstname;
-    $student->lname = $request->lastname;
-    $student->gender = $request->gender;
-    $student->dob = $request->dob;
-    $student->location = $request->location;
-    $student->phone = $request->contact;
-    $student->email = $request->email;
-    $student->chapter_id = 1;
-    $student->inroduction = $request->education;
-    $student->experiance_educationLevel = $request->experiance;
-    $student->save();
-    if($student){
-        $user = new User();
-        $user->id = $student['id'];
-        $user->name = $request->firstname . $request->lastname;
-        $user->email = $request->email;
-        $user->password=Hash::make( $request->password) ;
-        $user->save();
-        if($user){
-            $request->session()->regenerate();
-            Auth::login($user);
+        );
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 400);
         }
-        return response()->json(['message'=>'your data successfully recorded'],200);
-    }
+        DB::beginTransaction();
+        try {
+            $user = new User();
+            $user->name = $request->firstname . $request->lastname;
+            $user->email = $request->email;
+            $user->password = Hash::make($request->password);
+            $user->save();
 
 
+            $lastUser = User::orderBy('id', 'desc')->first();
+            $role = Role::where('name','=','student')->first();
+            $lastUser->assignRole([$role->id]);
 
+            if($user){
+
+                $student = new Student();
+                $student->fname = $request->firstname;
+                $student->lname = $request->lastname;
+                $student->gender = $request->gender;
+                $student->dob = $request->dob;
+                $student->location = $request->location;
+                $student->phone = $request->contact;
+                $student->email = $request->email;
+                $student->user_id= $lastUser->id;
+                $student->chapter_id = $request->chapter;
+                $student->inroduction = $request->education;
+                $student->experiance_educationLevel = $request->experiance;
+                $student->save();
+
+                if ($student) {
+                  
+                    if ($lastUser) {
+                        $request->session()->regenerate();
+                        Auth::login($user);
+                    }
+                    DB::commit();
+                    return response()->json(['message' => 'your data successfully recorded'], 200);
+            }
+
+            }
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return response()->json(['message'=>'Something went wrong...' ,'status'=>410],200);
+        }
     }
 
     /**

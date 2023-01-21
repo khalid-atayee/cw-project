@@ -359,14 +359,11 @@
                 <label class="form-label"  >Enrolment Chapter</label>
                 <select class="form-select mb-3" name="chapter">
                     <option selected disabled>Please specify...</option>
-                    <option value="1" >Module 1</option>
-                    <option value="2">Module 2</option>
-                    <option value="3">Module 3</option>
-                    <option value="3">Module 4</option>
-                    <option value="3">Module 5</option>
-                    <option value="3">Module 6</option>
-                    <option value="3">Module 7</option>
-                    <option value="3">Module 8</option>
+                    @foreach ($chapters as $chapter)
+                    <option value="{{ $chapter->id }}">{{ $chapter->title }}</option>
+
+                        
+                    @endforeach
                 </select>
                 <span class="text-danger" class="validation-error"  id="error-chapter"></span>
 

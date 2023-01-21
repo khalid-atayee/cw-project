@@ -100,6 +100,17 @@
                         }
 
                     })
+
+                    if(response.status==410){
+                        Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: response.message,
+                        showConfirmButton: false,
+                        timer: 1500
+                        })
+
+                    }
             
         
         },
@@ -188,6 +199,9 @@ function showSignUpModel(){
 document.getElementById('signInId').classList.add('signInToggle')
 document.getElementById('signUpId').classList.remove('signUpToggle')
 }
+
+
+
 
 
 </script>

@@ -1,9 +1,9 @@
 <x-layout>
     <x-slot name="title">
-        All Organizers
+        All students
     </x-slot>
     <x-slot name="header">
-        All Organizers
+        All Students
     </x-slot>
     <x-slot name="button">
         <a class="tw-bg-blue-500 tw-text-white tw-rounded-md tw-p-2" href="{{ route('organizers.create') }}">New Organizer</a>
@@ -21,7 +21,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($organizers as $organizer)
+                {{-- @foreach ($organizers as $organizer)
                 <tr class="tw-border-b-2 hover:tw-bg-blue-50">
                     <td class="tw-p-3">{{ $organizer->id }}</td>
                     <td class="tw-p-3">{{ $organizer->name }}</td>
@@ -55,7 +55,7 @@
                         
                     </td>
                 </tr>
-                @endforeach
+                @endforeach --}}
                 
             </tbody>
         </table>

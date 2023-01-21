@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\payments;
+use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,6 +12,7 @@ use Session;
 
 class PaymentGateWayController extends Controller
 {
+
     public function call(Request $request){
         \Stripe\Stripe::setApiKey('sk_test_51MPxP9Ejah8oK98XTkvigcwQ7De6REbD2x7kfY0QNroCyTyGTg5opOATqtULZRjV1aEx6LiKkqKKEBQItR9RIDM500IvBUPbnR');
         $customer = \Stripe\Customer::create(array(
@@ -29,6 +31,8 @@ class PaymentGateWayController extends Controller
                     "customer" =>  $customer["id"],
                     "description" => "Test payment."
             ) );
+            $student = Auth::user()->id;
+            $student = Student::where('user_id',$student)->first();
 
             $payment = new payments();
             $payment->card_holder_name = $request->card_holder_name;
@@ -37,8 +41,14 @@ class PaymentGateWayController extends Controller
             $payment->cvv = $request->cvv;
             $payment->expiration = $request->expiration;
             $payment->year = $request->year;
-            $payment->student_id = Auth::user()->id;
+            // $payment->student = Auth::user()->id;
+            $payment->student_id = $student->id;
             $payment->save();
+
+            $student->payment=true;
+            $student->save();
+
+            
 
 
               // swal("Payment done successfully !");

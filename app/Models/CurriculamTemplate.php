@@ -11,5 +11,13 @@ class CurriculamTemplate extends Model
     public function CurriculamTemplateItem(){
         return $this->hasMany(CurriculamTemplateItem::class);
     }
+
+    public function organizers(){
+        return $this->belongsTo(Organizer::class,'organizer_id', 'id');
+    }
+
+    public function chapters(){
+        return $this->hasManyThrough(Organizer::class,Chapter::class,'id', 'chapter_id','organizer_id' );
+    }
 }
 

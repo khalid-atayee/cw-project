@@ -1,4 +1,4 @@
-<div class="tw-w-[80%] tw-top-0 tw-bottom-0 tw-right-0 tw-fixed">
+<div class="tw-w-[80%] ">
     <div class="tw-flex tw-flex-col">
 
         <div class="tw-bg-[#14213D]/90 tw-p-2 tw-text-gray-100 tw-flex tw-justify-between">

@@ -7,10 +7,12 @@ use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\ChapterController;
+use App\Http\Controllers\CurriculumController;
+use App\Http\Controllers\MentorController;
 use App\Http\Controllers\PaymentGateWayController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\OrganizerController;
-
+use App\Http\Controllers\UserManagementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,10 +46,6 @@ Route::get('payment', function (){
 
 Route::post('payment',[PaymentGateWayController::class, 'call']);
 
-
-
-
-
 //Auth routes 
 // authentication routes start here
 Route::get('/logout',[AuthController::class , 'logout'])->name('authentication.logout');
@@ -61,10 +59,26 @@ Route::group(['middleware'=>['AuthCheck']], function(){
         return view('admin.dashboard');
     })->name('dashboard');
 
+    
+
     Route::resources([
         'chapters'=> ChapterController::class,
         'organizers' => OrganizerController::class,
+        'Mentors' => MentorController::class,
+        'users'=> UserManagementController::class,
+        'curriculum'=>CurriculumController::class
     ]);
+
+    Route::post('curriculamForm',[CurriculumController::class,'postSerializeForm'])->name('curriculum.serializeForm');
+    Route::get('admin',[UserManagementController::class,'adminPage'])->name('users.admin');
+    Route::get('orgamizer',[UserManagementController::class,'organizerPage'])->name('users.organizer');
+    Route::get('mentor',[UserManagementController::class,'mentorPage'])->name('users.mentor');
+    Route::get('chapter',[UserManagementController::class,'chapterPage'])->name('users.chapter');
+    Route::get('student',[UserManagementController::class,'studentPage'])->name('users.student');
+
+ 
+
+
     
 });
 

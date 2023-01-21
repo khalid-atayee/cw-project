@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OrganizerValidation;
 use App\Models\Chapter;
 use App\Models\Organizer;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+use App\Traits\UserTrait;
 
 class OrganizerController extends Controller
 {
+    use UserTrait;
     /**
      * Display a listing of the resource.
      *
@@ -15,8 +22,8 @@ class OrganizerController extends Controller
      */
     public function index()
     {
-        $organizers = Organizer::all();
-        return view('admin.organizers.index',compact('organizers'));
+        $organizers = Organizer::with('chapters')->get();
+        return view('admin.organizers.index', compact('organizers'));
     }
 
     /**
@@ -27,7 +34,7 @@ class OrganizerController extends Controller
     public function create()
     {
         $chapters = Chapter::all();
-        return view('admin.organizers.create',compact('chapters'));
+        return view('admin.organizers.create', compact('chapters'));
     }
 
     /**
@@ -36,9 +43,19 @@ class OrganizerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(OrganizerValidation $request)
     {
-        //
+    
+
+        $data = $this->registerOrganizerMentor($request->all(),'organizer',false);
+        if($data){
+            $organizers = Organizer::all();
+            return view('admin.organizers.index', compact('organizers'));
+        }
+        else
+        {
+            return back();
+        }
     }
 
     /**
@@ -84,5 +101,7 @@ class OrganizerController extends Controller
     public function destroy(Organizer $organizer)
     {
         //
+        $organizer->delete();
+        return redirect()->back();
     }
 }

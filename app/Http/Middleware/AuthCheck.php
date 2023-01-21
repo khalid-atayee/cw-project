@@ -20,7 +20,7 @@ class AuthCheck
 
         if(Auth::user()){
             
-            if(Auth::user()->authority=='admin' || Auth::user()->authority=='organizer' || Auth::user()->authority=='mentor'){
+            if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('organizer') || Auth::user()->hasRole('mentor')){
                 return $next($request);
 
             }

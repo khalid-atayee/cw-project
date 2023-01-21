@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Chapter;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -23,10 +24,11 @@ class CreateStudentsTable extends Migration
             $table->string('location');
             $table->string('email');
             $table->char('phone',20);
-            $table->string('password');
+            $table->foreignIdFor(User::class)->constrained();
             $table->foreignIdFor(Chapter::class)->constrained();
             $table->text('inroduction');
             $table->text('experiance_educationLevel');
+            $table->boolean('payment')->default(false);
             $table->timestamps();
         });
     }

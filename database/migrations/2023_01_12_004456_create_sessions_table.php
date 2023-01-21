@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\Chapter;
+use App\Models\CurriculamTemplate;
+use App\Models\CurriculamTemplateItem;
 use App\Models\Mentor;
 use App\Models\Organizer;
 use Illuminate\Database\Migrations\Migration;
@@ -24,7 +26,8 @@ class CreateSessionsTable extends Migration
             $table->date('end_date');
             $table->foreignIdFor(Chapter::class)->constrained();
             $table->foreignIdFor(Mentor::class)->constrained();
-            $table->foreignIdFor(Organizer::class)->constrained();
+            $table->foreignIdFor(CurriculamTemplate::class)->constrained();
+            $table->foreignIdFor(CurriculamTemplateItem::class)->constrained();
             $table->timestamps();
         });
     }

@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\chaptervalidation;
-use App\Models\City;
+use App\Http\Requests\MentorValidation;
 use App\Models\Chapter;
+use App\Models\Mentor;
+use App\Models\Organizer;
 use Illuminate\Http\Request;
 use App\Traits\UserTrait;
-class ChapterController extends Controller
+
+
+class MentorController extends Controller
 {
     use UserTrait;
     /**
@@ -17,9 +20,9 @@ class ChapterController extends Controller
      */
     public function index()
     {
-        $chapters = Chapter::all();
-       
-        return view('admin.chapters.index',compact('chapters'));
+        //
+        $mentors = Mentor::with('chapters','organizers')->get();
+        return view('admin.mentors.index', compact('mentors'));
     }
 
     /**
@@ -29,8 +32,9 @@ class ChapterController extends Controller
      */
     public function create()
     {
-        $cities = City::all();
-        return view('admin.chapters.create',compact('cities'));
+        //
+        $organizers = Organizer::with('chapters')->get();
+        return view('admin.mentors.create',compact('organizers'));
     }
 
     /**
@@ -39,25 +43,24 @@ class ChapterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(chaptervalidation $request)
-    {   
-        $data = $this->registerChapter($request->all());
-
+    public function store(MentorValidation $request)
+    {
+        $data = $this->registerOrganizerMentor($request->all(),'mentor',true);
         if($data){
-            $chapters = Chapter::all();
-       
-            return view('admin.chapters.index',compact('chapters'));
-          
+            $mentors = Mentor::all();
+            return view('admin.mentors.index',compact('mentors'));
         }
+
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Chapter  $chapter
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Chapter $chapter)
+    public function show($id)
     {
         //
     }
@@ -65,10 +68,10 @@ class ChapterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Chapter  $chapter
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Chapter $chapter)
+    public function edit($id)
     {
         //
     }
@@ -77,10 +80,10 @@ class ChapterController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Chapter  $chapter
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Chapter $chapter)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -88,13 +91,13 @@ class ChapterController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Chapter  $chapter
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Chapter $chapter)
+    public function destroy($id)
     {
-        // dd($chapter);
-        $chapter->delete();
-        return redirect()->back();
+        $mentor = Mentor::find($id);
+        $mentor->delete();
+        return back();
     }
 }
