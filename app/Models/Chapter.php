@@ -15,6 +15,10 @@ class Chapter extends Model
     return $this->hasMany(Session::class);
    }
 
+   public function students(){
+    return $this->hasMany(Student::class);
+   }
+
    public function mentor(){
     return $this->hasMany(Mentor::class);
    }

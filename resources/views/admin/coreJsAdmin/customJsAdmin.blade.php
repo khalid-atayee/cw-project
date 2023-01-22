@@ -19,7 +19,7 @@
 
     // input field change functionality start here
 
-    function changeDropDown(url, selecContainerId, method, appendContainer, anotherContainer) {
+    function changeDropDown(url, selecContainerId, method, appendContainer, anotherContainer,requireContainer) {
         const data = {
             'chapter_id': $('#' + selecContainerId).val()
         }
@@ -32,7 +32,6 @@
             data: data,
             dataType: "json",
             success: function(response) {
-                console.log(response)
 
                 $('.error').html('');
                 
@@ -43,7 +42,6 @@
                 
                 
                 if (response.status == 300) {
-                    console.log(response.mentors)
                     $('#'+appendContainer).html('')
                     $('#'+anotherContainer).html('')
                     reuseOnChange(response.mentors,appendContainer,'name')
@@ -55,6 +53,16 @@
                     console.log(response.data);
                     $('#'+appendContainer).html('')
                     reuseOnChange(response.data,appendContainer,'item_name')
+                }
+
+                if(response.status=='assignments'){
+                    $('#'+appendContainer).html('')
+                    $('#'+anotherContainer).html('')
+                    $('#'+requireContainer).html('')
+
+                    reuseOnChange(response.students,appendContainer,'fname')
+                    reuseOnChange(response.sessions,anotherContainer,'title')
+                    reuseOnChange(response.mentors,requireContainer,'name')
                 }
 
 
@@ -81,6 +89,15 @@
             if(diffColumn=='item_name'){
                 $('#' + container).append( `<option value="${element.id}">${element.item_name}</option>`)
                 
+            }
+            if(diffColumn=='title'){
+                $('#' + container).append( `<option value="${element.id}">${element.title}</option>`)
+            
+            }
+
+            if(diffColumn=='fname'){
+                $('#' + container).append( `<option value="${element.id}">${element.fname}</option>`)
+            
             }
             
 

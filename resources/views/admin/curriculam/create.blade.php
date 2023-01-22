@@ -20,7 +20,7 @@
                 <label class="tw-w-[20%] tw-p-2" for="chapter_id">Select chapter</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
     
-                <select class=" tw-border tw-p-2 tw-rounded-md" name="chapter_id" id="chapter_id_select" onchange="changeDropDown('{{ route('curriculum.store') }}','chapter_id_select','POST','multiple-select-field','')">
+                <select class=" tw-border tw-p-2 tw-rounded-md" name="chapter_id" id="chapter_id_select" onchange="changeDropDown('{{ route('curriculum.store') }}','chapter_id_select','POST','multiple-select-field','','')">
                     <option disabled selected>Select Chapter</option>
                     @foreach ($chapters as $chapter)
     

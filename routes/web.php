@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\AssignmentController;
 use App\Models\Organizer;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -68,8 +70,10 @@ Route::group(['middleware'=>['AuthCheck']], function(){
         'Mentors' => MentorController::class,
         'users'=> UserManagementController::class,
         'curriculum'=>CurriculumController::class,
-        'sessions'=>SessionController::class
+        'sessions'=>SessionController::class,
+        'assignments'=>AssignmentController::class
     ]);
+    Route::post('assignmentSubmit',[AssignmentController::class , 'submitAssignment'])->name('assignments.submit');
 
     Route::post('sessionCurriculumItem',[SessionController::class,'curriculumItem'])->name('sessions.item');
     Route::post('submitSessionForm',[SessionController::class,'submitForm'])->name('sessions.submit');
