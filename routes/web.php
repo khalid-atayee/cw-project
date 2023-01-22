@@ -73,6 +73,9 @@ Route::group(['middleware'=>['AuthCheck']], function(){
         'sessions'=>SessionController::class,
         'assignments'=>AssignmentController::class
     ]);
+
+    Route::get('notPayedStudents',[StudentController::class,'notpayed'])->name('students.notPayed');
+
     Route::post('assignmentSubmit',[AssignmentController::class , 'submitAssignment'])->name('assignments.submit');
 
     Route::post('sessionCurriculumItem',[SessionController::class,'curriculumItem'])->name('sessions.item');

@@ -9,7 +9,7 @@ class Student extends Model
 {
     use HasFactory;
 
-    public function chapter(){
-        return $this->belongsTo(Chapter::class);
+    public function chapters(){
+        return $this->belongsTo(Chapter::class, 'chapter_id','id');
     }
 }

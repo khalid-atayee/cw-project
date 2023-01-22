@@ -33,7 +33,14 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        $students = Student::with('chapters.organizer')->where('payment',1)->get();
+        return view('admin.students.indexPayed',compact('students'));
+    }
+
+    public function notpayed(){
+        $students = Student::with('chapters.organizer')->where('payment',0)->get();
+        return view('admin.students.indexNotPayed',compact('students'));
+
     }
 
     /**
@@ -137,7 +144,10 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        //
+        $students  = Student::find($id);
+        $students->payment=1;
+        $students->save();
+        return redirect()->back();
     }
 
     /**
