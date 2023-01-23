@@ -25,7 +25,7 @@
               {{ Auth::user()->name }}
             </button>
             <div class="dropdown-menu">
-              @role('admin|organizer')
+              @role('admin|organizer|mentor|chapter')
               <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
               @endrole
               <a class="dropdown-item" href="{{ route('authentication.logout') }}">Log out</a>

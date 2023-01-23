@@ -55,14 +55,20 @@
                 <label class="tw-w-[20%] tw-p-2" for="chapter_id">Select chapter</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
     
-                <select onchange="changeDropDown('{{ route('sessions.store') }}','chapter_id_select','POST','mentors_select','curriculam', '')" class=" tw-border tw-p-2 tw-rounded-md" name="chapter_id" id="chapter_id_select">
+                <select onclick="changeDropDown('{{ route('sessions.store') }}','chapter_id_select','POST','mentors_select','curriculam', '')" class=" tw-border tw-p-2 tw-rounded-md" name="chapter_id" id="chapter_id_select">
                     <option disabled selected>Select Chapter</option>
+                    @if (Auth::user()->roles[0]->name=='chapter')
+
+                    <option value="{{ Auth::user()->chapter->id }}">{{ Auth::user()->chapter->title }}</option>
+                @else    
                     @foreach ($chapters as $chapter)
     
                         <option value="{{ $chapter->id }}">{{ $chapter->title }}</option>
                             
                     @endforeach
+                    @endif
                 </select>
+
 
                 <span class="text-danger error" id="error-chapter_id"></span>
                 
@@ -73,6 +79,8 @@
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
 
                     <select class="form-select" id="mentors_select" data-placeholder="Choose anything" name="mentor_id" >
+                    <option disabled selected>please specify</option>
+
                         
                     </select>
                 <span class="text-danger error" id="error-mentor_id"></span>
@@ -84,7 +92,8 @@
             <label class="tw-w-[20%] tw-p-2" for="curriculum1">Select Curriculum</label>
             <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
 
-                <select class="form-select" id="curriculam" data-placeholder="Choose anything" name="curriculam_template_id" onchange="changeDropDown('{{ route('sessions.item') }}','curriculam','POST','curriculam_template_item','','')">
+                <select class="form-select" id="curriculam" data-placeholder="Choose anything" name="curriculam_template_id" onclick="changeDropDown('{{ route('sessions.item') }}','curriculam','POST','curriculam_template_item','','')">
+                    <option disabled selected>please specify</option>
                     
                 </select>
             <span class="text-danger error" id="error-curriculam_template_id"></span>
@@ -96,6 +105,7 @@
             <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
 
                 <select class="form-select" id="curriculam_template_item" data-placeholder="Choose anything" name="curriculam_template_item_id" >
+                    <option disabled selected>please specify</option>
                     
                 </select>
             <span class="text-danger error" id="error-curriculam_template_item_id"></span>

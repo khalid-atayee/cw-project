@@ -20,13 +20,18 @@
                 <label class="tw-w-[20%] tw-p-2" for="chapter_id">Select chapter</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
     
-                <select class=" tw-border tw-p-2 tw-rounded-md" name="chapter_id" id="chapter_id_select" onchange="changeDropDown('{{ route('curriculum.store') }}','chapter_id_select','POST','multiple-select-field','','')">
+                <select class=" tw-border tw-p-2 tw-rounded-md" name="chapter_id" id="chapter_id_select" onclick="changeDropDown('{{ route('curriculum.store') }}','chapter_id_select','POST','multiple-select-field','','')">
                     <option disabled selected>Select Chapter</option>
+                    
+                    @if (Auth::user()->roles[0]->name=='chapter')
+                    <option value="{{ Auth::user()->chapter->id }}">{{ Auth::user()->chapter->title }}</option>
+                    @else   
                     @foreach ($chapters as $chapter)
     
                         <option value="{{ $chapter->id }}">{{ $chapter->title }}</option>
                             
                     @endforeach
+                    @endif
                 </select>
 
                 <span class="text-danger error" id="error-chapter_id"></span>
@@ -38,6 +43,8 @@
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
 
                     <select class="form-select" id="multiple-select-field" data-placeholder="Choose anything" name="mentors[]"  multiple>
+                    <option disabled selected>Select Chapter</option>
+
                         
                     </select>
                 <span class="text-danger error" id="error-mentors"></span>

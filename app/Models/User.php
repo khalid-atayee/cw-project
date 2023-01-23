@@ -42,4 +42,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function chapter(){
+        return $this->hasOne(Chapter::class,'user_id','id');
+    }
 }

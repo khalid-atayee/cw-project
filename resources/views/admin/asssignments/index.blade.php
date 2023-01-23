@@ -34,7 +34,7 @@
                     <td class="tw-p-3">{{ $assignment->mentors->name }}</td>
                     <td class="tw-p-3">{{ $assignment->grades->grade_title }}</td>
                     <td class="tw-p-3">
-                        <button class="btn btn-sm btn-primary">Email</button>
+                        <a class="btn btn-sm btn-primary" href="{{ route('assignments.show',$assignment->id) }}">Email</a>
                     </td>
                     {{-- <td class="tw-p-3">{{ $session->chapter->organizer->name }}</td> --}}
                     

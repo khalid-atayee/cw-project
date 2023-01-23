@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use App\Traits\UserTrait;
+use Illuminate\Support\Facades\Auth;
 
 class OrganizerController extends Controller
 {
@@ -22,7 +23,14 @@ class OrganizerController extends Controller
      */
     public function index()
     {
-        $organizers = Organizer::with('chapters')->get();
+    
+        if(Auth::user()->roles[0]->name=='chapter'){
+
+            $organizers  = Organizer::with('chapters')->where('chapter_id',Auth::user()->chapter->id)->get();
+        }
+        else{
+         $organizers = Organizer::with('chapters')->get();
+        }
         return view('admin.organizers.index', compact('organizers'));
     }
 

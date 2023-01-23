@@ -22,6 +22,7 @@ class StudentController extends Controller
      */
     public function index()
     {
+        
         $chapters = Chapter::all();
         return view('register.studentRegister',compact('chapters'));
     }
@@ -33,12 +34,26 @@ class StudentController extends Controller
      */
     public function create()
     {
+        if(Auth::user()->roles[0]->name=='chapter'){
+
+            $students  = Student::with('chapters.organizer')->where('payment',1)->where('chapter_id',Auth::user()->chapter->id)->get();
+        }
+        else
+        {
         $students = Student::with('chapters.organizer')->where('payment',1)->get();
+        }
         return view('admin.students.indexPayed',compact('students'));
     }
 
     public function notpayed(){
+        if(Auth::user()->roles[0]->name=='chapter'){
+
+            $students  = Student::with('chapters.organizer')->where('payment',0)->where('chapter_id',Auth::user()->chapter->id)->get();
+        }
+        else
+        {
         $students = Student::with('chapters.organizer')->where('payment',0)->get();
+        }
         return view('admin.students.indexNotPayed',compact('students'));
 
     }

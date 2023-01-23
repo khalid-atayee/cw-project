@@ -22,6 +22,7 @@
                 </tr>
             </thead>
             <tbody>
+
                 @foreach ($mentors as $mentor)
                 <tr class="tw-border-b-2 hover:tw-bg-blue-50">
                     <td class="tw-p-3">{{ $mentor->id }}</td>

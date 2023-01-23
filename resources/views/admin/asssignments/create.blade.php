@@ -52,12 +52,18 @@
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
 
                     <select
-                        onchange="changeDropDown('{{ route('assignments.store') }}','chapter_id_select','POST','student_select','session_id','mentor_id')"
+                        onclick="changeDropDown('{{ route('assignments.store') }}','chapter_id_select','POST','student_select','session_id','mentor_id')"
                         class=" tw-border tw-p-2 tw-rounded-md" name="chapter_id" id="chapter_id_select">
                         <option disabled selected>Select Chapter</option>
+
+                        @if (Auth::user()->roles[0]->name=='chapter')
+
+                        <option value="{{ Auth::user()->chapter->id }}">{{ Auth::user()->chapter->title }}</option>
+                    @else 
                         @foreach ($chapters as $chapter)
                             <option value="{{ $chapter->id }}">{{ $chapter->title }}</option>
                         @endforeach
+                        @endif
                     </select>
 
                     <span class="text-danger error" id="error-chapter_id"></span>
@@ -82,6 +88,8 @@
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
 
                     <select class="form-select" id="session_id" data-placeholder="Choose anything" name="session_id">
+                        <option disabled selected>please specify</option>
+
 
                     </select>
                     <span class="text-danger error" id="error-session_id"></span>
@@ -94,6 +102,8 @@
 
                     <select class="form-select" id="mentor_id" data-placeholder="Choose anything"
                         name="mentor_id">
+                        <option disabled selected>please specify</option>
+
 
                     </select>
                     <span class="text-danger error" id="error-mentor_id"></span>

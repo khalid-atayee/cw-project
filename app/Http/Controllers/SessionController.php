@@ -9,6 +9,7 @@ use App\Models\CurriculamTemplateItem;
 use App\Models\Mentor;
 use App\Models\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SessionController extends Controller
 {
@@ -19,8 +20,14 @@ class SessionController extends Controller
      */
     public function index()
     {
+        if(Auth::user()->roles[0]->name=='chapter'){
+
+            $sessions  = Session::with('chapter','organizer')->where('chapter_id',Auth::user()->chapter->id)->get();
+        }
+        else{
         $sessions = Session::with('chapter','organizer')->get();
-        // dd($sessions);
+        // dd($sessions);}
+        }
         return view('admin.sessions.index',compact('sessions'));
     }
 

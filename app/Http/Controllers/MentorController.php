@@ -8,7 +8,7 @@ use App\Models\Mentor;
 use App\Models\Organizer;
 use Illuminate\Http\Request;
 use App\Traits\UserTrait;
-
+use Illuminate\Support\Facades\Auth;
 
 class MentorController extends Controller
 {
@@ -20,8 +20,23 @@ class MentorController extends Controller
      */
     public function index()
     {
+         // if(Auth::user()->roles[0]->name=='chapter'){
+        //     $chapters = Auth::user()->chapter;
+        //     dd($chapters);
+        //     return view('admin.organizers.chapterIndex'$chapters);
+
+
+        // }
         //
-        $mentors = Mentor::with('chapters','organizers')->get();
+        if(Auth::user()->roles[0]->name=='chapter'){
+
+            $mentors  = Mentor::with('chapters','organizers')->where('chapter_id',Auth::user()->chapter->id)->get();
+        }
+        else{
+
+            $mentors = Mentor::with('chapters','organizers')->get();
+        }
+
         return view('admin.mentors.index', compact('mentors'));
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AssignmentValidation;
+use App\Mail\StudentAssignment;
 use App\Models\Assignment;
 use App\Models\Chapter;
 use App\Models\Grade;
@@ -10,7 +11,9 @@ use App\Models\Mentor;
 use App\Models\Session;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class AssignmentController extends Controller
 {
@@ -21,7 +24,15 @@ class AssignmentController extends Controller
      */
     public function index()
     {
-        $assignments =Assignment::with('chapters','students','sessions','mentors','grades')->get();
+        if(Auth::user()->roles[0]->name=='chapter'){
+
+            $assignments  = Assignment::with('chapters','students','sessions','mentors','grades')->where('chapter_id',Auth::user()->chapter->id)->get();
+        }
+        else
+        {
+
+            $assignments =Assignment::with('chapters','students','sessions','mentors','grades')->get();
+        }
    
         return view('admin.asssignments.index',compact('assignments'));
     }
@@ -88,7 +99,10 @@ class AssignmentController extends Controller
      */
     public function show($id)
     {
-        //
+        $emailData =Assignment::with('students','grades','sessions','chapters')->where('id',$id)->first();
+        Mail::to($emailData->students->email)->send(new StudentAssignment($emailData));
+        return redirect()->back();
+
     }
 
     /**

@@ -17,8 +17,8 @@
                     <th>Description</th>
                     <th>Start Date</th>
                     <th>End Date</th>
-                    <th>Organizer</th>
                     <th>Chapter</th>
+                    <th>Organizer</th>
                     <th>Actions</th>
                 </tr>
             </thead>

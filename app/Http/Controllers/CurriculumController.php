@@ -8,7 +8,7 @@ use App\Models\CurriculamTemplate;
 use App\Models\Mentor;
 use Illuminate\Http\Request;
 use App\Traits\HomeTrait;
-
+use Illuminate\Support\Facades\Auth;
 
 class CurriculumController extends Controller
 {
@@ -20,8 +20,14 @@ class CurriculumController extends Controller
      */
     public function index()
     {
+        if(Auth::user()->roles[0]->name=='chapter'){
+
+            $curriculumTemplates  = CurriculamTemplate::with('organizers','chapters')->where('chapter_id',Auth::user()->chapter->id)->get();
+        }
+        else
+        {
         $curriculumTemplates = CurriculamTemplate::with('organizers','chapters')->get();
-        // dd($curriculumTemplates);
+        }
         return view('admin.curriculam.index',compact('curriculumTemplates'));
     }
 

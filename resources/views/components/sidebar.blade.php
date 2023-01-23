@@ -5,7 +5,7 @@
             <h1 style="font-size: 2rem; padding:1em .2em">CodeWeekend</h1>
         </div>
         <div id="nav-links" class=" tw-flex tw-flex-col tw-bg-blue-500/40 tw-divide-y tw-divide-indigo-900 tw-mt-4  tw-text-xl tw-font-[roboto-bold]" style="background-color: #2B3750">
-            <a id="dashboard" class="tw-px-4 tw-py-3 tw-bg-blue-600 tw-flex tw-justify-between tw-items-center " href="{{ route('dashboard') }}">
+            <a id="dashboard" class="tw-px-4 tw-py-3  tw-flex tw-justify-between tw-items-center " href="{{ route('dashboard') }}" >
                 <div class="tw-space-x-2">
                     <span><i class="fa fa-home"></i></span>
                     <span>Dashboard</span>
@@ -13,7 +13,7 @@
                 <i class="fa fa-angle-left"></i>
             </a>
             @role('admin')
-            <a id="chapters" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="{{ route('chapters.index') }}">
+            <a id="chapters" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center " href="{{ route('chapters.index') }}" >
                 <div class="tw-space-x-2">
                     <span><i class="fa fa-book"></i></span>
                     <span>Chapters</span>
@@ -21,6 +21,8 @@
                 <i class="fa fa-angle-left"></i>
             </a>
             
+            @endrole
+            @role('admin|chapter')
             <a id="organizers" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="{{ route('organizers.index') }}">
                 <div class="tw-space-x-2">
                     <span><i class="fa fa-user"></i></span>
@@ -30,7 +32,7 @@
             </a>
             @endrole
 
-            @role('admin|organizer')
+            @role('admin|organizer|chapter')
             <a id="mentors" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="{{ route('Mentors.index') }}">
                 <div class="tw-space-x-2">
                     <span><i class="fa fa-user"></i></span>
@@ -40,7 +42,7 @@
             </a>
             @endrole
 
-            @role('admin|organizer|mentor')
+            @role('admin|organizer|mentor|chapter')
             <a id="sessions" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="{{ route('sessions.index') }}">
                 <div class="tw-space-x-2">
                     <span><i class="fa fa-phone"></i></span>
@@ -50,7 +52,7 @@
             </a>
             @endrole
 
-            @role('admin|mentor')
+            @role('admin|mentor|organizer|chapter')
             <a id="assignments" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="{{ route('assignments.index') }}">
                 <div class="tw-space-x-2">
                     <span><i class="fa fa-circle"></i></span>
@@ -60,6 +62,8 @@
             </a>
             @endrole
 
+            @role('admin|mentor|organizer|chapter')
+
             <a id="assignments" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="{{ route('curriculum.index') }}">
                 <div class="tw-space-x-2">
                     <span><i class="fa fa-circle"></i></span>
@@ -67,6 +71,7 @@
                 </div>
                 <i class="fa fa-angle-left"></i>
             </a>
+            @endrole
 
             @role('admin')
             <a id="cities" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="">
@@ -77,7 +82,7 @@
                 <i class="fa fa-angle-left"></i>
             </a>
             @endrole
-            @role('admin|organizer|mentor')
+            @role('admin|organizer|mentor|chapter')
             <a id="students" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="{{ route('students.create') }}">
                 <div class="tw-space-x-2">
                     <span><i class="fa fa-square"></i></span>
@@ -103,13 +108,13 @@
                 </div>
                 <i class="fa fa-angle-left"></i>
             </a>
-            <a id="teams" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="">
+            {{-- <a id="teams" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="">
                 <div class="tw-space-x-2">
                     <span><i class="fa fa-users"></i></span>
                     <span>Teams</span>
                 </div>
                 <i class="fa fa-angle-left"></i>
-            </a>
+            </a> --}}
             <a id="news" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="">
                 <div class="tw-space-x-2">
                     <span><i class="fa fa-newspaper-o"></i></span>
