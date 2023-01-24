@@ -4,6 +4,7 @@
     <x-slot name="button">
         <a class="tw-bg-blue-500 tw-rounded-md tw-p-2 tw-text-white" href="{{ route('Mentors.index') }}">All mentors</a>
     </x-slot>
+ 
     <div>
         <form class="tw-flex tw-flex-col tw-space-y-2 tw-border tw-p-5 tw-rounded-md tw-shadow" action="{{ route('Mentors.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -77,17 +78,21 @@
                 <select class=" tw-border tw-p-2 tw-rounded-md" name="chapter_id" id="chapter_id">
                     <option disabled selected>Select Chapter</option>
                     @if (Auth::user()->roles[0]->name=='chapter')
-                        @isset(Auth::user()->chapter->organizer)
+                        @isset(Auth::user()->chapter)
                         <option value="{{ Auth::user()->chapter->id }}">{{ Auth::user()->chapter->title }}</option>
 
-                            
                         @endisset 
                             
-                    
-                   
-                        
-                    @else
+
+                    @elseif (Auth::user()->roles[0]->name=='organizer')
+                        @isset(Auth::user()->organizer)
+
+                        <option value="{{ Auth::user()->organizer->chapters->id }}">{{ Auth::user()->organizer->chapters->title }}</option>
+                            
+                        @endisset
+                        @else
                     @foreach ($organizers as $organizer)
+
 
 
                         @if ($organizer->chapters)

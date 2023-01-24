@@ -62,7 +62,7 @@
             </a>
             @endrole
 
-            @role('admin|mentor|organizer|chapter')
+            @role('admin|organizer|chapter')
 
             <a id="assignments" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="{{ route('curriculum.index') }}">
                 <div class="tw-space-x-2">

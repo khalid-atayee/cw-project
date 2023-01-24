@@ -24,7 +24,20 @@ class CurriculumController extends Controller
 
             $curriculumTemplates  = CurriculamTemplate::with('organizers','chapters')->where('chapter_id',Auth::user()->chapter->id)->get();
         }
-        else
+        if(Auth::user()->roles[0]->name=='organizer'){
+            $curriculumTemplates  = CurriculamTemplate::with('organizers','chapters')->where('chapter_id',Auth::user()->organizer->chapter_id)->get();
+
+
+        }
+
+        if(Auth::user()->roles[0]->name=='mentor'){
+            $curriculumTemplates  = CurriculamTemplate::with('organizers','chapters')->where('chapter_id',Auth::user()->mentor->chapter_id)->get();
+
+
+        }
+
+
+        if(Auth::user()->roles[0]->name=='admin')
         {
         $curriculumTemplates = CurriculamTemplate::with('organizers','chapters')->get();
         }

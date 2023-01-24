@@ -74,6 +74,9 @@ Route::group(['middleware'=>['AuthCheck']], function(){
         'assignments'=>AssignmentController::class
     ]);
 
+    Route::get('createMail',[MentorController::class,'createMail'])->name('mentor.createMail');
+    Route::post('sendMail',[MentorController::class,'sendMail'])->name('mentor.sendMail');
+
     Route::get('notPayedStudents',[StudentController::class,'notpayed'])->name('students.notPayed');
 
     Route::post('assignmentSubmit',[AssignmentController::class , 'submitAssignment'])->name('assignments.submit');

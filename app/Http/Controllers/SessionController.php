@@ -24,10 +24,24 @@ class SessionController extends Controller
 
             $sessions  = Session::with('chapter','organizer')->where('chapter_id',Auth::user()->chapter->id)->get();
         }
-        else{
-        $sessions = Session::with('chapter','organizer')->get();
-        // dd($sessions);}
+        if(Auth::user()->roles[0]->name=='organizer'){
+            $sessions  = Session::with('chapter','organizer')->where('chapter_id',Auth::user()->organizer->chapter_id)->get();
+
+
         }
+
+        if(Auth::user()->roles[0]->name=='mentor'){
+            $sessions  = Session::with('chapter','organizer')->where('chapter_id',Auth::user()->mentor->chapter_id)->get();
+
+
+        }
+        if(Auth::user()->roles[0]->name=='admin'){
+             $sessions = Session::with('chapter','organizer')->get();
+        }
+        // else{
+        //     $sessions = Session::with('chapter','organizer')->get();
+
+        // }
         return view('admin.sessions.index',compact('sessions'));
     }
 

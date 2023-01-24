@@ -57,12 +57,9 @@ class OrganizerController extends Controller
 
         $data = $this->registerOrganizerMentor($request->all(),'organizer',false);
         if($data){
-            $organizers = Organizer::all();
-            return view('admin.organizers.index', compact('organizers'));
-        }
-        else
-        {
-            return back();
+            // $organizers = Organizer::all();
+            // return view('admin.organizers.index', compact('organizers'));
+            return redirect()->back();
         }
     }
 

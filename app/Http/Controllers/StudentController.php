@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StudentValidation;
 use App\Models\Chapter;
 use App\Models\Student;
 use App\Models\User;
@@ -38,7 +39,21 @@ class StudentController extends Controller
 
             $students  = Student::with('chapters.organizer')->where('payment',1)->where('chapter_id',Auth::user()->chapter->id)->get();
         }
-        else
+
+        if(Auth::user()->roles[0]->name=='organizer'){
+            $students  = Student::with('chapters.organizer')->where('payment',1)->where('chapter_id',Auth::user()->organizer->chapter_id)->get();
+
+
+        }
+        if(Auth::user()->roles[0]->name=='mentor'){
+            $students  = Student::with('chapters.organizer')->where('payment',1)->where('chapter_id',Auth::user()->mentor->chapter_id)->get();
+
+
+        }
+
+
+        if(Auth::user()->roles[0]->name=='admin')
+    
         {
         $students = Student::with('chapters.organizer')->where('payment',1)->get();
         }
@@ -50,7 +65,18 @@ class StudentController extends Controller
 
             $students  = Student::with('chapters.organizer')->where('payment',0)->where('chapter_id',Auth::user()->chapter->id)->get();
         }
-        else
+        if(Auth::user()->roles[0]->name=='organizer'){
+            $students  = Student::with('chapters.organizer')->where('payment',0)->where('chapter_id',Auth::user()->organizer->chapter_id)->get();
+
+
+        }
+
+        if(Auth::user()->roles[0]->name=='mentor'){
+            $students  = Student::with('chapters.organizer')->where('payment',0)->where('chapter_id',Auth::user()->mentor->chapter_id)->get();
+
+
+        }
+        if(Auth::user()->roles[0]->name=='admin')
         {
         $students = Student::with('chapters.organizer')->where('payment',0)->get();
         }
@@ -64,47 +90,8 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StudentValidation $request)
     {
-        //
-        // dd($request->all()); 
-
-        $validator = Validator::make(
-            $request->all(),
-            [
-                'firstname' => 'required',
-                'lastname' => 'required',
-                'gender' => 'required',
-                'dob' => 'required',
-                'location' => 'required',
-                'contact' => 'required',
-                'email' => 'required',
-                'password' => 'required',
-                'chapter' => 'required',
-                'education' => 'required',
-                'experiance' => 'required'
-
-            ],
-            [
-
-                'firstname.required' => 'First name is required',
-                'lastname.required' => 'Last name is required',
-                'gender.required' => 'Gender is required',
-                'dob.required' => 'Date of birth is required',
-                'location.required' => 'Please specify your location',
-                'contact.required' => 'Contact is required',
-                'email.required' => 'Email is required',
-                'password.required' => 'Password is required',
-                'chapter.required' => 'Please specify the required',
-                'education.required' => 'Please tell us about your Education background',
-                'experiance.required' => 'Please tell us about your experience',
-
-            ]
-
-        );
-        if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 400);
-        }
         DB::beginTransaction();
         try {
             $user = new User();

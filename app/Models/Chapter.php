@@ -30,4 +30,8 @@ class Chapter extends Model
    public function city(){
     return $this->belongsTo(City::class);
    }
+
+   public function users(){
+    return $this->belongsTo(User::class);
+   }
 }

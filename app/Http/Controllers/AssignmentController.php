@@ -28,7 +28,17 @@ class AssignmentController extends Controller
 
             $assignments  = Assignment::with('chapters','students','sessions','mentors','grades')->where('chapter_id',Auth::user()->chapter->id)->get();
         }
-        else
+        if(Auth::user()->roles[0]->name=='organizer'){
+            $assignments  = Assignment::with('chapters','students','sessions','mentors','grades')->where('chapter_id',Auth::user()->organizer->chapter_id)->get();
+
+
+        }
+        if(Auth::user()->roles[0]->name=='mentor'){
+            $assignments  = Assignment::with('chapters','students','sessions','mentors','grades')->where('chapter_id',Auth::user()->mentor->chapter_id)->get();
+
+
+        }
+        if(Auth::user()->roles[0]->name=='admin')
         {
 
             $assignments =Assignment::with('chapters','students','sessions','mentors','grades')->get();

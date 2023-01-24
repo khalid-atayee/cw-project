@@ -6,7 +6,14 @@
         All Mentors
     </x-slot>
     <x-slot name="button">
+        @role('admin|chapter')
         <a class="tw-bg-blue-500 tw-text-white tw-rounded-md tw-p-2" href="{{ route('Mentors.create') }}">New Mentor</a>
+        @endrole
+
+        @role('admin|chapter|organizer')
+        <a class="tw-bg-blue-500 tw-text-white tw-rounded-md tw-p-2" href="{{ route('mentor.createMail') }}">Email Cohort</a>
+        @endrole
+
     </x-slot>
     <div>
         <table class="tw-w-full tw-divide-y-2">

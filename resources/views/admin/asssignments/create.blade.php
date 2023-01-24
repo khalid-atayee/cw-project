@@ -56,13 +56,24 @@
                         class=" tw-border tw-p-2 tw-rounded-md" name="chapter_id" id="chapter_id_select">
                         <option disabled selected>Select Chapter</option>
 
-                        @if (Auth::user()->roles[0]->name=='chapter')
-
-                        <option value="{{ Auth::user()->chapter->id }}">{{ Auth::user()->chapter->title }}</option>
-                    @else 
-                        @foreach ($chapters as $chapter)
-                            <option value="{{ $chapter->id }}">{{ $chapter->title }}</option>
-                        @endforeach
+                        @if (Auth::user()->roles[0]->name == 'chapter')
+                            @isset(Auth::user()->chapter)
+                                <option value="{{ Auth::user()->chapter->id }}">{{ Auth::user()->chapter->title }}</option>
+                            @endisset
+                        @elseif (Auth::user()->roles[0]->name = 'organizer')
+                            @isset(Auth::user()->organizer)
+                                <option value="{{ Auth::user()->organizer->chapters->id }}">
+                                    {{ Auth::user()->organizer->chapters->title }}</option>
+                            @endisset
+                        @elseif (Auth::user()->roles[0]->name = 'mentor')
+                            @isset(Auth::user()->mentor)
+                                <option value="{{ Auth::user()->mentor->chapters->id }}">
+                                    {{ Auth::user()->mentor->chapters->title }}</option>
+                            @endisset
+                        @else
+                            @foreach ($chapters as $chapter)
+                                <option value="{{ $chapter->id }}">{{ $chapter->title }}</option>
+                            @endforeach
                         @endif
                     </select>
 
@@ -100,8 +111,7 @@
                 <label class="tw-w-[20%] tw-p-2" for="curriculum_topic">Select Mentor</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
 
-                    <select class="form-select" id="mentor_id" data-placeholder="Choose anything"
-                        name="mentor_id">
+                    <select class="form-select" id="mentor_id" data-placeholder="Choose anything" name="mentor_id">
                         <option disabled selected>please specify</option>
 
 
@@ -111,21 +121,21 @@
             </div>
 
 
-                <div class="tw-flex">
-                    <label class="tw-w-[20%] tw-p-2" for="curriculum_topic">Select Grade</label>
-                    <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
+            <div class="tw-flex">
+                <label class="tw-w-[20%] tw-p-2" for="curriculum_topic">Select Grade</label>
+                <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
 
-                        <select class="form-select" id="curriculam_template_item" data-placeholder="Choose anything"
-                            name="grade_id">
-                            <option disabled selected>please specify</option>
-                            @foreach ($grades as $grade)
-                                <option value="{{ $grade->id }}">{{ $grade->grade_title }}</option>
-                            @endforeach
+                    <select class="form-select" id="curriculam_template_item" data-placeholder="Choose anything"
+                        name="grade_id">
+                        <option disabled selected>please specify</option>
+                        @foreach ($grades as $grade)
+                            <option value="{{ $grade->id }}">{{ $grade->grade_title }}</option>
+                        @endforeach
 
-                        </select>
-                        <span class="text-danger error" id="error-grade_id"></span>
-                    </div>
+                    </select>
+                    <span class="text-danger error" id="error-grade_id"></span>
                 </div>
+            </div>
 
 
 
@@ -136,10 +146,11 @@
 
 
 
-                <div class="tw-text-right">
-                    <button type="button" onclick="postSerializeForm('{{ route('assignments.submit') }}','POST','form-id')"
-                        class="tw-bg-blue-500 tw-text-white tw-rounded-md tw-p-2">Save</button>
-                </div>
+            <div class="tw-text-right">
+                <button type="button"
+                    onclick="postSerializeForm('{{ route('assignments.submit') }}','POST','form-id')"
+                    class="tw-bg-blue-500 tw-text-white tw-rounded-md tw-p-2">Save</button>
+            </div>
         </form>
 
     </div>

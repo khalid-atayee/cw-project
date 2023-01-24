@@ -21,7 +21,9 @@
                     <th>location</th>
                     <th>email</th>
                     <th>phone</th>
+                    @role('organizer')
                     <th>Actions</th>
+                    @endrole
                 </tr>
             </thead>
             <tbody>
@@ -36,8 +38,9 @@
                     <td class="tw-p-3">{{ $student->location }}</td>
                     <td class="tw-p-3">{{ $student->email }}</td>
                     <td class="tw-p-3">{{ $student->phone }}</td>
+                    @role('organizer')
                     <td class="tw-p-3"><a class="btn btn-sm btn-primary" href="{{ route('students.show',$student->id) }}">Pay</a></td>
-
+                    @endrole
                     
                  
                 </tr>

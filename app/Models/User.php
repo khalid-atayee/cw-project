@@ -46,4 +46,11 @@ class User extends Authenticatable
     public function chapter(){
         return $this->hasOne(Chapter::class,'user_id','id');
     }
+    public function organizer(){
+        return $this->hasOne(Organizer::class,'user_id','id');
+    }
+
+    public function mentor(){
+        return $this->hasOne(Mentor::class,'user_id','id');
+    }
 }
