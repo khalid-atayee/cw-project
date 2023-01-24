@@ -22,8 +22,8 @@ class CreateOrganizersTable extends Migration
             $table->string('description');
             $table->string('image');
 
-            $table->foreignIdFor(Chapter::class)->constrained()->uniqid;
-            $table->foreignIdFor(User::class)->constrained();
+            $table->foreignIdFor(Chapter::class)->constrained()->onDelete('cascade');
+            $table->foreignIdFor(User::class)->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

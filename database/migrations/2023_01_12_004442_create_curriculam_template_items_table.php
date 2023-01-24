@@ -17,7 +17,7 @@ class CreateCurriculamTemplateItemsTable extends Migration
         Schema::create('curriculam_template_items', function (Blueprint $table) {
             $table->id();
             $table->string('item_name');
-            $table->foreignIdFor(CurriculamTemplate::class)->constrained();
+            $table->foreignIdFor(CurriculamTemplate::class)->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

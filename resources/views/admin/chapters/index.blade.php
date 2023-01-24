@@ -39,7 +39,7 @@
                             </a>
                         </div>
                         <div>
-                            <a class="tw-bg-blue-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white" href="">
+                            <a class="tw-bg-blue-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white" href="{{ route('chapters.edit',$chapter) }}">
                                 <i class="fa fa-edit"></i>
                             </a>
                         </div>

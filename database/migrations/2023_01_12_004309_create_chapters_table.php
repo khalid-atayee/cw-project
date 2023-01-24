@@ -18,12 +18,12 @@ class CreateChaptersTable extends Migration
         Schema::create('chapters', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->foreignIdFor(City::class)->constrained();
+            $table->foreignIdFor(City::class)->constrained()->onDelete('no action');
             $table->char('fees',100);
             $table->char('duration',100);
             $table->date('start_date');
             $table->date('end_date');
-            $table->foreignIdFor(User::class)->constrained();
+            $table->foreignIdFor(User::class)->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

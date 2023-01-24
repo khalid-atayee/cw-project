@@ -22,7 +22,7 @@ class CreatePaymentsTable extends Migration
             $table->string('cvv');
             $table->String('expiration');
             $table->string('year');
-            $table->foreignIdFor(Student::class)->constrained();
+            $table->foreignIdFor(Student::class)->constrained()->onDelete('no action');
 
             $table->timestamps();
         });

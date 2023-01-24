@@ -24,11 +24,11 @@ class CreateAssignmentsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('url');
-            $table->foreignIdFor(Chapter::class)->constrained();
-            $table->foreignIdFor(Student::class)->constrained();
-            $table->foreignIdFor(Session::class)->constrained();
-            $table->foreignIdFor(Mentor::class)->constrained();
-            $table->foreignIdFor(Grade::class)->constrained();
+            $table->foreignIdFor(Chapter::class)->constrained()->onDelete('cascade');
+            $table->foreignIdFor(Student::class)->constrained()->onDelete('cascade');
+            $table->foreignIdFor(Session::class)->constrained()->onDelete('no action');
+            $table->foreignIdFor(Mentor::class)->constrained()->onDelete('no action');
+            $table->foreignIdFor(Grade::class)->constrained()->onDelete('no action');
             
             $table->timestamps();
         });

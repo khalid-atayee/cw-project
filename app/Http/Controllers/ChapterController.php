@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\chaptervalidation;
+use App\Http\Requests\UpdateChapterValidation;
 use App\Models\City;
 use App\Models\Chapter;
 use Illuminate\Http\Request;
@@ -70,7 +71,10 @@ class ChapterController extends Controller
      */
     public function edit(Chapter $chapter)
     {
-        //
+        $chpater = Chapter::with('city')->where('id',$chapter->id)->first();
+        $cities = City::all();
+        return view('admin.chapters.edit',compact('chapter','cities'));
+        
     }
 
     /**
@@ -80,9 +84,12 @@ class ChapterController extends Controller
      * @param  \App\Models\Chapter  $chapter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Chapter $chapter)
+    public function update(UpdateChapterValidation $request, Chapter $chapter)
     {
-        //
+        $data = $this->updateChapter($request->all(),$chapter->id);
+        if($data){
+            return redirect()->route('chapters.index');
+        }
     }
 
     /**
