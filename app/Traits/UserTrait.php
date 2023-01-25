@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use \Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Models\Role;
 
 
@@ -73,6 +74,7 @@ trait UserTrait
             $chapter->start_date = $data['start_date'];
             $chapter->end_date = $data['end_date'];
             $chapter->update();
+
             DB::commit();
             return back();
         } catch (\Throwable $th) {
@@ -151,4 +153,77 @@ trait UserTrait
             return back();
         }
     }
+
+
+    public function UpdateOrganizer($data, $organizer_id)
+    {
+        DB::beginTransaction();
+        try {
+
+            $organizer = Organizer::find($organizer_id);
+            if (file_exists(Storage::path('public\organizerImage\\' . $organizer->image))) {
+
+                unlink(Storage::path('public\organizerImage\\' . $organizer->image));
+
+                $image = $data['image'];
+                $image_name = time() . '.' . $image->getClientOriginalExtension();
+                $image->storeAs('public/organizerImage', $image_name);
+
+                $user_id = $organizer->user_id;
+
+                $organizer->name = $data['name'];
+                $organizer->email = $data['email'];
+                $organizer->description = $data['description'];
+                $organizer->image = $image_name;
+                $organizer->chapter_id = $data['chapter_id'];
+                $organizer->user_id = $user_id;
+                $organizer->update();
+            }
+            DB::commit();
+
+            return back();
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return back();
+        }
+    }
+
+    public function UpdateMentor($data, $mentor_id)
+    {
+        DB::beginTransaction();
+        try {
+
+            $mentor = Mentor::find($mentor_id);
+            if (file_exists(Storage::path('public\mentorImage\\' . $mentor->image))) {
+
+                unlink(Storage::path('public\mentorImage\\' . $mentor->image));
+
+                $image = $data['image'];
+                $image_name = time() . '.' . $image->getClientOriginalExtension();
+                $image->storeAs('public/mentorImage', $image_name);
+
+                $wantedOrganizers = DB::table('chapters AS C')->join('organizers AS O', 'O.chapter_id', '=', 'C.id')
+                    ->select('O.*')->where('O.chapter_id', $data['chapter_id'])->first();
+
+                $user_id = $mentor->user_id;
+
+                $mentor->name = $data['name'];
+                $mentor->email = $data['email'];
+                $mentor->description = $data['description'];
+                $mentor->image = $image_name;
+                $mentor->chapter_id = $data['chapter_id'];
+                $mentor->organizer_id = $wantedOrganizers->id;
+                $mentor->user_id = $user_id;
+                $mentor->update();
+            }
+            DB::commit();
+
+            return back();
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return back();
+        }
+    }
+
+  
 }

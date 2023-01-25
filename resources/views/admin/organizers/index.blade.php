@@ -67,7 +67,10 @@
                             <td class="tw-p-3">{{ $organizer->id }}</td>
                             <td class="tw-p-3">{{ $organizer->name }}</td>
                             <td class="tw-p-3">{{ $organizer->description }}</td>
-                            <td class="tw-p-3">{{ $organizer->image }}</td>
+                            <td class="tw-p-3">
+                                <img src="{{ asset('storage/organizerImage/'.$organizer->image) }}" alt="" style="width: 30px;height:30px">
+                                
+                               </td>
                             <td class="tw-p-3">{{ $organizer->chapters->title }}</td>
 
                             <td class="tw-flex tw-space-x-2 tw-p-3">
@@ -79,7 +82,7 @@
                                 </div>
                                 <div>
                                     <a class="tw-bg-blue-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white"
-                                        href="">
+                                        href="{{ route('organizers.edit',$organizer) }}">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                 </div>

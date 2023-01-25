@@ -35,7 +35,10 @@
                     <td class="tw-p-3">{{ $mentor->id }}</td>
                     <td class="tw-p-3">{{ $mentor->name }}</td>
                     <td class="tw-p-3">{{ $mentor->description }}</td>
-                    <td class="tw-p-3">{{ $mentor->image }}</td>
+                    <td class="tw-p-3">
+                        <img src="{{ asset('storage/mentorImage/'.$mentor->image) }}" alt="" style="width: 30px;height:30px">
+                        
+                       </td>
                     <td class="tw-p-3">{{ $mentor->chapters->title }}</td>
                     <td class="tw-p-3">{{ $mentor->organizers->name }}</td>
                     
@@ -46,16 +49,16 @@
                             </a>
                         </div>
                         <div>
-                            <a class="tw-bg-blue-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white" href="">
+                            <a class="tw-bg-blue-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white" href="{{ route('Mentors.edit',$mentor->id) }}">
                                 <i class="fa fa-edit"></i>
                             </a>
                         </div>
                         <div> 
                             
-                            <form class="" action="{{ route('Mentors.destroy',$mentor->id) }}" onsubmit="return confirm('Are you sure to delete this chapter?')" method="POST">
+                            <form  action="{{ route('Mentors.destroy',$mentor->id) }}" onsubmit="return confirm('Are you sure to delete this mentor?')" method="POST">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="tw-bg-red-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white">
+                                <button type="submit" class="tw-bg-red-500 tw-px-2 tw-py-.5 tw-rounded-md tw-text-white">
                                     <i class="fa fa-trash"></i>
                                 </button>
                             </form>

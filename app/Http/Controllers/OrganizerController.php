@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\OrganizerValidation;
+use App\Http\Requests\UpdateOrganizerValidation;
 use App\Models\Chapter;
 use App\Models\Organizer;
 use App\Models\User;
@@ -57,9 +58,8 @@ class OrganizerController extends Controller
 
         $data = $this->registerOrganizerMentor($request->all(),'organizer',false);
         if($data){
-            // $organizers = Organizer::all();
-            // return view('admin.organizers.index', compact('organizers'));
-            return redirect()->back();
+
+            return redirect()->route('organizers.index');
         }
     }
 
@@ -82,7 +82,8 @@ class OrganizerController extends Controller
      */
     public function edit(Organizer $organizer)
     {
-        //
+        $chapters = Chapter::all();
+        return view('admin.organizers.edit',compact('chapters','organizer'));
     }
 
     /**
@@ -92,9 +93,15 @@ class OrganizerController extends Controller
      * @param  \App\Models\Organizer  $organizer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Organizer $organizer)
+    public function update(UpdateOrganizerValidation $request, Organizer $organizer)
     {
-        //
+        $data = $this->UpdateOrganizer($request->all(),$organizer->id);
+        if($data){
+            return redirect()->route('organizers.index');
+        }
+        else{
+            return redirect()->back();
+        }
     }
 
     /**
@@ -105,8 +112,13 @@ class OrganizerController extends Controller
      */
     public function destroy(Organizer $organizer)
     {
-        //
+     
+        if(file_exists(Storage::path('public\organizerImage\\'.$organizer->image))){
+
+            unlink(Storage::path('public\organizerImage\\'.$organizer->image));
+        }
         $organizer->delete();
         return redirect()->back();
+      
     }
 }

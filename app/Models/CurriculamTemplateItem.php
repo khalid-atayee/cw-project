@@ -9,6 +9,6 @@ class CurriculamTemplateItem extends Model
 {
     use HasFactory;
     public function CurriculamTemplate(){
-        return $this->belongsTo(CurriculamTemplate::class);
+        return $this->belongsTo(CurriculamTemplate::class,'curriculam_template_id','id');
     }
 }

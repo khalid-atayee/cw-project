@@ -113,7 +113,7 @@
                 </div>
             </div> --}}
             <div class="tw-text-right">
-                <button class="tw-bg-blue-500 tw-text-white tw-rounded-md tw-p-2">Edit</button>
+                <button class="tw-bg-blue-500 tw-text-white tw-rounded-md tw-p-2">Update</button>
             </div>
 
 

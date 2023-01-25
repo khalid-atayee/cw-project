@@ -20,7 +20,7 @@ class CreateCurriculamTemplatesTable extends Migration
         Schema::create('curriculam_templates', function (Blueprint $table) {
             $table->id();
             $table->string('module_name');
-            $table->foreignIdFor(Chapter::class)->constrained()->onDelete('cascade');
+            $table->foreignIdFor(Chapter::class)->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->foreignIdFor(Organizer::class)->constrained()->onDelete('cascade');
             $table->json('mentor_ids');
             $table->timestamps();

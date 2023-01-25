@@ -42,6 +42,17 @@
             </a>
             @endrole
 
+            @role('admin|organizer|chapter')
+
+            <a id="assignments" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="{{ route('curriculum.index') }}">
+                <div class="tw-space-x-2">
+                    <span><i class="fa fa-circle"></i></span>
+                    <span>Curriculum</span>
+                </div>
+                <i class="fa fa-angle-left"></i>
+            </a>
+            @endrole
+
             @role('admin|organizer|mentor|chapter')
             <a id="sessions" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="{{ route('sessions.index') }}">
                 <div class="tw-space-x-2">
@@ -62,16 +73,7 @@
             </a>
             @endrole
 
-            @role('admin|organizer|chapter')
-
-            <a id="assignments" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="{{ route('curriculum.index') }}">
-                <div class="tw-space-x-2">
-                    <span><i class="fa fa-circle"></i></span>
-                    <span>Curriculum</span>
-                </div>
-                <i class="fa fa-angle-left"></i>
-            </a>
-            @endrole
+          
 
             @role('admin')
             <a id="cities" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="">

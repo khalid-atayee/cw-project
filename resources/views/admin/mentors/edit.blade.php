@@ -1,17 +1,18 @@
 <x-layout>
-    <x-slot name="title">Create New Mentor</x-slot>
-    <x-slot name="header">Create New Mentor</x-slot>
+    <x-slot name="title">Update Mentor</x-slot>
+    <x-slot name="header">update Mentor</x-slot>
     <x-slot name="button">
         <a class="tw-bg-blue-500 tw-rounded-md tw-p-2 tw-text-white" href="{{ route('Mentors.index') }}">All mentors</a>
     </x-slot>
-    
+ 
     <div>
-        <form class="tw-flex tw-flex-col tw-space-y-2 tw-border tw-p-5 tw-rounded-md tw-shadow" action="{{ route('Mentors.store') }}" method="POST" enctype="multipart/form-data">
+        <form class="tw-flex tw-flex-col tw-space-y-2 tw-border tw-p-5 tw-rounded-md tw-shadow" action="{{ route('Mentors.update',$mentor->id) }}" method="POST" enctype="multipart/form-data">
+            @method('PUT')
             @csrf
             <div class="tw-flex">
                 <label class="tw-w-[20%] tw-p-2" for="mentor_name">mentor Name</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
-                    <input class=" tw-border tw-p-2 tw-rounded-md" type="text" name="name" id="mentor_name" placeholder="mentor name" />
+                    <input class=" tw-border tw-p-2 tw-rounded-md" value="{{ $mentor->name }}" type="text" name="name" id="mentor_name" placeholder="mentor name" />
 
                     @error('name')
                     <span class="text-danger ">{{ $message }}</span>
@@ -24,7 +25,7 @@
                 <label class="tw-w-[20%] tw-p-2" for="mentor_email">mentor Email</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
 
-                <input  class="tw-border tw-p-2 tw-rounded-md" type="text" name="email" id="mentor_email" placeholder="mentor email" />
+                <input  class="tw-border tw-p-2 tw-rounded-md" type="text" value="{{ $mentor->email }}" name="email" id="mentor_email" placeholder="mentor email" />
                 @error('email')
                 <span class="text-danger">{{ $message }}</span>
                     
@@ -33,31 +34,22 @@
 
             </div>
 
-            <div class="tw-flex">
-                <label class="tw-w-[20%] tw-p-2" for="mentor_password">mentor Password</label>
-                <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
-                
-                <input class=" tw-border tw-p-2 tw-rounded-md" type="password" name="password" id="mentor_name" placeholder="mentor password" />
-                @error('password')
-                <span class="text-danger">{{ $message }}</span>
-                    
-                @enderror
-                </div>
-            </div>
-
-
 
             <div class="tw-flex">
                 <label class="tw-w-[20%] tw-p-2" for="description">description</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
 
-                <textarea class="tw-border tw-p-2 tw-rounded-md" name="description" id="description" placeholder="Description" cols="30" rows="10"></textarea>
+                <textarea class="tw-border tw-p-2 tw-rounded-md" name="description" id="description" placeholder="Description" cols="30" rows="10">{{ $mentor->description }}</textarea>
                 @error('description')
                 <span class="text-danger">{{ $message }}</span>
                     
                 @enderror
                 </div>
             </div>
+            <td class="tw-flex">
+                <img src="{{ asset('storage/mentorImage/'.$mentor->image) }}" alt="" style="width: 60px;height:60px">
+                
+               </td>
 
             <div class="tw-flex">
                 <label class="tw-w-[20%] tw-p-2" for="mentor_image">mentor Image</label>
@@ -97,7 +89,7 @@
 
                         @if ($organizer->chapters)
 
-                        <option value="{{ $organizer->chapters->id }}">{{ $organizer->chapters->title }}</option>
+                        <option value="{{ $organizer->chapters->id }}" {{ $organizer->chapters->id==$mentor->chapter_id ? 'selected' : '' }}>{{ $organizer->chapters->title }}</option>
                             
                         @endif
                     @endforeach
@@ -109,10 +101,9 @@
                 @enderror
             </div>
         </div>
-        <span style="color:#000;opacity:.5;">note: please add organizers on those chapters first</span>
 
             <div class="tw-text-right">
-                <button type="submit" class="tw-bg-blue-500 tw-text-white tw-rounded-md tw-p-2">Save</button>
+                <button type="submit" class="tw-bg-blue-500 tw-text-white tw-rounded-md tw-p-2">Update</button>
             </div>
 
 

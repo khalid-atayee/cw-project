@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\curriculumValidations;
+use App\Http\Requests\UpdateCurriculamValidation;
 use App\Models\Chapter;
 use App\Models\CurriculamTemplate;
+use App\Models\CurriculamTemplateItem;
 use App\Models\Mentor;
 use Illuminate\Http\Request;
 use App\Traits\HomeTrait;
@@ -100,7 +102,19 @@ class CurriculumController extends Controller
      */
     public function edit($id)
     {
-        //
+        $chapters = Chapter::all();
+        $curriculumTemplateItem = CurriculamTemplateItem::with('CurriculamTemplate')->where('curriculam_template_id',$id)->get();
+        $mentor_ids =  json_decode($curriculumTemplateItem[0]->CurriculamTemplate->mentor_ids, true);
+
+        $mentors = Mentor::with('chapters')->where('chapter_id',$curriculumTemplateItem[0]->CurriculamTemplate->chapter_id)->get();
+        $ids =array();
+        foreach( $mentor_ids as $key=> $id){
+
+           $ids[$key]=(int)$id;
+
+        }
+
+        return view('admin.curriculam.edit',compact('chapters','curriculumTemplateItem','ids','mentors'));
     }
 
     /**
@@ -110,9 +124,12 @@ class CurriculumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateCurriculamValidation $request, $id)
     {
-        //
+        $data = $this->updateCurriculam($request->all(),$id);
+        if($data){
+            return redirect()->route('curriculum.index');
+        }
     }
 
     /**
@@ -123,6 +140,8 @@ class CurriculumController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $curriculumTemplates = CurriculamTemplate::find($id);
+        $curriculumTemplates->delete();
+        return redirect()->route('curriculum.index');
     }
 }
