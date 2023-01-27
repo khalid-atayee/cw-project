@@ -40,19 +40,19 @@
                             </a>
                         </div>
                         <div>
-                            <a class="tw-bg-blue-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white" href="">
+                            <a class="tw-bg-blue-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white" href="{{ route('sessions.edit', $session->id) }}">
                                 <i class="fa fa-edit"></i>
                             </a>
                         </div>
                         <div> 
                             
-                            {{-- <form class="" action="{{ route('Mentors.destroy',$session->id) }}" onsubmit="return confirm('Are you sure to delete this chapter?')" method="POST">
+                            <form class="" action="{{ route('sessions.destroy',$session->id) }}" onsubmit="return confirm('Are you sure to delete this chapter?')" method="POST">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="tw-bg-red-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white">
                                     <i class="fa fa-trash"></i>
                                 </button>
-                            </form> --}}
+                            </form>
                             
                         </div>
                        

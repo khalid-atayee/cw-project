@@ -30,7 +30,7 @@
                                       
                     <td class="tw-flex tw-space-x-2 tw-p-3">
                         <div>
-                            <a class="tw-bg-orange-500 tw-px-2 tw-py-0.5 tw-rounded-md tw-text-white" href="">
+                            <a class="tw-bg-orange-500 tw-px-2 tw-py-0.5 tw-rounded-md tw-text-white" href="{{ route('curriculum.show',$curriculumTemplate->id) }}">
                                 <i class="fa fa-eye"></i>
                             </a>
                         </div>

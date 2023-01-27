@@ -91,7 +91,9 @@ class CurriculumController extends Controller
     }
     public function show($id)
     {
-        //
+        $curriculumTemplates = CurriculamTemplate::with('organizers','chapters')->where('id',$id)->first();
+    
+        return view('admin.curriculam.view',compact('curriculumTemplates'));
     }
 
     /**

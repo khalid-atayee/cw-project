@@ -24,8 +24,8 @@ class CreateStudentsTable extends Migration
             $table->string('location');
             $table->string('email');
             $table->char('phone',20);
-            $table->foreignIdFor(User::class)->constrained();
-            $table->foreignIdFor(Chapter::class)->constrained()->onDelete('no action')->onUpdate('cascade');
+            $table->foreignIdFor(User::class)->constrained()->onDelete('cascade');
+            $table->foreignIdFor(Chapter::class)->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->text('inroduction');
             $table->text('experiance_educationLevel');
             $table->boolean('payment')->default(false);

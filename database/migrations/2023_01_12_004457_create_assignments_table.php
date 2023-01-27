@@ -26,8 +26,8 @@ class CreateAssignmentsTable extends Migration
             $table->string('url');
             $table->foreignIdFor(Chapter::class)->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->foreignIdFor(Student::class)->constrained()->onDelete('cascade');
-            $table->foreignIdFor(Session::class)->constrained()->onDelete('no action');
-            $table->foreignIdFor(Mentor::class)->constrained()->onDelete('no action');
+            $table->foreignIdFor(Session::class)->constrained()->onDelete('cascade');
+            $table->foreignIdFor(Mentor::class)->constrained()->onDelete('cascade');
             $table->foreignIdFor(Grade::class)->constrained()->onDelete('no action');
             
             $table->timestamps();

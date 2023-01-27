@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AdminValidation;
+use App\Http\Requests\updateUserValidation;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Traits\UserTrait;
@@ -131,7 +132,8 @@ class UserManagementController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('admin.userManagement.edit',compact('user'));
     }
 
     /**
@@ -141,9 +143,12 @@ class UserManagementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(updateUserValidation $request, $id)
     {
-        //
+        $data = $this->updateUser($request->all(),$id);
+        if($data){
+            return redirect()->route('users.index');
+        }
     }
 
     /**
@@ -154,6 +159,9 @@ class UserManagementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->back();
+    
     }
 }

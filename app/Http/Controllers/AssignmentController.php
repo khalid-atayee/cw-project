@@ -123,7 +123,15 @@ class AssignmentController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $assignment = Assignment::find($id);
+        $mentors = Mentor::where('chapter_id',$assignment->chapter_id)->get();
+        $sessions = Session::where('chapter_id',$assignment->chapter_id)->get();
+        $students = Student::where('chapter_id',$assignment->chapter_id)->get();
+        $grades = Grade::all();
+        $chapters = Chapter::all();
+        return view('admin.asssignments.edit',compact('chapters','assignment','mentors','sessions','students','grades'));
+
     }
 
     /**
@@ -133,9 +141,19 @@ class AssignmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AssignmentValidation $request, $id)
     {
-        //
+        $assignment= Assignment::find($id);
+        $assignment->title = $request->title;
+        $assignment->description = $request->description;
+        $assignment->url = $request->url;
+        $assignment->chapter_id = $request->chapter_id;
+        $assignment->student_id = $request->student_id;
+        $assignment->session_id = $request->session_id;
+        $assignment->mentor_id = $request->mentor_id;
+        $assignment->grade_id = $request->grade_id;
+        $assignment->update();
+        return redirect()->route('assignments.index');
     }
 
     /**
@@ -146,6 +164,8 @@ class AssignmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $assignments = Assignment::find($id);
+        $assignments->delete();
+        return redirect()->route('assignments.index');
     }
 }

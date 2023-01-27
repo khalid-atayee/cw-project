@@ -97,6 +97,16 @@ trait UserTrait
         return back();
     }
 
+    public function updateUser($data,$id){
+        $user = User::find($id);
+        $user->name = $data['user_name'];
+        $user->email = $data['user_email'];
+        $user->password = Hash::make($data['user_password']);
+        $user->update();
+        return back();
+
+    }
+
     public function registerOrganizerMentor($data, $role, $flag)
     {
         DB::beginTransaction();

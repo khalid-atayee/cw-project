@@ -71,7 +71,7 @@ class OrganizerController extends Controller
      */
     public function show(Organizer $organizer)
     {
-        //
+        return view('admin.organizers.view',compact('organizer'));
     }
 
     /**

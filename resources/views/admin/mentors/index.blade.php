@@ -43,11 +43,11 @@
                     <td class="tw-p-3">{{ $mentor->organizers->name }}</td>
                     
                     <td class="tw-flex tw-space-x-2 tw-p-3">
-                        <div>
+                        {{-- <div>
                             <a class="tw-bg-orange-500 tw-px-2 tw-py-0.5 tw-rounded-md tw-text-white" href="">
                                 <i class="fa fa-eye"></i>
                             </a>
-                        </div>
+                        </div> --}}
                         <div>
                             <a class="tw-bg-blue-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white" href="{{ route('Mentors.edit',$mentor->id) }}">
                                 <i class="fa fa-edit"></i>

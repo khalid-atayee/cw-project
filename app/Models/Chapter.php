@@ -34,4 +34,8 @@ class Chapter extends Model
    public function users(){
     return $this->belongsTo(User::class, 'user_id','id');
    }
+
+   public function curriculumTemplate(){
+    return $this->hasMany(CurriculamTemplate::class);
+   }
 }

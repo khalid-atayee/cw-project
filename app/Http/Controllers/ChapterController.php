@@ -60,7 +60,8 @@ class ChapterController extends Controller
      */
     public function show(Chapter $chapter)
     {
-        //
+        // dd($chapter->curriculumTemplate);
+        return view('admin.chapters.view',compact('chapter'));
     }
 
     /**

@@ -84,13 +84,13 @@
                             </a>
                         </div>
                         <div>
-                            <a class="tw-bg-blue-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white" href="">
+                            <a class="tw-bg-blue-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white" href="{{ route('users.edit',$user->id) }}">
                                 <i class="fa fa-edit"></i>
                             </a>
                         </div>
                         <div>
                             
-                            <form class="" action="{{ route('organizers.destroy',$user) }}" onsubmit="return confirm('Are you sure to delete this chapter?')" method="POST">
+                            <form class="" action="{{ route('users.destroy',$user->id) }}" onsubmit="return confirm('Are you sure to delete this User? if you delete this user all its child will be deleted.')" method="POST">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="tw-bg-red-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white">

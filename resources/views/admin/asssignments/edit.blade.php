@@ -1,19 +1,23 @@
 <x-layout>
-    <x-slot name="title">Create New assignment</x-slot>
-    <x-slot name="header">Create New assignment</x-slot>
+    <x-slot name="title">Update assignment</x-slot>
+    <x-slot name="header">Update assignment</x-slot>
     <x-slot name="button">
         <a class="tw-bg-blue-500 tw-rounded-md tw-p-2 tw-text-white" href="{{ route('assignments.index') }}">All
             assignment</a>
     </x-slot>
     <div>
-        <form class="tw-flex tw-flex-col tw-space-y-2 tw-border tw-p-5 tw-rounded-md tw-shadow" id="form-id">
+        <form method="POST" action="{{ route('assignments.update',$assignment->id) }}" class="tw-flex tw-flex-col tw-space-y-2 tw-border tw-p-5 tw-rounded-md tw-shadow" id="form-id">
+            @csrf
+            @method('PUT')
             <div class="tw-flex">
                 <label class="tw-w-[20%] tw-p-2" for="mentor_name">assignment Title</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
-                    <input class=" tw-border tw-p-2 tw-rounded-md" type="text" name="title" id="title"
+                    <input class=" tw-border tw-p-2 tw-rounded-md" value="{{ $assignment->title }}" type="text" name="title" id="title"
                         placeholder="assignment Title" />
-
-                    <span class="text-danger error" id="error-title"></span>
+                    @error('title')
+                        
+                    <span class="text-danger error" id="error-title">{{ $message }}</span>
+                    @enderror
 
                 </div>
             </div>
@@ -24,8 +28,12 @@
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
 
                     <textarea class="tw-border tw-p-2 tw-rounded-md" name="description" id="description" placeholder="Description"
-                        cols="30" rows="10"></textarea>
-                    <span class="text-danger" id="error-description"></span>
+                        cols="30" rows="10">{{ $assignment->description }}</textarea>
+
+                        @error('description')
+                            
+                        <span class="text-danger" id="error-description">{{ $message }}</span>
+                        @enderror
 
 
                 </div>
@@ -35,9 +43,12 @@
                 <label class="tw-w-[20%] tw-p-2" for="description">assignment url</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
 
-                    <input class=" tw-border tw-p-2 tw-rounded-md" type="text" name="url" id="url"
+                    <input class=" tw-border tw-p-2 tw-rounded-md" value="{{ $assignment->url }}" type="text" name="url" id="url"
                         placeholder="assignment Url" />
-                    <span class="text-danger" id="error-url"></span>
+                        @error('url')
+                            
+                        <span class="text-danger" id="error-url">{{ $message }}</span>
+                        @enderror
 
 
                 </div>
@@ -72,12 +83,17 @@
                             @endisset
                         @else
                             @foreach ($chapters as $chapter)
-                                <option value="{{ $chapter->id }}">{{ $chapter->title }}</option>
+                                <option value="{{ $chapter->id }}" {{ $chapter->id== $assignment->chapter_id ? 'selected' : '' }}>
+                                    {{ $chapter->title }}
+                                </option>
                             @endforeach
                         @endif
                     </select>
 
-                    <span class="text-danger error" id="error-chapter_id"></span>
+                    @error('chapter_id')
+                        
+                    <span class="text-danger error" id="error-chapter_id">{{ $message }}</span>
+                    @enderror
 
                 </div>
             </div>
@@ -87,9 +103,19 @@
 
                     <select class="form-select" id="student_select" data-placeholder="Choose anything"
                         name="student_id">
+                        @foreach ($students as $student)
+                        <option value="{{ $student->id }}" {{ $student->id == $assignment->student_id ? 'selected' : '' }}>
+                            {{ $student->fname.' '.$student->lname }}
+                        </option>
+                            
+                        @endforeach
 
                     </select>
-                    <span class="text-danger error" id="error-student_id"></span>
+
+                    @error('student_id')
+                        
+                    <span class="text-danger error" id="error-student_id">{{ $message }}</span>
+                    @enderror
 
                 </div>
             </div>
@@ -100,10 +126,18 @@
 
                     <select class="form-select" id="session_id" data-placeholder="Choose anything" name="session_id">
                         <option disabled selected>please specify</option>
+                        @foreach ($sessions as $session)
+                        <option value="{{ $session->id }}" {{ $session->id == $assignment->session_id ? 'selected' : '' }}>
+                            {{ $session->title }}</option>
+                            
+                        @endforeach
 
 
                     </select>
-                    <span class="text-danger error" id="error-session_id"></span>
+                    @error('session_id')
+                        
+                    <span class="text-danger error" id="error-session_id">{{ $message }}</span>
+                    @enderror
                 </div>
             </div>
 
@@ -113,10 +147,18 @@
 
                     <select class="form-select" id="mentor_id" data-placeholder="Choose anything" name="mentor_id">
                         <option disabled selected>please specify</option>
+                        @foreach ($mentors as $mentor)
+                        <option value="{{ $mentor->id }}" {{ $mentor->id == $assignment->mentor_id ? 'selected' : '' }}>
+                            {{ $mentor->name }}</option>
+                            
+                        @endforeach
 
 
                     </select>
-                    <span class="text-danger error" id="error-mentor_id"></span>
+                    @error('mentor_id')
+                        
+                    <span class="text-danger error" id="error-mentor_id">{{ $message }}</span>
+                    @enderror
                 </div>
             </div>
 
@@ -129,11 +171,15 @@
                         name="grade_id">
                         <option disabled selected>please specify</option>
                         @foreach ($grades as $grade)
-                            <option value="{{ $grade->id }}">{{ $grade->grade_title }}</option>
+                            <option value="{{ $grade->id }}" {{ $grade->id==$assignment->grade_id ? 'selected' : '' }}>
+                                {{ $grade->grade_title }}</option>
                         @endforeach
 
                     </select>
-                    <span class="text-danger error" id="error-grade_id"></span>
+                    @error('grade_id')
+                        
+                    <span class="text-danger error" id="error-grade_id">{{ $message }}</span>
+                    @enderror
                 </div>
             </div>
 
@@ -147,9 +193,9 @@
 
 
             <div class="tw-text-right">
-                <button type="button"
-                    onclick="postSerializeForm('{{ route('assignments.submit') }}','POST','form-id')"
-                    class="tw-bg-blue-500 tw-text-white tw-rounded-md tw-p-2">Save</button>
+                <button type="submit"
+                   
+                    class="tw-bg-blue-500 tw-text-white tw-rounded-md tw-p-2">Update</button>
             </div>
         </form>
 

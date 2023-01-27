@@ -22,12 +22,12 @@ class CreateSessionsTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
             $table->foreignIdFor(Chapter::class)->constrained()->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignIdFor(Mentor::class)->constrained()->onDelete('no action');
+            $table->foreignIdFor(Mentor::class)->constrained()->onDelete('cascade');
             $table->foreignIdFor(CurriculamTemplate::class)->constrained()->onDelete('cascade');
-            $table->foreignIdFor(CurriculamTemplateItem::class)->constrained()->onDelete('no action');
+            $table->foreignIdFor(CurriculamTemplateItem::class)->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
