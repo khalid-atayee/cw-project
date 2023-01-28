@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
-    <link href="{{ asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" />
+    {{-- <link href="{{ asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" /> --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
+
     <style>
         .chapter-info>td {
             height: 100px;
@@ -40,12 +42,60 @@
                 text-align: center;
             }
         }
+
+        .mentor-main-container {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .6);
+            display: grid;
+            place-items: center;
+
+
+        }
+
+        .mentor-container {
+
+            display: flex;
+            flex-direction: column;
+            /* gap: .9em; */
+            border-radius: 15px;
+            padding: .5em 1em;
+            background-color: white;
+            max-width: 100%;
+            width: 350px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: .3em;
+        }
+        .mentor-container>img{
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin: auto;
+        }
+
+        .mentorToggle{
+            display: none;
+        }
+        .sign-close-icon{
+            display: block;
+            text-align: right;
+            color: red;
+            font-size: 1rem;
+            cursor: pointer;
+
+        }
+        .image-fluid{
+            cursor: pointer;
+        }
+        .customContainer{
+            padding: 2em;
+            text-align: center;
+        }
     </style>
-    <style>
 
-
-
-    </style>
     <!-- Bootstrap CSS -->
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> --}}

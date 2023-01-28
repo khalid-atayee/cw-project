@@ -20,12 +20,15 @@ class CurriculumController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
         if(Auth::user()->roles[0]->name=='chapter'){
 
             $curriculumTemplates  = CurriculamTemplate::with('organizers','chapters')->where('chapter_id',Auth::user()->chapter->id)->get();
         }
+        
         if(Auth::user()->roles[0]->name=='organizer'){
             $curriculumTemplates  = CurriculamTemplate::with('organizers','chapters')->where('chapter_id',Auth::user()->organizer->chapter_id)->get();
 

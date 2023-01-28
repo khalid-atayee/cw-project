@@ -16,11 +16,11 @@
 
     // select 2 plugin end here
 
-  
+
 
     // input field change functionality start here
 
-    function changeDropDown(url, selecContainerId, method, appendContainer, anotherContainer,requireContainer) {
+    function changeDropDown(url, selecContainerId, method, appendContainer, anotherContainer, requireContainer) {
         const data = {
             'chapter_id': $('#' + selecContainerId).val()
         }
@@ -35,35 +35,35 @@
             success: function(response) {
 
                 $('.error').html('');
-                
+
 
                 if (response.status == 200) {
-                    reuseOnChange(response.data,appendContainer,'name')
+                    reuseOnChange(response.data, appendContainer, 'name')
                 }
-                
-                
+
+
                 if (response.status == 300) {
-                    $('#'+appendContainer).html('')
-                    $('#'+anotherContainer).html('')
-                    reuseOnChange(response.mentors,appendContainer,'name')
-                    reuseOnChange(response.curriculum,anotherContainer,'module_name')
+                    $('#' + appendContainer).html('')
+                    $('#' + anotherContainer).html('')
+                    reuseOnChange(response.mentors, appendContainer, 'name')
+                    reuseOnChange(response.curriculum, anotherContainer, 'module_name')
 
                 }
 
-                if(response.status=='curriculumItem'){
+                if (response.status == 'curriculumItem') {
                     console.log(response.data);
-                    $('#'+appendContainer).html('')
-                    reuseOnChange(response.data,appendContainer,'item_name')
+                    $('#' + appendContainer).html('')
+                    reuseOnChange(response.data, appendContainer, 'item_name')
                 }
 
-                if(response.status=='assignments'){
-                    $('#'+appendContainer).html('')
-                    $('#'+anotherContainer).html('')
-                    $('#'+requireContainer).html('')
+                if (response.status == 'assignments') {
+                    $('#' + appendContainer).html('')
+                    $('#' + anotherContainer).html('')
+                    $('#' + requireContainer).html('')
 
-                    reuseOnChange(response.students,appendContainer,'fname')
-                    reuseOnChange(response.sessions,anotherContainer,'title')
-                    reuseOnChange(response.mentors,requireContainer,'name')
+                    reuseOnChange(response.students, appendContainer, 'fname')
+                    reuseOnChange(response.sessions, anotherContainer, 'title')
+                    reuseOnChange(response.mentors, requireContainer, 'name')
                 }
 
 
@@ -77,30 +77,30 @@
     }
 
 
-    function reuseOnChange(response,container,diffColumn){
+    function reuseOnChange(response, container, diffColumn) {
         $.each(response, function(index, element) {
-            
-            if(diffColumn=='name'){
+
+            if (diffColumn == 'name') {
                 $('#' + container).append(`<option value="${element.id}">${element.name}</option>`)
             }
-            if(diffColumn=='module_name'){
-                $('#' + container).append( `<option value="${element.id}">${element.module_name}</option>`)
+            if (diffColumn == 'module_name') {
+                $('#' + container).append(`<option value="${element.id}">${element.module_name}</option>`)
 
             }
-            if(diffColumn=='item_name'){
-                $('#' + container).append( `<option value="${element.id}">${element.item_name}</option>`)
-                
+            if (diffColumn == 'item_name') {
+                $('#' + container).append(`<option value="${element.id}">${element.item_name}</option>`)
+
             }
-            if(diffColumn=='title'){
-                $('#' + container).append( `<option value="${element.id}">${element.title}</option>`)
-            
+            if (diffColumn == 'title') {
+                $('#' + container).append(`<option value="${element.id}">${element.title}</option>`)
+
             }
 
-            if(diffColumn=='fname'){
-                $('#' + container).append( `<option value="${element.id}">${element.fname}</option>`)
-            
+            if (diffColumn == 'fname') {
+                $('#' + container).append(`<option value="${element.id}">${element.fname}</option>`)
+
             }
-            
+
 
         });
 
@@ -175,7 +175,7 @@
                         icon: response.status,
                         title: response.message,
                         showConfirmButton: false,
-                        timer: 1500 
+                        timer: 1500
                     })
 
                 }
@@ -203,4 +203,41 @@
 
 
     // submit form using serialization end here
+
+
+
+    // toggle for mentor and organizer start here
+    function showUserToggle(data, value) {
+       
+
+            let content = `
+                <span class="sign-close-icon" onclick="closeModal()">
+            <i class="fa-solid fa-xmark"></i>
+        </span>
+            <img src="/storage/${value}/${data.image}" alt="">
+            <h3>${data.name} </h3>
+            <p>${data.description}</p>
+            <br>
+            <p>${data.email}</p>
+            <a href="#">
+                <i class="fa-brands fa-linkedin"></i>
+                </a>
+                
+                `;
+                
+
+            document.querySelector('.mentor-container').innerHTML=content
+            document.getElementById('mentorModalId').classList.remove('mentorToggle')
+    
+     
+
+    }
+    function closeModal(){
+        document.getElementById('mentorModalId').classList.add('mentorToggle')
+
+
+    }
+
+
+    // toggle for mentor and organizer end here
 </script>
