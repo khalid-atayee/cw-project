@@ -70,6 +70,7 @@
 
     // this function is responsible for posting data to serve
     function postForm(url, method, formId) {
+
         $('#' + formId).submit(e => e.preventDefault());
 
         let data = $('#' + formId).serialize();
@@ -107,6 +108,16 @@
                         title: response.message,
                         showConfirmButton: false,
                         timer: 1500
+                    })
+
+                }
+                if(response.status=='error'){
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: response.message,
+                        showConfirmButton: false,
+                        timer: 3000
                     })
 
                 }

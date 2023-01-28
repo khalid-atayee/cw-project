@@ -57,7 +57,7 @@
                         <div class="inner">
                             <h3>{{ $student_with_not_payment }}</h3>
 
-                            <p>Students who no payed</p>
+                            <p>Students who not payed</p>
                         </div>
                     </div>
 

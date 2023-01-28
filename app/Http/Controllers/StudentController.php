@@ -12,6 +12,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StudentValidation;
 use App\Models\Chapter;
+use App\Models\Organizer;
 use App\Models\Student;
 use App\Models\User;
 use Error;
@@ -100,8 +101,13 @@ class StudentController extends Controller
      */
     public function store(StudentValidation $request)
     {
-        DB::beginTransaction();
-        try {
+        // DB::beginTransaction();
+        // try {
+            // dd($request->chapter);
+            $organizer_id = Organizer::where('chapter_id',$request->chapter)->first(['id']);
+            if(!$organizer_id){
+                return response()->json(['message'=>'Organizer did not assigned to this chapter yet, please wait for a while' ,'status'=>'error'],200);
+            }
             $user = new User();
             $user->name = $request->firstname . $request->lastname;
             $user->email = $request->email;
@@ -115,7 +121,7 @@ class StudentController extends Controller
 
             if($user){
 
-                $student = new Student();
+                $student = new Student(); 
                 $student->fname = $request->firstname;
                 $student->lname = $request->lastname;
                 $student->gender = $request->gender;
@@ -135,15 +141,15 @@ class StudentController extends Controller
                         $request->session()->regenerate();
                         Auth::login($user);
                     }
-                    DB::commit();
+                    // DB::commit();
                     return response()->json(['message' => 'your data successfully recorded'], 200);
             }
 
             }
-        } catch (\Throwable $th) {
-            DB::rollback();
-            return response()->json(['message'=>'Something went wrong...' ,'status'=>410],200);
-        }
+        // } catch (\Throwable $th) {
+        //     DB::rollback();
+        //     return response()->json(['message'=>'Something went wrong...' ,'status'=>410],200);
+        // }
     }
 
     /**
@@ -197,113 +203,3 @@ class StudentController extends Controller
 
 
 
-// class AuthController extends Controller
-// {
-    
-//     public function login(){
-//         if(Auth::user()){
-//             return redirect()->route('dashboard');
-//         }
-//         return view('auth.login');
-//     }
-
-//     public function authenticate(Request $request){
-//         // $user = User::where('email',$request->email)->first();
-//         // dd($user);
-//         $credentials = $request->validate([
-//             'email' => ['required','email','max:255'],
-//             'password' => ['required'],
-//         ]);
-
-//         if(Auth::attempt($credentials)){
-//             $request->session()->regenerate();
-//             return redirect()->route('dashboard');
-//         }
-
-//         return redirect()->back()->with('message','email or password incorrect');
-//     }
-
-//     public function register(){
-//         if(Auth::user()){
-//             return redirect()->route('dashboard');
-//         }
-//         return view('auth.register');
-//     }
-
-//     public function registeration(Request $request){
-//         // dd($request->all());
-//         $request->validate([
-//             'name' => ['required','string','max:255'],
-//             'lastname' => ['required','string','max:255'],
-//             'email' => ['required','string','max:255','unique:users,email'],
-//             'password' => ['required','confirmed'],
-//         ]);
-
-//         $user = User::create([
-//             'name' => $request->name,
-//             'lastname' => $request->lastname,
-//             'email' => $request->email,
-//             'password' => Hash::make($request->password),
-//         ]);
-       
-//         if($user){
-//             $request->session()->regenerate();
-//             Auth::login($user);
-//             return redirect()->route('dashboard');
-//         }
-        
-
-//     }
-
-//     public function logout(){
-//         Auth::logout();
-//         request()->session()->invalidate();
-//         request()->session()->regenerateToken();
-//         return redirect('/login');
-//     }
-
-//     public function profile(){
-
-//         return view('profile.updateProfile');
-//     }
-
-//     public function updateProfile(Request $request,$id){
-
-//         $user = User::find($id);
-        
-//         $user->name = $request->name;
-//         $user->lastname= $request->lastname;
-//         $user->email = $request->email;
-//         $user->phone = $request->phone;
-//         $user->address = $request->address;
-//         $user->province = $request->province;
-        // if($request->has('photo')){
- 
-        //     $extension = $request->photo->extension();
-        //     $filename = now() . rand(10000,1000000) . "." . $extension;
-        //     $request->file('photo')->storeAs('photo', $filename,'public');
-        //     $user->photo = $filename;
-        // }
-        // if($request->has('photo')){
-        //     Storage::delete('public/'. $user->photo);
-        //     $location = $request->file('photo')->store('profile', 'public');
-        //     // dd($location);
-        //     $user->photo = $location;
-        //   }
-        
-        // $user->save();
-
-        // return back()->with('message','Profile updated');
-
-
-        // $user = User::update([
-        //     'name' => $request->name,
-        //     'lastname' => $request->lastname,
-        //     'email' => $request->email,
-        //     'phone' => $request->phone,
-        //     'address' => $request->address,
-        //     'province' => $request->province,
-        //     'photo' => $filename,
-        // ]);
-//     }
-// }
