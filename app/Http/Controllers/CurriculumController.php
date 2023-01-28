@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * 
+ *
+ * 
+ * @author  Khalid Atayee <khalid.atayee101@gmail.com>
+ * @description, This controller is only for curriculum purposes
+ */
 namespace App\Http\Controllers;
 
 use App\Http\Requests\curriculumValidations;

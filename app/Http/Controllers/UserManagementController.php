@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * 
+ *
+ * 
+ * @author  Khalid Atayee <khalid.atayee101@gmail.com>
+ * @description, This controller is only for user management purposes
+ */
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AdminValidation;

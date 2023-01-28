@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * 
+ *
+ * 
+ * @author  Khalid Atayee <khalid.atayee101@gmail.com>
+ * @description, This controller is only for authentication purposes
+ */
+
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;

@@ -1,4 +1,11 @@
 <?php
+/**
+ * 
+ *
+ * 
+ * @author  Khalid Atayee <khalid.atayee101@gmail.com>
+ * @description, This controller is only for website routing
+ */
 
 namespace App\Http\Controllers;
 

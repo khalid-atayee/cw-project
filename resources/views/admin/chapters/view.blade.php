@@ -21,7 +21,9 @@
                 </tr>
             </thead>
             <tbody>
+                @if (isset($chapter->organizer))
                 <tr class="chapter-info">
+                        
                     <td>{{ $chapter->organizer->name }}</td>
                     <td>{{ $chapter->organizer->email }}</td>
                     <td>{{ $chapter->organizer->description }}</td>
@@ -30,7 +32,11 @@
                             style="width: 80px;height:80px">
 
                     </td>
+
                 </tr>
+                @else
+                <p class="text-muted text-center">Organizer didn't assigned to this chapter yet</p>
+                @endif
 
             </tbody>
         </table>
@@ -56,46 +62,55 @@
 
             </div>
                 @else
-                <h4 class="text-muted">This Chapter doesn't have any Mentor to be displayed, please add mentor first</h4>
+                <p class="text-muted text-center">This Chapter doesn't have any Mentor to be displayed, please add mentor first</p>
 
             @endif
 
         <br><br>
             <h3>Template of Curriculum</h3>
             <div class="card-group gap-3">
+                
+                {{-- @if (isset($chapter[0]->curriculumTemplate)) --}}
                 @foreach ($chapter->curriculumTemplate as $curriculum)
                     
-                <div class="card curriculam-cards rounded-2 col-md mx-2">
-                    <div class="card-body">
-                        <p class="text-center border-bottom p-2"><span > Module Name: <strong> {{ $curriculum->module_name }}</strong></span> </p>
-                        <div class="d-flex justify-content-between border-bottom my-2">
-                            <p class="">organizer</p>
-                            <img src="{{ asset('storage/organizerImage/'.$curriculum->organizers->image) }}" class="image-fluid" alt="">
-                        </div>
-                        <div class="d-flex justify-content-between border-bottom my-2">
-                            <p class="">Mentors</p>
-                            <div class="mentors-images d-flex">
-                                @foreach ($curriculum->organizers->chapters->mentor as $mentor)
-                                    
-                                <img src="{{ asset('storage/mentorImage/'.$mentor->image) }}" class="image-fluid  " alt="">
-                                @endforeach
-                
-                          
+                        
+                    <div class="card curriculam-cards rounded-2 col-md mx-2">
+                        <div class="card-body">
+                            <p class="text-center border-bottom p-2"><span > Module Name: <strong> {{ $curriculum->module_name }}</strong></span> </p>
+                            <div class="d-flex justify-content-between border-bottom my-2">
+                                <p class="">organizer</p>
+                                <img src="{{ asset('storage/organizerImage/'.$curriculum->organizers->image) }}" class="image-fluid" alt="">
                             </div>
+                            <div class="d-flex justify-content-between border-bottom my-2">
+                                <p class="">Mentors</p>
+                                <div class="mentors-images d-flex">
+                                    @foreach ($curriculum->organizers->chapters->mentor as $mentor)
+                                        
+                                    <img src="{{ asset('storage/mentorImage/'.$mentor->image) }}" class="image-fluid  " alt="">
+                                    @endforeach
+                    
+                            
+                                </div>
+                            </div>
+                            <p class="card-text">
+                            <ul class="list-group">
+                                <p class="fw-bold">Topics</p>
+                                @foreach ($curriculum->CurriculamTemplateItem as $item)
+                                    
+                                <li class="list-group-item">{{ $item->item_name }}</li>
+                                @endforeach
+                            
+                            </ul>
+                            </p>
                         </div>
-                        <p class="card-text">
-                        <ul class="list-group">
-                            <p class="fw-bold">Topics</p>
-                            @foreach ($curriculum->CurriculamTemplateItem as $item)
-                                
-                            <li class="list-group-item">{{ $item->item_name }}</li>
-                            @endforeach
-                           
-                        </ul>
-                        </p>
                     </div>
-                </div>
-                @endforeach
+                    @endforeach
+
+                    {{-- @else
+                    <p class="text-muted text-center">Curriculum not created for this chapter yet</p>
+                    
+                @endif --}}
+               
     
             </div>
 

@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\CurriculumController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MentorController;
 use App\Http\Controllers\PaymentGateWayController;
 use App\Http\Controllers\StudentController;
@@ -58,11 +59,7 @@ Route::post('/login',[AuthController::class,'login'])->name('authentication.logi
 
 Route::group(['middleware'=>['AuthCheck']], function(){
     // admin panel routes here
-    Route::get('/dashboard',function(){
-        return view('admin.dashboard');
-    })->name('dashboard');
-
-    
+    Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
 
     Route::resources([
         'chapters'=> ChapterController::class,

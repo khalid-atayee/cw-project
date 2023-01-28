@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * 
+ *
+ * 
+ * @author  Khalid Atayee <khalid.atayee101@gmail.com>
+ * @description, This controller is only for session purposes
+ */
 namespace App\Http\Controllers;
 
 use App\Http\Requests\sessionValidation;

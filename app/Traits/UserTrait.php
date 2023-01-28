@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * 
+ *
+ * 
+ * @author  Khalid Atayee <khalid.atayee101@gmail.com>
+ * @description, This trait developed for code reusebaility and cleaness for controllers
+ */
+
 namespace app\Traits;
 
 use App\Models\Chapter;
