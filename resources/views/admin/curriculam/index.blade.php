@@ -14,6 +14,7 @@
                 <tr class="tw-text-left">
                     <th>ID</th>
                     <th>Module name</th>
+                    {{-- <th>Module description</th> --}}
                     <th>Organizer name</th>
                     <th>Chapter name</th>
                     <th>Actions</th>
@@ -25,6 +26,7 @@
                 <tr class="tw-border-b-2 hover:tw-bg-blue-50">
                     <td class="tw-p-3">{{ $curriculumTemplate->id }}</td>
                     <td class="tw-p-3">{{ $curriculumTemplate->module_name }}</td>
+                    {{-- <td class="tw-p-3">{{ $curriculumTemplate->description }}</td> --}}
                     <td class="tw-p-3">{{ $curriculumTemplate->organizers->name }}</td>
                     <td class="tw-p-3">{{ $curriculumTemplate->organizers->chapters->title }}</td>
                                       

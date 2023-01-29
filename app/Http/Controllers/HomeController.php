@@ -9,6 +9,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chapter;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -16,18 +17,35 @@ class HomeController extends Controller
 
 
     function index(){
-        return view('home.home');
+        $chapters = Chapter::all();
+        return view('home.home',compact('chapters'));
 
     }
 
     function alumni(){
-        return view('alumni.alumni');
+        $chapters = Chapter::all();
+        return view('alumni.alumni',compact('chapters'));
     }
+
     function aboutUs(){
-        return view('about.aboutUs');
+        $chapters = Chapter::all();
+        return view('about.aboutUs',compact('chapters'));
     }
+
     function curriculam(){
-        return view('curriculam.curriculamIndex');
+        $chapters = Chapter::all();
+        return view('curriculam.curriculamIndex',compact('chapters'));
+
+    }
+    
+    function find(Request $request){
+        if($request->home){
+            dd('home');
+        }
+        else if($request->program){
+            dd('program');
+        }
+    //    $chapter_id = $request->chapter_id;
 
     }
   

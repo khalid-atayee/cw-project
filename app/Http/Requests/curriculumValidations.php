@@ -26,6 +26,7 @@ class curriculumValidations extends FormRequest
     {
         return [
             'name' => 'required',
+            'description'=>'required',
             'chapter_id' => 'required',
             'mentors' => 'required',
 
@@ -45,6 +46,7 @@ class curriculumValidations extends FormRequest
     {
         return [
             'name' => 'module name is',
+            'description' => 'description is',
             'chapter_id' => 'chapter name is ',
             'mentors' => 'mentors are ',
             'topic.*' => 'topic is ',

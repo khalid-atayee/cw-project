@@ -1250,9 +1250,10 @@ color: #9A9A9A;
 
 .faq-page:after {
   font-family: "Font Awesome 5 Free";
-  content: '\f107';
+  content: '\02C4';
 
-  font-size: 1rem;
+  font-size: 1.5rem;
+  font-weight: 900;
   float: right;
   margin-left: 5px;
 }
@@ -1260,8 +1261,9 @@ color: #9A9A9A;
 
 .faq-active:after {
   font-family: "Font Awesome 5 Free";
-  content: "\2796";
-  font-size: 1rem;
+  content: "\02C5";
+  font-size: 1.5rem;
+  font-weight: 900;
 }
 
 .faq-content{
@@ -2941,3 +2943,68 @@ i {
   content: "*";
   color: brown;
 }
+
+
+
+/* location start here */
+.location-main-container {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .6);
+  display: grid;
+  place-items: center;
+
+
+}
+
+.location-container {
+
+
+  border-radius: 15px;
+  padding: .5em 1em;
+  background-color: white;
+  max-width: 100%;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: .3em;
+}
+
+
+.locationToggle{
+  display: none;
+}
+.location-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #999999;
+  padding-bottom: .5em;
+
+}
+
+.btn-primary{
+  background-color: #0275d8;
+}
+.location-main{
+  padding: 2em 0em;
+}
+.location-main>p{
+  text-align: left;
+}
+.location-footer{
+  display: flex;
+  justify-content: right;
+  gap: .5em;
+  padding-top: .5em;
+  border-top: 1px solid #999999;
+
+
+}
+.select-location-par{
+  margin-top: .5em;
+}
+
+/* location end here */

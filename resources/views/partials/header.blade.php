@@ -17,7 +17,7 @@
       </ul>
       <div class="right-btns">
 
-        <button class="cw-btn location-btn">Location <i class="fa-solid fa-location-dot"></i></button>
+        <button class="cw-btn location-btn" onclick="showLocationModal()">Location <i class="fa-solid fa-location-dot"></i></button>
        @if (auth()->user())
          
           <div class="btn-group">
@@ -45,7 +45,7 @@
     <div class="navigate-small">
       <h1 class="cw-logo">CodeWeekend</h1>
       <div class="font-awesome-container">
-        <span class="cw-logo">
+        <span class="cw-logo" onclick="showLocationModal()">
 
           <i class="fa-solid fa-location-dot"></i>
         </span>

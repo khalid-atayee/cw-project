@@ -42,17 +42,29 @@
             <div class="card-body">
                 <p class="text-center border-bottom p-2"><span> Module Name: <strong>
                             {{ $curriculumTemplates->module_name }}</span> </p>
+
+                <div class="description-container text-center border-bottom p-2">
+                    <p> Module description:</p>
+                    <p>
+                        {{ $curriculumTemplates->description }}
+    
+                    </p>
+
+                </div>
+
+
                 <div class="d-flex justify-content-between border-bottom my-2">
                     <p class="">organizer</p>
                     <img src="{{ asset('storage/organizerImage/' . $curriculumTemplates->organizers->image) }}"
-                    onclick="showUserToggle({{ $curriculumTemplates->organizers }},'organizerImage')"   class="image-fluid" alt="">
+                        onclick="showUserToggle({{ $curriculumTemplates->organizers }},'organizerImage')"
+                        class="image-fluid" alt="">
                 </div>
                 <div class="d-flex justify-content-between border-bottom my-2">
                     <p class="">Mentors</p>
                     <div class="mentors-images d-flex">
                         @foreach ($curriculumTemplates->organizers->chapters->mentor as $mentor)
                             <img src="{{ asset('storage/mentorImage/' . $mentor->image) }}"
-                             onclick="showUserToggle({{ $mentor }},'mentorImage')" class="image-fluid  "
+                                onclick="showUserToggle({{ $mentor }},'mentorImage')" class="image-fluid  "
                                 alt="">
                         @endforeach
 
@@ -85,10 +97,6 @@
     <div class="mentor-main-container mentorToggle" id="mentorModalId">
 
         <div class="mentor-container">
-           
-
-
-
         </div>
     </div>
 

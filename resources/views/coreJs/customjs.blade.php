@@ -111,7 +111,7 @@
                     })
 
                 }
-                if(response.status=='error'){
+                if (response.status == 'error') {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'error',
@@ -211,4 +211,26 @@
         document.getElementById('signInId').classList.add('signInToggle')
         document.getElementById('signUpId').classList.remove('signUpToggle')
     }
+
+
+
+
+    // code for location start here
+    function showLocationModal() {
+        document.getElementById('locationModalId').classList.remove('locationToggle')
+    }
+
+    function closeLocationModal() {
+        document.getElementById('locationModalId').classList.add('locationToggle')
+
+    }
+
+
+
+    // code for location end here
+
+    // In your Javascript (external .js resource or <script> tag)
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+    });
 </script>

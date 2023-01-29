@@ -32,10 +32,12 @@ use App\Http\Controllers\UserManagementController;
 Route::get('/',[HomeController::class,'index'])->name('cw-home');
 Route::get('alumni',[HomeController::class,'alumni'])->name('cw-alumni');
 Route::get('program',[ProgramController::class,'index'])->name('cw-program');
+Route::post('renderProgram',[ProgramController::class,'renderData'])->name('program-location');
 Route::get('aboutUs',[HomeController::class,'aboutUs'])->name('cw-about');
 Route::get('/news',[NewsController::class,'news'])->name('news');
 Route::get('/news/details',[NewsController::class,'newsDetails'])->name('newsDetails');
 Route::get('/curriculam',[HomeController::class,'curriculam'])->name('cw-curriculam');
+Route::post('/location',[HomeController::class,'find'])->name('cw-location');
 
 
 // student controller

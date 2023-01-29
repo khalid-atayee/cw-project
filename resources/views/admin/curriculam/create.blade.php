@@ -19,6 +19,16 @@
             </div>
 
             <div class="tw-flex">
+                <label class="tw-w-[20%] tw-p-2" for="description">description</label>
+                <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
+
+                <textarea class="tw-border tw-p-2 tw-rounded-md" name="description" id="description" placeholder="Description" cols="30" rows="10"></textarea>
+                <span class="text-danger error" id="error-description"></span>
+                
+                </div>
+            </div>
+
+            <div class="tw-flex">
                 <label class="tw-w-[20%] tw-p-2" for="chapter_id">Select chapter</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
 

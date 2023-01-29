@@ -77,6 +77,14 @@
                     <div class="card curriculam-cards rounded-2 col-md mx-2">
                         <div class="card-body">
                             <p class="text-center border-bottom p-2"><span > Module Name: <strong> {{ $curriculum->module_name }}</strong></span> </p>
+                            <div class="description-container text-center border-bottom p-2">
+                                <p> Module description:</p>
+                                <p>
+                                    {{ $curriculum->description }}
+                
+                                </p>
+            
+                            </div>
                             <div class="d-flex justify-content-between border-bottom my-2">
                                 <p class="">organizer</p>
                                 <img src="{{ asset('storage/organizerImage/'.$curriculum->organizers->image) }}" class="image-fluid" alt="">

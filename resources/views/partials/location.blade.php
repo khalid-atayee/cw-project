@@ -1,16 +1,3 @@
-@extends('index')
-@section('content')
-@include('partials.header')
-@include('partials.aboutUsHero')
-@include('partials.mission')
-@include('partials.vission')
-@include('partials.signIn')
-@include('partials.signUp')
-@include('partials.headQuarters')
-@include('partials.signIn')
-{{-- @include('partials.signUp') --}}
-@include('partials.footer')
-
 <div class="location-main-container locationToggle" id="locationModalId">
 
     <div class="location-container">
@@ -28,7 +15,7 @@
                 <p class="header-typo">location</p>
 
                 <p class="select-location-par">
-                    <select class="js-example-basic-single" style="width: 100%" name="about">
+                    <select class="js-example-basic-single" style="width: 100%" name="chapter_id">
                         @foreach ($chapters as $chapter)
                             <option value="{{ $chapter->id }}">{{ $chapter->title }} - {{ $chapter->city->city_name }}
                             </option>
@@ -51,6 +38,3 @@
 
     </div>
 </div>
-
-    
-@endsection
