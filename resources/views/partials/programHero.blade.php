@@ -14,8 +14,17 @@
              nostrum itaque quo? Eveniet, adipisci aspernatur.
            </p>
 
+<<<<<<< HEAD
          </div>
          <div class="course-info rounded-3 text-start mb-0 mx-auto w-100 ">
+=======
+            <h4 class="my-2 what-make-different-title">Codeweekend<span class="fw-bold"> (Location) </span>program</h4>
+            <h5> <span class="fw-bold landing-paragraph">Start Date:</span> 02/02/22</h5>
+            <h5> <span class="fw-bold landing-paragraph">Duration:</span> 1 Year</h5>
+            <h5> <span class="fw-bold landing-paragraph">Fees:</span> $ 2,400</h5>
+            <a href="{{ Auth::user() ? route('payment.index') : route('students.index')}}" class="cw-btn core-btn">Apply Now</a>
+          </div>
+>>>>>>> 1d5ca9f34a63396d044882135d511b20efbded4d
 
            <h4 class="my-2">Codeweekend<span class="fw-bold mb-4"> (Location) </span>program</h4>
            <div class="container">

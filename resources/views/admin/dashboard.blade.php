@@ -1,10 +1,15 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1d5ca9f34a63396d044882135d511b20efbded4d
 <x-layout>
     <x-slot name="title">Dashboard</x-slot>
     <x-slot name="header">Codeweekend is the unique platform to innovation</x-slot>
     <x-slot name="button">Join Us</x-slot>
     <div>
         
+<<<<<<< HEAD
 =======
 {{-- <x-layout>
     Dashboard
@@ -27,6 +32,8 @@
     <x-slot name="button">Join Us</x-slot>
     <div>
         
+=======
+>>>>>>> 1d5ca9f34a63396d044882135d511b20efbded4d
     </div>
 </x-layout>
 
@@ -47,5 +54,8 @@ closeModal.addEventListener('click', function(){
 
 
 </script>
+<<<<<<< HEAD
 
 {{-- <h1>hi</h1> --}}
+=======
+>>>>>>> 1d5ca9f34a63396d044882135d511b20efbded4d

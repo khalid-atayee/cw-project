@@ -120,11 +120,11 @@
 
 
      <div class="alumni-btn-container">
-       <a class="cw-btn outlined-btn-white" href="#">See More Alumni</a>
+       <a class="cw-btn outlined-btn-white" href="{{ route('cw-alumni') }}">See More Alumni</a>
      </div>
    </div>
    <div class=" alumni-btn-container-mob cw-btn mt-3">
-     <a class="cw-btn btn-dark-blue p-3 " href="#">See More Alumni</a>
+     <a class="cw-btn btn-dark-blue p-3 " href="{{ route('cw-alumni') }}">See More Alumni</a>
 
    </div>
  </div>

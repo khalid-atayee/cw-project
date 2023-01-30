@@ -32,9 +32,11 @@
                     <td class="tw-p-3">{{ $chapter->duration }}</td>
                     <td class="tw-p-3">{{ $chapter->start_date }}</td>
                     <td class="tw-p-3">{{ $chapter->end_date }}</td>
-                    <td class="tw-flex tw-space-x-2 tw-p-3">
+
+                    <td class="tw-flex tw-space-x-2 tw-p-3 items-center">
                         <div>
-                            <a class="tw-bg-orange-500 tw-px-2 tw-py-0.5 tw-rounded-md tw-text-white" href="">
+                            <a class="tw-bg-orange-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white" href="">
+
                                 <i class="fa fa-eye"></i>
                             </a>
                         </div>
@@ -44,7 +46,7 @@
                             </a>
                         </div>
                         <div>
-                            
+
                             <form class="" action="{{ route('chapters.destroy',$chapter) }}" onsubmit="return confirm('Are you sure to delete this chapter?')" method="POST">
                                 @csrf
                                 @method('delete')
@@ -52,14 +54,14 @@
                                     <i class="fa fa-trash"></i>
                                 </button>
                             </form>
-                           
+
                         </div>
-                       
-                        
+
+
                     </td>
                 </tr>
                 @endforeach
-                
+
             </tbody>
         </table>
     </div>

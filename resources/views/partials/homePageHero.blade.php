@@ -20,7 +20,11 @@
       <p class="landing-paragraph textAlign-left">As a team of outstanding consultants, our goal is to assist you and
         your team in elevating your business and maximising it's present on the web.</p>
 
+<<<<<<< HEAD
       <a class="cw-btn btn-dark-blue " href="{{ Auth::user() ? route('payment.index') : route('students.index')}}">Apply Now</a>
+=======
+        <a class="cw-btn apply-btn" href="{{ Auth::user() ? route('payment.index') : route('students.index')}}">Apply Now</a>
+>>>>>>> 1d5ca9f34a63396d044882135d511b20efbded4d
 
     </div>
 
