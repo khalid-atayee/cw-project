@@ -101,8 +101,8 @@ class StudentController extends Controller
      */
     public function store(StudentValidation $request)
     {
-        // DB::beginTransaction();
-        // try {
+        DB::beginTransaction();
+        try {
             // dd($request->chapter);
             $organizer_id = Organizer::where('chapter_id',$request->chapter)->first(['id']);
             if(!$organizer_id){
@@ -141,15 +141,15 @@ class StudentController extends Controller
                         $request->session()->regenerate();
                         Auth::login($user);
                     }
-                    // DB::commit();
+                    DB::commit();
                     return response()->json(['message' => 'your data successfully recorded'], 200);
             }
 
             }
-        // } catch (\Throwable $th) {
-        //     DB::rollback();
-        //     return response()->json(['message'=>'Something went wrong...' ,'status'=>410],200);
-        // }
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return response()->json(['message'=>'Something went wrong...' ,'status'=>410],200);
+        }
     }
 
     /**

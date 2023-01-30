@@ -87,10 +87,10 @@
 
                 <p class="select-location-par">
                     <select class="js-example-basic-single" style="width: 100%" name="newsDetails">
-                        {{-- @foreach ($chapters as $chapter)
+                        @foreach ($chapters as $chapter)
                             <option value="{{ $chapter->id }}">{{ $chapter->title }} - {{ $chapter->city->city_name }}
                             </option>
-                        @endforeach --}}
+                        @endforeach
                     </select>
                 </p>
 

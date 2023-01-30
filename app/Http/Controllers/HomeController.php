@@ -43,7 +43,22 @@ class HomeController extends Controller
             dd('home');
         }
         else if($request->program){
-            dd('program');
+        //    $chapters = Chapter::find($request->program);
+        $data = Chapter::with('organizer','mentor','curriculumTemplate')->where('id',$request->program)->get();
+        // dd($data[0]->curriculumTemplate);
+        // echo '<pre>';
+        // print_r($data[0]->curriculumTemplate);
+        // exit;
+        $chapters = Chapter::all();
+        return view('program.program',compact('data','chapters'));
+
+        }
+
+        else if($request->about){
+            dd('about');
+        }
+        else if($request->alumni){
+            dd('alumni');
         }
     //    $chapter_id = $request->chapter_id;
 

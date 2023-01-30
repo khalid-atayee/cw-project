@@ -10,6 +10,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chapter;
 use App\Models\payments;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -62,7 +63,8 @@ class PaymentGateWayController extends Controller
               // swal("Payment done successfully !");
 
             Session::flash ( 'success-message', 'Payment done successfully, we will get back to you soon' );
-            return view('home.home')->with('message','Payment done successfully ! we will contact you soon');
+            $chapters = Chapter::all();
+            return view('home.home',compact('chapters'))->with('message','Payment done successfully ! we will contact you soon');
             // return view ( 'cardForm' );
         } catch ( \Stripe\Error\Card $e ) {
             Session::flash ( 'fail-message', $e->get_message() );

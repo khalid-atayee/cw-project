@@ -14,21 +14,14 @@
 
     <div class="module-container-curriculm">
         <div class="container-module-two">
-            {{-- @if (isset($data))
-
-                @foreach ($data as $curriculum)
-                    <div class="module m-2">
+            <div class="module m-2">
 
 
-                        <h4>{{ $curriculum }}</h4> --}}
-                        {{-- <p>{{ $curriculum->curriculumTemplate->description }}</p> --}}
-
-                    {{-- </div>
-                    <img src="images/Line 22.png" alt="" class="vertical-vector">
-                    <img src="images/Line 20.png" alt="" class="horizontal-vector">
-                @endforeach
-            @endif --}}
-
+                <h4>Preparation</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, itaque.</p>
+            </div>
+            <img src="images/Line 22.png" alt="" class="vertical-vector">
+            <img src="images/Line 20.png" alt="" class="horizontal-vector">
 
             <div class="module m-2">
 
@@ -41,6 +34,8 @@
             <img src="images/Line 22.png" alt="" class="vertical-vector">
             <img src="images/Line 20.png" alt="" class="horizontal-vector">
 
+        </div>
+        <div class="container-module-two">
             <div class="module m-2">
 
 
@@ -99,9 +94,9 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, itaque.</p>
         </div>
 
-        </div>
-
-
-        <!-- <p class="text-center fst-italic">(click on any card to see the details)</p> -->
-        <a href="{{ route('cw-curriculam') }}" class="cw-btn meet-our-team-btn">See The Schedule</a>
     </div>
+
+
+    <!-- <p class="text-center fst-italic">(click on any card to see the details)</p> -->
+    <a href="{{ route('cw-curriculam') }}" class="cw-btn meet-our-team-btn">See The Schedule</a>
+</div>
