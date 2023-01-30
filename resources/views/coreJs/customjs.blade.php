@@ -6,61 +6,37 @@
     });
 
 
-<<<<<<< HEAD
     function authenticate(url, method, formId) {
         $('#' + formId).submit(e => e.preventDefault());
 
         let data = $('#' + formId).serialize();
         $('.error').text('');
 
-=======
-    function authenticate(url, method, formId){
-        $('#'+formId).submit(e=>e.preventDefault());
-
-        let data = $('#'+formId).serialize();
-        $('.error').text('');
-        
->>>>>>> 1d5ca9f34a63396d044882135d511b20efbded4d
         $.ajax({
             type: method,
             url: url,
             data: data,
             dataType: "json",
-<<<<<<< HEAD
             success: function(response) {
                 if (response.status == 210) {
-=======
-            success: function (response) {
-                if(response.status==210){
->>>>>>> 1d5ca9f34a63396d044882135d511b20efbded4d
                     Swal.fire({
                         position: 'top-end',
                         icon: 'error',
                         title: response.message,
                         showConfirmButton: false,
                         timer: 1500
-<<<<<<< HEAD
                     })
                     $('#' + formId)[0].reset();
 
 
                 }
                 if (response.status == 200) {
-=======
-                        })
-        $('#'+formId)[0].reset();
-
-
-                }
-                if(response.status==200){
->>>>>>> 1d5ca9f34a63396d044882135d511b20efbded4d
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
                         title: response.message,
                         showConfirmButton: false,
                         timer: 1500
-<<<<<<< HEAD
                     })
                     $('#' + formId)[0].reset();
 
@@ -68,22 +44,12 @@
 
                 }
                 if (response.status == 300) {
-=======
-                        })
-        $('#'+formId)[0].reset();
-
-                    location.href="/";
-
-                }
-                if(response.status==300){
->>>>>>> 1d5ca9f34a63396d044882135d511b20efbded4d
                     Swal.fire({
                         position: 'top-end',
                         icon: 'error',
                         title: response.message,
                         showConfirmButton: false,
                         timer: 1500
-<<<<<<< HEAD
                     })
                     $('#' + formId)[0].reset();
 
@@ -98,28 +64,11 @@
 
 
                 });
-=======
-                        })
-        $('#'+formId)[0].reset();
-
-
-                }
-                
-            },
-            error: function (response){
-                
-                $.each(response.responseJSON.errors, function (key, value) { 
-                $('#error-'+key).text(value);
-
-                 
-            });
->>>>>>> 1d5ca9f34a63396d044882135d511b20efbded4d
             }
         });
     }
 
     // this function is responsible for posting data to serve
-<<<<<<< HEAD
     function postForm(url, method, formId) {
         $('#' + formId).submit(e => e.preventDefault());
 
@@ -136,29 +85,10 @@
                     title: response.message,
                     text: 'would like to redirect you to payment page?',
 
-=======
-    function postForm(url,method,formId){
-    $('#'+formId).submit(e=>e.preventDefault());
-
-    let data = $('#'+formId).serialize();
-    $.ajax({
-        type: method,
-        url: url,
-        data: data,
-        dataType: "json",
-        success: function (response) {
-            $('.validation-error').text(''); 
-            Swal.fire({
-                    icon: 'success',
-                    title:response.message,
-                    text:'would like to redirect you to payment page?',
-    
->>>>>>> 1d5ca9f34a63396d044882135d511b20efbded4d
                     showDenyButton: true,
                     // showCancelButton: true,
                     confirmButtonText: 'Yes',
                     denyButtonText: `No`,
-<<<<<<< HEAD
                 }).then((result) => {
                     if (result.isConfirmed) {
                         location.href = "{{ route('payment.index') }}"
@@ -183,58 +113,11 @@
             }
         });
 
-=======
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            location.href="{{ route('payment.index') }}"
-                        }
-                        else if(result.isDenied){
-                            location.href="/"
-
-
-                        }
-
-                    })
-            
-        
-        },
-        error: function(response){
-            console.log(response.responseJSON.errors)
-      
-            $.each(response.responseJSON.errors, function (key, value) { 
-                $('#error-'+key).text(value);
-
-                 
-            });
-        }
-    });
-    
->>>>>>> 1d5ca9f34a63396d044882135d511b20efbded4d
     }
 
     $(function() {
 
 
-<<<<<<< HEAD
-=======
-
-
-
-$('.slide-one-item').owlCarousel({
-    center: false,
-    autoplayHoverPause: true,
-    items: 1,
-    loop: true,
-    stagePadding: 0,
-    margin: 10,
-    smartSpeed: 1500,
-    autoplay: true,
-    pauseOnHover: false,
-    dots: true,
-    nav: true,
-    navText: ['<span class="icon-keyboard_arrow_left">', '<span class="icon-keyboard_arrow_right">']
-});
->>>>>>> 1d5ca9f34a63396d044882135d511b20efbded4d
 
 
 

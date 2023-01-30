@@ -16,7 +16,7 @@ class OrganizerController extends Controller
     public function index()
     {
         $organizers = Organizer::all();
-        return view('admin.organizers.index',compact('organizers'));
+        return view('admin.organizers.index', compact('organizers'));
     }
 
     /**
@@ -27,7 +27,7 @@ class OrganizerController extends Controller
     public function create()
     {
         $chapters = Chapter::all();
-        return view('admin.organizers.create',compact('chapters'));
+        return view('admin.organizers.create', compact('chapters'));
     }
 
     /**
@@ -38,19 +38,15 @@ class OrganizerController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< HEAD
-        //
-=======
-        
+
         Organizer::create([
             'name' => $request->organizer_name,
             'description' => $request->description,
             'image' => "images",
             'chapter_id' => $request->chapter_id
         ]);
-        
+
         return redirect()->route('organizers.index');
->>>>>>> 1d5ca9f34a63396d044882135d511b20efbded4d
     }
 
     /**

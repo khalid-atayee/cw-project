@@ -1191,57 +1191,15 @@ ul {
 
     /* gap: .4em; */
 }
-<<<<<<< HEAD
 .signIn-title > span {
     color: #14213d;
-=======
-.signIn-container{
-
-  display: flex;
-  flex-direction: column;
-  /* gap: .9em; */
-  border-radius: 15px;
-  padding: .7em;
-  background-color: white;
-  /* width: 25%; */
->>>>>>> 1d5ca9f34a63396d044882135d511b20efbded4d
 }
 .signInToggle,
 .signUpToggle {
     display: none;
 }
-<<<<<<< HEAD
 .icon-title {
     padding-left: 0.7em;
-=======
-.signIn-title{
-  font-size: var(--fs-logo-query-small);
-  font-family: var(--ff-arial-rounded);
-
-}
-.signIn-title{
-  
-  /* text-align: center; */
-  display: flex;
-  justify-content: center;
- 
-  /* gap: .4em; */
-
-}
-#sign-in-input-field{
-  display: flex;
-  flex-direction: column;
-  gap: .8em;
-}
-.signIn-title>span{
-  color: #14213D;
-}
-.signInToggle, .signUpToggle{
-  display: none;
-}
-.icon-title{
-  padding-left: .7em;
->>>>>>> 1d5ca9f34a63396d044882135d511b20efbded4d
 }
 
 .inputField-container-form {
@@ -1907,15 +1865,6 @@ h5 {
     justify-self: start;
     margin-top: 3em;
 }
-<<<<<<< HEAD
-=======
-.coding-bootcamp-location>a{
-  width: fit-content;
-  margin-top: 2em;
-}
-
-
->>>>>>> 1d5ca9f34a63396d044882135d511b20efbded4d
 
 /* coding bootcamp location end here ===
 =====*/
@@ -2007,6 +1956,10 @@ h5 {
     height: fit-content;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
     color: var(--text-color);
+}
+.line-h-1 {
+    line-height: 1.8;
+    font-size: 120%;
 }
 .course-info {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 5px;
@@ -2740,7 +2693,6 @@ i {
 }
 /* Alumni page end here +++++==== */
 
-<<<<<<< HEAD
 /* register start here */
 .register-form textarea {
     resize: none;
@@ -2757,30 +2709,10 @@ i {
     .register-form .btn-submit {
         padding: 0.5em 4em;
     }
-=======
-
-/* register start here */
-.register-form textarea {
-  resize: none;
-}
-.register-form label::after {
-  content: "*";
-  color: red;
-}
-@media (min-width: 900px) {
-  .register-form {
-    width: 80%;
-    margin: auto;
-  }
-  .register-form .btn-submit {
-    padding: 0.5em 4em;
-  }
->>>>>>> 1d5ca9f34a63396d044882135d511b20efbded4d
 }
 
 /* register end here */
 
-<<<<<<< HEAD
 /* payment method */
 .main-container {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
@@ -2813,38 +2745,56 @@ i {
     content: "*";
     color: brown;
 }
-=======
+
+/* register start here */
+.register-form textarea {
+    resize: none;
+}
+.register-form label::after {
+    content: "*";
+    color: red;
+}
+@media (min-width: 900px) {
+    .register-form {
+        width: 80%;
+        margin: auto;
+    }
+    .register-form .btn-submit {
+        padding: 0.5em 4em;
+    }
+}
+
+/* register end here */
 
 /* payment method */
 .main-container {
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
-  margin: 20px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+    margin: 20px;
 }
 .fees {
-  border: 1px solid lightgray;
-  padding: 10px;
-  border-radius: 10px;
-  display: inline-block;
+    border: 1px solid lightgray;
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
 }
 .payment-icons {
-  width: 40px;
+    width: 40px;
 }
 
 .payment-info {
-  display: inline-block;
-  border: 1px solid gray;
+    display: inline-block;
+    border: 1px solid gray;
 }
 .active {
-  display: inline-block;
+    display: inline-block;
 }
 .payment-selection img {
-  width: 50%;
+    width: 50%;
 }
 .payment-selection {
-  margin: 1rem;
+    margin: 1rem;
 }
 .payment-form label::after {
-  content: "*";
-  color: brown;
+    content: "*";
+    color: brown;
 }
->>>>>>> 1d5ca9f34a63396d044882135d511b20efbded4d
