@@ -1834,12 +1834,48 @@ h5 {
     height: 70vh;
     padding: 0;
 }
+
 .news-hero-text {
     background-color: rgba(0, 0, 0, 0.486);
     margin: 0;
 }
 .news-cards-group {
     min-width: 18rem;
+}
+
+.news-cards-group .card-img-wrap {
+    overflow: hidden;
+    position: relative;
+}
+.news-cards-group a {
+    color: inherit !important;
+}
+
+.news-cards-group a:hover {
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+}
+.news-cards-group .card-img-wrap:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.3);
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+.news-cards-group .card-img-wrap img {
+    transition: transform 0.25s;
+    width: 100%;
+}
+.news-cards-group .card:hover img {
+    transform: scale(1.2);
+}
+.news-cards-group .card-img-wrap:hover:after {
+    opacity: 1;
 }
 /* coding bootcamp location start here ===
 =====*/
