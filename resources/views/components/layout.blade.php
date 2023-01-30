@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="{{ asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    {{-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="{{ asset('tw-elements/dist/css/index.min.css') }}">
     <style>
         @font-face{
             font-family: roboto-bold;
@@ -27,7 +28,7 @@
             <div class="tw-w-[50%] tw-mx-auto tw-shadow-md tw-shadow-indigo-600 tw-m-2 tw-rounded-md tw-border tw-border-indigo-600">
                 <img src="{{ asset('images/codeweekend.png') }}" alt="">
             </div>
-            <div id="nav-links" class=" tw-flex tw-flex-col tw-bg-blue-500/40 tw-divide-y tw-divide-indigo-900 tw-mt-4  tw-text-xl tw-font-[roboto-bold] tw-sticky tw-top-1">
+            <div id="nav-links" class=" tw-flex tw-flex-col tw-bg-blue-500/40 tw-divide-y tw-divide-indigo-900 tw-mt-4 tw-font-[roboto-bold] tw-sticky tw-top-1">
                 <a id="dashboard" class="tw-px-4 tw-py-3 tw-bg-blue-600 tw-flex tw-justify-between tw-items-center" href="{{ route('dashboard') }}">
                     <div class="tw-space-x-2">
                         <span><i class="fa fa-home"></i></span>
@@ -35,6 +36,7 @@
                     </div>
                     <i class="fa fa-angle-left"></i>
                 </a>
+                
                 <a id="chapters" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="{{ route('chapters.index') }}">
                     <div class="tw-space-x-2">
                         <span><i class="fa fa-book"></i></span>
@@ -46,6 +48,13 @@
                     <div class="tw-space-x-2">
                         <span><i class="fa fa-user"></i></span>
                         <span>Organizers</span>
+                    </div>
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                <a id="mentors" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="">
+                    <div class="tw-space-x-2">
+                        <span><i class="fa fa-user"></i></span>
+                        <span>Curriculam Modules</span>
                     </div>
                     <i class="fa fa-angle-left"></i>
                 </a>
@@ -84,28 +93,28 @@
                     </div>
                     <i class="fa fa-angle-left"></i>
                 </a>
-                <a id="alumni" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="">
+                <a id="alumni" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="{{ route('alumnis.index') }}">
                     <div class="tw-space-x-2">
                         <span><i class="fa fa-graduation-cap"></i></span>
                         <span>Alumni</span>
                     </div>
                     <i class="fa fa-angle-left"></i>
                 </a>
-                <a id="feedback" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="">
+                <a id="feedback" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="{{ route('feedbacks') }}">
                     <div class="tw-space-x-2">
                         <span><i class="fa fa-commenting"></i></span>
                         <span>Feedback</span>
                     </div>
                     <i class="fa fa-angle-left"></i>
                 </a>
-                <a id="teams" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="">
+                <a id="teams" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="{{ route('team.index') }}">
                     <div class="tw-space-x-2">
                         <span><i class="fa fa-users"></i></span>
                         <span>Teams</span>
                     </div>
                     <i class="fa fa-angle-left"></i>
                 </a>
-                <a id="news" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="">
+                <a id="news" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="{{ route('news.index') }}">
                     <div class="tw-space-x-2">
                         <span><i class="fa fa-newspaper-o"></i></span>
                         <span>News</span>
@@ -154,6 +163,7 @@
     </div>
    
   
-    
+    <script src="{{ asset('tw-elements/dist/js/index.min.js') }}"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

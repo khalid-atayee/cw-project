@@ -8,6 +8,28 @@
       <section class="meet-our-team-container">
         <div class="meet-our-team-content">
           <div class="meet-our-team-values">
+            <img src="{{ asset('storage/team/'. $first->photo) }}" alt="">
+            <div class="paragraphs">
+              <!-- <h5 style="visibility: hidden;">Organiser</h5> -->
+              <h3 class="what-make-different-title">{{ $first->name }}</h3>
+              <h5 class="some-paragraph-title" id="organizerr">{{ $first->role }}</h5>
+              <p class="some-paragraph-title" >{{ $first->short_bio }}</p>
+            </div>
+          </div>
+          <div class="meet-our-team-values ">
+            <div class="paragraphs texts-bottom ">
+              <h3 class="what-make-different-title "> Mr.Mustafa Ehsan Alokozay </h3>
+              <h5 class="some-paragraph-title">Mentor</h5>
+              <p class="some-paragraph-title" >Mustafa Alokozay is an open source enthusiast
+                and has contributed to several open source projects.
+                He has extensive experience.</p>
+            </div>
+            <img src="{{ asset('images/person_2.jpeg') }}" alt="">
+  
+          </div>
+        </div>
+        <div class="meet-our-team-content">
+          <div class="meet-our-team-values">
             <img src="{{ asset('images/person_1.jpeg') }}" alt="">
             <div class="paragraphs">
               <!-- <h5 style="visibility: hidden;">Organiser</h5> -->
