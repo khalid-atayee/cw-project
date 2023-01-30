@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alumni;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -9,15 +11,19 @@ class HomeController extends Controller
 
 
     function index(){
-        return view('home.home');
+        $members = Team::all();
+        $first = Team::first();
+        return view('home.home', compact('members','first'));
 
     }
 
     function alumni(){
-        return view('alumni.alumni');
+        $alumnis = Alumni::all();
+        return view('alumni.alumni',compact('alumnis'));
     }
     function aboutUs(){
-        return view('about.aboutUs');
+        $alumnis = Alumni::all();
+        return view('about.aboutUs', compact('alumnis'));
     }
     function curriculam(){
         return view('curriculam.curriculamIndex');
