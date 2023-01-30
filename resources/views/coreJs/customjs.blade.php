@@ -212,6 +212,10 @@
         document.getElementById('signUpId').classList.remove('signUpToggle')
     }
 
+    function showSignUpModel() {
+        document.getElementById('signInId').classList.add('signInToggle')
+        document.getElementById('signUpId').classList.remove('signUpToggle')
+    }
 
 
 

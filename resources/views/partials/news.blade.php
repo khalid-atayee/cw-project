@@ -1,60 +1,126 @@
-<div>
-    <div class="sm:tw-flex sm:tw-flex-col sm:tw-max-w-[80%] sm:tw-mx-auto sm:tw-p-10">
-        <div class="tw-flex tw-flex-col tw-border tw-rounded-md tw-overflow-hidden tw-shadow">
-            <div>
-                <img src="{{ asset('images/news_images/code.jpg') }}" alt="" class="tw-w-full">
+<div class="container news-container">
+    <h1 class="text-center my-4 fw-bold">
+        News Page
+    </h1>
+    <div class="row">
+
+        <div class="news-hero  d-flex flex-column justify-content-between col-12" data-aos="zoom-in">
+            <div></div>
+
+            <div class="text-center  p-1 news-hero-text ">
+                <h1>
+                    This is the title
+                </h1>
+                <p class="px-2">
+                    lorem epsum this is a dommy text for the text provided above. lorem epsum this is a dommy text for the text provided above
+                    lorem epsum this is a dommy text for the text provided above. lorem epsum this is a dommy text for the text provided above
+                    lorem epsum this is a dommy text for the text provided above. lorem epsum this is a dommy text for the text provided above
+                </p>
+                <p class="card-text "><small class="">Last updated 3 hrs ago</small></p>
             </div>
-            <div class="tw-p-3">
-                <h1 style="font-family: roboto,'Times New Roman', Times, serif;" class="tw-text-5xl tw-uppercase tw-text-center tw-text-red-400">Codeweekend the best progem ever</h1>
-            </div>
-            <div>
-                <p class="tw-text-center tw-px-10 tw-py-3">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Est aut modi minima placeat. Quidem, minima quae sit fugiat et officia asperiores? Praesentium iure recusandae, tempora molestiae dicta aut? Unde, dolorum!
+
+        </div>
+        <div class="card border-1 my-3">
+            <h5 class="card-header">Recent</h5>
+            <div class="card-body ">
+                <p>
+                    <a href="#">lorem epsum</a>
+                </p>
+                <p>
+                    <a href="#">lorem epsum</a>
+                </p>
+                <p>
+                    <a href="#">lorem epsum</a>
                 </p>
             </div>
+        </div>
+
+        <div class="cards-group news-cards-group d-flex flex-wrap justify-content-around text-center">
+
+            <a href="#" class="card me-3 mb-3 col-sm-5 col-12 col-md-3" data-aos="fade-down">
+                <div>
+                    <div class="card-img-wrap">
+                        <img src="images/person_2.jpeg" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="card me-3 mb-3 col-sm-5 col-12 col-md-3" data-aos="fade-left">
+                <div>
+                    <div class="card-img-wrap">
+                        <img src="images/person_2.jpeg" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="card me-3 mb-3 col-sm-5 col-12 col-md-3" data-aos="fade-right">
+                <div>
+                    <div class="card-img-wrap">
+                        <img src="images/person_2.jpeg" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="card me-3 mb-3 col-sm-5 col-12 col-md-3" data-aos="fade-up">
+                <div>
+                    <div class="card-img-wrap">
+                        <img src="images/person_2.jpeg" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="card me-3 mb-3 col-sm-5 col-12 col-md-3" data-aos="fade-down">
+                <div>
+                    <div class="card-img-wrap">
+                        <img src="images/person_2.jpeg" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="card me-3 mb-3 col-sm-5 col-12 col-md-3" data-aos="fade-left">
+                <div>
+                    <div class="card-img-wrap">
+                        <img src="images/person_2.jpeg" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </a>
 
         </div>
-        
-        <!-- recent posts -->
-        <div class="tw-p-10 tw-border tw-mt-10 tw-rounded-md tw-shadow">
-            <h1 class="tw-border-b-2 tw-font-bold tw-text-xl">
-                Recents
-            </h1>
-            <div class="tw-flex tw-flex-col tw-p-2">
-                <a class="tw-underline" href="">some random posts click to view with full detilas</a>
-                <a class="tw-underline" href="">some random posts click to view with full detilas</a>
-                <a class="tw-underline" href="">some random posts click to view with full detilas</a>
-            </div>
-
+        <div class="text-center my-3" data-aos="fade-up">
+            <button class="cw-btn btn-dark-blue text-center">load More</button>
         </div>
-        <!-- more posts -->
-        <div class="md:tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-3  tw-mt-10">
 
-            <div class="tw-flex tw-flex-col sm:tw-max-w-md tw-rounded-md tw-overflow-hidden tw-border">
-                <img class="tw-w-full" src="{{ asset('images/news_images/office.jpg') }}" alt="">
-                <h1 class="tw-text-2xl font-[roboto] tw-p-2">Using responsive utility variants to build adaptive user interfaces.</h1>
-                <p class="tw-truncate tw-p-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque odit cupiditate doloremque itaque. Nesciunt, incidunt dolorum reprehenderit eos sequi deleniti vero doloremque unde modi quibusdam. Nisi atque ex vel corrupti.</p>
-                <a class="tw-px-5 tw-py-3 tw-bg-[#111B31] tw-text-[#FFFFFF] tw-text-center tw-text-xl tw-mx-10 tw-my-2 tw-rounded-md" href="{{ route('newsDetails') }}">Read More</a>
-            </div>
-            <div class="tw-flex tw-flex-col sm:tw-max-w-md tw-rounded-md tw-overflow-hidden tw-border">
-                <img class="tw-w-full" src="{{ asset('images/news_images/office.jpg') }}" alt="">
-                <h1 class="tw-text-2xl font-[roboto] tw-p-2">Using responsive utility variants to build adaptive user interfaces.</h1>
-                <p class="tw-truncate tw-p-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque odit cupiditate doloremque itaque. Nesciunt, incidunt dolorum reprehenderit eos sequi deleniti vero doloremque unde modi quibusdam. Nisi atque ex vel corrupti.</p>
-                <a class="tw-px-5 tw-py-3 tw-bg-[#111B31] tw-text-[#FFFFFF] tw-text-center tw-text-xl tw-mx-10 tw-my-2 tw-rounded-md" href="./postDetails.html">Read More</a>
-            </div>
-            <div class="tw-flex tw-flex-col sm:tw-max-w-md tw-rounded-md tw-overflow-hidden tw-border">
-                <img class="tw-w-full" src="{{ asset('images/news_images/office.jpg') }}" alt="">
-                <h1 class="tw-text-2xl font-[roboto] tw-p-2">Using responsive utility variants to build adaptive user interfaces.</h1>
-                <p class="tw-truncate tw-p-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque odit cupiditate doloremque itaque. Nesciunt, incidunt dolorum reprehenderit eos sequi deleniti vero doloremque unde modi quibusdam. Nisi atque ex vel corrupti.</p>
-                <a class="tw-px-5 tw-py-3 tw-bg-[#111B31] tw-text-[#FFFFFF] tw-text-center tw-text-xl tw-mx-10 tw-my-2 tw-rounded-md" href="./postDetails.html">Read More</a>
-            </div>
-            <div class="tw-flex tw-flex-col sm:tw-max-w-md tw-rounded-md tw-overflow-hidden tw-border">
-                <img class="tw-w-full" src="{{ asset('images/news_images/office.jpg') }}" alt="">
-                <h1 class="tw-text-2xl font-[roboto] tw-p-2">Using responsive utility variants to build adaptive user interfaces.</h1>
-                <p class="tw-truncate tw-p-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque odit cupiditate doloremque itaque. Nesciunt, incidunt dolorum reprehenderit eos sequi deleniti vero doloremque unde modi quibusdam. Nisi atque ex vel corrupti.</p>
-                <a class="tw-px-5 tw-py-3 tw-bg-[#111B31] tw-text-[#FFFFFF] tw-text-center tw-text-xl tw-mx-10 tw-my-2 tw-rounded-md" href="./postDetails.html">Read More</a>
-            </div>
-           
-        </div>
+
+
+
+
     </div>
+
+
+
 </div>

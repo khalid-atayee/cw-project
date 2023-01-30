@@ -10,6 +10,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Chapter;
+
+use App\Models\Alumni;
+use App\Models\Team;
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -17,19 +21,34 @@ class HomeController extends Controller
 
 
     function index(){
+
         $chapters = Chapter::all();
-        return view('home.home',compact('chapters'));
+        $members = Team::all();
+        $first = Team::first();
+        return view('home.home',compact('chapters','members','first'));
+
+        // return view('home.home', compact('members','first'));
+
 
     }
 
     function alumni(){
+
         $chapters = Chapter::all();
-        return view('alumni.alumni',compact('chapters'));
+        $alumnis = Alumni::all();
+        return view('alumni.alumni',compact('chapters','alumnis'));
+
+        // return view('alumni.alumni',compact('alumnis'));
+
     }
 
     function aboutUs(){
+
         $chapters = Chapter::all();
-        return view('about.aboutUs',compact('chapters'));
+        $alumnis = Alumni::all();
+        return view('about.aboutUs',compact('chapters','alumnis'));
+
+
     }
 
     function curriculam(){

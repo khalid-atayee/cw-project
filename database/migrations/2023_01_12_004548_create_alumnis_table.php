@@ -18,7 +18,8 @@ class CreateAlumnisTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->date('graduation_year');
-
+            $table->string('photo');
+            $table->string('linkedin')->nullable();
             $table->timestamps();
         });
     }

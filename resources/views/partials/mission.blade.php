@@ -1,28 +1,26 @@
  <!-- mission start here =====
   ===== -->
 
-  <div class="container mision-container">
+ <div class="container " data-aos="fade-left">
+   <row>
 
-    <div class="row">
-      <div class="col-md-6 col-xs-4 mx-auto d-block text-center">
-        <h3 class="largest-typo">Mission</h3>
-        <p class="landing-paragraph">We help you find a job and we have one condition for that. Finish the Bootcamp successfully.
-          It is intensive! We help you out with that.
+     <div class=" d-flex flex-column flex-md-row gap-3 align-items-start">
+       <div class="col content">
+         <h1>
+           Mission
+         </h1>
+         <p class="text-left line-h-1">We help you find a job and we have one condition for that. Finish the Bootcamp successfully. It is intensive! We help you out with that. We help you find a job and we have one condition for that. Finish the Bootcamp successfully. It is intensive! We help you out with that. We help you find a job and we have one condition for that. Finish the Bootcamp successfully. It is intensive! We help you out with that.</p>
+       </div>
 
-          We help you find a job and we have one condition for that. Finish the Bootcamp successfully.
-          It is intensive! We help you out with that.
-          We help you find a job and we have one condition for that. Finish the Bootcamp successfully.
-          It is intensive! We help you out with that.
-        </p>
-      </div>
-      <div class="col-md-6 col-xs-4 mx-auto d-block">
-        <img src="images/vision.jpg" alt="" class="img-fluid img-thumbnail">
-      </div>
-    </div>
-    
-  </div>
+       <div class="col mx-auto m-1">
+         <img src="images/mission.jpg" alt="" class="h-100 align-self-center" data-aos="fade-right">
+       </div>
+     </div>
+   </row>
+
+ </div>
 
 
 
-  <!-- mission end here =====
+ <!-- mission end here =====
 ==== -->

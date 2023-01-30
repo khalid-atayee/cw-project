@@ -71,5 +71,7 @@ class PaymentGateWayController extends Controller
             // return view ( 'cardForm' );
         }
 
-    }
+      // return view ( 'cardForm' );
+   
+  }
 }

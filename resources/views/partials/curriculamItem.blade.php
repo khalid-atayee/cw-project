@@ -1,7 +1,7 @@
 <div class="container mx-auto">
     <header class="curriculam-hero text-center my-2">
 
-        <h1  class="mission-typo">
+        <h1 class="mission-typo">
             What will you learn?
         </h1>
         <p class="some-paragraph-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ipsum, similique, sint ad dignissimos
@@ -198,7 +198,7 @@
             <h5 class="mission-typo">Codeweekend Coding Bootcamp</h5>
             <p class="some-paragraph-title">Learn from A to Z of the web development including but not limited to the full
                 stack web developemnt</p>
-                <br><br>
+            <br><br>
             <div class="curriculam-page-btn">
 
                 <a href="{{ Auth::user() ? route('payment.index') : route('students.index')}}" class="cw-btn">Apply Now</a>
