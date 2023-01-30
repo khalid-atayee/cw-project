@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,9 +25,9 @@
     <link rel="stylesheet" href="{{ asset('tw-elements/dist/css/index.min.css') }}">
 
     <style>
-        @font-face {
+        @font-face{
             font-family: roboto-bold;
-            src: url('{{ asset(' fonts/Roboto-Bold.ttf') }}');
+            src: url('{{ asset('fonts/Roboto-Bold.ttf') }}');
         }
 
         /* @font-face {
@@ -129,7 +128,6 @@
     </style>
     <title>{{ $title ?? 'Codeweekend' }}</title>
 </head>
-
 <body>
 
     <div style="display: flex">
