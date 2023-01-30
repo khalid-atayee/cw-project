@@ -1135,38 +1135,6 @@ ul {
 /* Style the buttons that are used to open and close the faq-page body */
 
 /* Style the faq-page panel. Note: hidden by default */
-<<<<<<< HEAD
-.faq-body {
-
-  background-color: white;
-  display: none;
-  overflow: hidden;
-}
-
-.faq-page:after {
-  font-family: "Font Awesome 5 Free";
-  content: '\02C4';
-
-  font-size: 1.5rem;
-  font-weight: 900;
-  float: right;
-  margin-left: 5px;
-}
-
-
-.faq-active:after {
-  font-family: "Font Awesome 5 Free";
-  content: "\02C5";
-  font-size: 1.5rem;
-  font-weight: 900;
-}
-
-.faq-content{
-  padding-bottom: .5em;
-}
-
-=======
->>>>>>> e2483107f2a3fb55761798c8e277f697f516dc0d
 
 /* =====+++++++====== */
 /* .faq-container-main{
@@ -2824,76 +2792,6 @@ i {
     margin: 1rem;
 }
 .payment-form label::after {
-<<<<<<< HEAD
-  content: "*";
-  color: brown;
-}
-
-
-
-/* location start here */
-.location-main-container {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, .6);
-  display: grid;
-  place-items: center;
-
-
-}
-
-.location-container {
-
-
-  border-radius: 15px;
-  padding: .5em 1em;
-  background-color: white;
-  max-width: 100%;
-  max-width: 500px;
-  width: 100%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: .3em;
-}
-
-
-.locationToggle{
-  display: none;
-}
-.location-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #999999;
-  padding-bottom: .5em;
-
-}
-
-.btn-primary{
-  background-color: #0275d8;
-}
-.location-main{
-  padding: 2em 0em;
-}
-.location-main>p{
-  text-align: left;
-}
-.location-footer{
-  display: flex;
-  justify-content: right;
-  gap: .5em;
-  padding-top: .5em;
-  border-top: 1px solid #999999;
-
-
-}
-.select-location-par{
-  margin-top: .5em;
-}
-
-/* location end here */
-=======
     content: "*";
     color: brown;
 }
@@ -2950,4 +2848,67 @@ i {
     content: "*";
     color: brown;
 }
->>>>>>> e2483107f2a3fb55761798c8e277f697f516dc0d
+
+
+/* location start here */
+.location-main-container {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .6);
+    display: grid;
+    place-items: center;
+  
+  
+  }
+  
+  .location-container {
+  
+  
+    border-radius: 15px;
+    padding: .5em 1em;
+    background-color: white;
+    max-width: 100%;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: .3em;
+  }
+  
+  
+  .locationToggle{
+    display: none;
+  }
+  .location-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #999999;
+    padding-bottom: .5em;
+  
+  }
+  
+  .btn-primary{
+    background-color: #0275d8;
+  }
+  .location-main{
+    padding: 2em 0em;
+  }
+  .location-main>p{
+    text-align: left;
+  }
+  .location-footer{
+    display: flex;
+    justify-content: right;
+    gap: .5em;
+    padding-top: .5em;
+    border-top: 1px solid #999999;
+  
+  
+  }
+  .select-location-par{
+    margin-top: .5em;
+  }
+  
+  /* location end here */

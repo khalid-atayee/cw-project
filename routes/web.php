@@ -26,8 +26,6 @@ use App\Http\Controllers\OrganizerController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserManagementController;
 
-use App\Http\Controllers\AuthenticationController;
-use App\Http\Controllers\CurriculamTemplateController;
 
 
 
@@ -50,10 +48,12 @@ Route::post('renderProgram', [ProgramController::class, 'renderData'])->name('pr
 Route::get('aboutUs', [HomeController::class, 'aboutUs'])->name('cw-about');
 Route::get('/news', [NewsController::class, 'news'])->name('news');
 Route::get('/news/details', [NewsController::class, 'newsDetails'])->name('newsDetails');
+
 Route::get('/curriculam', [HomeController::class, 'curriculam'])->name('cw-curriculam');
+
 Route::post('/location', [HomeController::class, 'find'])->name('cw-location');
 
-Route::get('/news/details/{news}', [NewsController::class, 'newsDetailsData'])->name('newsDetails');
+// Route::get('/news/details/{news}', [NewsController::class, 'newsDetailsData'])->name('newsDetails');
 
 
 
@@ -92,7 +92,6 @@ Route::group(['middleware' => ['AuthCheck']], function () {
         'team' => TeamController::class,
         'cities' => CityController::class,
 
-        'curriculam' => CurriculamTemplateController::class,
     ]);
 
     Route::get('createMail', [MentorController::class, 'createMail'])->name('mentor.createMail');

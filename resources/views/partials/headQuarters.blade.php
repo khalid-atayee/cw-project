@@ -4,7 +4,7 @@
    <h2 class="text-center mission-typo mb-4">Our Alumni</h2>
 
    <div class="cards-group news-cards-group d-flex flex-wrap justify-content-around text-center">
-     @foreach ($alumnis as $alumni)
+     {{-- @foreach ($alumnis as $alumni)
      <div class="card mentor-card" data-aos="fade-down">
        <div class="card-img-wrap">
          <img src="{{ asset('storage/alumnis/' . $alumni->photo) }}">
@@ -19,7 +19,73 @@
          </div>
        </div>
      </div>
-     @endforeach
+     @endforeach --}}
+
+     <div class="cards-group news-cards-group d-flex flex-wrap justify-content-around text-center">
+
+      <div class="card mentor-card" data-aos="fade-down">
+        <div class="card-img-wrap">
+          <img src="Images/Rectangle 33.png">
+        </div>
+        <div class="card-body-content">
+          <div class="card-body-text">
+            <h5 class="fw-bold">Card title</h5>
+            <p>General Manager</p>
+          </div>
+          <div class="vector-img-card">
+            <a class="vector-img social-icon" href="#"><img src="Images/Vector.png" alt="" style="height: 24px; width: 24px;"></a>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="card mentor-card" data-aos="fade-up">
+        <div class="card-img-wrap">
+          <img src="Images/Rectangle 33.png">
+        </div>
+        <div class="card-body-content">
+          <div class="card-body-text">
+            <h5 class="fw-bold">Card title</h5>
+            <p>General Manager</p>
+          </div>
+          <div class="vector-img-card">
+            <a class="vector-img social-icon social-icon" href="#"><img src="Images/Vector.png" alt="" style="height: 24px; width: 24px;"></a>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="card mentor-card" data-aos="fade-left">
+        <div class="card-img-wrap">
+          <img src="Images/Rectangle 33.png">
+        </div>
+        <div class="card-body-content">
+          <div class="card-body-text">
+            <h5 class="fw-bold">Card title</h5>
+            <p>General Manager</p>
+          </div>
+          <div class="vector-img-card">
+            <a class="vector-img social-icon" href="#"><img src="Images/Vector.png" alt="" style="height: 24px; width: 24px;"></a>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="card mentor-card" data-aos="fade-right">
+        <div class="card-img-wrap">
+          <img src="Images/Rectangle 33.png">
+        </div>
+        <div class="card-body-content">
+          <div class="card-body-text">
+            <h5 class="fw-bold">Card title</h5>
+            <p>General Manager</p>
+          </div>
+          <div class="vector-img-card">
+            <a class="vector-img social-icon" href="#"><img src="Images/Vector.png" alt="" style="height: 24px; width: 24px;"></a>
+          </div>
+        </div>
+      </div>
+      
+ 
+ 
+  </div>
 
    </div>
    <div class=" row  text-center my-5" data-aos="fade-up">

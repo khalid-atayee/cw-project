@@ -10,31 +10,32 @@
 
     {{-- <link href="{{ asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" /> --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
-<<<<<<< HEAD
+
     <!-- Bootstrap CSS -->
-    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
 
 
-=======
+
     {{-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> --}}
     <link rel="stylesheet" href="{{ asset('tw-elements/dist/css/index.min.css') }}">
->>>>>>> e2483107f2a3fb55761798c8e277f697f516dc0d
+
     <style>
         @font-face {
             font-family: roboto-bold;
             src: url('{{ asset(' fonts/Roboto-Bold.ttf') }}');
         }
 
-        @font-face {
+        /* @font-face {
             font-family: roboto-thin;
-<<<<<<< HEAD
+
             src: url('{{ asset('fonts/Roboto-Thin.ttf') }}');
-        }
+        } */
 
         a {
             text-decoration: none;
@@ -121,9 +122,9 @@
         .customContainer{
             padding: 2em;
             text-align: center;
-=======
-            src: url('{{  asset(' fonts/Roboto-Thin.ttf') }}');
->>>>>>> e2483107f2a3fb55761798c8e277f697f516dc0d
+
+          
+
         }
     </style>
     <title>{{ $title ?? 'Codeweekend' }}</title>
@@ -142,8 +143,6 @@
 
     </div>
 
-
-<<<<<<< HEAD
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
@@ -162,15 +161,9 @@
 
     @include('admin.coreJsAdmin.customJsAdmin')
 
-</body>
-
-</html>
-=======
-
-
     <script src="{{ asset('tw-elements/dist/js/index.min.js') }}"></script>
     <script src="{{ mix('js/app.js') }}"></script>
 </body>
 
 </html>
->>>>>>> e2483107f2a3fb55761798c8e277f697f516dc0d
+
