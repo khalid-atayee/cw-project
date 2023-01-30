@@ -4,7 +4,7 @@
    <div class="program-hero-section my-3 rounded-3">
      <div class="row ">
 
-       <div class=" col-md-7 col-12 p-5 text-center text-md-start d-flex flex-column justify-content-between ">
+       <div class=" col-md-7 col-12 p-5 text-center text-md-start d-flex flex-column justify-content-around ">
          <div class="mb-2">
 
            <h2 class=" pb-1 fw-bold text-center">Codeweekend Program </h2>

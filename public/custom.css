@@ -2225,6 +2225,16 @@ h5 {
     /* margin-left: 2em; */
     text-align: center;
 }
+.head-quarters-container .card {
+    height: 30rem;
+    margin: 1rem;
+    width: 25rem;
+}
+
+.head-quarters-container img {
+    height: 100%;
+    object-fit: cover;
+}
 
 @media (max-width: 840px) {
     .card-group {
@@ -2727,6 +2737,10 @@ i {
 .alumni-testimonials-page {
     margin-top: unset;
 }
+.card:hover .social-icon img {
+    transform: none;
+}
+
 /* Alumni page end here +++++==== */
 
 /* register start here */

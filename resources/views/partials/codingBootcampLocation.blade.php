@@ -8,7 +8,9 @@
     <h3 class="fs-3 mt-2 mb-4" data-aos="fade-left">Learn to code and enhance your coding lorem epsum lorem epsum lorem epsum lorem epsum
       lorem epsum lorem epsum</h3>
 
-    <a class="cw-btn " id="signIn-btn" href="{{ Auth::user() ? route('payment.index') : route('students.index')}}">Apply Now</a>
+    <div class="btn">
+      <a class="cw-btn btn-secondary mt-5" id="signIn-btn" href="{{ Auth::user() ? route('payment.index') : route('students.index')}}">Apply Now</a>
+    </div>
 
   </div>
 </div>

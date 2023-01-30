@@ -4,7 +4,7 @@
     </h1>
     <div class="row">
 
-        <div class="news-hero  d-flex flex-column justify-content-between col-12">
+        <div class="news-hero  d-flex flex-column justify-content-between col-12" data-aos="zoom-in">
             <div></div>
 
             <div class="text-center  p-1 news-hero-text ">
@@ -37,7 +37,7 @@
 
         <div class="cards-group news-cards-group d-flex flex-wrap justify-content-around text-center">
 
-            <a href="#" class="card me-3 mb-3 col-sm-5 col-12 col-md-3">
+            <a href="#" class="card me-3 mb-3 col-sm-5 col-12 col-md-3" data-aos="fade-down">
                 <div>
                     <div class="card-img-wrap">
                         <img src="images/person_2.jpeg" class="card-img-top" alt="...">
@@ -49,7 +49,7 @@
                     </div>
                 </div>
             </a>
-            <a href="#" class="card me-3 mb-3 col-sm-5 col-12 col-md-3">
+            <a href="#" class="card me-3 mb-3 col-sm-5 col-12 col-md-3" data-aos="fade-left">
                 <div>
                     <div class="card-img-wrap">
                         <img src="images/person_2.jpeg" class="card-img-top" alt="...">
@@ -61,7 +61,7 @@
                     </div>
                 </div>
             </a>
-            <a href="#" class="card me-3 mb-3 col-sm-5 col-12 col-md-3">
+            <a href="#" class="card me-3 mb-3 col-sm-5 col-12 col-md-3" data-aos="fade-right">
                 <div>
                     <div class="card-img-wrap">
                         <img src="images/person_2.jpeg" class="card-img-top" alt="...">
@@ -73,7 +73,7 @@
                     </div>
                 </div>
             </a>
-            <a href="#" class="card me-3 mb-3 col-sm-5 col-12 col-md-3">
+            <a href="#" class="card me-3 mb-3 col-sm-5 col-12 col-md-3" data-aos="fade-up">
                 <div>
                     <div class="card-img-wrap">
                         <img src="images/person_2.jpeg" class="card-img-top" alt="...">
@@ -85,7 +85,7 @@
                     </div>
                 </div>
             </a>
-            <a href="#" class="card me-3 mb-3 col-sm-5 col-12 col-md-3">
+            <a href="#" class="card me-3 mb-3 col-sm-5 col-12 col-md-3" data-aos="fade-down">
                 <div>
                     <div class="card-img-wrap">
                         <img src="images/person_2.jpeg" class="card-img-top" alt="...">
@@ -97,7 +97,7 @@
                     </div>
                 </div>
             </a>
-            <a href="#" class="card me-3 mb-3 col-sm-5 col-12 col-md-3">
+            <a href="#" class="card me-3 mb-3 col-sm-5 col-12 col-md-3" data-aos="fade-left">
                 <div>
                     <div class="card-img-wrap">
                         <img src="images/person_2.jpeg" class="card-img-top" alt="...">
@@ -111,9 +111,8 @@
             </a>
 
         </div>
-        <div class="text-center my-3">
-
-            <button class="btn btn-dark-blue text-center">load More</button>
+        <div class="text-center my-3" data-aos="fade-up">
+            <button class="cw-btn btn-dark-blue text-center">load More</button>
         </div>
 
 

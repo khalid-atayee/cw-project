@@ -1,26 +1,30 @@
  <!-- vision start here =======
 ===== -->
- <div class="container vision-container">
 
-   <div class="row">
-     <div class="col-md-6 col-xs-4 mx-auto d-block text-center gap-2">
-       <h3 class="largest-typo" data-aos="fade-left">Vision</h3>
-       <p class="landing-paragraph">We help you find a job and we have one condition for that. Finish the Bootcamp successfully.
-         It is intensive! We help you out with that.We help you find a job and we have one condition for that. Finish
-         the Bootcamp successfully.
-         It is intensive! We help you out with that.We help you find a job and we have one condition for that. Finish
-         the Bootcamp successfully.
-         It is intensive! We help you out with that.We help you find a job and we have one condition for that. Finish
-         the Bootcamp successfully.
-         It is intensive! We help you out with that.
-       </p>
+
+ <div class="container " data-aos="fade-left">
+   <row>
+
+     <div class=" d-flex flex-column flex-md-row-reverse gap-3 align-items-start mt-4">
+       <div class="col content">
+         <h1>
+           Vision
+         </h1>
+         <p class="text-left line-h-1">We help you find a job and we have one condition for that. Finish the Bootcamp successfully.
+           It is intensive! We help you out with that.We help you find a job and we have one condition for that. Finish
+           the Bootcamp successfully.
+           It is intensive! We help you out with that.We help you find a job and we have one condition for that. Finish
+           the Bootcamp successfully.
+           It is intensive! We help you out with that.We help you find a job and we have one condition for that. Finish
+           the Bootcamp successfully.
+           It is intensive! We help you out with that.</p>
+       </div>
+
+       <div class="col mx-auto m-1">
+         <img src="images/vision.jpg" alt="" class="h-100 align-self-center" data-aos="fade-left">
+       </div>
      </div>
-     <div class="col-md-6 col-xs-4 mx-auto d-block">
-       <img src="images/vision.jpg" alt="" class="img-fluid img-thumbnail">
-     </div>
-   </div>
-
-
+   </row>
 
  </div>
 
