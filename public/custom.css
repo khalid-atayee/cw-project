@@ -1824,7 +1824,23 @@ h5 {
 }
 /* meet our team end here ====
 ===== */
+/* news page */
 
+.news-hero {
+    background: url(images/person_2.jpeg) no-repeat center center;
+    color: white;
+    background-size: cover;
+    min-height: 50rem;
+    height: 70vh;
+    padding: 0;
+}
+.news-hero-text {
+    background-color: rgba(0, 0, 0, 0.486);
+    margin: 0;
+}
+.news-cards-group {
+    min-width: 18rem;
+}
 /* coding bootcamp location start here ===
 =====*/
 

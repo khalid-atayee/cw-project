@@ -1,6 +1,6 @@
 <!-- paartners start here ======
   ====== -->
-<!-- <div class="container partners-section ">
+<div class="container partners-section ">
   <section class="customer-logos slider">
     <div class="slide"><img src="https://image.freepik.com/free-vector/luxury-letter-e-logo-design_1017-8903.jpg"></div>
     <div class="slide"><img src="https://image.freepik.com/free-vector/3d-box-logo_1103-876.jpg"></div>
@@ -11,7 +11,7 @@
     <div class="slide"><img src="https://image.freepik.com/free-vector/background-of-spots-halftone_1035-3847.jpg"></div>
     <div class="slide"><img src="https://image.freepik.com/free-vector/retro-label-on-rustic-background_82147503374.jpg"></div>
   </section>
-</div> -->
+</div>
 
 
 </div>
