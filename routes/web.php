@@ -29,13 +29,13 @@ use App\Http\Controllers\CurriculamTemplateController;
 |
 */
 
-Route::get('/',[HomeController::class,'index'])->name('cw-home');
-Route::get('alumni',[HomeController::class,'alumni'])->name('cw-alumni');
-Route::get('program',[ProgramController::class,'index'])->name('cw-program');
-Route::get('aboutUs',[HomeController::class,'aboutUs'])->name('cw-about');
-Route::get('/news',[NewsController::class,'news'])->name('news');
-Route::get('/news/details/{news}',[NewsController::class,'newsDetails'])->name('newsDetails');
-Route::get('/curriculam',[HomeController::class,'curriculam'])->name('cw-curriculam');
+Route::get('/', [HomeController::class, 'index'])->name('cw-home');
+Route::get('alumni', [HomeController::class, 'alumni'])->name('cw-alumni');
+Route::get('program', [ProgramController::class, 'index'])->name('cw-program');
+Route::get('aboutUs', [HomeController::class, 'aboutUs'])->name('cw-about');
+Route::get('/news', [NewsController::class, 'news'])->name('news');
+Route::get('/news/details/{news}', [NewsController::class, 'newsDetails'])->name('newsDetails');
+Route::get('/curriculam', [HomeController::class, 'curriculam'])->name('cw-curriculam');
 
 
 // student controller
@@ -66,27 +66,27 @@ Route::get('/dashboard', function () {
     return view('admin.dashboard');
 })->name('dashboard');
 
-    Route::resources([
-        'chapters'=> ChapterController::class,
-        'organizers' => OrganizerController::class,
-        'cities' => CityController::class,
-        'curriculam' => CurriculamTemplateController::class,
-        'alumnis' => AlumniController::class,
-        'team' => TeamController::class,
-    ]);
+Route::resources([
+    'chapters' => ChapterController::class,
+    'organizers' => OrganizerController::class,
+    'cities' => CityController::class,
+    'curriculam' => CurriculamTemplateController::class,
+    'alumnis' => AlumniController::class,
+    'team' => TeamController::class,
+]);
 
-    // news or blog posts routes
-    Route::get('/newses',[NewsController::class,'index'])->name('news.index');
-    Route::get('/news/create',[NewsController::class,'create'])->name('news.create');
-    Route::post('/news/store',[NewsController::class,'store'])->name('news.store');
-    Route::get('/news/{news}/edit',[NewsController::class,'edit'])->name('news.edit');
-    Route::post('/news/{news}/update',[NewsController::class,'update'])->name('news.update');
-    Route::post('/news/{news}/trash',[NewsController::class,'trash'])->name('news.trash');
-    ROute::get('/news/{news}',[NewsController::class,'show'])->name('news.show');
+// news or blog posts routes
+Route::get('/newses', [NewsController::class, 'index'])->name('news.index');
+Route::get('/news/create', [NewsController::class, 'create'])->name('news.create');
+Route::post('/news/store', [NewsController::class, 'store'])->name('news.store');
+Route::get('/news/{news}/edit', [NewsController::class, 'edit'])->name('news.edit');
+Route::post('/news/{news}/update', [NewsController::class, 'update'])->name('news.update');
+Route::post('/news/{news}/trash', [NewsController::class, 'trash'])->name('news.trash');
+ROute::get('/news/{news}', [NewsController::class, 'show'])->name('news.show');
 
-    // feedbacks
-    Route::get('/feedbacks',[FeedbackController::class,'feedbacks'])->name('feedbacks');
-    Route::post('/feedbacks/store',[FeedbackController::class,'storeFeedback'])->name('storeFeedback');
+// feedbacks
+Route::get('/feedbacks', [FeedbackController::class, 'feedbacks'])->name('feedbacks');
+Route::post('/feedbacks/store', [FeedbackController::class, 'storeFeedback'])->name('storeFeedback');
     
 // });
 

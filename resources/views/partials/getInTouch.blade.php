@@ -4,9 +4,9 @@
 
  <div class="get-in-touch-container">
 
-   <h2 class="mission-typo"> Get In Touch!</h2>
    <section class="in-touch">
      <div class="in-touch-info">
+       <h2 class="mission-typo"> Get In Touch!</h2>
        <form action="{{ route('storeFeedback') }}" method="post">
          @csrf
          <div class="inputField-container-form input-container-margin">
@@ -23,15 +23,17 @@
          </div>
 
          <button type="submit" class="cw-btn btn-dark-blue in-touch-btn my-2 mt-4" data-aos="fade-up">Send</button>
+       </form>
      </div>
 
-     </form>
+     <img src="{{ asset('images/question-1.jpg') }}" alt=" question img" data-aos="fade-left">
+   </section>
  </div>
+
  <!-- <div class="img"> -->
- <img src="{{ asset('images/question-1.jpg') }}" alt=" question img" data-aos="fade-left">
  <!-- </div> -->
- </section>
- </div>
+
+
 
 
 
