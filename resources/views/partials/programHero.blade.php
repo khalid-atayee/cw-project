@@ -7,7 +7,7 @@
              <div class=" col-md-7 col-12 p-5 text-center text-md-start d-flex flex-column justify-content-around ">
                  <div class="mb-2">
 
-                     <h2 class=" pb-1 fw-bold text-center">Codeweekend Program </h2>
+                     <h2 class=" pb-1 fw-bold text-center mission-typo">Codeweekend Program </h2>
                      <p class="line-h-1 mb-0 my-3"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum
                          quae, totam
                          perspiciatis

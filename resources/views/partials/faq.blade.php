@@ -2,7 +2,7 @@
   ==== -->
 <div class="container mt-5">
 
-  <h2 class="h2 text-center mt-4 fw-bold" data-aos="fade-down">Frequently Asked Questions</h2>
+  <h2 class=" text-center mt-4 mission-typo" data-aos="fade-down">Frequently Asked Questions</h2>
 
 
   <div class="accordion accordion-flush" id="accordionFlushExample">

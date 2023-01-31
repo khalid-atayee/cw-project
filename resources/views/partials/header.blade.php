@@ -24,7 +24,7 @@
 
              @if (auth()->user())
                  <div class="btn-group">
-                     <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                     <button type="button" class=" dropdown-toggle cw-btn btn-secondary" data-bs-toggle="dropdown" aria-expanded="false">
                          {{ Auth::user()->name }}
                      </button>
                      <div class="dropdown-menu">
