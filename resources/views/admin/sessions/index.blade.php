@@ -33,9 +33,9 @@
                     <td class="tw-p-3">{{ $session->chapter->title }}</td>
                     <td class="tw-p-3">{{ $session->chapter->organizer->name }}</td>
                     
-                    <td class="tw-flex tw-space-x-2 tw-p-3">
+                    <td class="tw-flex tw-space-x-2 tw-p-2 tw-items-center">
                         <div>
-                            <a class="tw-bg-orange-500 tw-px-2 tw-py-0.5 tw-rounded-md tw-text-white" href="">
+                            <a class="tw-bg-orange-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white" href="">
                                 <i class="fa fa-eye"></i>
                             </a>
                         </div>

@@ -2,33 +2,21 @@
 @section('content')
     @include('partials.header')
 
-    {{-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div> --}}
-    {{-- @if (session()->has('status'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{session()->get('status') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-            </button>
-        </div>
-    @endif --}}
 
+   
 
     @if (Session::has('success-message'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Well done {{ Auth::user() ? Auth::user()->name : '' }}</strong>
             {{ Session::get('success-message') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                {{-- <span aria-hidden="true">&times;</span> --}}
             </button>
         </div>
     @elseif (Session::has('fail-message'))
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Error! {{ Auth::user()->name }}</strong>
+            <strong>Error! {{Auth::user() ? Auth::user()->name : '' }}</strong>
             {{ Session::get('success-message') }}
-            <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
             </button>
         </div>
     @endif

@@ -38,9 +38,10 @@
                     </td>
                     {{-- <td class="tw-p-3">{{ $session->chapter->organizer->name }}</td> --}}
                     
-                    <td class="tw-flex tw-space-x-2 tw-p-3">
+
+                    <td class="tw-flex tw-space-x-2 tw-p-2 tw-items-center">
                         <div>
-                            <a class="tw-bg-orange-500 tw-px-2 tw-py-0.5 tw-rounded-md tw-text-white" href="">
+                            <a href="#" class="tw-bg-orange-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white">
                                 <i class="fa fa-eye"></i>
                             </a>
                         </div>
@@ -49,16 +50,16 @@
                                 <i class="fa fa-edit"></i>
                             </a>
                         </div>
-                        <div>  
+                        <div>
                             
-                             <form class="" action="{{ route('assignments.destroy',$assignment->id) }}" onsubmit="return confirm('Are you sure to delete this chapter?')" method="POST">
+                            <form class="" action="{{ route('assignments.destroy',$assignment->id) }}" onsubmit="return confirm('Are you sure to delete this news?')" method="POST">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="tw-bg-red-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white">
                                     <i class="fa fa-trash"></i>
                                 </button>
-                            </form> 
-                            
+                            </form>
+                           
                         </div>
                        
                         

@@ -73,7 +73,9 @@ Route::post('payment', [PaymentGateWayController::class, 'call']);
 Route::get('/logout', [AuthController::class, 'logout'])->name('authentication.logout');
 Route::post('/login', [AuthController::class, 'login'])->name('authentication.login');
 
-
+// feedbacks
+Route::get('feedbacks', [FeedbackController::class, 'feedbacks'])->name('feedbacks');
+Route::post('/feedbacksStore', [FeedbackController::class, 'storeFeedback'])->name('feedback.store');
 
 
 Route::group(['middleware' => ['AuthCheck']], function () {
@@ -119,9 +121,7 @@ Route::group(['middleware' => ['AuthCheck']], function () {
     Route::post('/news/{news}/trash', [NewsController::class, 'trash'])->name('news.trash');
     ROute::get('/news/{news}', [NewsController::class, 'show'])->name('news.show');
 
-    // feedbacks
-    Route::get('/feedbacks', [FeedbackController::class, 'feedbacks'])->name('feedbacks');
-    Route::post('/feedbacksStore', [FeedbackController::class, 'storeFeedback'])->name('feedback.store');
+ 
 });
 
 
