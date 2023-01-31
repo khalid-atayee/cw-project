@@ -12,16 +12,16 @@
             <div class="icons-for-wider-screen">
                 <div class="footer-icons">
                     <i class="footer-icon">
-                        <a href="#"><img src="Icons/Vector-1.png" alt=""></a>
+                        <a href="#"><img src="{{ asset('images/Vector-1.png') }}" alt=""></a>
                     </i>
                     <i class="footer-icon">
-                        <a href="#"><img src="Icons/Vector-2.png" alt=""></a>
+                        <a href="#"><img src="{{ asset('images/Vector-2.png') }}" alt=""></a>
                     </i>
                     <i class="footer-icon">
-                        <a href="#"><img src="Icons/Vector-3.png" alt=""></a>
+                        <a href="#"><img src="{{ asset('images/Vector-3.png') }}" alt=""></a>
                     </i>
                     <i class="footer-icon">
-                        <a href="#"><img src="Icons/Vector.png" alt=""></a>
+                        <a href="#"><img src="{{ asset('images/Vector.png') }}" alt=""></a>
                     </i>
                 </div>
                 <p class="text-start mb-0 mt-4  fst-italic ">

@@ -313,11 +313,9 @@ ul {
     padding: 2em 5%;
     color: white;
     align-items: center;
-    /* align-content: center; */
+ 
     justify-content: space-between;
-    /* border: 3px solid red; */
-    /* border: 3px solid red; */
-    /* padding-bottom: 0%; */
+
     gap: 1em;
 }
 
@@ -329,18 +327,18 @@ ul {
 }
 
 .navigate-full ul {
+ 
     display: flex;
     gap: 1.5em;
 }
-.navigate-full h1 {
+.navigate-full ul, h1 {
     margin: 0;
 }
 .navigate-full ul li {
     list-style: none;
-    /* padding: 1em; */
 }
+
 .navigate-full ul li a {
-    /* padding-left: 2em; */
     text-decoration: none;
     color: var(--bg-color);
 }
@@ -374,7 +372,11 @@ ul {
     padding: 1em 5%;
     color: #111b31;
     position: absolute;
+   
     width: 100%;
+}
+.need-talent p{
+    margin: 0;
 }
 .need-talent a {
     color: #111b31;

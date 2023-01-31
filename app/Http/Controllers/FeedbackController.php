@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Feedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
+use Session;
 
 class FeedbackController extends Controller
 {
@@ -20,13 +21,14 @@ class FeedbackController extends Controller
     }
 
     public function storeFeedback(Request $request){
-        // dd("hello");
+        dd($request->all());
         Feedback::create([
             'full_name' => $request->full_name,
             'email' => $request->email,
             'message' => $request->message,
         ]);
-        return redirect()->route('cw-home');
+        // Session::flash('get_in_touch_message', 'Payment done successfully, we will get back to you soon');
+        // return redirect()->route('cw-home')->with('status','message will be rewrite');
     }
 
     

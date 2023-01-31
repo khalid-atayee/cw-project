@@ -164,33 +164,33 @@
     })
 
 
-    let faq = document.getElementsByClassName("faq-page");
-    let i;
+    // let faq = document.getElementsByClassName("faq-page");
+    // let i;
 
-    for (i = 0; i < faq.length; i++) {
-        faq[i].addEventListener("click", function() {
-            /* Toggle between adding and removing the "active" class,
-            to highlight the button that controls the panel */
-            this.classList.toggle("faq-active");
+    // for (i = 0; i < faq.length; i++) {
+    //     faq[i].addEventListener("click", function() {
+    //         /* Toggle between adding and removing the "active" class,
+    //         to highlight the button that controls the panel */
+    //         this.classList.toggle("faq-active");
 
-            /* Toggle between hiding and showing the active panel */
-            let body = this.nextElementSibling;
-            if (body.style.display === "block") {
-                body.style.display = "none";
-            } else {
-                body.style.display = "block";
-            }
-        });
-    }
+    //         /* Toggle between hiding and showing the active panel */
+    //         let body = this.nextElementSibling;
+    //         if (body.style.display === "block") {
+    //             body.style.display = "none";
+    //         } else {
+    //             body.style.display = "block";
+    //         }
+    //     });
+    // }
 
-    let navigateMob = document.getElementById('navigate-small-mob')
+    
     document.getElementById('humbargar').addEventListener('click', () => {
 
-        navigateMob.classList.remove('showMenu')
+        document.getElementById('navigate-small-mob').classList.remove('showMenu')
         // console.log(document.getElementById('navigate-small-mob'))
     })
     document.getElementById('close-btn-menu-mob').addEventListener('click', () => {
-        navigateMob.classList.add('showMenu')
+        document.getElementById('navigate-small-mob').classList.add('showMenu')
     })
 
     function showModelContainer() {

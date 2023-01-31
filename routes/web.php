@@ -111,14 +111,6 @@ Route::group(['middleware' => ['AuthCheck']], function () {
     Route::get('chapter', [UserManagementController::class, 'chapterPage'])->name('users.chapter');
     Route::get('student', [UserManagementController::class, 'studentPage'])->name('users.student');
 
-
-    // Route::group(['middleware'=>['AuthCheck']], function(){
-    // admin panel routes here
-    // Route::get('/dashboard', function () {
-    //     return view('admin.dashboard');
-    // })->name('dashboard');
-
-    // news or blog posts routes
     Route::get('/newses', [NewsController::class, 'index'])->name('news.index');
     Route::get('/news/create', [NewsController::class, 'create'])->name('news.create');
     Route::post('/news/store', [NewsController::class, 'store'])->name('news.store');
@@ -129,7 +121,7 @@ Route::group(['middleware' => ['AuthCheck']], function () {
 
     // feedbacks
     Route::get('/feedbacks', [FeedbackController::class, 'feedbacks'])->name('feedbacks');
-    Route::post('/feedbacks/store', [FeedbackController::class, 'storeFeedback'])->name('storeFeedback');
+    Route::post('/feedbacksStore', [FeedbackController::class, 'storeFeedback'])->name('feedback.store');
 });
 
 

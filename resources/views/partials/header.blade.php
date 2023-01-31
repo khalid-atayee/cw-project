@@ -14,16 +14,17 @@
              <li><a class="header-typo" href="{{ route('news') }}">News</a></li>
              <li><a class="header-typo" href="https://community.codeweekend.net/home">Community</a></li>
              <li><a class="header-typo" href="{{ route('cw-about') }}">About Us</a></li>
+       
          </ul>
          <div class="right-btns">
 
 
-             <button class="cw-btn location-btn" onclick="showLocationModal()">Location <i
+             <button class="cw-btn location-btn outlined-btn-white"  onclick="showLocationModal()">Location <i
                      class="fa-solid fa-location-dot"></i></button>
+
              @if (auth()->user())
                  <div class="btn-group">
-                     <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
-                         aria-haspopup="true" aria-expanded="false">
+                     <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                          {{ Auth::user()->name }}
                      </button>
                      <div class="dropdown-menu">
