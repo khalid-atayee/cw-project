@@ -75,7 +75,7 @@ class CityController extends Controller
      * @param  \App\Models\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, City $city)
+    public function update(CityValidation $request, City $city)
     {
         $city->update([
             'city_name' => $request->city_name,

@@ -95,7 +95,7 @@
             @endrole
 
             @role('admin')
-            <a id="alumni" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="">
+            <a id="alumni" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="{{ route('alumnis.index') }}">
                 <div class="tw-space-x-2">
                     <span><i class="fa fa-graduation-cap"></i></span>
                     <span>Alumni</span>
@@ -117,7 +117,7 @@
                 </div>
                 <i class="fa fa-angle-left"></i>
             </a>
-            <a id="news" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="">
+            <a id="news" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="{{ route('news.index') }}">
                 <div class="tw-space-x-2">
                     <span><i class="fa fa-circle"></i></span>
                     <span>News</span>

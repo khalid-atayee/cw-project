@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Http\Requests\NewsValidation;
 use App\Models\Chapter;
 
 use App\Models\News;
@@ -48,13 +48,9 @@ class NewsController extends Controller
         return view('admin.news.create');
     }
 
-    public function store(Request $request)
+    public function store(NewsValidation $request)
     {
-        $request->validate([
-            'title' => "required",
-            'description' => 'required',
-            'photo' => "required|image",
-        ]);
+    
 
         if ($request->has('photo')) {
             $extension = $request->photo->extension();
@@ -79,11 +75,8 @@ class NewsController extends Controller
 
     public function update(Request $request, News $news)
     {
-        $request->validate([
-            'title' => "required",
-            'description' => "required",
-            'photo' => "image",
-        ]);
+
+       
         if ($request->has('photo')) {
             $extension = $request->photo->extension();
             $filename = rand(100000, 100000000) . "." . $extension;
