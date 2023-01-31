@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CityValidation;
 use App\Models\City;
 use Illuminate\Http\Request;
 
@@ -34,8 +35,10 @@ class CityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CityValidation $request)
     {
+
+
         City::create([
             'city_name' => $request->city_name,
             'country' => $request->country,
