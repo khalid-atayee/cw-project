@@ -83,8 +83,10 @@
                         <br>
                         <div style="display: flex;justify-content:space-around">
                             <div class="inner">
+
                                 @if (isset($chapter->organizer))
-                                    <h3>{{ $chapter->organizer->count() }}</h3>
+                                
+                                    <h3>{{ $chapter->organizer()->distinct()->count() }}</h3>
                                 @else
                                     <h3>0</h3>
                                 @endif

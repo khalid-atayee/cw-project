@@ -23,9 +23,8 @@ class HomeController extends Controller
     function index(){
 
         $chapters = Chapter::all();
-        $members = Team::all();
-        $first = Team::first();
-        return view('home.home',compact('chapters','members','first'));
+        $teams = Team::all();
+        return view('home.home',compact('chapters','teams'));
 
         // return view('home.home', compact('members','first'));
 
@@ -59,15 +58,17 @@ class HomeController extends Controller
     
     function find(Request $request){
         if($request->home){
-            dd('home');
+
+            $chapter_name = Chapter::where('id',$request->home)->first(['title','city_id']);
+            $chapters = Chapter::all();
+            $teams = Team::all();
+            return view('home.home',compact('chapters','chapter_name','teams'));
+            // return 
+            
         }
         else if($request->program){
-        //    $chapters = Chapter::find($request->program);
         $data = Chapter::with('organizer','mentor','curriculumTemplate')->where('id',$request->program)->get();
-        // dd($data[0]->curriculumTemplate);
-        // echo '<pre>';
-        // print_r($data[0]->curriculumTemplate);
-        // exit;
+     
         $chapters = Chapter::all();
         return view('program.program',compact('data','chapters'));
 

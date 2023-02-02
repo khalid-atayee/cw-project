@@ -13,6 +13,7 @@ use App\Http\Requests\chaptervalidation;
 use App\Http\Requests\UpdateChapterValidation;
 use App\Models\City;
 use App\Models\Chapter;
+use App\Models\Team;
 use Illuminate\Http\Request;
 use App\Traits\UserTrait;
 class ChapterController extends Controller
@@ -26,6 +27,7 @@ class ChapterController extends Controller
     public function index()
     {
         $chapters = Chapter::with('city')->get();
+     
        
         return view('admin.chapters.index',compact('chapters'));
     }
