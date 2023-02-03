@@ -19,7 +19,8 @@
                     <div class="d-flex justify-content-between border-bottom my-2">
                         <p class="">organizer</p>
                         <img src="{{ asset('storage/organizerImage/' . $topic->organizers->image) }}"
-                            class="image-fluid  " onclick="showUserToggle({{ $topic->organizers }},'organizerImage')" alt="">
+                            class="image-fluid  " onclick="showUserToggle({{ $topic->organizers }},'organizerImage')"
+                            alt="">
                     </div>
                     <div class="d-flex justify-content-between border-bottom my-2">
                         <p class="">Mentors</p>
@@ -27,20 +28,20 @@
                             @php
                                 $mentor_ids = [];
                                 // foreach ($topic as $key => $mentor) {
-                                    $mentor_ids[0] = json_decode($topic->mentor_ids, true);
+                                $mentor_ids[0] = json_decode($topic->mentor_ids, true);
                                 
+                            @endphp
+
+                            @foreach ($mentor_ids[0] as $id)
+                                @php
+                                    $mentor = App\Models\Mentor::find((int) $id);
                                 @endphp
-                                    
-                                    @foreach ($mentor_ids[0] as $id)
-                                    @php
-                                        $mentor = App\Models\Mentor::find((int)$id);
-                                    @endphp
-                                  
-                                    <img src="{{ asset('storage/mentorImage/' . $mentor->image) }}"
-                                        onclick="showUserToggle({{ $mentor }},'mentorImage')" class="image-fluid  "
-                                        alt=""> 
-                                   @endforeach
-                          
+
+                                <img src="{{ asset('storage/mentorImage/' . $mentor->image) }}"
+                                    onclick="showUserToggle({{ $mentor }},'mentorImage')" class="image-fluid  "
+                                    alt="">
+                            @endforeach
+
                         </div>
                     </div>
                     <p class="card-text">
