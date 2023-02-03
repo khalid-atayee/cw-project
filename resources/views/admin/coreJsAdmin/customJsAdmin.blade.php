@@ -208,9 +208,8 @@
 
     // toggle for mentor and organizer start here
     function showUserToggle(data, value) {
-       
 
-            let content = `
+        let content = `
                 <span class="sign-close-icon" onclick="closeModal()">
             <i class="fa-solid fa-xmark"></i>
         </span>
@@ -223,16 +222,17 @@
                 <i class="fa-brands fa-linkedin"></i>
                 </a>
                 
-                `;
-                
+     `;
 
-            document.querySelector('.mentor-container').innerHTML=content
-            document.getElementById('mentorModalId').classList.remove('mentorToggle')
-    
-     
+
+        document.querySelector('.mentor-container').innerHTML = content
+        document.getElementById('mentorModalId').classList.remove('mentorToggle')
+
+
 
     }
-    function closeModal(){
+
+    function closeModal() {
         document.getElementById('mentorModalId').classList.add('mentorToggle')
 
 

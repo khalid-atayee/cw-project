@@ -88,7 +88,7 @@
                         <div class="d-flex justify-content-between border-bottom my-2">
                             <p class="">organizer</p>
                             <img src="{{ asset('storage/organizerImage/' . $curriculum->organizers->image) }}"
-                                class="image-fluid" alt="">
+                                class="image-fluid" alt="" onclick="showUserToggle({{ $curriculum->organizers }},'organizerImage')">
                         </div>
                         <div class="d-flex justify-content-between border-bottom my-2">
                             <p class="">Mentors</p>

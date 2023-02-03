@@ -162,7 +162,23 @@ class MentorController extends Controller
      
     public function update(UpdateMentorValidation $request, $id)
     {
-        $data = $this->UpdateMentor($request->all(), $id);
+
+        
+        $mentor= Mentor::where('id',$id)->first(['image']);
+        if ($request->has('image')) {
+            if (file_exists(Storage::path('public\mentorImage\\' . $mentor->image))) {
+                Storage::delete('public/mentorImage/' . $mentor->image);
+                
+            }
+                $image = $request->image;
+                $image_name = time() . '.' . $image->getClientOriginalExtension();
+                $image->storeAs('public/mentorImage', $image_name);
+        } else {
+            $image_name = $mentor->image;
+        }
+
+
+        $data = $this->UpdateMentor($request->all(), $id, $image_name);
         if($data){
             return redirect()->route('Mentors.index');
         }

@@ -35,7 +35,7 @@ class HomeController extends Controller
     {
 
         $chapters = Chapter::all();
-        $alumnis = Alumni::all();
+        $alumnis = Alumni::take(6)->get();
         return view('alumni.alumni', compact('chapters', 'alumnis'));
 
         // return view('alumni.alumni',compact('alumnis'));
@@ -79,7 +79,9 @@ class HomeController extends Controller
         } else if ($request->about) {
             dd('about');
         } else if ($request->alumni) {
-            dd('alumni');
+            $chapters = Chapter::all();
+            $alumnis = Alumni::take(6)->get();
+            return view('alumni.alumni',compact('alumnis','chapters'));
         }
         //    $chapter_id = $request->chapter_id;
 

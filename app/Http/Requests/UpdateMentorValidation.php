@@ -25,9 +25,9 @@ class UpdateMentorValidation extends FormRequest
     {
         return [
             'name'=>'required',
-            'email'=>'required|email:rfc|unique:users,email',
+            'email'=>'required',
             'description'=>'required',
-            'image'=>'required',
+            // 'image'=>'required',
             'chapter_id'=>'required'
             
         ];

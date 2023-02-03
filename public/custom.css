@@ -2219,11 +2219,14 @@ h5 {
     justify-content: center;
     align-items: center;
     margin: auto;
+    flex-direction: column;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
     /* margin-right: 0%; */
-    gap: 2em;
+    /* gap: 2em; */
 }
 .card-body-text {
-    padding: 1em;
+    /* padding: 1em; */
     /* margin-left: 2em; */
     text-align: center;
 }
@@ -2246,8 +2249,7 @@ h5 {
     .card-body-content {
         flex-direction: column;
         gap: unset;
-        padding-top: 0.5em;
-        padding-bottom: 0.5em;
+       
     }
     .card-body-text {
         padding: unset;

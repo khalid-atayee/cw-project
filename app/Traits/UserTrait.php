@@ -105,14 +105,14 @@ trait UserTrait
         return back();
     }
 
-    public function updateUser($data,$id){
+    public function updateUser($data, $id)
+    {
         $user = User::find($id);
         $user->name = $data['user_name'];
         $user->email = $data['user_email'];
         $user->password = Hash::make($data['user_password']);
         $user->update();
         return back();
-
     }
 
     public function registerOrganizerMentor($data, $role, $flag)
@@ -173,30 +173,23 @@ trait UserTrait
     }
 
 
-    public function UpdateOrganizer($data, $organizer_id)
+    public function UpdateOrganizer($data, $organizer_id, $image)
     {
         DB::beginTransaction();
         try {
 
             $organizer = Organizer::find($organizer_id);
-            if (file_exists(Storage::path('public\organizerImage\\' . $organizer->image))) {
 
-                unlink(Storage::path('public\organizerImage\\' . $organizer->image));
+            $user_id = $organizer->user_id;
 
-                $image = $data['image'];
-                $image_name = time() . '.' . $image->getClientOriginalExtension();
-                $image->storeAs('public/organizerImage', $image_name);
+            $organizer->name = $data['name'];
+            $organizer->email = $data['email'];
+            $organizer->description = $data['description'];
+            $organizer->image = $image;
+            $organizer->chapter_id = $data['chapter_id'];
+            $organizer->user_id = $user_id;
+            $organizer->update();
 
-                $user_id = $organizer->user_id;
-
-                $organizer->name = $data['name'];
-                $organizer->email = $data['email'];
-                $organizer->description = $data['description'];
-                $organizer->image = $image_name;
-                $organizer->chapter_id = $data['chapter_id'];
-                $organizer->user_id = $user_id;
-                $organizer->update();
-            }
             DB::commit();
 
             return back();
@@ -206,34 +199,29 @@ trait UserTrait
         }
     }
 
-    public function UpdateMentor($data, $mentor_id)
+    public function UpdateMentor($data, $mentor_id, $image_name)
     {
         DB::beginTransaction();
         try {
 
             $mentor = Mentor::find($mentor_id);
-            if (file_exists(Storage::path('public\mentorImage\\' . $mentor->image))) {
 
-                unlink(Storage::path('public\mentorImage\\' . $mentor->image));
 
-                $image = $data['image'];
-                $image_name = time() . '.' . $image->getClientOriginalExtension();
-                $image->storeAs('public/mentorImage', $image_name);
 
-                $wantedOrganizers = DB::table('chapters AS C')->join('organizers AS O', 'O.chapter_id', '=', 'C.id')
-                    ->select('O.*')->where('O.chapter_id', $data['chapter_id'])->first();
 
-                $user_id = $mentor->user_id;
+            $wantedOrganizers = DB::table('chapters AS C')->join('organizers AS O', 'O.chapter_id', '=', 'C.id')
+                ->select('O.*')->where('O.chapter_id', $data['chapter_id'])->first();
 
-                $mentor->name = $data['name'];
-                $mentor->email = $data['email'];
-                $mentor->description = $data['description'];
-                $mentor->image = $image_name;
-                $mentor->chapter_id = $data['chapter_id'];
-                $mentor->organizer_id = $wantedOrganizers->id;
-                $mentor->user_id = $user_id;
-                $mentor->update();
-            }
+
+            $mentor->name = $data['name'];
+            $mentor->email = $data['email'];
+            $mentor->description = $data['description'];
+            $mentor->image = $image_name;
+            $mentor->chapter_id = $data['chapter_id'];
+            $mentor->organizer_id = $wantedOrganizers->id;
+            $mentor->user_id = $mentor->user_id;
+            $mentor->update();
+
             DB::commit();
 
             return back();
@@ -243,5 +231,5 @@ trait UserTrait
         }
     }
 
-  
+   
 }

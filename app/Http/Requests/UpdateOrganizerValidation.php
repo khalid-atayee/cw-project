@@ -25,9 +25,9 @@ class UpdateOrganizerValidation extends FormRequest
     {
         return [
             'name'=>'required',
-            'email'=>'required|email:rfc|unique:users,email',
+            'email'=>'required',
             'description'=>'required|max:200',
-            'image'=>'required',
+            // 'image'=>'required',
             'chapter_id'=>'required'
             
         ];

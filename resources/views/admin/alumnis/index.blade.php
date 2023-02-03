@@ -62,7 +62,7 @@
     </div>
     <div style="display: none;" id="selected-alumni" class="tw-fixed tw-top-0 tw-bottom-0 tw-right-0 tw-left-0 tw-m-auto tw-bg-gray-200/50 tw-flex tw-items-center" >
             <div class="tw-w-max tw-h-max tw-m-auto tw-items-center tw-bg-white rounded-md tw-top-0 tw-bottom-0 tw-right-0 tw-left-0 tw-fixed tw-p-2 shadow-md">
-                <button class="tw-float-right" onclick="closepop()">X</button>
+                <button class="tw-float-right" onclick="closepop()"> <i class="fa-solid fa-xmark"></i></button>
                 <div class="tw-flex tw-flex-col tw-space-y-3 tw-items-center tw-py-3 tw-px-10" id="alumni-data">
                     
                     {{-- <img id="photo" src="{{ asset('storage/alumnis/'}) }} + " alt="" class="tw-w-[300px] tw-h-[300px] tw-rounded-full"> --}}
@@ -84,7 +84,8 @@
         let linkedin = data['linkedin']
         console.log(photo)
         alumniData.innerHTML = `<img src='storage/alumnis/${photo}' class="tw-w-[300px] tw-h-[300px] tw-rounded-full" />`
-        alumniData.innerHTML += `<a href="${linkedin}" target="_blank"><i class="fa fa-linkedin tw-text-blue-500 tw-border tw-rounded-full tw-bg-white tw-p-2"></i></a>`
+        alumniData.innerHTML += `<a href="${linkedin}" target="_blank"><img src="Images/Vector.png" alt=""
+                              style="height: 24px; width: 24px;"></a>`
         alumniData.innerHTML += `<h1 class="tw-text-2xl tw-font-[roboto]">${name}</h1>`
         alumniData.innerHTML += `<p>${description}</p>`
         alumniData.innerHTML += `<p>${graduation_year}</p>`
