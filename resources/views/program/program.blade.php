@@ -4,8 +4,8 @@
 @include('partials.header')
 @include('partials.programHero')
 @include('partials.slider')
-@include('partials.signIn')
-@include('partials.signUp')
+{{-- @include('partials.signIn') --}}
+{{-- @include('partials.signUp') --}}
 @include('partials.curriculam')
 @include('partials.quote')
 @include('partials.aferGraduation')
@@ -25,7 +25,7 @@
             @csrf
             <div class="location-header">
                 <h3 class="header-typo"><i class="fa-solid fa-location-dot "></i> <strong> Your location Preference
-                    </strong> </h3>
+                    </strong> </h3> 
 
                 <span class="sign-close-icon" onclick="closeLocationModal()">
                     <i class="fa-solid fa-xmark"></i>

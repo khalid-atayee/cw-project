@@ -2621,11 +2621,21 @@ i {
     text-align: center;
 }
 
-.module-container-curriculm,
+.module-container-curriculm{
+
+    margin: auto;
+    text-align: center;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    position: relative;
+}
+
 .module-container-curriculm-remained,
 .container-module-two {
     margin: auto;
     text-align: center;
+    
     display: flex;
     position: relative;
     width: fit-content;
@@ -2661,9 +2671,8 @@ i {
     display: none;
 }
 @media (max-width: 900px) {
-    .module-container-curriculm,
-    .module-container-curriculm-remained {
-        display: unset;
+    .module-container-curriculm{
+        grid-template-columns: 1fr 1fr;
     }
     .module-container-curriculm-remained {
         display: flex;
@@ -2914,3 +2923,59 @@ i {
   }
   
   /* location end here */
+
+  /* mentor pop up */
+  .mentor-main-container {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .6);
+    display: grid;
+    place-items: center;
+
+
+}
+
+.mentor-container {
+
+    display: flex;
+    flex-direction: column;
+    /* gap: .9em; */
+    border-radius: 15px;
+    padding: .5em 1em;
+    background-color: white;
+    max-width: 100%;
+    width: 350px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: .3em;
+}
+.mentor-container>img{
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: auto;
+}
+
+.mentorToggle{
+    display: none;
+}
+.sign-close-icon{
+    display: block;
+    text-align: right;
+    color: red;
+    font-size: 1rem;
+    cursor: pointer;
+
+}
+.image-fluid{
+    cursor: pointer;
+}
+.customContainer{
+    padding: 2em;
+    text-align: center;
+
+  
+
+}

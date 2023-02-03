@@ -18,20 +18,20 @@
                  </div>
                  <div class="course-info rounded-3 text-start mb-0 mx-auto w-100 ">
 
-                     <h2 class="my-2 mb-3 ">Codeweekend<span class="fw-bold mb-4"> (Location) </span>program</h2>
+                     <h2 class="my-2 mb-3 ">Codeweekend<span class="mb-4"><span style="color:#06d6a0"> {{ isset($data)?  $data->title . '-'. $data->city->city_name : '[Location]' }}</span> </span>program</h2>
                      <div class="container">
 
                          <div class="row mb-2">
                              <div class="col-4 fw-bold noBreak ">Start Date:</div>
-                             <div class="col"> 02/02/22</div>
+                             <div class="col"> <span >{{ isset($data) ? $data->start_date : 'Not defined Yet' }} </span></div>
                          </div>
                          <div class="row mb-2">
                              <div class="col-4 fw-bold noBreak">Duration:</div>
-                             <div class="col">1 Year</div>
+                             <div class="col"><span >{{ isset($data) ? $data->duration . ' Month'  : 'Not defined Yet' }} </span></div>
                          </div>
                          <div class="row mb-2">
                              <div class="col-4 fw-bold noBreak">Fees:</div>
-                             <div class="col">$ 2,400</div>
+                             <div class="col">$ {{ isset($data) ? $data->fees   : 'Not defined Yet' }} </div>
                          </div>
                      </div>
 

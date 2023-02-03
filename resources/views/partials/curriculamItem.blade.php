@@ -4,186 +4,58 @@
         <h1 class="mission-typo">
             What will you learn?
         </h1>
-        <p class="some-paragraph-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ipsum, similique, sint ad dignissimos
+        <p class="some-paragraph-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ipsum,
+            similique, sint ad dignissimos
             ratione esse atque facilis dicta quis tenetur ipsam at aliquid quod vitae vel magni reiciendis aut.</p>
     </header>
 
     <div class=" curriculam-cards-page">
 
-        <div class="card curriculam-cards rounded-2 col-md  mx-2">
-            <div class="card-body">
-                <p class="text-center border-bottom p-2">Module 1:<span class="fw-bold "> Preparation</span> </p>
-                <div class="d-flex justify-content-between border-bottom my-2">
-                    <p class="">organizer</p>
-                    <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                </div>
-                <div class="d-flex justify-content-between border-bottom my-2">
-                    <p class="">Mentors</p>
-                    <div class="mentors-images d-flex">
-
-                        <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                        <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                        <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                        <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
+        @foreach ($data->curriculumTemplate as $topic)
+            <div class="card curriculam-cards rounded-2 col-md  mx-2">
+                <div class="card-body">
+                    <p class="text-center border-bottom p-2">Module 1:<span class="fw-bold ">
+                            {{ $topic->module_name }}</span> </p>
+                    <div class="d-flex justify-content-between border-bottom my-2">
+                        <p class="">organizer</p>
+                        <img src="{{ asset('storage/organizerImage/' . $topic->organizers->image) }}"
+                            class="image-fluid  " onclick="showUserToggle({{ $topic->organizers }},'organizerImage')" alt="">
                     </div>
-                </div>
-                <p class="card-text">
-                <ul class="list-group curriculam-list">
-                    <p class="fw-bold">The Title Here</p>
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
-                </ul>
-                </p>
-            </div>
-        </div>
-        <div class="card curriculam-cards rounded-2 col-md mx-2">
-            <div class="card-body">
-                <p class="text-center border-bottom p-2">Module 1:<span class="fw-bold "> Preparation</span> </p>
-                <div class="d-flex justify-content-between border-bottom my-2">
-                    <p class="">organizer</p>
-                    <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                </div>
-                <div class="d-flex justify-content-between border-bottom my-2">
-                    <p class="">Mentors</p>
-                    <div class="mentors-images d-flex">
-
-                        <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                        <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                        <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                        <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
+                    <div class="d-flex justify-content-between border-bottom my-2">
+                        <p class="">Mentors</p>
+                        <div class="mentors-images d-flex">
+                            @php
+                                $mentor_ids = [];
+                                // foreach ($topic as $key => $mentor) {
+                                    $mentor_ids[0] = json_decode($topic->mentor_ids, true);
+                                
+                                @endphp
+                                    
+                                    @foreach ($mentor_ids[0] as $id)
+                                    @php
+                                        $mentor = App\Models\Mentor::find((int)$id);
+                                    @endphp
+                                  
+                                    <img src="{{ asset('storage/mentorImage/' . $mentor->image) }}"
+                                        onclick="showUserToggle({{ $mentor }},'mentorImage')" class="image-fluid  "
+                                        alt=""> 
+                                   @endforeach
+                          
+                        </div>
                     </div>
-                </div>
-                <p class="card-text">
-                <ul class="list-group">
-                    <p class="fw-bold">The Title Here</p>
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
-                </ul>
-                </p>
-            </div>
-        </div>
-        <div class="card curriculam-cards rounded-2 col-md mx-2">
-            <div class="card-body">
-                <p class="text-center border-bottom p-2">Module 1:<span class="fw-bold "> Preparation</span> </p>
-                <div class="d-flex justify-content-between border-bottom my-2">
-                    <p class="">organizer</p>
-                    <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                </div>
-                <div class="d-flex justify-content-between border-bottom my-2">
-                    <p class="">Mentors</p>
-                    <div class="mentors-images d-flex">
+                    <p class="card-text">
+                    <ul class="list-group curriculam-list">
+                        <p class="fw-bold">The Title Here</p>
 
-                        <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                        <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                        <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                        <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                    </div>
+                        @foreach ($topic->CurriculamTemplateItem as $key => $item)
+                            <li class="list-group-item">{{ $item->item_name }}</li>
+                        @endforeach
+                    </ul>
+                    </p>
                 </div>
-                <p class="card-text">
-                <ul class="list-group">
-                    <p class="fw-bold ">The Title Here</p>
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
-                </ul>
-                </p>
             </div>
-        </div>
-        <div class="card curriculam-cards rounded-2 col-md  mx-2">
-            <div class="card-body">
-                <p class="text-center border-bottom p-2">Module 1:<span class="fw-bold "> Preparation</span> </p>
-                <div class="d-flex justify-content-between border-bottom my-2">
-                    <p class="">organizer</p>
-                    <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                </div>
-                <div class="d-flex justify-content-between border-bottom my-2">
-                    <p class="">Mentors</p>
-                    <div class="mentors-images d-flex">
+        @endforeach
 
-                        <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                        <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                        <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                        <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                    </div>
-                </div>
-                <p class="card-text">
-                <ul class="list-group">
-                    <p class="fw-bold">The Title Here</p>
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
-                </ul>
-                </p>
-            </div>
-        </div>
-        <div class="card curriculam-cards rounded-2 col-md mx-2">
-            <div class="card-body">
-                <p class="text-center border-bottom p-2">Module 1:<span class="fw-bold "> Preparation</span> </p>
-                <div class="d-flex justify-content-between border-bottom my-2">
-                    <p class="">organizer</p>
-                    <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                </div>
-                <div class="d-flex justify-content-between border-bottom my-2">
-                    <p class="">Mentors</p>
-                    <div class="mentors-images d-flex">
-
-                        <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                        <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                        <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                        <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                    </div>
-                </div>
-                <p class="card-text">
-                <ul class="list-group">
-                    <p class="fw-bold">The Title Here</p>
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
-                </ul>
-                </p>
-            </div>
-        </div>
-        <div class="card curriculam-cards rounded-2 col-md mx-2">
-            <div class="card-body">
-                <p class="text-center border-bottom p-2">Module 1:<span class="fw-bold "> Preparation</span> </p>
-                <div class="d-flex justify-content-between border-bottom my-2">
-                    <p class="">organizer</p>
-                    <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                </div>
-                <div class="d-flex justify-content-between border-bottom my-2">
-                    <p class="">Mentors</p>
-                    <div class="mentors-images d-flex">
-
-                        <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                        <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                        <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                        <img src="images/Rectangle 33.png" class="image-fluid  " alt="">
-                    </div>
-                </div>
-                <p class="card-text">
-                <ul class="list-group">
-                    <p class="fw-bold">The Title Here</p>
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
-                </ul>
-                </p>
-            </div>
-        </div>
     </div>
 
 
@@ -196,12 +68,14 @@
 
         <div class="card-body">
             <h5 class="mission-typo">Codeweekend Coding Bootcamp</h5>
-            <p class="some-paragraph-title">Learn from A to Z of the web development including but not limited to the full
+            <p class="some-paragraph-title">Learn from A to Z of the web development including but not limited to the
+                full
                 stack web developemnt</p>
             <br><br>
             <div class="curriculam-page-btn">
 
-                <a href="{{ Auth::user() ? route('payment.index') : route('students.index')}}" class="cw-btn">Apply Now</a>
+                <a href="{{ Auth::user() ? route('payment.index') : route('students.index') }}" class="cw-btn">Apply
+                    Now</a>
             </div>
             <br>
         </div>

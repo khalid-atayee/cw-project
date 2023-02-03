@@ -49,7 +49,7 @@ Route::get('aboutUs', [HomeController::class, 'aboutUs'])->name('cw-about');
 Route::get('/news', [NewsController::class, 'news'])->name('news');
 Route::get('/news/details', [NewsController::class, 'newsDetails'])->name('newsDetails');
 
-Route::get('/curriculam', [HomeController::class, 'curriculam'])->name('cw-curriculam');
+Route::get('/curriculam/{id?}', [HomeController::class, 'curriculam'])->name('cw-curriculam');
 
 Route::post('/location', [HomeController::class, 'find'])->name('cw-location');
 

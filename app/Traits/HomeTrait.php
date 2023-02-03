@@ -61,6 +61,7 @@ trait HomeTrait
         $curriculum = CurriculamTemplate::find($id);
         $organizer_id = $curriculum->organizer_id;
         $curriculum->module_name = $data['name'];
+        $curriculum->description = $data['description'];
         $curriculum->chapter_id = $data['chapter_id'];
         $curriculum->organizer_id = $organizer_id;
         $curriculum->mentor_ids = json_encode($data['mentors']);

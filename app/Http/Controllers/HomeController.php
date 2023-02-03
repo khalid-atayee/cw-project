@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 
  *
@@ -12,6 +13,8 @@ namespace App\Http\Controllers;
 use App\Models\Chapter;
 
 use App\Models\Alumni;
+use App\Models\CurriculamTemplate;
+use App\Models\Mentor;
 use App\Models\Team;
 
 use Illuminate\Http\Request;
@@ -20,69 +23,67 @@ class HomeController extends Controller
 {
 
 
-    function index(){
+    function index()
+    {
 
         $chapters = Chapter::all();
         $teams = Team::all();
-        return view('home.home',compact('chapters','teams'));
-
-        // return view('home.home', compact('members','first'));
-
-
+        return view('home.home', compact('chapters', 'teams'));
     }
 
-    function alumni(){
+    function alumni()
+    {
 
         $chapters = Chapter::all();
         $alumnis = Alumni::all();
-        return view('alumni.alumni',compact('chapters','alumnis'));
+        return view('alumni.alumni', compact('chapters', 'alumnis'));
 
         // return view('alumni.alumni',compact('alumnis'));
 
     }
 
-    function aboutUs(){
+    function aboutUs()
+    {
 
         $chapters = Chapter::all();
         $alumnis = Alumni::all();
-        return view('about.aboutUs',compact('chapters','alumnis'));
-
-
+        return view('about.aboutUs', compact('chapters', 'alumnis'));
     }
 
-    function curriculam(){
+    function curriculam($id)
+    {
+       
+        $data = Chapter::find($id);
+
         $chapters = Chapter::all();
-        return view('curriculam.curriculamIndex',compact('chapters'));
-
+        return view('curriculam.curriculamIndex', compact('chapters','data'));
     }
-    
-    function find(Request $request){
-        if($request->home){
 
-            $chapter_name = Chapter::where('id',$request->home)->first(['title','city_id']);
+    function find(Request $request)
+    {
+        if ($request->home) {
+            $data = Chapter::where('id', $request->home)->first(['title', 'city_id']);
             $chapters = Chapter::all();
             $teams = Team::all();
-            return view('home.home',compact('chapters','chapter_name','teams'));
-            // return 
+
+            return view('home.home', compact('chapters', 'data', 'teams'));
+
+        } else if ($request->program) {
+
+            $data = Chapter::with('organizer', 'mentor', 'curriculumTemplate')->where('id', $request->program)->first();
             
-        }
-        else if($request->program){
-        $data = Chapter::with('organizer','mentor','curriculumTemplate')->where('id',$request->program)->get();
-     
-        $chapters = Chapter::all();
-        return view('program.program',compact('data','chapters'));
+            // dd($data->mentor);
+            $chapters = Chapter::all();
+            return view('program.program', compact('data', 'chapters'));
 
-        }
-
-        else if($request->about){
+        } else if ($request->about) {
             dd('about');
-        }
-        else if($request->alumni){
+        } else if ($request->alumni) {
             dd('alumni');
         }
-    //    $chapter_id = $request->chapter_id;
+        //    $chapter_id = $request->chapter_id;
 
     }
-  
 }
+
 

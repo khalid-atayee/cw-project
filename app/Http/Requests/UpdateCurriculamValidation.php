@@ -25,6 +25,7 @@ class UpdateCurriculamValidation extends FormRequest
     {
         return [
             'name' => 'required',
+            'description'=>'required',
             'chapter_id' => 'required',
             'mentors' => 'required',
 

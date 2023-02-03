@@ -10,7 +10,7 @@
                   @for ($i = 0; $i < count($teams);)
                       <div class="meet-our-team-content">
                           <div class="meet-our-team-values">
-                              <img src="{{ asset('images/person_1.jpeg') }}" alt="" data-aos="fade-left">
+                              <img src="{{ asset('storage/team/' .$teams[$i]->image) }}" alt="" data-aos="fade-left">
                               <div class="paragraphs" data-aos="fade-right">
                                   <!-- <h5 style="visibility: hidden;">Organiser</h5> -->
                                   <h3 class="what-make-different-title"> {{ $teams[$i]->name }}</h3>
@@ -31,7 +31,7 @@
                                   <h5 class="some-paragraph-title" id="organizerr">{{ $teams[$i]->role }}</h5>
                                   <p class="some-paragraph-title">{{ $teams[$i]->short_bio }}</p>
                               </div>
-                              <img src="{{ asset('images/person_2.jpeg') }}" alt="" data-aos="fade-right">
+                              <img src="{{ asset('storage/team/' .$teams[$i]->image) }}" alt="" data-aos="fade-right">
 
                           </div>
                           @php

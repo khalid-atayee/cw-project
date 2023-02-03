@@ -183,7 +183,7 @@
     //     });
     // }
 
-    
+
     document.getElementById('humbargar').addEventListener('click', () => {
 
         document.getElementById('navigate-small-mob').classList.remove('showMenu')
@@ -238,8 +238,8 @@
         $('.js-example-basic-single').select2();
     });
 
-       // partners section js
-       $(document).ready(function() {
+    // partners section js
+    $(document).ready(function() {
         $('.customer-logos').slick({
             slidesToShow: 6,
             slidesToScroll: 1,
@@ -261,4 +261,40 @@
             }]
         });
     });
+
+
+
+
+    function showUserToggle(data, value) {
+        console.log('ok');
+
+
+        let content = `
+           <span class="sign-close-icon" onclick="closeModal()">
+       <i class="fa-solid fa-xmark"></i>
+   </span>
+       <img src="/storage/${value}/${data.image}" alt="">
+       <h3>${data.name} </h3>
+       <p>${data.description}</p>
+       <br>
+       <p>${data.email}</p>
+       <a href="#">
+           <i class="fa-brands fa-linkedin"></i>
+           </a>
+           
+           `;
+
+
+        document.querySelector('.mentor-container').innerHTML = content
+        document.getElementById('mentorModalId').classList.remove('mentorToggle')
+
+
+
+    }
+
+    function closeModal() {
+        document.getElementById('mentorModalId').classList.add('mentorToggle')
+
+
+    }
 </script>
