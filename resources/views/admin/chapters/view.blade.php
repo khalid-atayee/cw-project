@@ -106,16 +106,22 @@
                                     // foreach ($topic as $key => $mentor) {
                                     $mentor_ids[0] = json_decode($curriculum->mentor_ids, true);
                                     
-                                @endphp
-
-                                @foreach ($mentor_ids[0] as $id)
-                                    @php
-                                        $mentor = App\Models\Mentor::find((int) $id);
                                     @endphp
 
+                                @foreach ($mentor_ids[0] as $id)
+                                
+                                    @php
+                                            // dd($id)
+                                        
+                                        $mentor = App\Models\Mentor::find((int) $id);
+                                    //    dd($mentor)
+                                    @endphp
+                                    @if (isset($mentor))
+                                        
                                     <img src="{{ asset('storage/mentorImage/' . $mentor->image) }}"
                                         onclick="showUserToggle({{ $mentor }},'mentorImage')"
                                         class="image-fluid  " alt="">
+                                    @endif
                                 @endforeach
                             @endif
 

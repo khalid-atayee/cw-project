@@ -75,10 +75,10 @@
                             name="mentors[]" multiple>
 
                             @foreach ($mentors as $key => $mentor)
-                                @if (count($ids) >= $key)
+                           
+                                @if (count($ids)-1>=$key)
                                     <option value="{{ $mentors[$key]->id }}"
-                                        {{ $mentors[$key]->id === $ids[$key] ? 'selected' : '' }}>
-                                        {{ $mentors[$key]->name }}</option>
+                                        {{ $mentors[$key]->id == $ids[$key] ? 'selected' : '' }}> {{ $mentors[$key]->name }}</option>
                                 @else
                                     <option value="{{ $mentors[$key]->id }}">{{ $mentors[$key]->name }}</option>
                                 @endif

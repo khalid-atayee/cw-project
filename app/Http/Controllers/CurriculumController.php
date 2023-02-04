@@ -118,13 +118,14 @@ class CurriculumController extends Controller
         $mentor_ids =  json_decode($curriculumTemplateItem[0]->CurriculamTemplate->mentor_ids, true);
 
         $mentors = Mentor::with('chapters')->where('chapter_id',$curriculumTemplateItem[0]->CurriculamTemplate->chapter_id)->get();
+        // dd($mentors[0]->id);
         $ids =array();
         foreach( $mentor_ids as $key=> $id){
 
            $ids[$key]=(int)$id;
 
         }
-
+        // dd($ids);
         return view('admin.curriculam.edit',compact('chapters','curriculumTemplateItem','ids','mentors'));
     }
 

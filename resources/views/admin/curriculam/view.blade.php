@@ -3,7 +3,7 @@
     <x-slot name="header"> Curriculum Details</x-slot>
     <x-slot name="button">
         <a class="tw-bg-blue-500 tw-rounded-md tw-p-2 tw-text-white" href="{{ route('curriculum.index') }}">All
-            Organizer</a>
+            Curriculum</a>
     </x-slot>
     <div class="container py-4">
         <header class="pb-3 mb-4 border-bottom">
@@ -62,11 +62,43 @@
                 <div class="d-flex justify-content-between border-bottom my-2">
                     <p class="">Mentors</p>
                     <div class="mentors-images d-flex">
-                        @foreach ($curriculumTemplates->organizers->chapters->mentor as $mentor)
+                    {{-- ====+++==== --}}
+                    @if (isset($curriculumTemplates->mentor_ids))
+                                
+                    @php
+                        $mentor_ids = [];
+                        // foreach ($topic as $key => $mentor) {
+                        $mentor_ids[0] = json_decode($curriculumTemplates->mentor_ids, true);
+                        
+                        @endphp
+
+                    @foreach ($mentor_ids[0] as $id)
+                    
+                        @php
+                                // dd($id)
+                            
+                            $mentor = App\Models\Mentor::find((int) $id);
+                        //    dd($mentor)
+                        @endphp
+                        @if (isset($mentor))
+                            
+                        <img src="{{ asset('storage/mentorImage/' . $mentor->image) }}"
+                            onclick="showUserToggle({{ $mentor }},'mentorImage')"
+                            class="image-fluid  " alt="">
+                        @endif
+                    @endforeach
+                @endif
+
+
+
+
+                    {{-- ====+++=== --}}
+
+                        {{-- @foreach ($curriculumTemplates->organizers->chapters->mentor as $mentor)
                             <img src="{{ asset('storage/mentorImage/' . $mentor->image) }}"
                                 onclick="showUserToggle({{ $mentor }},'mentorImage')" class="image-fluid  "
                                 alt="">
-                        @endforeach
+                        @endforeach --}}
 
 
                     </div>
