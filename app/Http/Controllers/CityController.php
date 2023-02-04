@@ -43,6 +43,8 @@ class CityController extends Controller
             'city_name' => $request->city_name,
             'country' => $request->country,
         ]);
+        session()->flash('success-message', 'City record added');
+
         return redirect()->route('cities.index');
     }
 
@@ -81,6 +83,8 @@ class CityController extends Controller
             'city_name' => $request->city_name,
             'country' => $request->country
         ]);
+        session()->flash('success-message', 'City record updated');
+
         return redirect()->route('cities.index');
     }
 
@@ -92,6 +96,9 @@ class CityController extends Controller
      */
     public function destroy(City $city)
     {
-        //
+        $city->delete();
+        session()->flash('success-message', 'City record deleted');
+        return redirect()->back();
+
     }
 }

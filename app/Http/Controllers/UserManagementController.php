@@ -116,7 +116,15 @@ class UserManagementController extends Controller
     {
         $data = $this->registerAdmin($request->all());
         if($data){
+            session()->flash('success-message', 'user record created');
             return redirect()->route('users.index');
+        }
+        else
+        {
+            session()->flash('fail-message', 'something went wrong plz refere to code');
+            return redirect()->route('users.index');
+
+
         }
     }
 
@@ -154,7 +162,17 @@ class UserManagementController extends Controller
     {
         $data = $this->updateUser($request->all(),$id);
         if($data){
+            session()->flash('success-message', 'user record updated');
+
             return redirect()->route('users.index');
+        }
+        else
+        {
+            session()->flash('fail-message', 'something went wrong plz refere to code');
+
+            return redirect()->route('users.index');
+
+
         }
     }
 
@@ -168,6 +186,7 @@ class UserManagementController extends Controller
     {
         $user = User::find($id);
         $user->delete();
+        session()->flash('success-message', 'user record deleted');
         return redirect()->back();
     
     }

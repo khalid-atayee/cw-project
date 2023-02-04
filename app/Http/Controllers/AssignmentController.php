@@ -161,6 +161,8 @@ class AssignmentController extends Controller
         $assignment->mentor_id = $request->mentor_id;
         $assignment->grade_id = $request->grade_id;
         $assignment->update();
+        session()->flash('success-message', 'Assignment record updated');
+
         return redirect()->route('assignments.index');
     }
 
@@ -174,6 +176,8 @@ class AssignmentController extends Controller
     {
         $assignments = Assignment::find($id);
         $assignments->delete();
+        session()->flash('success-message', 'Assignment record deleted');
+
         return redirect()->route('assignments.index');
     }
 }

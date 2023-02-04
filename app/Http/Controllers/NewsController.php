@@ -63,6 +63,8 @@ class NewsController extends Controller
             'description' => $request->description,
             'image' => $filename
         ]);
+        session()->flash('success-message', 'news record created');
+        
 
         return redirect()->route('news.index');
     }
@@ -88,6 +90,7 @@ class NewsController extends Controller
         $news->description = $request->description;
         $news->image = $filename ?? $news->image;
         $news->save();
+        session()->flash('success-message', 'news record updated');
 
         return redirect()->route('news.index');
     }
@@ -101,6 +104,8 @@ class NewsController extends Controller
     {
         // dd("ok");
         $news->delete();
+        session()->flash('success-message', 'news record deleted');
+
         return redirect()->route('news.index');
     }
 }

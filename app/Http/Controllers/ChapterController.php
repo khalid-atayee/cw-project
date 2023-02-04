@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 
  *
@@ -16,6 +17,7 @@ use App\Models\Chapter;
 use App\Models\Team;
 use Illuminate\Http\Request;
 use App\Traits\UserTrait;
+
 class ChapterController extends Controller
 {
     use UserTrait;
@@ -27,9 +29,9 @@ class ChapterController extends Controller
     public function index()
     {
         $chapters = Chapter::with('city')->get();
-     
-       
-        return view('admin.chapters.index',compact('chapters'));
+
+
+        return view('admin.chapters.index', compact('chapters'));
     }
 
     /**
@@ -40,7 +42,7 @@ class ChapterController extends Controller
     public function create()
     {
         $cities = City::all();
-        return view('admin.chapters.create',compact('cities'));
+        return view('admin.chapters.create', compact('cities'));
     }
 
     /**
@@ -50,14 +52,17 @@ class ChapterController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(chaptervalidation $request)
-    {   
+    {
         $data = $this->registerChapter($request->all());
 
-        if($data){
+        if ($data) {
             $chapters = Chapter::all();
-       
-            return view('admin.chapters.index',compact('chapters'));
-          
+
+            session()->flash('success-message', 'Chapter record added');
+            return view('admin.chapters.index', compact('chapters'));
+        } else {
+            session()->flash('fail-message', 'something went wrong plz refere to code');
+            return redirect()->back();
         }
     }
 
@@ -70,7 +75,7 @@ class ChapterController extends Controller
     public function show(Chapter $chapter)
     {
         // dd($chapter->curriculumTemplate);
-        return view('admin.chapters.view',compact('chapter'));
+        return view('admin.chapters.view', compact('chapter'));
     }
 
     /**
@@ -81,10 +86,9 @@ class ChapterController extends Controller
      */
     public function edit(Chapter $chapter)
     {
-        $chpater = Chapter::with('city')->where('id',$chapter->id)->first();
+        $chpater = Chapter::with('city')->where('id', $chapter->id)->first();
         $cities = City::all();
-        return view('admin.chapters.edit',compact('chapter','cities'));
-        
+        return view('admin.chapters.edit', compact('chapter', 'cities'));
     }
 
     /**
@@ -96,10 +100,18 @@ class ChapterController extends Controller
      */
     public function update(UpdateChapterValidation $request, Chapter $chapter)
     {
-        $data = $this->updateChapter($request->all(),$chapter->id);
-        if($data){
+        $data = $this->updateChapter($request->all(), $chapter->id);
+        if ($data) {
+            session()->flash('success-message', 'Chapter record updated');
             return redirect()->route('chapters.index');
         }
+        else{
+            session()->flash('fail-message', 'something went wrong plz refere to code');
+            return redirect()->route('chapters.index');
+
+        }
+
+        
     }
 
     /**
@@ -112,6 +124,7 @@ class ChapterController extends Controller
     {
         // dd($chapter);
         $chapter->delete();
+        session()->flash('success-message', 'Chapter record deleted');
         return redirect()->back();
     }
 }

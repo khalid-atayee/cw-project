@@ -56,6 +56,7 @@ class TeamController extends Controller
             'short_bio' => $request->short_bio,
             'photo' => $filename,
         ]);
+        session()->flash('success-message', 'Team record added');
         
         return redirect()->route('team.index');
     }
@@ -109,6 +110,8 @@ class TeamController extends Controller
         $team->short_bio = $request->short_bio;
         $team->photo = $filename ?? $team->photo;
         $team->save();
+        session()->flash('success-message', 'Team record updated');
+
         return redirect()->route('team.index');
     }
 
@@ -121,6 +124,8 @@ class TeamController extends Controller
     public function destroy(Team $team)
     {
         $team->delete();
+        session()->flash('success-message', 'Team record deleted');
+
         return redirect()->back();
     }
 }

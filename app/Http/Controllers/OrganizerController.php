@@ -63,7 +63,18 @@ class OrganizerController extends Controller
         $data = $this->registerOrganizerMentor($request->all(), 'organizer', false);
         if ($data) {
 
+            session()->flash('success-message', 'Organizer record added');
             return redirect()->route('organizers.index');
+
+        }
+        else{
+
+            session()->flash('fail-message', 'something went wrong plz refere to code');
+            return redirect()->route('organizers.index');
+
+
+
+        
         }
     }
 
@@ -113,11 +124,16 @@ class OrganizerController extends Controller
         }
         $data = $this->UpdateOrganizer($request->all(),$organizer->id, $image_name);
         if ($data) {
+            session()->flash('success-message', 'Organizer record updated');
             return redirect()->route('organizers.index');
         } else {
+            session()->flash('fail-message', 'something went wrong plz refere to code');
             return redirect()->back();
         }
+
+
     }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -130,9 +146,10 @@ class OrganizerController extends Controller
 
         if (file_exists(Storage::path('public\organizerImage\\' . $organizer->image))) {
 
-            unlink(Storage::path('public\organizerImage\\' . $organizer->image));
+            Storage::delete('public/organizerImage/' . $organizer->image);
         }
         $organizer->delete();
+        session()->flash('success-message', 'Organizer record deleted');
         return redirect()->back();
     }
 }

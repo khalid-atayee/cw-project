@@ -297,4 +297,15 @@
 
 
     }
+
+    // active menu
+    // let header = document.getElementById("active-container");
+    // let btns = header.getElementsByClassName("header-typo");
+    // for (let i = 0; i < btns.length; i++) {
+    // btns[i].addEventListener("click", function() {
+    // let current = document.getElementsByClassName("active-menu");
+    // current[0].className = current[0].className.replace(" active-menu", "");
+    // this.className += " active-menu";
+    // });
+    // }
 </script>

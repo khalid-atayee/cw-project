@@ -77,7 +77,14 @@ class MentorController extends Controller
     {
         $data = $this->registerOrganizerMentor($request->all(), 'mentor', true);
         if ($data) {
+            session()->flash('success-message', 'Mentor record added');
+
             return redirect()->route('Mentors.index');
+        }
+        else{
+            session()->flash('fail-message', 'something went wrong plz refere to code');
+
+
         }
     }
 
@@ -180,7 +187,14 @@ class MentorController extends Controller
 
         $data = $this->UpdateMentor($request->all(), $id, $image_name);
         if($data){
+            session()->flash('success-message', 'Mentor record updated');
+
             return redirect()->route('Mentors.index');
+        }
+        else{
+            session()->flash('fail-message', 'something went wrong plz refere to code');
+
+
         }
     }
 
@@ -198,6 +212,8 @@ class MentorController extends Controller
             unlink(Storage::path('public\mentorImage\\' . $mentor->image));
         }
         $mentor->delete();
+        session()->flash('success-message', 'Mentor record deleted');
+
         return back();
     }
 }

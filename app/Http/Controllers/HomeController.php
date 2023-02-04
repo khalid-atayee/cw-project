@@ -13,8 +13,6 @@ namespace App\Http\Controllers;
 use App\Models\Chapter;
 
 use App\Models\Alumni;
-use App\Models\CurriculamTemplate;
-use App\Models\Mentor;
 use App\Models\Team;
 
 use Illuminate\Http\Request;
@@ -46,7 +44,7 @@ class HomeController extends Controller
     {
 
         $chapters = Chapter::all();
-        $alumnis = Alumni::all();
+        $alumnis = Alumni::take(6)->get();
         return view('about.aboutUs', compact('chapters', 'alumnis'));
     }
 

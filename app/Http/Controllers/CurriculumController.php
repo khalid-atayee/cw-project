@@ -139,7 +139,16 @@ class CurriculumController extends Controller
     {
         $data = $this->updateCurriculam($request->all(),$id);
         if($data){
+            session()->flash('success-message', 'Curriculum record updated');
+
             return redirect()->route('curriculum.index');
+        }
+        else{
+            session()->flash('fail-message', 'something went wrong plz refere to code');
+
+
+            return redirect()->route('curriculum.index');
+
         }
     }
 
@@ -153,6 +162,7 @@ class CurriculumController extends Controller
     {
         $curriculumTemplates = CurriculamTemplate::find($id);
         $curriculumTemplates->delete();
+        session()->flash('success-message', 'Curriculum record deleted');
         return redirect()->route('curriculum.index');
     }
 }

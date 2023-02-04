@@ -6,7 +6,7 @@
      <div class="navigate-full">
 
          <h1 class="cw-logo fw-bold">CodeWeekend</h1>
-         <ul>
+         <ul id="active-container">
              <li><a class="header-typo" href="{{ route('cw-home') }}"> Home</a></li>
 
              <li><a class="header-typo" href="{{ route('cw-program') }}">Program</a></li>

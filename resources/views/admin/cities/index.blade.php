@@ -38,7 +38,7 @@
                         </div>
                         <div>
                             
-                            <form class="" action="" onsubmit="return confirm('Are you sure to delete this chapter?')" method="POST">
+                            <form class="" action="{{ route('cities.destroy',$city) }}" onsubmit="return confirm('Are you sure to delete this chapter?')" method="POST">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="tw-bg-red-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white">

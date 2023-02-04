@@ -71,6 +71,10 @@
         <h3>Template of Curriculum</h3>
         <div class="card-group gap-3">
 
+
+            @if (isset($chapter->curriculumTemplate))
+                
+           
             {{-- @if (isset($chapter[0]->curriculumTemplate)) --}}
             @foreach ($chapter->curriculumTemplate as $curriculum)
                 <div class="card curriculam-cards rounded-2 col-md mx-2">
@@ -94,6 +98,9 @@
                             <p class="">Mentors</p>
                             <div class="mentors-images d-flex">
                             {{-- ====++++++==== --}}
+
+                            @if (isset($curriculum->mentor_ids))
+                                
                                 @php
                                     $mentor_ids = [];
                                     // foreach ($topic as $key => $mentor) {
@@ -110,6 +117,8 @@
                                         onclick="showUserToggle({{ $mentor }},'mentorImage')"
                                         class="image-fluid  " alt="">
                                 @endforeach
+                            @endif
+
 
                                 {{-- ======++++===== --}}
 
@@ -136,10 +145,10 @@
                 </div>
             @endforeach
 
-            {{-- @else
+            @else
                     <p class="text-muted text-center">Curriculum not created for this chapter yet</p>
                     
-                @endif --}}
+                @endif
 
 
         </div>

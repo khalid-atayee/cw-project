@@ -62,12 +62,12 @@ class PaymentGateWayController extends Controller
 
               // swal("Payment done successfully !");
 
-            Session::flash ( 'success-message', 'Payment done successfully, we will get back to you soon' );
+           session()->flash ( 'success-message', 'Payment done successfully, we will get back to you soon' );
             $chapters = Chapter::all();
             return view('home.home',compact('chapters'))->with('message','Payment done successfully ! we will contact you soon');
             // return view ( 'cardForm' );
         } catch ( \Stripe\Error\Card $e ) {
-            Session::flash ( 'fail-message', $e->get_message() );
+          session()->flash ( 'fail-message', $e->get_message() );
             // return view ( 'cardForm' );
         }
 

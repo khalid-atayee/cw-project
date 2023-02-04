@@ -58,7 +58,9 @@ class AlumniController extends Controller
             'photo' => $filename,
             'linkedin' => $request->linkedin
         ]);
-
+        session()->flash('success-message', 'Alumni record added');
+    
+    
         return redirect()->route('alumnis.index');
     }
 
@@ -106,6 +108,8 @@ class AlumniController extends Controller
         $alumni->photo = $filename ?? $alumni->photo;
         $alumni->linkedin = $request->linkedin;
         $alumni->save();
+        session()->flash('success-message', 'Alumni record updated');
+
         return redirect()->route('alumnis.index');
     }
 
@@ -118,6 +122,7 @@ class AlumniController extends Controller
     public function destroy(Alumni $alumni)
     {
         $alumni->delete();
+        session()->flash('success-message', 'Alumni record deleted');
 
         return redirect()->back();
     }

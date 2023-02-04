@@ -147,6 +147,8 @@ class SessionController extends Controller
         $session->curriculam_template_id = $request->curriculam_template_id;
         $session->curriculam_template_item_id = $request->curriculam_template_item_id;
         $session->update();
+        session()->flash('success-message', 'Session record updated');
+        
         return redirect()->route('sessions.index');
 
     }
@@ -161,6 +163,8 @@ class SessionController extends Controller
     {
         $session = Session::find($id);
         $session->delete();
+        session()->flash('success-message', 'Session record deleted');
+
         return redirect()->back();
     }
 }
