@@ -5,8 +5,8 @@
 @include('partials.signIn')
 {{-- @include('partials.signUp') --}}
 @include('partials.footer')
-
-<div class="location-main-container locationToggle" id="locationModalId">
+@endsection
+{{-- <div class="location-main-container locationToggle" id="locationModalId">
 
     <div class="location-container">
         <form action="{{ route('cw-location') }}" method="POST">
@@ -45,7 +45,6 @@
 
 
     </div>
-</div>
+</div> --}}
 
     
-@endsection

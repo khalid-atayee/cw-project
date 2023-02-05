@@ -47,7 +47,7 @@ Route::get('program', [ProgramController::class, 'index'])->name('cw-program');
 Route::post('renderProgram', [ProgramController::class, 'renderData'])->name('program-location');
 Route::get('aboutUs', [HomeController::class, 'aboutUs'])->name('cw-about');
 Route::get('/news', [NewsController::class, 'news'])->name('news');
-Route::get('/news/details', [NewsController::class, 'newsDetails'])->name('newsDetails');
+Route::get('/news/details/{news}', [NewsController::class, 'newsDetails'])->name('newsDetails');
 
 Route::get('/curriculam', [HomeController::class, 'curriculam'])->name('cw-curriculam');
 

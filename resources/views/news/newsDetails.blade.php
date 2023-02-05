@@ -1,66 +1,63 @@
 @extends('index')
 @section('content')
 @include('partials.header')
-<div class="sm:tw-max-w-[80%] sm:tw-mx-auto sm:tw-p-10 tw-border">
-    <div class="md:tw-flex">
-        <div class="md:tw-w-4/6">
-            <!-- post details -->
-            <div class="tw-flex tw-flex-col">
-                <img src="{{ asset('storage/posts/' . $news->image) }}" class="tw-w-full tw-rounded-md" alt="">
-                <h1 class="tw-text-3xl tw-p-3 sm:tw-p-0 lg:tw-text-6xl">{{ $news->title }}</h1>
-                <p class="tw-p-6 sm:tw-p-2 tw-text-justify">
+
+<div class="container news-container">
+    <h1 class="text-center my-4 fw-bold">
+        News
+    </h1>
+    <div class="row">
+
+        <div class="d-flex flex-column justify-content-between col-12 tw-border" data-aos="zoom-in">
+            <div class="tw-w-full">
+                <img class="tw-mx-auto tw-w-full" src="{{ asset('storage/posts/' . $news->image) }}" alt="">
+            </div>
+
+            <div class="text-center  p-1 tw-bg-white">
+                <h1 class="tw-text-gray-800">
                     {{ $news->title }}
+                </h1>
+                <p class="px-2 tw-text-gray-800">
+                    {{ $news->description }}
                 </p>
+                {{-- <p class="card-text "><small class="">Last updated 3 hrs ago</small></p> --}}
             </div>
+
         </div>
-        <div class="md:tw-w-2/6 tw-flex tw-mt-5 sm:tw-mt-0 tw-flex-col tw-pl-2">
-            <!-- related news -->
-            <h1 class="font-[roboto]">Related News</h1>
-            <div>
+        <div class="card border-1 my-3">
+            <h5 class="card-header">Recent</h5>
+            <div class="card-body ">
                 @foreach ($newses as $news)
-                <a class="text-ellipsis  tw-text-gray-800 tw-border tw-rounded-md tw-p-2 tw-block tw-mb-2 hover:tw-border-gray-600 " href="{{ route('newsDetails', $news) }}">{{ $news->title }}</a>    
+                <p>
+                    <a href="{{ route('newsDetails', $news) }}">{{ $news->title }}</a>
+                </p>
                 @endforeach
-
+               
             </div>
         </div>
-    </div>
-    <h1 class="tw-text-3xl tw-py-10 tw-pl-2 sm:tw-pl-0 tw-border-b">Recent Posts</h1>
-    
-    <div class="md:tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-3 tw-space-y-3 sm:tw-space-y-0  tw-mt-10">
 
-        @foreach ($newses as $news)
-            <div class="tw-flex tw-flex-col sm:tw-max-w-md tw-rounded-md tw-overflow-hidden tw-border">
-                <img class="tw-w-full" src="{{ asset('storage/posts/' . $news->image) }}" alt="">
-                <h1 class="tw-text-2xl font-[roboto] tw-p-2">{{ $news->title }}</h1>
-                <p class="tw-truncate tw-p-2">{{ $news->title }}</p>
-                <a class="tw-px-5 tw-py-3 tw-bg-[#111B31] tw-text-[#FFFFFF] tw-text-center tw-text-xl tw-mx-10 tw-my-2 tw-rounded-md" href="{{ route('newsDetails', $news) }}">Read More</a>
-            </div>
-        @endforeach
-        {{-- <div class="tw-flex tw-flex-col sm:tw-max-w-md tw-rounded-md tw-overflow-hidden tw-border">
-            <img class="tw-w-full" src="{{ asset('images/news_images/office.jpg') }}" alt="">
-            <h1 class="tw-text-2xl font-[roboto] tw-p-2">Using responsive utility variants to build adaptive user interfaces.</h1>
-            <p class="tw-truncate tw-p-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque odit cupiditate doloremque itaque. Nesciunt, incidunt dolorum reprehenderit eos sequi deleniti vero doloremque unde modi quibusdam. Nisi atque ex vel corrupti.</p>
-            <a class="tw-px-5 tw-py-3 tw-bg-[#111B31] tw-text-[#FFFFFF] tw-text-center tw-text-xl tw-mx-10 tw-my-2 tw-rounded-md" href="./postDetails.html">Read More</a>
+        <div class="cards-group news-cards-group d-flex flex-wrap justify-content-around text-center">
+            @foreach ($newses as $news)
+            <a href="{{ route('newsDetails', $news) }}" class="card me-3 mb-3 col-sm-5 col-12 col-md-3" data-aos="fade-down">
+                <div>
+                    <div class="card-img-wrap">
+                        <img style="height: 350px;" src="{{ asset('storage/posts/'. $news->image) }}" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">{{ $news->title }}</h5>
+                        <p class="card-text tw-truncate">{{ $news->description }}</p>
+                        {{-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> --}}
+                    </div>
+                </div>
+            </a>
+            @endforeach
+            
+
         </div>
-        <div class="tw-flex tw-flex-col sm:tw-max-w-md tw-rounded-md tw-overflow-hidden tw-border">
-            <img class="tw-w-full" src="{{ asset('images/news_images/office.jpg') }}" alt="">
-            <h1 class="tw-text-2xl font-[roboto] tw-p-2">Using responsive utility variants to build adaptive user interfaces.</h1>
-            <p class="tw-truncate tw-p-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque odit cupiditate doloremque itaque. Nesciunt, incidunt dolorum reprehenderit eos sequi deleniti vero doloremque unde modi quibusdam. Nisi atque ex vel corrupti.</p>
-            <a class="tw-px-5 tw-py-3 tw-bg-[#111B31] tw-text-[#FFFFFF] tw-text-center tw-text-xl tw-mx-10 tw-my-2 tw-rounded-md" href="./postDetails.html">Read More</a>
+        <div class="text-center my-3" data-aos="fade-up">
+            <button class="cw-btn btn-dark-blue text-center">load More</button>
         </div>
-        <div class="tw-flex tw-flex-col sm:tw-max-w-md tw-rounded-md tw-overflow-hidden tw-border">
-            <img class="tw-w-full" src="{{ asset('images/news_images/office.jpg') }}" alt="">
-            <h1 class="tw-text-2xl font-[roboto] tw-p-2">Using responsive utility variants to build adaptive user interfaces.</h1>
-            <p class="tw-truncate tw-p-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque odit cupiditate doloremque itaque. Nesciunt, incidunt dolorum reprehenderit eos sequi deleniti vero doloremque unde modi quibusdam. Nisi atque ex vel corrupti.</p>
-            <a class="tw-px-5 tw-py-3 tw-bg-[#111B31] tw-text-[#FFFFFF] tw-text-center tw-text-xl tw-mx-10 tw-my-2 tw-rounded-md" href="./postDetails.html">Read More</a>
-        </div>
-        <div class="tw-flex tw-flex-col sm:tw-max-w-md tw-rounded-md tw-overflow-hidden tw-border">
-            <img class="tw-w-full" src="{{ asset('images/news_images/office.jpg') }}" alt="">
-            <h1 class="tw-text-2xl font-[roboto] tw-p-2">Using responsive utility variants to build adaptive user interfaces.</h1>
-            <p class="tw-truncate tw-p-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque odit cupiditate doloremque itaque. Nesciunt, incidunt dolorum reprehenderit eos sequi deleniti vero doloremque unde modi quibusdam. Nisi atque ex vel corrupti.</p>
-            <a class="tw-px-5 tw-py-3 tw-bg-[#111B31] tw-text-[#FFFFFF] tw-text-center tw-text-xl tw-mx-10 tw-my-2 tw-rounded-md" href="./postDetails.html">Read More</a>
-        </div> --}}
-       
+
     </div>
 
 </div>
