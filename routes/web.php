@@ -79,7 +79,7 @@ Route::get('feedbacks', [FeedbackController::class, 'feedbacks'])->name('feedbac
 Route::post('/feedbacksStore', [FeedbackController::class, 'storeFeedback'])->name('feedback.store');
 
 
-// forgot passwor
+// forgot password
 
 Route::get('/forgotPassword',[ForgotPassword::class,'index'])->name('forgot.index');
 Route::post('/storPassword',[ForgotPassword::class,'store'])->name('forgot.store');

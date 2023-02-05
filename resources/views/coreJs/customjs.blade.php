@@ -163,14 +163,18 @@
 
     })
 
-  
+    $("#password-input").keyup(function(event) {
+        if (event.keyCode === 13) {
+            $("#sign-in-form-hover").click();
+        }
+    });
 
-    function resetPassword(url, method, formId,appendContainer, btnClass) {
-        $('#' + formId).submit(e => e.preventDefault());    
+    function resetPassword(url, method, formId, appendContainer, btnClass) {
+        $('#' + formId).submit(e => e.preventDefault());
 
         let data = $('#' + formId).serialize();
         $('.error-email').text('');
-        $('.'+btnClass).prop('disabled', true);
+        $('.' + btnClass).prop('disabled', true);
         $('.louder').removeClass('show-loader');
 
         $.ajax({
@@ -179,7 +183,7 @@
             data: data,
             dataType: "json",
             success: function(response) {
-                if(response.status=='success'){
+                if (response.status == 'success') {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
@@ -187,10 +191,10 @@
                         showConfirmButton: false,
                         timer: 3000
                     })
-                    $('.'+appendContainer).html(response.html_view)
-                    $('.'+btnClass).prop('disabled', true);
+                    $('.' + appendContainer).html(response.html_view)
+                    $('.' + btnClass).prop('disabled', true);
                     $('.louder').addClass('show-loader');
-                    $('#'+formId)[0].reset();
+                    $('#' + formId)[0].reset();
 
                 }
                 if (response.status == 'notFound') {
@@ -201,15 +205,15 @@
                         showConfirmButton: false,
                         timer: 1500
                     })
-                    $('.'+btnClass).prop('disabled', false);
-                $('.louder').addClass('show-loader');
-                $('#'+formId)[0].reset();
+                    $('.' + btnClass).prop('disabled', false);
+                    $('.louder').addClass('show-loader');
+                    $('#' + formId)[0].reset();
 
                 }
-               
+
             },
             error: function(response) {
-                $('.'+btnClass).prop('disabled', false);
+                $('.' + btnClass).prop('disabled', false);
                 $('.louder').addClass('show-loader');
                 $.each(response.responseJSON.errors.email, function(key, value) {
                     $('.error-email').text(value)
@@ -224,8 +228,8 @@
 
     }
 
-    function returnBlade(url, method, formId){
-        $('#' + formId).submit(e => e.preventDefault());    
+    function returnBlade(url, method, formId) {
+        $('#' + formId).submit(e => e.preventDefault());
 
         let data = $('#' + formId).serialize();
 
@@ -235,7 +239,7 @@
             data: data,
             dataType: "json",
             success: function(response) {
-                if(response.status=='success'){
+                if (response.status == 'success') {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
@@ -408,7 +412,6 @@
 
 
 
-    // otp end here
 
     // active menu
     // let header = document.getElementById("active-container");

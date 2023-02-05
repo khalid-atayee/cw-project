@@ -15,6 +15,7 @@
 
 @include('partials.footer')
 @include('partials.signIn')
+@include('partials.location')
 
 
 @endsection

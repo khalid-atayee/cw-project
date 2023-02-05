@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ForgotPasswordValidation;
 use App\Http\Requests\OTPvalidation;
 use App\Mail\ForgotPassword as MailForgotPassword;
+use App\Models\Chapter;
 use App\Models\otp;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -14,7 +15,8 @@ use Illuminate\Support\Facades\Mail;
 class ForgotPassword extends Controller
 {
     public function index(){
-        return view('forgotPassword.forgot');
+        $chapters = Chapter::all();
+        return view('forgotPassword.forgot',compact('chapters'));
     }
 
     public function store(OTPvalidation $request){

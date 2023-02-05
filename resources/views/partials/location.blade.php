@@ -4,11 +4,11 @@
         <form action="{{ route('cw-location') }}" method="POST">
             @csrf
             <div class="location-header">
-                <h3 class="header-typo"><i class="fa-solid fa-location-dot "></i> <strong> Your location Preference
+                <h3 class="header-typo header-location-paragraph"><i class="fa-solid fa-location-dot "></i> <strong> Your location Preference
                     </strong> </h3>
 
-                <span class="sign-close-icon" onclick="closeLocationModal()">
-                    <i class="fa-solid fa-xmark"></i>
+                <span class="location-close-icon" onclick="closeLocationModal()">
+                    <i class="fa-solid fa-xmark close-btn-sign"></i>
                 </span>
             </div>
             <div class="location-main">

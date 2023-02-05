@@ -51,7 +51,7 @@
      <img class="responsive-what-we-do" src="{{ asset('images/placement.png') }}" alt="">
    </div>
 
-   <a class="read-more-link" href="#" data-aos="fade-right">read more <span><i class="fa fa-arrow-right right-arrow"></i></span> </a>
+   <a class="read-more-link" href="{{ Auth::user() ? route('payment.index') : route('students.index')}}" data-aos="fade-right">Apply Now <span><i class="fa fa-arrow-right right-arrow"></i></span> </a>
    <div class="shape3">
      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
        <path fill="#D9D9D9" d="M52.4,-53.3C62.2,-42.5,60.6,-21.3,59.8,-0.8C59,19.7,59,39.4,49.2,52.2C39.4,65,19.7,70.9,1.2,69.8C-17.3,68.6,-34.7,60.3,-47.6,47.5C-60.5,34.7,-68.9,17.3,-71.3,-2.4C-73.7,-22.1,-69.9,-44.1,-57,-55C-44.1,-65.8,-22.1,-65.3,-0.4,-64.9C21.3,-64.5,42.5,-64.2,52.4,-53.3Z" transform="translate(100 100)" />
