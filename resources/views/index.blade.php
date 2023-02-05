@@ -106,6 +106,8 @@
 
   <!-- animation js line -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+{{-- otp input --}}
+<Script Src="Https://Cdnjs.Cloudflare.Com/Ajax/Libs/Jquery/3.4.1/Jquery.Min.Js"></Script>
    
 
   <script>

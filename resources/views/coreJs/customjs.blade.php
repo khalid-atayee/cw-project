@@ -163,6 +163,114 @@
 
     })
 
+  
+
+    function resetPassword(url, method, formId,appendContainer, btnClass) {
+        $('#' + formId).submit(e => e.preventDefault());    
+
+        let data = $('#' + formId).serialize();
+        $('.error-email').text('');
+        $('.'+btnClass).prop('disabled', true);
+        $('.louder').removeClass('show-loader');
+
+        $.ajax({
+            type: method,
+            url: url,
+            data: data,
+            dataType: "json",
+            success: function(response) {
+                if(response.status=='success'){
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: response.message,
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                    $('.'+appendContainer).html(response.html_view)
+                    $('.'+btnClass).prop('disabled', true);
+                    $('.louder').addClass('show-loader');
+                    $('#'+formId)[0].reset();
+
+                }
+                if (response.status == 'notFound') {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: response.message,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    $('.'+btnClass).prop('disabled', false);
+                $('.louder').addClass('show-loader');
+                $('#'+formId)[0].reset();
+
+                }
+               
+            },
+            error: function(response) {
+                $('.'+btnClass).prop('disabled', false);
+                $('.louder').addClass('show-loader');
+                $.each(response.responseJSON.errors.email, function(key, value) {
+                    $('.error-email').text(value)
+                });
+
+
+
+
+            }
+
+        });
+
+    }
+
+    function returnBlade(url, method, formId){
+        $('#' + formId).submit(e => e.preventDefault());    
+
+        let data = $('#' + formId).serialize();
+
+        $.ajax({
+            type: method,
+            url: url,
+            data: data,
+            dataType: "json",
+            success: function(response) {
+                if(response.status=='success'){
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: response.message,
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                    $('.forgot-otp-input-view').html(response.html_view);;
+
+                }
+                if (response.status == 'notFound') {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: response.message,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+
+                }
+            },
+            error: function(response) {
+                $.each(response.responseJSON.errors.email, function(key, value) {
+                    $('.error-email').text(value)
+                });
+
+
+
+
+            }
+
+        });
+
+    }
+
 
     // let faq = document.getElementsByClassName("faq-page");
     // let i;
@@ -297,6 +405,10 @@
 
 
     }
+
+
+
+    // otp end here
 
     // active menu
     // let header = document.getElementById("active-container");

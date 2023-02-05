@@ -4,6 +4,7 @@
 @include('partials.curriculamItem')
 @include('partials.footer')
 {{-- modal start here --}}
+@include('partials.signIn')
 
 <div class="mentor-main-container mentorToggle" id="mentorModalId">
 

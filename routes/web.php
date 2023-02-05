@@ -21,6 +21,7 @@ use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\ForgotPassword;
 use App\Http\Controllers\OrganizerController;
 
 use App\Http\Controllers\SessionController;
@@ -77,6 +78,13 @@ Route::post('/login', [AuthController::class, 'login'])->name('authentication.lo
 Route::get('feedbacks', [FeedbackController::class, 'feedbacks'])->name('feedbacks');
 Route::post('/feedbacksStore', [FeedbackController::class, 'storeFeedback'])->name('feedback.store');
 
+
+// forgot passwor
+
+Route::get('/forgotPassword',[ForgotPassword::class,'index'])->name('forgot.index');
+Route::post('/storPassword',[ForgotPassword::class,'store'])->name('forgot.store');
+Route::post('/verification',[ForgotPassword::class,'verificaiton'])->name('forgot.verification');
+Route::post('/changePassword{id?}/update',[ForgotPassword::class,'changePassword'])->name('forgot.change');
 
 Route::group(['middleware' => ['AuthCheck']], function () {
     // admin panel routes here
