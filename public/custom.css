@@ -764,6 +764,9 @@ h1 {
         max-height: fit-content;
         justify-content: space-between;
     }
+    .about-us-container{
+        grid-gap: unset !important;
+    }
 
     .quote {
         font-size: 1.2em;
@@ -1537,6 +1540,13 @@ input.sign-form-input {
         flex-direction: column;
 
         gap: 0.1em;
+    }
+    #mission-content-paragraph ,#vision-content-paragraph{
+        font-size: 1rem !important;
+        text-align: center !important;
+    }
+    #mission-container,#vision-main-container{
+        width: 80% !important;
     }
 }
 
@@ -2338,7 +2348,7 @@ h5 {
 }
 
 .about-us-container {
-    margin-top: 1em;
+    margin-top: .8em;
 }
 
 .about-us-p {
@@ -2361,7 +2371,7 @@ h5 {
 
 @media (max-width: 767px) {
     .about-us-container {
-        gap: 0;
+        gap:unset ;
     }
 
     .landing-container>img {
@@ -2890,6 +2900,10 @@ i {
   {
     text-align: left;
   } */
+  #mission-content-paragraph{
+    text-align: center !important;
+  }
+
 }
 
 @media (max-width: 507px) {
@@ -3424,10 +3438,91 @@ i {
 
 
 }
+#history-about-us{
+    display: block;
+    text-align: left;
+}
 
-.location-container{
+#paragraph-about-us-hero{
+    text-align: left;
+}
+#about-us-hero-img{
+    max-width: 100%;
+    width: 35vw;
+    height: auto;
+    object-fit: contain;
+}
+#mission-content-paragraph{
+    text-align: left !important;
+}
+#mission-title{
+    font-family: var(--ff-arial-rounded) !important;
+}
+#vision-aboutUs-title{
+    text-align: right !important;
+}
+#vision-content-paragraph{
+    text-align: right !important;
+
+}
+#vision-main-container{
+    margin-top: 5% !important;
 }
 
 
+#vission-content-containre{
+    
+}
+@media (max-width:900px){
+    #about-us-hero-img{
+        display: none !important;
+    }
+    #about-us-shape1,#about-us-shape2{
 
+        display: none !important;
+
+    }
+    #about-us-hero-content{
+        min-width: 100% !important;
+    }
+    #paragraph-about-us-hero{
+        font-size: 1rem !important;
+    }
+
+    .about-us-title{
+        font-size: 1.2rem !important;
+    }
+    #about-us-landing-content{
+        min-width: 100% !important;
+
+
+    }
+    #vision-content-paragraph, #mission-content-paragraph{
+        font-size: .8rem !important;
+    }
+    #vision-aboutUs-title ,#mission-title{
+        font-size: 1.2rem !important;
+    }
+
+}
 /* ====++++==== */
+
+@media (max-width:767px){
+    #mission-content-paragraph, #mission-title,#vision-aboutUs-title,#vision-content-paragraph{
+        text-align: center !important;
+    }
+
+    #mission-title,#vision-aboutUs-title{
+        font-size: 1.5rem !important;
+        font-weight: 900;
+        font-family: var(--ff-arial-rounded);
+    }
+
+    #mission-content-paragraph,#vision-content-paragraph{
+        font-size: 1rem !important;
+    }
+
+}
+#about-us-hero-content{
+    max-height: 82vh;
+}
