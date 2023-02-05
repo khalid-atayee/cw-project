@@ -83,7 +83,7 @@
 
      <div class=" row  text-center my-5" data-aos="fade-up">
          <div class="col">
-             <a href="#" class="cw-btn btn-dark-blue my-3">Load More</a>
+             <a href="{{ route('allAlumni') }}" class="cw-btn btn-dark-blue my-3">Load More</a>
          </div>
      </div>
 

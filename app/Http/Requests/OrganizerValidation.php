@@ -27,7 +27,7 @@ class OrganizerValidation extends FormRequest
             'name'=>'required',
             'email'=>'required|email:rfc|unique:users,email',
             'password'=>'required',
-            'description'=>'required|max:200',
+            'description'=>'required|min:100',
             'image'=>'required',
             'chapter_id'=>'required'
         ];

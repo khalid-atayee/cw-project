@@ -26,7 +26,7 @@ class UpdateOrganizerValidation extends FormRequest
         return [
             'name'=>'required',
             'email'=>'required',
-            'description'=>'required|max:200',
+            'description'=>'required|min:100',
             // 'image'=>'required',
             'chapter_id'=>'required'
             

@@ -19,7 +19,7 @@
                 $length = count($data->curriculumTemplate);
             @endphp
             @for ($i = 0; $i < $length; $i++)
-                <div class="container-module-two">
+                <div class="container-module-two"  id = "changes-card">
                     <div class="module m-2" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="500">
                         <h4>{{ $data->curriculumTemplate[$i]->module_name }}</h4>
                         <p>{{ $data->curriculumTemplate[$i]->description }}</p>
@@ -30,11 +30,36 @@
 
         @else
             <img src="images/Line 22.png" alt="" class="vertical-vector">
-            <img src="images/Line 20.png" alt="" class="horizontal-vector">
+            
+             <img src="images/Line 20.png" alt="" class="horizontal-vector">
         @endif
 
 </div>
 @endfor
+
+@elseif (count($curiculumn))
+@php
+    $length = count($curiculumn[0]->curriculumTemplate);
+@endphp
+@for ($i = 0; $i < $length; $i++)
+    <div class="container-module-two"  id = "changes-card">
+        <div class="module m-2" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="500">
+            <h4>{{ $curiculumn[0]->curriculumTemplate[$i]->module_name }}</h4>
+            <p>{{ $curiculumn[0]->curriculumTemplate[$i]->description }}</p>
+        </div>
+        @if ($i == $length - 1)
+    </div>
+@break
+
+@else
+<img src="images/Line 22.png" alt="" class="vertical-vector">
+
+ <img src="images/Line 20.png" alt="" class="horizontal-vector">
+@endif
+
+</div>
+@endfor
+
 
 @endif
 
@@ -48,7 +73,7 @@
 
 <div class="btn-container text-center">
 
-<a href="{{ isset($data) ? route('cw-curriculam',$data->id) : '#' }}" class="cw-btn btn-dark-blue p-3 mt-3 ">See The Schedule</a>
+<a href="{{ isset($data) ? route('cw-curriculam',$data->id) : count($curiculumn) ?  route('cw-curriculam',$curiculumn[0]->id) : '#' }}" class="cw-btn btn-dark-blue p-3 mt-3 ">See The Schedule</a>
 </div>
 
 

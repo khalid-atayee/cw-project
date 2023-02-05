@@ -26,7 +26,7 @@ class UpdateMentorValidation extends FormRequest
         return [
             'name'=>'required',
             'email'=>'required',
-            'description'=>'required',
+            'description'=>'required|min:100',
             // 'image'=>'required',
             'chapter_id'=>'required'
             

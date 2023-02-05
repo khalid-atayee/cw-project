@@ -41,7 +41,7 @@ use App\Http\Controllers\UserManagementController;
 |
 */
 
-
+// website links
 Route::get('/', [HomeController::class, 'index'])->name('cw-home');
 Route::get('alumni', [HomeController::class, 'alumni'])->name('cw-alumni');
 Route::get('program', [ProgramController::class, 'index'])->name('cw-program');
@@ -55,6 +55,10 @@ Route::get('/curriculam/{id?}', [HomeController::class, 'curriculam'])->name('cw
 Route::post('/location', [HomeController::class, 'find'])->name('cw-location');
 
 // Route::get('/news/details/{news}', [NewsController::class, 'newsDetailsData'])->name('newsDetails');
+Route::get('allMember',[HomeController::class, 'showAll'])->name('showAll');
+Route::get('allAlumni',[HomeController::class, 'allAlumni'])->name('allAlumni');
+
+
 
 
 
@@ -103,6 +107,7 @@ Route::group(['middleware' => ['AuthCheck']], function () {
         'cities' => CityController::class,
 
     ]);
+
 
     Route::get('createMail', [MentorController::class, 'createMail'])->name('mentor.createMail');
     Route::post('sendMail', [MentorController::class, 'sendMail'])->name('mentor.sendMail');

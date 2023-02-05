@@ -7,7 +7,71 @@
 
          <section class="meet-our-team-container meet-org-container">
 
-             @if (isset($data))
+            @if (count($curiculumn))
+            @php
+            $count = 0;
+        @endphp
+        @for ($i=0; $i<count($curiculumn[0]->mentor)+1;)
+            <div class="meet-our-team-content meet-our-organizer">
+
+                @if ($i == 0)
+                    <div class="meet-our-team-values meet-org-values" data-aos="fade-left">
+
+                        <img src="{{ asset('storage/organizerImage/' . $curiculumn[0]->organizer->image) }}" alt="">
+                        <div class="paragraphs core-organizer-par left-text-aligns">
+                            <h5 style="visibility: hidden;">Mentor</h5>
+                            <h3 class="what-make-different-title" id="left-aligns">
+                                {{ $curiculumn[0]->organizer->name }}
+                            </h3>
+
+                            <h5 class="some-paragraph-title" id="organizerr"> Organizer  </h5>
+                            <p class="some-paragraph-title  left-text-aligns" id="left-aligns">
+                                {{ $curiculumn[0]->organizer->description }}</p>
+                        </div>
+                    </div>
+                   
+                @else
+                    <div class="meet-our-team-values meet-org-values" data-aos="fade-left">
+
+                        <img src="{{ asset('storage/mentorImage/' . $curiculumn[0]->mentor[$i]->image) }}" alt="">
+                        <div class="paragraphs core-organizer-par left-text-aligns">
+                            <h5 style="visibility: hidden;">Mentor</h5>
+                            <h3 class="what-make-different-title" id="left-aligns"> {{ $curiculumn[0]->mentor[$i]->name }}
+                            </h3>
+
+                            <h5 class="some-paragraph-title" id="organizerr"> Mentor </h5>
+                            <p class="some-paragraph-title  left-text-aligns" id="left-aligns">
+                                {{ $curiculumn[0]->mentor[$i]->description }}</p>
+                        </div>
+                    </div>
+                    @php
+                        $i++;
+                        if($i==count($curiculumn[0]->mentor)){
+                           break;
+                        }
+                    @endphp
+                @endif
+                <div class="meet-our-team-values meet-org-values right-text-aligns" data-aos="fade-right">
+                    <div class="paragraphs texts-bottom core-organizer-par  ">
+                        <h3 class="what-make-different-title" id="right-aligns"> {{ $curiculumn[0]->mentor[$i]->name }}</h3>
+                        <h5 class="some-paragraph-title" id="right-aligns">Mentor</h5>
+                        <p class="some-paragraph-title" id="right-aligns">{{ $curiculumn[0]->mentor[$i]->description }}</p>
+                    </div>
+                    <img src="{{ asset('storage/mentorImage/' . $curiculumn[0]->mentor[$i]->image) }}" alt="">
+
+                </div>
+                @php
+                    $i++;
+                    if ($i ==count($curiculumn[0]->mentor)) {
+                        break;
+                    }
+                @endphp
+            </div>
+        @endfor
+
+                
+
+             @elseif (isset($data))
 
 
                  @php
@@ -124,7 +188,7 @@
           
     </section>
     <div class="text-center mt-4 p-1">
-        <a href="{{ isset($data) ? route('cw-curriculam', $data->id) : '#' }}"
+        <a href="{{ isset($data) ? route('cw-curriculam',$data->id) : count($curiculumn) ?  route('cw-curriculam',$curiculumn[0]->id) : '#' }}"
             class="cw-btn btn-dark-blue p-3 mt-3 ">See The Schedule</a>
     </div> 
 

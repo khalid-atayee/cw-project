@@ -19,6 +19,8 @@ class TeamController extends Controller
         return view('admin.team.index',compact('members'));
     }
 
+  
+
     /**
      * Show the form for creating a new resource.
      *

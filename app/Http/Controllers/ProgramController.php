@@ -8,8 +8,12 @@ use Illuminate\Http\Request;
 class ProgramController extends Controller
 {
     function index(){
+        $default_chapter = Chapter::take(1)->get();
+        $curiculumn = Chapter::with('organizer', 'mentor', 'curriculumTemplate')->take(1)->get();
+
+
         $chapters = Chapter::all();
-        return view('program.program',compact('chapters'));
+        return view('program.program',compact('chapters','default_chapter','curiculumn'));
     }
     
 }

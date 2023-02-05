@@ -99,7 +99,7 @@
           </section>
           <div class="btn-container text-center mx-auto my-2">
 
-              <button class="cw-btn btn-dark-blue mt-2 rounded-pill  my-1 ">See All</button>
+              <a class="cw-btn btn-dark-blue mt-2 rounded-pill  my-1 " href="{{ route('showAll') }}">See All</a>
 
           </div>
 

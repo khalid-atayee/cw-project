@@ -2932,7 +2932,7 @@ i {
     text-align: center;
 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     position: relative;
 }
 
@@ -3012,6 +3012,10 @@ i {
         align-items: center;
     }
 }
+
+/* #changes-card{
+    width: 300px;
+} */
 
 /* curriculumn end here ====+++++
 +====== */
@@ -3327,7 +3331,6 @@ i {
 }
 .location-close-icon{
     color: red;
-    /* font-size: 1rem; */
     cursor: pointer;
     align-self: flex-start;
 
