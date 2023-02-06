@@ -1261,25 +1261,7 @@ h1 {
     color: #111b31;
 }
 
-/* Style the buttons that are used to open and close the faq-page body */
 
-/* Style the faq-page panel. Note: hidden by default */
-
-/* =====+++++++====== */
-/* .faq-container-main{
-  margin: 0 auto;
-  margin-top: 5%;
-  width: 70%;
-}
-.faq-container{
-  margin-top: 3%;
-}
-.faq-container-main>h1{
-  text-align: center;
-  
-} */
-
-/* faq end here */
 
 /* ************** */
 /* sign in / sign up start here */
@@ -1416,6 +1398,10 @@ input.sign-form-input {
 .fa-google,
 .fa-unlock {
     color: #699bf7;
+}
+
+.cu-btn{
+    background-color:#C37474;
 }
 
 /* sign in / sign up end here 

@@ -125,6 +125,13 @@
           
 
         }
+        .small-box{
+            background-color: #14213d !important;
+            opacity: 1.8;
+            color: rgba(255, 255, 255, 0.825);
+            border-radius:10px;
+            
+        }
     </style>
     <title>{{ $title ?? 'Codeweekend' }}</title>
 </head>
