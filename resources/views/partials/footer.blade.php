@@ -33,28 +33,28 @@
 
             <ul class=" text-center">
                 <li class=" fw-bold text-uppercase menu-item-header">About us</li>
-                <a href="">
+                <a href="{{ route('cw-about') }}">
                     <li class="footer-menu-item">Campany</li>
                 </a>
-                <a href="">
+                <a href="{{ route('cw-home') }}">
                     <li class="footer-menu-item">What we do?</li>
                 </a>
-                <a href="">
+                <a href="{{ route('cw-program') }}">
                     <li class="footer-menu-item">Program</li>
                 </a>
-                <a href="">
+                <a href="{{ route('cw-alumni') }}">
                     <li class="footer-menu-item">Alumni</li>
                 </a>
-                <a href="">
+                <a href="{{ route('cw-program') }}">
                     <li class="footer-menu-item">Mentors and Organizers</li>
                 </a>
             </ul>
             <ul class=" text-center">
                 <li class=" fw-bold text-uppercase menu-item-header">Support</li>
-                <a href="">
+                <a href="{{ Auth::user() ? route('payment.index') : route('students.index')}}">
                     <li class="footer-menu-item">Apply to Bootcamp</li>
                 </a>
-                <a href="">
+                <a href="{{ route('cw-program') }}">
                     <li class="footer-menu-item">Scholorship</li>
                 </a>
                 <a href="">

@@ -49,11 +49,11 @@
              <div class="font-awesome-container">
                  <span class="cw-logo" onclick="showLocationModal()">
 
-                     <i class="fa-solid fa-location-dot"></i>
+                     <i class="fa-solid fa-location-dot location-small"></i>
                  </span>
                  <span class="cw-logo" id="humbargar">
 
-                     <i class="fa-solid fa-bars"></i>
+                     <i class="fa-solid fa-bars humbargar-small"></i>
                  </span>
 
              </div>
@@ -66,29 +66,43 @@
      <div class="showMenu" id="navigate-small-mob">
          <div class="navigate-small-menu">
              <div class="navigate-small-header">
-                 <h1 class="cw-logo fw-bold "><a href="homePageHero.blade.php">CodeWeekend</a></h1>
+                 <h1 class="cw-logo fw-bold "><a href="{{ route('cw-home') }}" class="text-dark small-head-title">CodeWeekend</a></h1>
                  <span id="close-btn-menu-mob"><i class="fa-solid fa-xmark"></i></span>
 
              </div>
              <ul class="small-header-font-awesome">
-                 <li><a href="{{ route('cw-home') }}"><span><i class="fa-solid fa-house"></i></span> Home</a></li>
-                 <li><a href="{{ route('cw-program') }}"><span><i class="fa-solid fa-house"></i></span> Program</a></li>
-                 <li><a href="{{ route('cw-alumni') }}"><span><i class="fa-solid fa-house"></i></span> Alumni</a></li>
-                 <li><a href="#"><span><i class="fa-solid fa-house"></i></span> News</a></li>
-                 <li><a href="https://community.codeweekend.net/home"><span><i class="fa-solid fa-house"></i></span>
-                         Community</a></li>
-                 <li><a href="{{ route('cw-about') }}"><span><i class="fa-solid fa-house"></i></span> About Us</a></li>
+                 <li>
+                    <a href="{{ route('cw-home') }}">
+                        <span><img src="{{ asset('images/icons/homeIcon.png') }}" alt=""></span>
+                         <span class="text-dark"> Home</span>
+                        
+                    </a></li>
+                 <li><a href="{{ route('cw-program') }}"><span><img src="{{ asset('images/icons/coreProgram.png') }}" alt=""></span> <span class="text-dark"> Program </span></a></li>
+                 <li><a href="{{ route('cw-alumni') }}"><span><img src="{{ asset('images/icons/alumni.png') }}" alt=""></span> <span class="text-dark"> Alumni</span></a></li>
+                 <li><a href="{{ route('news') }}"><span><img src="{{ asset('images/icons/news.png') }}"  alt=""></span> <span class="text-dark"> News</span></a></li>
+                 <li><a href="https://community.codeweekend.net/home"><span><img src="{{ asset('images/icons/community.png') }}" alt=""></span>
+                    <span class="text-dark"> Community</span></a></li>
+                 <li><a href="{{ route('cw-about') }}"><span><img src="{{ asset('images/icons/aboutus.png') }}" alt=""></span><span class="text-dark">About Us</span> </a></li>
              </ul>
 
-             <div class="small-footer-links">
-                 <div class="footer-small-social">
-                     <a href="#"><span><i class="fa-solid fa-house"></i></span> </a>
-                     <a href="#"><span><i class="fa-solid fa-house"></i></span></a>
-                     <a href="#"><span><i class="fa-solid fa-house"></i></span> </a>
+             <div class="small-header-links">
+                 <div class="header-small-social">
+                    <div class="header-icons">
+                        <i class="footer-icon">
+                            <a href="#"><i class="fa-brands fa-instagram icon-small"></i></a>
+                        </i>
+                        <i class="footer-icon">
+                            <a href="#"><i class="fa-brands fa-linkedin icon-small"></i></a>
+                        </i>
+                        <i class="footer-icon">
+                            <a href="#"><i class="fa-brands fa-facebook icon-small"></i></a>
+                        </i>
+                      
+                    </div>
 
 
                  </div>
-                 <button class="cw-btn" onclick="showModelContainer()">sign in</button>
+                 <button class="cw-btn btn-secondary" onclick="showModelContainer()">sign in</button>
 
              </div>
 

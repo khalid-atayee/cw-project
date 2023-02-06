@@ -397,6 +397,7 @@ h1 {
     padding: 1em 5%;
     color: #111b31;
     position: absolute;
+    z-index: 1;
 
     width: 100%;
 }
@@ -406,11 +407,11 @@ h1 {
 }
 
 .need-talent a {
-    color: #111b31;
+    color: #1d2d50;
 }
 
 .need-talent>a:hover {
-    cursor: pointer;
+    cursor: pointer !important;
     color: white;
 }
 
@@ -471,6 +472,15 @@ h1 {
 #close-btn-menu-mob {
     font-size: 1.2rem;
 }
+.humbargar-small:hover,.location-small:hover,#close-btn-menu-mob:hover,.icon-small:hover{
+    transform:  scale(1.3);
+    cursor: pointer;
+    
+    
+}
+/* #close-btn-menu-mob:hover{
+    cursor: pointer;
+} */
 
 @media (max-width: 1200px) {
     .home-page-hero-section {
@@ -582,12 +592,13 @@ h1 {
     }
 
     .small-header-font-awesome span {
-        padding-right: 1em;
+        padding-right: .5em;
     }
 
     .small-footer-links {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         margin-top: 1.6em;
     }
 }
@@ -2409,6 +2420,10 @@ h5 {
     .about-us-title {
         text-align: left;
     }
+    .need-talent{
+        z-index: -1;
+        position: unset;
+    }
 }
 
 /* About us hero section end here======
@@ -3525,4 +3540,48 @@ i {
 }
 #about-us-hero-content{
     max-height: 82vh;
+}
+
+
+.small-header-font-awesome{
+    opacity: .8;
+}
+.small-header-font-awesome span{
+}
+.navigate-small-menu{
+    background:#d1d6df !important;
+    color: #111b31 !important;
+   
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.small-header-font-awesome{
+    padding: unset;
+}
+.small-header-font-awesome li a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+    padding: unset;
+    padding-top: .7em;
+}
+.small-header-font-awesome li a>span {
+    display: grid;
+}
+
+.small-header-links{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-icons{
+    display: flex;
+    gap: 1em;
+}
+.header-icons i{
+    font-size: 1.5rem;
+    color: #14213d;
+}
+.small-head-title{
+    text-decoration: none;
 }
