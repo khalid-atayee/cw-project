@@ -126,7 +126,7 @@
 
         }
         .small-box{
-            background-color: #14213d !important;
+            background-color: #2B3750 !important;
             opacity: 1.8;
             color: rgba(255, 255, 255, 0.825);
             border-radius:10px;
@@ -151,7 +151,7 @@
         @elseif (Session::has('fail-message'))
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <strong>Error! </strong>
-                {{ Session::get('success-message') }}
+                {{ Session::get('fail-message') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                 </button>
             </div>

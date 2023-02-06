@@ -58,24 +58,32 @@ class OrganizerController extends Controller
      */
     public function store(OrganizerValidation $request)
     {
+        $chapter = Chapter::with('organizer')->where('id',$request->chapter_id)->first();
+        if(!is_null($chapter->organizer)){
 
-
-        $data = $this->registerOrganizerMentor($request->all(), 'organizer', false);
-        if ($data) {
-
-            session()->flash('success-message', 'Organizer record added');
-            return redirect()->route('organizers.index');
+            session()->flash('fail-message', 'This chapter already has organizer');
+            return redirect()->back();
+            
 
         }
         else{
 
-            session()->flash('fail-message', 'something went wrong plz refere to code');
-            return redirect()->route('organizers.index');
-
-
-
-        
+            $data = $this->registerOrganizerMentor($request->all(), 'organizer', false);
+            if ($data) {
+    
+                session()->flash('success-message', 'Organizer record added');
+                return redirect()->route('organizers.index');
+    
+            }
+            else{
+    
+                session()->flash('fail-message', 'something went wrong plz refere to code');
+                return redirect()->route('organizers.index');
+    
+            }
         }
+
+
     }
 
     /**

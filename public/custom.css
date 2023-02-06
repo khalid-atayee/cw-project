@@ -1860,6 +1860,7 @@ p {
 .meet-our-team-values {
     display: flex;
     gap: 1em;
+    align-items: flex-start;
 }
 
 .meet-our-team-values img {

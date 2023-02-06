@@ -15,6 +15,7 @@ use App\Http\Requests\MentorValidation;
 use App\Http\Requests\UpdateMentorValidation;
 use App\Mail\sendMailCohort;
 use App\Models\Chapter;
+use App\Models\CurriculamTemplate;
 use App\Models\Mentor;
 use App\Models\Organizer;
 use App\Models\User;
@@ -206,7 +207,25 @@ class MentorController extends Controller
      */
     public function destroy($id)
     {
+        $id = json_decode($id,true);
+        
         $mentor = Mentor::find($id);
+        $chapter=Chapter::where('id',$mentor->chapter_id)->first();
+        foreach ($chapter->curriculumTemplate as $chapter_curriclum){
+            $json_array = [];
+            $json_array=json_decode($chapter_curriclum->mentor_ids,true);
+            if(in_array($id,$json_array)){
+            
+                if (($key = array_search($id, $json_array)) !== false) {
+                    unset($json_array[$key]);
+                }
+                $chapter_data = CurriculamTemplate::where('id',$chapter_curriclum->id)->first();
+                $chapter_data->mentor_ids =json_encode($json_array);
+                $chapter_data->update();
+            }
+        } 
+        
+
         if (file_exists(Storage::path('public\mentorImage\\' . $mentor->image))) {
 
             unlink(Storage::path('public\mentorImage\\' . $mentor->image));
