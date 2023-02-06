@@ -13,6 +13,7 @@ namespace App\Http\Controllers;
 use App\Models\Chapter;
 use App\Models\payments;
 use App\Models\Student;
+use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,10 +33,12 @@ class PaymentGateWayController extends Controller
         //    "address" => ["city" => "San Francisco", "country" => "US", "line1" => "510 Townsend St", "postal_code" => "98140", "state" => "CA"]
             'addres' => Auth::user()->location
       ));
+      $students= Student::where('user_id',Auth::user()->id)->first();
+      $chapter = Chapter::where('id',$students->chapter_id)->first();
         try {
             \Stripe\Charge::create ( array (
                     // "amount" => 300 * 100,
-                    "amount"=>120,
+                    "amount"=>$chapter->fees*100,
                     "currency" => "usd",
                     "customer" =>  $customer["id"],
                     "description" => "Test payment."
@@ -45,7 +48,7 @@ class PaymentGateWayController extends Controller
 
             $payment = new payments();
             $payment->card_holder_name = $request->card_holder_name;
-            $payment->amount = 120;
+            $payment->amount = $chapter->fees;
             $payment->currency = 'usd';
             $payment->cvv = $request->cvv;
             $payment->expiration = $request->expiration;
@@ -63,8 +66,10 @@ class PaymentGateWayController extends Controller
               // swal("Payment done successfully !");
 
            session()->flash ( 'success-message', 'Payment done successfully, we will get back to you soon' );
-            $chapters = Chapter::all();
-            return view('home.home',compact('chapters'))->with('message','Payment done successfully ! we will contact you soon');
+           $default_chapter = Chapter::take(1)->get();
+           $chapters = Chapter::all();
+           $teams = Team::take(4)->get();
+           return view('home.home', compact('chapters', 'teams','default_chapter'));
             // return view ( 'cardForm' );
         } catch ( \Stripe\Error\Card $e ) {
           session()->flash ( 'fail-message', $e->get_message() );

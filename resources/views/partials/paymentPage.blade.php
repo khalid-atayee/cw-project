@@ -2,15 +2,21 @@
   <div class="container mx-auto main-container rounded-3 p-2">
       <div class="row ">
           <div class="col text-center">
-              <h1 class="mb-3 mt-2 fw-bold mission-typo">Apply to location chapter</h1>
+              <h1 class="mb-3 mt-2 fw-bold mission-typo">Apply to location chapter </h1>
           </div>
       </div>
       <div class="row text-center  mx-auto">
           <p><strong>{{ Auth::user()->name }}</strong> please continue with payment process for procedding your
               applications</p>
       </div>
+      @php
+          $student = App\Models\Student::where('user_id',Auth::user()->id)->first();
+          $chapter = App\Models\Chapter::where('id',$student->chapter_id)->first();
+
+          
+      @endphp
       <div class="container text-center row  mx-auto  rounded-2 text-center text-sm-start mt-sm-4">
-          <div class="col">Fees: <span class="fw-bold fs-4 bg-danger text-light p-1 rounded-1">1200$</span>/ year
+          <div class="col">Fees: <span class="fw-bold fs-4 bg-danger text-light p-1 rounded-1">{{ $chapter->fees }}$</span>/ year
           </div>
       </div>
 
@@ -20,15 +26,17 @@
       <div class='col-md-3'></div>
       <div class='col-md-6'>
           <script src='https://js.stripe.com/v2/' type='text/javascript'></script>
+          <div class="alert alert-danger alert-dismissible fade show error-alert payment-alert" role="alert">
+           
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+            </button>
+        </div>
           <form accept-charset="UTF-8" action="/payment" class="require-validation" data-cc-on-file="false"
               data-stripe-publishable-key="pk_test_51MPxP9Ejah8oK98XAod2T6KqzhTszWFtAvwQEK9c3skXQo0vpii8M3QC3qpvemFZ8gzHpk6OcDGjBkOo3EkJld3z00Ia5n1XmB"
               id="payment-form" method="post">
               @csrf
               <div class="container payment-form">
 
-
-                  {{-- <div class="row mt-md-3 px-5"> --}}
-                  {{-- {{ Auth::user()->id }} --}}
                   <div class=" row">
 
                       <div class="mb-3">
@@ -52,7 +60,7 @@
                       <div class="mb-3">
                           <label for="name" class="form-label">Fees</label>
                           <input type="text" class="form-control" name="fees" id="fees" disabled
-                              value="1200$">
+                              value="{{ $chapter->fees }}">
                       </div>
                   </div>
 
@@ -108,8 +116,8 @@
                   </div>
                   <div class="row">
                       <button type="submit"
-                          class="btn btn-primary d-inline-block w-25 mx-auto fw-bold my-3 submit-button"
-                          style="background: blue">Pay</button>
+                          class="btn btn-primary d-inline-block w-25 mx-auto fw-bold my-3 submit-button payment-gateway-btn"
+                          style="background: blue"><i class="fa fa-spinner fa-spin louder show-loader"></i> Pay</button>
                   </div>
 
               </div>
@@ -132,6 +140,8 @@
 <script>
   $(function() {
       $('form.require-validation').bind('submit', function(e) {
+        $('.payment-gateway-btn').prop('disabled', true);
+        $('.louder').removeClass('show-loader');
           var $form = $(e.target).closest('form'),
               inputSelector = ['input[type=email]', 'input[type=password]',
                   'input[type=text]', 'input[type=file]',
@@ -150,6 +160,8 @@
                   $errorMessage.removeClass('hide');
                   e.preventDefault(); // cancel on first error
               }
+              $('.payment-gateway-btn').prop('disabled', false);
+                    $('.louder').addClass('show-loader');
           });
       });
   });
@@ -172,10 +184,15 @@
 
       function stripeResponseHandler(status, response) {
           if (response.error) {
+            $('.payment-gateway-btn').prop('disabled', false);
+                    $('.louder').addClass('show-loader');
               $('.error')
                   .removeClass('hide')
                   .find('.alert')
                   .text(response.error.message);
+                //   $('.error-alert').text(response.error.message)
+                document.querySelector('.error-alert').classList.remove('payment-alert')
+                document.querySelector('.error-alert').textContent=response.error.message;
           } else {
               // token contains id, last4, and card type
               var token = response['id'];

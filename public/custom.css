@@ -3443,10 +3443,6 @@ i {
 
 }
 
-/* .btn:disabled{
-    opacity: .3;
-    cursor: not-allowed;
-} */
 
 #sign-in-form-hover:hover {
     background-color: #14213d;
@@ -3584,4 +3580,14 @@ i {
 }
 .small-head-title{
     text-decoration: none;
+}
+
+.payment-alert{
+    display: none;
+}
+
+
+.register-btn:disabled ,.payment-gateway-btn:disabled{
+    opacity: .3;
+    cursor: not-allowed;
 }

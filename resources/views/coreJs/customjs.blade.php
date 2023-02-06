@@ -69,17 +69,22 @@
     }
 
     // this function is responsible for posting data to serve
-    function postForm(url, method, formId) {
+    function postForm(url, method, formId ,btnClass='') {
 
         $('#' + formId).submit(e => e.preventDefault());
 
         let data = $('#' + formId).serialize();
+        $('.' + btnClass).prop('disabled', true);
+        $('.louder').removeClass('show-loader');
         $.ajax({
             type: method,
             url: url,
             data: data,
             dataType: "json",
             success: function(response) {
+                    $('.' + btnClass).prop('disabled', false);
+                    $('.louder').addClass('show-loader');
+                    $('#' + formId)[0].reset();
                 $('.validation-error').text('');
                 Swal.fire({
                     icon: 'success',
@@ -92,6 +97,7 @@
                     denyButtonText: `No`,
                 }).then((result) => {
                     if (result.isConfirmed) {
+                     
                         location.href = "{{ route('payment.index') }}"
                     } else if (result.isDenied) {
                         location.href = "/"
@@ -109,6 +115,9 @@
                         showConfirmButton: false,
                         timer: 1500
                     })
+                    $('.' + btnClass).prop('disabled', false);
+                    $('.louder').addClass('show-loader');
+                    $('#' + formId)[0].reset();
 
                 }
                 if (response.status == 'error') {
@@ -121,11 +130,16 @@
                     })
 
                 }
+                $('.' + btnClass).prop('disabled', false);
+                    $('.louder').addClass('show-loader');
+                    $('#' + formId)[0].reset();
 
 
             },
             error: function(response) {
-                console.log(response.responseJSON.errors)
+                $('.' + btnClass).prop('disabled', false);
+                    $('.louder').addClass('show-loader');
+                    $('#' + formId)[0].reset();
 
                 $.each(response.responseJSON.errors, function(key, value) {
                     $('#error-' + key).text(value);
