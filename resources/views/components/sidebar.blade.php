@@ -132,6 +132,13 @@
                 </div>
                 <i class="fa fa-angle-left"></i>
             </a>
+            <a id="faq" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="{{ route('faq.index') }}">
+                <div class="tw-space-x-2">
+                    <span><i class="fa fa-question-circle"></i></span>
+                    <span>FAQ</span>
+                </div>
+                <i class="fa fa-angle-left"></i>
+            </a>
             @endrole
             {{-- =++++==== --}}
             <!-- Example split danger button -->

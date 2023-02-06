@@ -21,6 +21,7 @@ use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\OrganizerController;
 
 use App\Http\Controllers\SessionController;
@@ -91,6 +92,7 @@ Route::group(['middleware' => ['AuthCheck']], function () {
         'alumnis' => AlumniController::class,
         'team' => TeamController::class,
         'cities' => CityController::class,
+        'faq' => FaqController::class,
 
     ]);
 
