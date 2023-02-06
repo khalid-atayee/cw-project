@@ -10,7 +10,7 @@
             <div class="tw-flex">
                 <label class="tw-w-[20%] tw-p-2" for="admin_name">Admin Name</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
-                    <input class=" tw-border tw-p-2 tw-rounded-md" type="text" name="admin_name" id="admin_name" placeholder="admin name" />
+                    <input class=" tw-border tw-p-2 tw-rounded-md" type="text" name="admin_name" value="{{ old('admin_name') }}" id="admin_name" placeholder="admin name" />
 
                     @error('admin_name')
                     <span class="text-danger ">{{ $message }}</span>
@@ -23,7 +23,7 @@
                 <label class="tw-w-[20%] tw-p-2" for="admin_name">admin Email</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
 
-                <input  class="tw-border tw-p-2 tw-rounded-md" type="text" name="admin_email" id="admin_name" placeholder="admin Email" />
+                <input  class="tw-border tw-p-2 tw-rounded-md" type="text" name="admin_email" value="{{ old('admin_email') }}" id="admin_name" placeholder="admin Email" />
                 @error('admin_email')
                 <span class="text-danger">{{ $message }}</span>
                     
@@ -36,7 +36,7 @@
                 <label class="tw-w-[20%] tw-p-2" for="admin_name">Password</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
                 
-                <input class=" tw-border tw-p-2 tw-rounded-md" type="password" name="admin_password" id="admin_name" placeholder="admin Password" />
+                <input class=" tw-border tw-p-2 tw-rounded-md" type="password" name="admin_password" value="{{ old('admin_password') }}" id="admin_name" placeholder="admin Password" />
                 @error('admin_password')
                 <span class="text-danger">{{ $message }}</span>
                     

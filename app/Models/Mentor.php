@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Mentor extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','email','description','chapter_id','image','organizer_id','user_id'];
+    protected $fillable = ['name','email','description','linkedin','chapter_id','image','organizer_id','user_id'];
 
     function chapters(){
         return $this->belongsTo(Chapter::class,'chapter_id','id');

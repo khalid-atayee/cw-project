@@ -9,7 +9,7 @@
             <div class="tw-flex">
                 <label class="tw-w-[20%] tw-p-2" for="mentor_name">Session Title</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
-                    <input class=" tw-border tw-p-2 tw-rounded-md" type="text" name="title" id="title"
+                    <input class=" tw-border tw-p-2 tw-rounded-md" type="text" name="title" value="{{ old('title') }}" id="title"
                         placeholder="Session Title" />
 
                     <span class="text-danger error" id="error-title"></span>
@@ -23,7 +23,7 @@
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
 
                     <textarea class="tw-border tw-p-2 tw-rounded-md" name="description" id="description" placeholder="Description"
-                        cols="30" rows="10"></textarea>
+                        cols="30" rows="10">{{ old('description') }}</textarea>
                     <span class="text-danger" id="error-description"></span>
 
 
@@ -34,7 +34,7 @@
                 <label class="tw-w-[20%] tw-p-2" for="start_date1">Start date</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
                     <input class=" tw-border tw-p-2 tw-rounded-md" type="datetime-local" name="start_date"
-                        id="start_date" placeholder="Start Date" />
+                        id="start_date" value="{{ old('start_date') }}" placeholder="Start Date" />
 
                     <span class="text-danger error" id="error-start_date"></span>
 
@@ -44,7 +44,7 @@
             <div class="tw-flex">
                 <label class="tw-w-[20%] tw-p-2" for="start_date1">End date</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
-                    <input class=" tw-border tw-p-2 tw-rounded-md" type="datetime-local" name="end_date" id="end_date"
+                    <input class=" tw-border tw-p-2 tw-rounded-md" type="datetime-local" name="end_date" value="{{ old('end_date') }}" id="end_date"
                         placeholder="End Date" />
 
                     <span class="text-danger error" id="error-end_date"></span>

@@ -16,6 +16,7 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Description</th>
+                    <th>Linkedin URL</th>
                     <th>Image</th>
                     <th>Chapter</th>
                     <th>Actions</th>
@@ -67,6 +68,7 @@
                             <td class="tw-p-3">{{ $organizer->id }}</td>
                             <td class="tw-p-3">{{ $organizer->name }}</td>
                             <td class="tw-p-3">{{ $organizer->description }}</td>
+                            <td class="tw-p-3">{{ $organizer->linkedin }}</td>
                             <td class="tw-p-3">
                                 <img src="{{ asset('storage/organizerImage/'.$organizer->image) }}" alt="" style="width: 30px;height:30px">
                                 

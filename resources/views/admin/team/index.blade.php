@@ -13,6 +13,7 @@
                     <th>Name</th>
                     <th>Major</th>
                     <th>Role</th>
+                    <th>Linkedin </th>
                     <th>Short Bio</th>
                     <th>Photo</th>
                     <th>Actions</th>
@@ -25,6 +26,7 @@
                     <td class="tw-p-2">{{ $team->name }}</td>
                     <td class="tw-p-2">{{ $team->major }}</td>
                     <td class="tw-p-2">{{ $team->role }}</td>
+                    <td class="tw-p-2">{{ $team->linkedin }}</td>
                     <td class="tw-p-2">{{ $team->short_bio }}</td>
                     <td class="tw-p-2">{{ $team->photo }}</td>
                     

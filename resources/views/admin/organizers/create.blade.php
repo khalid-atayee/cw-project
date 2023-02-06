@@ -10,7 +10,7 @@
             <div class="tw-flex">
                 <label class="tw-w-[20%] tw-p-2" for="organizer_name">Organizer Name</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
-                    <input class=" tw-border tw-p-2 tw-rounded-md" type="text" name="name" id="organizer_name" placeholder="Organizer name" />
+                    <input class=" tw-border tw-p-2 tw-rounded-md" type="text" name="name" id="organizer_name" value="{{ old('name') }}" placeholder="Organizer name" />
 
                     @error('name')
                     <span class="text-danger ">{{ $message }}</span>
@@ -23,7 +23,7 @@
                 <label class="tw-w-[20%] tw-p-2" for="organizer_name">Organizer Email</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
 
-                <input  class="tw-border tw-p-2 tw-rounded-md" type="text" name="email" id="organizer_name" placeholder="Organizer name" />
+                <input  class="tw-border tw-p-2 tw-rounded-md" type="text" name="email" id="organizer_name" value="{{ old('email') }}" placeholder="Organizer name" />
                 @error('email')
                 <span class="text-danger">{{ $message }}</span>
                     
@@ -36,7 +36,7 @@
                 <label class="tw-w-[20%] tw-p-2" for="organizer_name">Organizer Password</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
                 
-                <input class=" tw-border tw-p-2 tw-rounded-md" type="password" name="password" id="organizer_name" placeholder="Organizer name" />
+                <input class=" tw-border tw-p-2 tw-rounded-md" type="password" name="password" value="{{ old('password') }}" id="organizer_name" placeholder="Organizer name" />
                 @error('password')
                 <span class="text-danger">{{ $message }}</span>
                     
@@ -46,12 +46,26 @@
 
 
 
+
+
             <div class="tw-flex">
                 <label class="tw-w-[20%] tw-p-2" for="description">description</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
 
-                <textarea class="tw-border tw-p-2 tw-rounded-md" name="description" id="description" placeholder="Description" cols="30" rows="10"></textarea>
+                <textarea class="tw-border tw-p-2 tw-rounded-md" name="description"  id="description"  placeholder="Description" cols="30" rows="10">{{ old('description') }}</textarea>
                 @error('description')
+                <span class="text-danger">{{ $message }}</span>
+                    
+                @enderror
+                </div>
+            </div>
+
+            <div class="tw-flex">
+                <label class="tw-w-[20%] tw-p-2" for="organizer_name">Linkedin URL</label>
+                <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
+                
+                <input class=" tw-border tw-p-2 tw-rounded-md" type="url" name="linkedin" value="{{ old('linkedin') }}" id="linkedin" placeholder="Linkedin URL" />
+                @error('linkedin')
                 <span class="text-danger">{{ $message }}</span>
                     
                 @enderror

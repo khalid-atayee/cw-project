@@ -33,6 +33,18 @@
 
             </div>
 
+            <div class="tw-flex">
+                <label class="tw-w-[20%] tw-p-2" for="organizer_name">Linkedin URL</label>
+                <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
+                
+                <input class=" tw-border tw-p-2 tw-rounded-md" type="url" name="linkedin" id="linkedin" placeholder="Linkedin URL" />
+                @error('linkedin')
+                <span class="text-danger">{{ $message }}</span>
+                    
+                @enderror
+                </div>
+            </div>
+
 
 
             <div class="tw-flex">

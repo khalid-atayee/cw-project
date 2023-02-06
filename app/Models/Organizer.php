@@ -9,7 +9,7 @@ class Organizer extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','email','description','chapter_id','image','user_id'];
+    protected $fillable = ['name','email','description' ,'linkedin','chapter_id','image','user_id'];
     protected $guarded =[];
     
     function chapters(){

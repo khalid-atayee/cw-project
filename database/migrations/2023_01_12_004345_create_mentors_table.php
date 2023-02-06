@@ -20,7 +20,8 @@ class CreateMentorsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
-            $table->string('description');
+            $table->text('description');
+            $table->string('linkedin')->nullable();
             $table->string('image');
             $table->foreignIdFor(Chapter::class)->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->foreignIdFor(Organizer::class)->constrained()->onDelete('cascade');

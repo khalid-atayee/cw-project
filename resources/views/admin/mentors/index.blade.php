@@ -22,6 +22,7 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Description</th>
+                    <th>Linkedin</th>
                     <th>Image</th>
                     <th>Chapter</th>
                     <th>Organizer</th>
@@ -35,6 +36,8 @@
                     <td class="tw-p-3">{{ $mentor->id }}</td>
                     <td class="tw-p-3">{{ $mentor->name }}</td>
                     <td class="tw-p-3">{{ $mentor->description }}</td>
+                    <td class="tw-p-3">{{ $mentor->linkedin }}</td>
+
                     <td class="tw-p-3">
                         <img src="{{ asset('storage/mentorImage/'.$mentor->image) }}" alt="" style="width: 30px;height:30px">
                         

@@ -29,6 +29,15 @@
             @error('role')
                 <span class="tw-text-red-500 tw-text-xs tw-text-center">{{ $message }}</span>
             @enderror
+
+            <div class="tw-flex">
+                <label class="tw-w-[20%] tw-p-2" for="role">Linkedin</label>
+                <input type="url" class="tw-w-[80%] tw-border tw-p-2 tw-rounded-md" name="linkedin" id="linkedin" placeholder="linkedin url ..." />
+            </div>
+            @error('linkedin')
+                <span class="tw-text-red-500 tw-text-xs tw-text-center">{{ $message }}</span>
+            @enderror
+            
             <div class="tw-flex">
                 <label class="tw-w-[20%] tw-p-2" for="short_bio">Short Bio</label>
                 <textarea class="tw-w-[80%] tw-border tw-p-2 tw-rounded-md" name="short_bio" id="short_bio" cols="30" rows="10" placeholder="short bio...">{{ $team->short_bio }}</textarea>

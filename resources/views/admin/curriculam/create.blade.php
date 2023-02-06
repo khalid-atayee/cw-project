@@ -10,7 +10,7 @@
             <div class="tw-flex">
                 <label class="tw-w-[20%] tw-p-2" for="mentor_name">Module Name</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
-                    <input class=" tw-border tw-p-2 tw-rounded-md" type="text" name="name" id="mentor_name"
+                    <input class=" tw-border tw-p-2 tw-rounded-md" type="text" name="name" value="{{ old('name') }}" id="mentor_name"
                         placeholder="Module name" />
 
                     <span class="text-danger error" id="error-name"></span>
@@ -22,7 +22,7 @@
                 <label class="tw-w-[20%] tw-p-2" for="description">description</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
 
-                <textarea class="tw-border tw-p-2 tw-rounded-md" name="description" id="description" placeholder="Description" cols="30" rows="10"></textarea>
+                <textarea class="tw-border tw-p-2 tw-rounded-md" name="description" id="description" placeholder="Description" cols="30" rows="10">{{ old('description') }}</textarea>
                 <span class="text-danger error" id="error-description"></span>
                 
                 </div>

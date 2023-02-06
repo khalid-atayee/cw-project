@@ -46,6 +46,18 @@
                 @enderror
                 </div>
             </div>
+            <div class="tw-flex">
+                <label class="tw-w-[20%] tw-p-2" for="linkedin">Linkedin URL</label>
+                <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
+
+                    <input type="url" class="tw-border tw-p-2 tw-rounded-md" name="linkedin" id="linkedin"
+                        placeholder="linkedin url" />
+
+                    @error('linkedin')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
             <td class="tw-flex">
                 <img src="{{ asset('storage/mentorImage/'.$mentor->image) }}" alt="" style="width: 60px;height:60px">
                 

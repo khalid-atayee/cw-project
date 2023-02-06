@@ -55,6 +55,7 @@ class TeamController extends Controller
             'name' => $request->name,
             'major' => $request->major,
             'role' => $request->role,
+            'linkedin'=>$request->linkedin,
             'short_bio' => $request->short_bio,
             'photo' => $filename,
         ]);
@@ -109,6 +110,7 @@ class TeamController extends Controller
         $team->name = $request->name;
         $team->major = $request->major;
         $team->role = $request->role;
+        $team->linkedin=$request->linkedin;
         $team->short_bio = $request->short_bio;
         $team->photo = $filename ?? $team->photo;
         $team->save();

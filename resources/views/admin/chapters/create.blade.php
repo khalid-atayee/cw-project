@@ -10,7 +10,7 @@
             <div class="tw-flex">
                 <label class="tw-w-[20%] tw-p-2" for="title">Chapter title</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
-                <input class="tw-w-[80%] tw-border tw-p-2 tw-rounded-md" type="text" name="title" id="title" placeholder="Chapter tilte" />
+                <input class="tw-w-[80%] tw-border tw-p-2 tw-rounded-md" type="text" name="title" value="{{ old('title') }}" id="title" placeholder="Chapter tilte" />
                 @error('title')
                     <span class="text-danger ">{{ $message }}</span>
                         
@@ -37,7 +37,7 @@
             <div class="tw-flex">
                 <label class="tw-w-[20%] tw-p-2" for="fees">Chapter Fees</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
-                <input class="tw-w-[80%] tw-border tw-p-2 tw-rounded-md" type="number" name="fees" id="fees" placeholder="Chapter fees" />
+                <input class="tw-w-[80%] tw-border tw-p-2 tw-rounded-md" type="number" name="fees" value="{{ old('fees') }}" id="fees" placeholder="Chapter fees" />
                 @error('fees')
                 <span class="text-danger ">{{ $message }}</span>
                     
@@ -48,7 +48,7 @@
             <div class="tw-flex">
                 <label class="tw-w-[20%] tw-p-2" for="duration">Chapter duration</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
-                <input class="tw-w-[80%] tw-border tw-p-2 tw-rounded-md" type="number" name="duration" id="duration" placeholder="Chapter duration" />
+                <input class="tw-w-[80%] tw-border tw-p-2 tw-rounded-md" type="number" name="duration" value="{{ old('duration') }}" id="duration" placeholder="Chapter duration" />
                 @error('duration')
                 <span class="text-danger ">{{ $message }}</span>
                     
@@ -60,7 +60,7 @@
             <div class="tw-flex">
                 <label class="tw-w-[20%] tw-p-2" for="start_date">Start date</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
-                <input class="tw-w-[80%] tw-border tw-p-2 tw-rounded-md" type="date" name="start_date" id="start_date" />
+                <input class="tw-w-[80%] tw-border tw-p-2 tw-rounded-md" type="date" name="start_date" value="{{ old('start_date') }}" id="start_date" />
                 @error('start_date')
                 <span class="text-danger ">{{ $message }}</span>
                     
@@ -71,7 +71,7 @@
             <div class="tw-flex">
                 <label class="tw-w-[20%] tw-p-2" for="end_date">End date</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
-                <input class="tw-w-[80%] tw-border tw-p-2 tw-rounded-md" type="date" name="end_date" id="end_date" />
+                <input class="tw-w-[80%] tw-border tw-p-2 tw-rounded-md" type="date" name="end_date" value="{{ old('end_date') }}" id="end_date" />
                 @error('end_date')
                 <span class="text-danger ">{{ $message }}</span>
                     
@@ -81,7 +81,7 @@
             <div class="tw-flex">
                 <label class="tw-w-[20%] tw-p-2" for="chapter_email">Chapter Email</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
-                <input class="tw-w-[80%] tw-border tw-p-2 tw-rounded-md" type="text" name="chapter_email" id="chapter_email" placeholder="Chapter email" />
+                <input class="tw-w-[80%] tw-border tw-p-2 tw-rounded-md" type="text" name="chapter_email" value="{{ old('chapter_email') }}" id="chapter_email" placeholder="Chapter email" />
                 @error('chapter_email')
                 <span class="text-danger ">{{ $message }}</span>
                     
@@ -92,7 +92,7 @@
             <div class="tw-flex">
                 <label class="tw-w-[20%] tw-p-2" for="title">Chapter Password</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
-                <input class="tw-w-[80%] tw-border tw-p-2 tw-rounded-md" type="password" name="chapter_password" id="title" placeholder="Chapter password" />
+                <input class="tw-w-[80%] tw-border tw-p-2 tw-rounded-md" type="password" name="chapter_password" value="{{ old('chapter_password') }}" id="title" placeholder="Chapter password" />
                 @error('chapter_password')
                 <span class="text-danger ">{{ $message }}</span>
                     

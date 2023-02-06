@@ -148,6 +148,7 @@ trait UserTrait
                         'user_id' => $lastUser->id
                     ];
                     $shareData = array_merge($shareData, $wantedData);
+                    
 
                     Mentor::create($shareData);
                 } else {
@@ -185,6 +186,7 @@ trait UserTrait
             $organizer->name = $data['name'];
             $organizer->email = $data['email'];
             $organizer->description = $data['description'];
+            $organizer->linkedin = $data['linkedin'];
             $organizer->image = $image;
             $organizer->chapter_id = $data['chapter_id'];
             $organizer->user_id = $user_id;
@@ -216,6 +218,7 @@ trait UserTrait
             $mentor->name = $data['name'];
             $mentor->email = $data['email'];
             $mentor->description = $data['description'];
+            $mentor->linkedin = $data['linkedin'];
             $mentor->image = $image_name;
             $mentor->chapter_id = $data['chapter_id'];
             $mentor->organizer_id = $wantedOrganizers->id;

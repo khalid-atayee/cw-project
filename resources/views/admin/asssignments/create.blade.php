@@ -10,7 +10,7 @@
             <div class="tw-flex">
                 <label class="tw-w-[20%] tw-p-2" for="mentor_name">assignment Title</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
-                    <input class=" tw-border tw-p-2 tw-rounded-md" type="text" name="title" id="title"
+                    <input class=" tw-border tw-p-2 tw-rounded-md" type="text" name="title" value="{{ old('title') }}" id="title"
                         placeholder="assignment Title" />
 
                     <span class="text-danger error" id="error-title"></span>
@@ -23,8 +23,8 @@
                 <label class="tw-w-[20%] tw-p-2" for="description">description</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
 
-                    <textarea class="tw-border tw-p-2 tw-rounded-md" name="description" id="description" placeholder="Description"
-                        cols="30" rows="10"></textarea>
+                    <textarea class="tw-border tw-p-2 tw-rounded-md" name="description"  id="description" placeholder="Description"
+                        cols="30" rows="10">{{ old('description') }}</textarea>
                     <span class="text-danger" id="error-description"></span>
 
 
@@ -35,7 +35,7 @@
                 <label class="tw-w-[20%] tw-p-2" for="description">assignment url</label>
                 <div class="tw-w-[80%]" style="display: grid;grid-template-column:1fr">
 
-                    <input class=" tw-border tw-p-2 tw-rounded-md" type="text" name="url" id="url"
+                    <input class=" tw-border tw-p-2 tw-rounded-md" type="text"  name="url" value="{{ old('url') }}" id="url"
                         placeholder="assignment Url" />
                     <span class="text-danger" id="error-url"></span>
 
