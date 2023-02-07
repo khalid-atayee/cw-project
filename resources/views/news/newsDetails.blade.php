@@ -3,21 +3,21 @@
 @include('partials.header')
 
 <div class="container news-container">
-    <h1 class="text-center my-4 fw-bold">
+    <h1 class="text-center my-4 fw-bold mission-typo">
         News
     </h1>
     <div class="row">
 
         <div class="d-flex flex-column justify-content-between col-12 tw-border" data-aos="zoom-in">
             <div class="tw-w-full">
-                <img class="tw-mx-auto tw-w-full" src="{{ asset('storage/posts/' . $news->image) }}" alt="">
+                <img class="news-hero  d-flex flex-column justify-content-between col-12 " style="object-fit: cover" id="hero-image-news" src="{{ asset('storage/posts/' . $news->image) }}" alt="">
             </div>
 
-            <div class="text-center  p-1 tw-bg-white">
+            <div class="text-center  p-1 tw-bg-white font-family-class">
                 <h1 class="tw-text-gray-800">
                     {{ $news->title }}
                 </h1>
-                <p class="px-2 tw-text-gray-800">
+                <p class="px-2 tw-text-gray-800 font-family-class">
                     {{ $news->description }}
                 </p>
                 {{-- <p class="card-text "><small class="">Last updated 3 hrs ago</small></p> --}}
@@ -25,12 +25,18 @@
 
         </div>
         <div class="card border-1 my-3">
-            <h5 class="card-header">Recent</h5>
-            <div class="card-body ">
-                @foreach ($newses as $news)
+            <h5 class="card-header font-family-class">Recent</h5>
+            <div class="card-body  font-family-class">
+                @foreach ($newses as $key=> $news)
                 <p>
                     <a href="{{ route('newsDetails', $news) }}">{{ $news->title }}</a>
                 </p>
+                @php
+                    if($key==7){
+                        break;
+                    }
+                @endphp
+               
                 @endforeach
                
             </div>
@@ -44,9 +50,9 @@
                         <img style="height: 350px;" src="{{ asset('storage/posts/'. $news->image) }}" class="card-img-top" alt="...">
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title fw-bold">{{ $news->title }}</h5>
-                        <p class="card-text tw-truncate">{{ $news->description }}</p>
-                        {{-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> --}}
+                        <h5 class="card-title fw-bold font-family-class">{{ $news->title }}</h5>
+                        <p class="card-text tw-truncate font-family-class">{{ $news->description }}</p>
+                        <p class="card-text font-family-class"><small class="text-muted">Added {{ $news->created_at->diffForHumans() }}</small></p>
                     </div>
                 </div>
             </a>
@@ -55,7 +61,7 @@
 
         </div>
         <div class="text-center my-3" data-aos="fade-up">
-            <button class="cw-btn btn-dark-blue text-center">load More</button>
+            <a href="{{ route('allnews') }}" class="cw-btn btn-dark-blue text-center font-family-class">load More</a>
         </div>
 
     </div>

@@ -51,6 +51,7 @@ Route::post('renderProgram', [ProgramController::class, 'renderData'])->name('pr
 Route::get('aboutUs', [HomeController::class, 'aboutUs'])->name('cw-about');
 Route::get('/news', [NewsController::class, 'news'])->name('news');
 Route::get('/news/details/{news}', [NewsController::class, 'newsDetails'])->name('newsDetails');
+Route::get('/allnews', [NewsController::class, 'allnews'])->name('allnews');
 
 Route::get('/curriculam/{id?}', [HomeController::class, 'curriculam'])->name('cw-curriculam');
 

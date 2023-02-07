@@ -35,12 +35,12 @@
             <a href="#" class="card me-3 mb-3 col-sm-5 col-12 col-md-3" data-aos="fade-down">
                 <div>
                     <div class="card-img-wrap">
-                        <img style="height: 350px;" src="{{ asset('storage/posts/'. $news->image) }}" class="card-img-top" alt="...">
+                        <img  src="{{ asset('storage/posts/'. $news->image) }}" class="card-img-top" alt="...">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title fw-bold">{{ $news->title }}</h5>
                         <p class="card-text tw-truncate">{{ $news->description }}</p>
-                        {{-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> --}}
+                        <p class="card-text"><small class="text-muted">Added {{ $news->created_at->diffForHumans() }}</small></p>
                     </div>
                 </div>
             </a>

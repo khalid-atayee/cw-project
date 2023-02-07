@@ -17,7 +17,8 @@ class NewsController extends Controller
 
         $newses = News::all();
         $first = News::first();
-        return view('news.news', compact('newses','first'));
+        $chapters = Chapter::all();
+        return view('news.news', compact('newses','first','chapters'));
     }
 
     public function newsDetails(News $news)
@@ -110,5 +111,12 @@ class NewsController extends Controller
         session()->flash('success-message', 'news record deleted');
 
         return redirect()->route('news.index');
+    }
+    public function allnews(){
+        $newses = News::all();
+        $chapters = Chapter::all();
+
+        return view('allnews.allnews',compact('newses','chapters'));
+
     }
 }
