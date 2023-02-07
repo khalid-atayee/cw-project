@@ -13,6 +13,7 @@ namespace App\Http\Controllers;
 use App\Models\Chapter;
 
 use App\Models\Alumni;
+use App\Models\News;
 use App\Models\Team;
 
 use Illuminate\Http\Request;
@@ -27,8 +28,9 @@ class HomeController extends Controller
         $default_chapter = Chapter::take(1)->get();
         $chapters = Chapter::all();
         $teams = Team::take(4)->get();
+        $newses = News::take(3)->get();
         $check = 'program';
-        return view('home.home', compact('chapters', 'teams','default_chapter', 'check'));
+        return view('home.home', compact('chapters', 'teams','default_chapter', 'check','newses'));
     }
 
     function alumni()
@@ -36,7 +38,8 @@ class HomeController extends Controller
 
         $chapters = Chapter::all();
         $alumnis = Alumni::take(6)->get();
-        return view('alumni.alumni', compact('chapters', 'alumnis'));
+        $newses = News::take(3)->get();
+        return view('alumni.alumni', compact('chapters', 'alumnis','newses'));
 
         // return view('alumni.alumni',compact('alumnis'));
 
@@ -47,7 +50,8 @@ class HomeController extends Controller
 
         $chapters = Chapter::all();
         $alumnis = Alumni::take(6)->get();
-        return view('about.aboutUs', compact('chapters', 'alumnis'));
+        $newses = News::take(3)->get();
+        return view('about.aboutUs', compact('chapters', 'alumnis','newses'));
     }
 
     function curriculam($id)
@@ -56,7 +60,8 @@ class HomeController extends Controller
         $data = Chapter::find($id);
 
         $chapters = Chapter::all();
-        return view('curriculam.curriculamIndex', compact('chapters','data'));
+        $newses = News::take(3)->get();
+        return view('curriculam.curriculamIndex', compact('chapters','data','newses'));
     }
 
     function find(Request $request)
@@ -67,30 +72,35 @@ class HomeController extends Controller
             $chapters = Chapter::all();
             $teams = Team::all();
             $check = 'location';
+            $newses = News::take(3)->get();
 
-            return view('home.home', compact('chapters', 'data', 'teams','check'));
+            return view('home.home', compact('chapters', 'data', 'teams','check','newses'));
 
         } else if ($request->program) {
             $data = Chapter::with('organizer', 'mentor', 'curriculumTemplate')->where('id', $request->program)->first();
             $check = 'location';
             $chapters = Chapter::all();
-            return view('program.program', compact('data', 'chapters','check'));
+            $newses = News::take(3)->get();
+            return view('program.program', compact('data', 'chapters','check','newses'));
 
         } else if ($request->about) {
 
             $chapters = Chapter::all();
             $alumnis = Alumni::take(6)->get();
-            return view('about.aboutUs',compact('alumnis','chapters'));
+            $newses = News::take(3)->get();
+            return view('about.aboutUs',compact('alumnis','chapters','newses'));
 
         } else if ($request->alumni) {
             $chapters = Chapter::all();
             $alumnis = Alumni::take(6)->get();
-            return view('alumni.alumni',compact('alumnis','chapters'));
+            $newses = News::take(3)->get();
+            return view('alumni.alumni',compact('alumnis','chapters','newses'));
         }
 
         else if ($request->register){
             $chapters = Chapter::all();
-            return view('register.studentRegister',compact('chapters'));
+            $newses = News::take(3)->get();
+            return view('register.studentRegister',compact('chapters','newses'));
         }
         //    $chapter_id = $request->chapter_id;
 
@@ -99,13 +109,15 @@ class HomeController extends Controller
     public function showAll(){
         $chapters= Chapter::all();
         $teams = Team::all();
-        return view('allTeam.allteam',compact('teams','chapters'));
+        $newses = News::take(3)->get();
+        return view('allTeam.allteam',compact('teams','chapters','newses'));
 
     }
 
     public function allAlumni(){
         $alumnis = Alumni::all();
-        return view('allAlumni.allAlumni',compact('alumnis'));
+        $newses = News::take(3)->get();
+        return view('allAlumni.allAlumni',compact('alumnis','newses'));
     }
 }
 

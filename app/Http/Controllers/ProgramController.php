@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Chapter;
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class ProgramController extends Controller
@@ -12,7 +13,8 @@ class ProgramController extends Controller
         $curiculumn = Chapter::with('organizer', 'mentor', 'curriculumTemplate')->take(1)->get();
         $check = 'program';
         $chapters = Chapter::all();
-        return view('program.program',compact('chapters','default_chapter','curiculumn','check'));
+        $newses = News::take(3)->get();
+        return view('program.program',compact('chapters','default_chapter','curiculumn','check','newses'));
     }
     
 }

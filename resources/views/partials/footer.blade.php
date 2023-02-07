@@ -4,7 +4,8 @@
 
         <div class="footer-logo-container text-md-start ">
             <h1 class="fw-bolder fs-1">CodeWeekend</h1>
-            <p class="opacity-75 text-md-start mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis sunt ea
+            <p class="opacity-75 text-md-start mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
+                sunt ea
                 inventore voluptatem
                 fugit! Magni voluptatem sequi, quasi nisi nulla enim tempore. Aliquam quisquam ipsa assumenda sunt
                 possimus? Laudantium, praesentium.</p>
@@ -51,7 +52,7 @@
             </ul>
             <ul class=" text-center">
                 <li class=" fw-bold text-uppercase menu-item-header">Support</li>
-                <a href="{{ Auth::user() ? route('payment.index') : route('students.index')}}">
+                <a href="{{ Auth::user() ? route('payment.index') : route('students.index') }}">
                     <li class="footer-menu-item">Apply to Bootcamp</li>
                 </a>
                 <a href="{{ route('cw-program') }}">
@@ -63,15 +64,56 @@
             </ul>
             <ul class=" text-center">
                 <li class="fw-bold text-uppercase menu-item-header">Recent News</li>
-                <a href="">
-                    <li class="footer-menu-item">items</li>
+
+                @if (count($newses) == 1)
+                    <a href="{{ route('newsDetails', $newses[0]) }}" 
+                       >
+                        <li class="footer-menu-item">
+
+                            {{ Str::limit($newses[0]->title, 15, '...') }}
+                        </li>
+                    </a>
+                @else
+                    <a>
+                        <li class="footer-menu-item">
+
+                            news 1
+                        </li>
+                    </a>
+                @endif
+
+
+                @if (count($newses) == 2)
+                    <a href="{{ route('newsDetails', $newses[1]) }}" 
+                      >
+
+                        <li class="footer-menu-item">{{ Str::limit($newses[1]->title, 15, '...') }}
+                        </li>
+                    </a>
+                @else
+                    <a>
+                        <li class="footer-menu-item">
+
+                            news 2
+                        </li>
+                    </a>
+                @endif
+
+
+                @if (count($newses) == 3)
+                <a href="{{ route('newsDetails', $newses[2]) }}"
+                   >
+                    <li class="footer-menu-item">{{ Str::limit($newses[2]->title, 15, '...') }}
+                    </li>
+                
                 </a>
-                <a href="">
-                    <li class="footer-menu-item">items</li>
-                </a>
-                <a href="">
-                    <li class="footer-menu-item">items</li>
-                </a>
+                @else
+                    <a> <li>
+                            news 3
+                        </li>
+                        </a>
+                @endif
+
             </ul>
         </div>
     </div>

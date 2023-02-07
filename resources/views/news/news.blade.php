@@ -1,7 +1,20 @@
 @extends('index')
 @section('content')
 @include('partials.header')
+
+@if (count($newses))
 @include('partials.news')
+
+@else
+<div style="height:50vh; display:grid; place-items:center;">
+
+    <h3 class="text-center text-muted">No News Posted yet</h3>
+</div>
+    
+@endif
+
+
+
 @include('partials.signIn')
 @include('partials.footer')
 @endsection

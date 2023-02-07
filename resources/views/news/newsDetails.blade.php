@@ -43,7 +43,7 @@
         </div>
 
         <div class="cards-group news-cards-group d-flex flex-wrap justify-content-around text-center">
-            @foreach ($newses as $news)
+            @foreach ($newses as $key=> $news)
             <a href="{{ route('newsDetails', $news) }}" class="card me-3 mb-3 col-sm-5 col-12 col-md-3" data-aos="fade-down">
                 <div>
                     <div class="card-img-wrap">
@@ -56,6 +56,11 @@
                     </div>
                 </div>
             </a>
+            @php
+            if($key==5){
+                break;
+            }
+        @endphp
             @endforeach
             
 

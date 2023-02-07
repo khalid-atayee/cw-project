@@ -20,7 +20,7 @@
 
         </div>
         <div class="card border-1 my-3">
-            <h5 class="card-header">Recent</h5>
+            <h5 class="card-header">Recent News</h5>
             <div class="card-body ">
                 @foreach ($newses as $key=> $news)
                 <p>
@@ -51,6 +51,12 @@
                     </div>
                 </div>
             </a>
+
+            @php
+            if($key==5){
+                break;
+            }
+        @endphp
             @endforeach
         
 

@@ -2576,7 +2576,7 @@ footer ul {
 
 footer a {
     text-decoration: none;
-    color: inherit;
+    color: white !important;
 }
 
 footer li {
@@ -3622,4 +3622,10 @@ i {
 
 .font-family-class{
     font-family: var(--ff-arial-rounded);
+}
+
+#news-link-color{
+    background-color: white !important;
+    color:black !important;
+    z-index: 7;
 }
