@@ -57,6 +57,9 @@
 ##### email: admin@admin.com
 ##### password: codeweekend123
 ####
+
+
+## we used stripe integration for online payments, if you wish go to https://stripe.com and create an account for yourself then, change secret and api keys inside project
 ### Now you can move on
 # All the best
 
