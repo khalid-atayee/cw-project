@@ -4,9 +4,20 @@
     <x-slot name="button">
         <a class="tw-bg-blue-500 tw-rounded-md tw-p-2 tw-text-white" href="{{ route('Mentors.index') }}">All mentors</a>
     </x-slot>
+    
+    @if (Session::has('email-message'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          
+            {{ Session::get('email-message') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+            </button>
+        </div>
+ 
+    @endif
+
     <div>
         <form class="tw-flex tw-flex-col tw-space-y-2 tw-border tw-p-5 tw-rounded-md tw-shadow"
-            action="{{ route('mentor.sendMail') }}" method="POST">
+            action="{{ route('mentor.sendMail') }}" method="POST" id="payment-form" >
             @csrf
             <div class="tw-flex">
                 <label class="tw-w-[20%] tw-p-2" for="mentor_name">Email Title</label>
@@ -36,9 +47,6 @@
                     @enderror
                 </div>
             </div>
-
-
-
 
             <div class="tw-flex">
                 <label class="tw-w-[20%] tw-p-2" for="chapter_id">Select chapter</label>
@@ -87,7 +95,7 @@
             </div>
 
             <div class="tw-text-right">
-                <button type="submit" class="tw-bg-blue-500 tw-text-white tw-rounded-md tw-p-2">Send</button>
+                <button type="submit" onclick="checkValidation()" class="tw-bg-blue-500 tw-text-white tw-rounded-md tw-p-2 payment-gateway-btn"><i class="fa fa-spinner fa-spin louder show-loader email-louder"></i> Send</button>
             </div>
 
     </div>
@@ -95,4 +103,32 @@
 
     </form>
     </div>
+    <style>
+        .email-louder{
+            display: none;
+        }
+        .visibility-email{
+            pointer-events: none;
+            cursor: not-allowed;
+            opacity: .65;
+
+        }
+
+    </style>
+
+
+    <script>
+        function checkValidation(){
+            // $(".payment-gateway-btn"). attr("disabled", true);
+            
+            $('.payment-gateway-btn').prop('disabled', false);
+            $('.payment-gateway-btn').addClass('visibility-email')
+            $('.louder').removeClass('email-louder')
+            
+            $('.louder').addClass('show-loader');
+        }
+     
+    </script>
+
+
 </x-layout>

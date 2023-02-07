@@ -75,7 +75,7 @@
             <br><br>
             <div class="curriculam-page-btn">
 
-                <a href="{{ Auth::user() ? route('payment.index') : route('students.index') }}" class="cw-btn">Apply
+                <a href="{{ Auth::user() ? route('payment.index') : route('students.index') }}" class="cw-btn btn-secondary">Apply
                     Now</a>
             </div>
             <br>

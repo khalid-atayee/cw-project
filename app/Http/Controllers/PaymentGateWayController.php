@@ -11,6 +11,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Chapter;
+use App\Models\News;
 use App\Models\payments;
 use App\Models\Student;
 use App\Models\Team;
@@ -70,7 +71,8 @@ class PaymentGateWayController extends Controller
            $chapters = Chapter::all();
            $teams = Team::take(4)->get();
            $check = 'program';
-           return view('home.home', compact('chapters', 'teams','default_chapter','check'));
+           $newses = News::take(3)->get();
+           return view('home.home', compact('chapters', 'teams','default_chapter','check','newses'));
             // return view ( 'cardForm' );
         } catch ( \Stripe\Error\Card $e ) {
           session()->flash ( 'fail-message', $e->get_message() );

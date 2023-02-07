@@ -54,7 +54,7 @@
                                      }
                                  @endphp
                              @endif
-                             <div class="meet-our-team-values meet-org-values right-text-aligns" data-aos="fade-right">
+                             <div class="meet-our-team-values meet-org-values " data-aos="fade-right">
                                  <div class="paragraphs texts-bottom core-organizer-par  ">
                                      <h3 class="what-make-different-title" id="right-aligns">
                                          {{ $curiculumn[0]->mentor[$i]->name }}</h3>

@@ -24,6 +24,8 @@
 
                 <textarea class="tw-border tw-p-2 tw-rounded-md" name="description" id="description" placeholder="Description" cols="30" rows="10">{{ old('description') }}</textarea>
                 <span class="text-danger error" id="error-description"></span>
+                <span class="text-muted" >minimum 70 character is required*</span>
+
                 
                 </div>
             </div>

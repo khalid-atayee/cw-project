@@ -18,7 +18,7 @@
                              <p>{{ $alumni->description }}</p>
                          </div>
                          <div class="vector-img-card">
-                             <a class="vector-img social-icon" href="#"><img src="Images/Vector.png"
+                             <a class="vector-img social-icon" href="{{ $alumni->linkedin }}"><img src="Images/Vector.png"
                                      alt="" style="height: 24px; width: 24px;"></a>
                          </div>
                      </div>

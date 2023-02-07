@@ -12,6 +12,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StudentValidation;
 use App\Models\Chapter;
+use App\Models\News;
 use App\Models\Organizer;
 use App\Models\Student;
 use App\Models\User;
@@ -32,9 +33,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        
+        $newses = News::take(3)->get();
         $chapters = Chapter::all();
-        return view('register.studentRegister',compact('chapters'));
+        return view('register.studentRegister',compact('chapters','newses'));
     }
 
     /**

@@ -119,6 +119,9 @@ class AssignmentController extends Controller
     {
         $emailData =Assignment::with('students','grades','sessions','chapters')->where('id',$id)->first();
         Mail::to($emailData->students->email)->send(new StudentAssignment($emailData));
+        session()->flash('success-message', 'Email Sent Successfully');
+
+
         return redirect()->back();
 
     }

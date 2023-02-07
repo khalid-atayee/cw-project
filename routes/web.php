@@ -31,6 +31,7 @@ use App\Http\Controllers\OrganizerController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserManagementController;
 use App\Models\Chapter;
+use App\Models\News;
 
 /*
 |-----------------------------------------------
@@ -72,7 +73,8 @@ Route::resource('students', StudentController::class);
 // payment controller start here
 Route::get('payment', function () {
     $chapters = Chapter::all();
-    return view('payment.payment',compact('chapters'));
+    $newses = News::take(3)->get();
+    return view('payment.payment',compact('chapters','newses'));
 })->name('payment.index');
 
 Route::post('payment', [PaymentGateWayController::class, 'call']);

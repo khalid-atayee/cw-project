@@ -404,7 +404,7 @@
        <p>${data.description}</p>
        <br>
        <p>${data.email}</p>
-       <a href="#">
+       <a href="${data.linkedin}">
            <i class="fa-brands fa-linkedin"></i>
            </a>
            

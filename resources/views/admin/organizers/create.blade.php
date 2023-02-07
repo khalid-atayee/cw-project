@@ -57,6 +57,7 @@
                 <span class="text-danger">{{ $message }}</span>
                     
                 @enderror
+                <span class="text-muted">minimum 100 character is required *</span>
                 </div>
             </div>
 

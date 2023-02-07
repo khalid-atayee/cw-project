@@ -128,6 +128,8 @@ class MentorController extends Controller
                 Mail::to($emails[$key])->send(new sendMailCohort($request->all()));
             }
         }
+        session()->flash('email-message', 'Email sent to all members successfully');
+
         // Session::flash('success-message', 'Email Sent successully');
         // Session::flash('alert-class', 'alert-danger');
         // $chapters = Chapter::all();
