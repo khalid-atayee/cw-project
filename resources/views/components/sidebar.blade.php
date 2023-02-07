@@ -119,7 +119,11 @@
             </a>
             <a id="news" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="{{ route('news.index') }}">
                 <div class="tw-space-x-2">
+<<<<<<< HEAD
                     <span><i class="fa fa-circle"></i></span>
+=======
+                    <i class="fa fa-clipboard" aria-hidden="true"></i>
+>>>>>>> 9974549e570ba05f29c49bea69afb3cc21ccca86
                     <span>News</span>
                 </div>
                 <i class="fa fa-angle-left"></i>
@@ -127,8 +131,19 @@
 
             <a id="news" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="{{ route('users.index') }}">
                 <div class="tw-space-x-2">
+<<<<<<< HEAD
                     <span><i class="fa fa-circle"></i></span>
+=======
+                    <span><i class="fa fa-user-circle"></i></span>
+>>>>>>> 9974549e570ba05f29c49bea69afb3cc21ccca86
                     <span>User management</span>
+                </div>
+                <i class="fa fa-angle-left"></i>
+            </a>
+            <a id="faq" class="tw-px-4 tw-py-3 hover:tw-text-gray-300 tw-flex tw-justify-between tw-items-center" href="{{ route('faq.index') }}">
+                <div class="tw-space-x-2">
+                    <span><i class="fa fa-question-circle"></i></span>
+                    <span>FAQ</span>
                 </div>
                 <i class="fa fa-angle-left"></i>
             </a>

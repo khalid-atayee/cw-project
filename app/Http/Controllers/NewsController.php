@@ -15,14 +15,16 @@ class NewsController extends Controller
     public function news()
     {
 
-        $chapters = Chapter::all();
-        return view('news.news', compact('chapters'));
+        $newses = News::all();
+        $first = News::first();
+        return view('news.news', compact('newses','first'));
     }
 
-    public function newsDetails()
+    public function newsDetails(News $news)
     {
         $chapters = Chapter::all();
-        return view('news.newsDetails', compact('chapters'));
+        $newses = News::all();
+        return view('news.newsDetails', compact('news','newses','chapters'));
 
         // $newses = News::all();
         // $firstNews = News::latest()->first();
@@ -32,6 +34,7 @@ class NewsController extends Controller
     public function newsDetailsData(News $news)
     {
         $newses = News::all();
+
         return view('news.newsDetails', compact('news', 'newses'));
     }
 

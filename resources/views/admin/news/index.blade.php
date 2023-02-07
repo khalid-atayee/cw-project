@@ -32,12 +32,12 @@
                 
                 <td class="tw-flex tw-space-x-2 tw-p-2 tw-items-center">
                     <div>
-                        <a href="{{ route('news.show',$news) }}" class="tw-bg-orange-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white">
+                        <a href="{{ route('news.show',$news) }}" class="tw-bg-orange-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white tw-inline-block">
                             <i class="fa fa-eye"></i>
                         </a>
                     </div>
                     <div>
-                        <a class="tw-bg-blue-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white" href="{{ route('news.edit',$news) }}">
+                        <a class="tw-bg-blue-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white tw-inline-block" href="{{ route('news.edit',$news) }}">
                             <i class="fa fa-edit"></i>
                         </a>
                     </div>

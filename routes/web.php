@@ -21,7 +21,11 @@ use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\Auth\AuthController;
+
 use App\Http\Controllers\ForgotPassword;
+
+use App\Http\Controllers\FaqController;
+
 use App\Http\Controllers\OrganizerController;
 
 use App\Http\Controllers\SessionController;
@@ -46,7 +50,7 @@ Route::get('program', [ProgramController::class, 'index'])->name('cw-program');
 Route::post('renderProgram', [ProgramController::class, 'renderData'])->name('program-location');
 Route::get('aboutUs', [HomeController::class, 'aboutUs'])->name('cw-about');
 Route::get('/news', [NewsController::class, 'news'])->name('news');
-Route::get('/news/details', [NewsController::class, 'newsDetails'])->name('newsDetails');
+Route::get('/news/details/{news}', [NewsController::class, 'newsDetails'])->name('newsDetails');
 
 Route::get('/curriculam/{id?}', [HomeController::class, 'curriculam'])->name('cw-curriculam');
 
@@ -104,6 +108,7 @@ Route::group(['middleware' => ['AuthCheck']], function () {
         'alumnis' => AlumniController::class,
         'team' => TeamController::class,
         'cities' => CityController::class,
+        'faq' => FaqController::class,
 
     ]);
 
