@@ -10,10 +10,16 @@
 
             <span style="color:#06d6a0">
 
+                @if ($check=='program')
                 @if (count($default_chapter))
-                  {{ $default_chapter[0]->title . '-' . $default_chapter[0]->city->city_name }}
+                {{ $default_chapter[0]->title . '-' . $default_chapter[0]->city->city_name }}
+                @else
+                {{ '[Location]' }}
+
+                    
+                @endif
                 
-                @elseif (isset($data))
+                @elseif ($check=='location')
                 {{ $data->title . '-' . $data->city->city_name }}
                 @else
                   

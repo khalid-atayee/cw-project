@@ -69,7 +69,8 @@ class PaymentGateWayController extends Controller
            $default_chapter = Chapter::take(1)->get();
            $chapters = Chapter::all();
            $teams = Team::take(4)->get();
-           return view('home.home', compact('chapters', 'teams','default_chapter'));
+           $check = 'program';
+           return view('home.home', compact('chapters', 'teams','default_chapter','check'));
             // return view ( 'cardForm' );
         } catch ( \Stripe\Error\Card $e ) {
           session()->flash ( 'fail-message', $e->get_message() );

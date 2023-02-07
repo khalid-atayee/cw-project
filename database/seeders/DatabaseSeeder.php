@@ -17,18 +17,6 @@ class DatabaseSeeder extends Seeder
 		$this->call(AdminSeeder::class);
 
         // \App\Models\User::factory(10)->create();
-        $cities = array(
-            array('city_name' => 'Kabul',
-					'country'=>'Afghanistan'),
-			array('city_name' => 'New York',
-					'country'=>'United State'),
-			array('city_name' => 'Mumbai',
-				'country'=>'India'),
-		
-			
-        );
-        DB::table('cities')->insert($cities);
-
 		$grades = array(
 			array('grade_title' => 'A+'),
 			array('grade_title' => 'A'),

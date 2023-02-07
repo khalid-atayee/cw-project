@@ -6,7 +6,7 @@
     </x-slot>
     <div>
         <form class="tw-flex tw-flex-col tw-space-y-2 tw-border tw-p-5 tw-rounded-md tw-shadow"
-            action="{{ route('mentor.sendMail') }}" method="POST" >
+            action="{{ route('mentor.sendMail') }}" method="POST">
             @csrf
             <div class="tw-flex">
                 <label class="tw-w-[20%] tw-p-2" for="mentor_name">Email Title</label>
@@ -50,10 +50,34 @@
                         {{-- @if (Auth::user()->roles[0]->name == 'chapter') --}}
 
                         {{-- <option value="{{ Auth::user()->chapter->id }}">{{ Auth::user()->chapter->title }}</option>
-                            @else                         --}}
-                        @foreach ($chapters as $chapter)
-                            <option value="{{ $chapter->id }}">{{ $chapter->title }}</option>
-                        @endforeach
+                            @else   
+
+                            
+                            
+                            
+                            --}}
+                        @if (Auth::user()->roles[0]->name == 'chapter')
+                            @isset(Auth::user()->chapter)
+                                <option value="{{ Auth::user()->chapter->id }}">{{ Auth::user()->chapter->title }}</option>
+                            @endisset
+                        @elseif (Auth::user()->roles[0]->name == 'organizer')
+                            @isset(Auth::user()->organizer)
+                                <option value="{{ Auth::user()->organizer->chapters->id }}">
+                                    {{ Auth::user()->organizer->chapters->title }}</option>
+                            @endisset
+                        @else
+                            @foreach ($chapters as $chapter)
+                                <option value="{{ $chapter->id }}">{{ $chapter->title }}</option>
+                            @endforeach
+                        @endif
+
+
+
+
+
+
+
+
                         {{-- @endif --}}
                     </select>
                     @error('chapter_id')
@@ -61,10 +85,10 @@
                     @enderror
                 </div>
             </div>
-            
-                <div class="tw-text-right">
-                    <button type="submit" class="tw-bg-blue-500 tw-text-white tw-rounded-md tw-p-2">Send</button>
-                </div>
+
+            <div class="tw-text-right">
+                <button type="submit" class="tw-bg-blue-500 tw-text-white tw-rounded-md tw-p-2">Send</button>
+            </div>
 
     </div>
 

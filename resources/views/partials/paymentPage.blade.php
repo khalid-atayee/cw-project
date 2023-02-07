@@ -1,22 +1,27 @@
 <div class="container mx-auto main-container rounded-3 p-2 ">
   <div class="container mx-auto main-container rounded-3 p-2">
+    @php
+
+      if(Auth::user()->roles[0]->name=='student'){
+          
+          $student = App\Models\Student::where('user_id',Auth::user()->id)->first();
+          $chapter = App\Models\Chapter::where('id',$student->chapter_id)->first();
+      }
+
+          
+      @endphp
       <div class="row ">
           <div class="col text-center">
-              <h1 class="mb-3 mt-2 fw-bold mission-typo">Apply to location chapter </h1>
+              <h1 class="mb-3 mt-2 fw-bold mission-typo">Apply to {{  Auth::user()->roles[0]->name=='student' ? $chapter->title . '-'.$chapter->city->city_name . ' chapter ' : ', You are authroity! can not apply '}}  </h1>
           </div>
       </div>
       <div class="row text-center  mx-auto">
           <p><strong>{{ Auth::user()->name }}</strong> please continue with payment process for procedding your
               applications</p>
       </div>
-      @php
-          $student = App\Models\Student::where('user_id',Auth::user()->id)->first();
-          $chapter = App\Models\Chapter::where('id',$student->chapter_id)->first();
-
-          
-      @endphp
+      
       <div class="container text-center row  mx-auto  rounded-2 text-center text-sm-start mt-sm-4">
-          <div class="col">Fees: <span class="fw-bold fs-4 bg-danger text-light p-1 rounded-1">{{ $chapter->fees }}$</span>/ year
+          <div class="col">Fees: <span class="fw-bold fs-4 bg-danger text-light p-1 rounded-1">{{ Auth::user()->roles[0]->name=='student' ? $chapter->fees : 'You are authroity' }}$</span>/ year
           </div>
       </div>
 
@@ -60,7 +65,7 @@
                       <div class="mb-3">
                           <label for="name" class="form-label">Fees</label>
                           <input type="text" class="form-control" name="fees" id="fees" disabled
-                              value="{{ $chapter->fees }}">
+                              value="{{ Auth::user()->roles[0]->name=='student' ? $chapter->fees : 'You are authroity' }}">
                       </div>
                   </div>
 
@@ -115,7 +120,7 @@
 
                   </div>
                   <div class="row">
-                      <button type="submit"
+                      <button  type="submit" {{ Auth::user()->roles[0]->name=='admin' ? 'disabled' :  Auth::user()->roles[0]->name=='organizer' ? 'disabled' :   Auth::user()->roles[0]->name=='mentor' ? 'disabled' : ''  }}
                           class="btn btn-primary d-inline-block w-25 mx-auto fw-bold my-3 submit-button payment-gateway-btn"
                           style="background: blue"><i class="fa fa-spinner fa-spin louder show-loader"></i> Pay</button>
                   </div>

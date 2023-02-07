@@ -6,7 +6,9 @@
         Not payed Students
     </x-slot>
     <x-slot name="button">
+        @role('admin|organizer')
         <a class="tw-bg-blue-500 tw-text-white tw-rounded-md tw-p-2" href="{{ route('students.create') }}">Payed Students</a>
+        @endrole
     </x-slot>
     <div>
         <table class="tw-w-full tw-divide-y-2">

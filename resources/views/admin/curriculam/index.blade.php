@@ -6,7 +6,9 @@
         All Curriculum
     </x-slot>
     <x-slot name="button">
+        @role('admin|chapter')
         <a class="tw-bg-blue-500 tw-text-white tw-rounded-md tw-p-2" href="{{ route('curriculum.create') }}">New curriculum</a>
+        @endrole
     </x-slot>
     <div>
         <table class="tw-w-full tw-divide-y-2">

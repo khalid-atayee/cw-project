@@ -5,6 +5,7 @@
         <a class="tw-bg-blue-500 tw-rounded-md tw-p-2 tw-text-white" href="{{ route('curriculum.index') }}">All
             Curriculum</a>
     </x-slot>
+    
     <div>
         <form class="tw-flex tw-flex-col tw-space-y-2 tw-border tw-p-5 tw-rounded-md tw-shadow"
             action="{{ route('curriculum.update', $curriculumTemplateItem[0]->CurriculamTemplate->id) }}" method="POST"
@@ -74,14 +75,14 @@
                         <select class="form-select" id="multiple-select-field" data-placeholder="Choose anything"
                             name="mentors[]" multiple>
 
+                            
+
                             @foreach ($mentors as $key => $mentor)
                            
-                                @if (count($ids)-1>=$key)
-                                    <option value="{{ $mentors[$key]->id }}"
-                                        {{ $mentors[$key]->id == $ids[$key] ? 'selected' : '' }}> {{ $mentors[$key]->name }}</option>
-                                @else
-                                    <option value="{{ $mentors[$key]->id }}">{{ $mentors[$key]->name }}</option>
-                                @endif
+                                    <option value="{{ $mentor->id }}"{{ in_array($mentor->id, $ids ) ? 'selected' : '' }}>
+                                         {{ $mentors[$key]->name }}
+                                        </option>
+                                    {{-- <option value="{{ $mentors[$key]->id }}">{{ $mentors[$key]->name }}</option> --}}
                             @endforeach
 
 

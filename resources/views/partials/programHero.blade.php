@@ -19,97 +19,104 @@
                  <div class="course-info rounded-3 text-start mb-0 mx-auto w-100 ">
 
                      <h2 class="my-2 mb-3 ">Codeweekend<span class="mb-4">
-                        <span style="color:#06d6a0">
-                            @if (count($default_chapter))
-                            {{ $default_chapter[0]->title . '-' . $default_chapter[0]->city->city_name }}
+                             <span style="color:#06d6a0">
 
-                                
-                            @elseif (isset($data))
-                            {{ $data->title . '-'. $data->city->city_name  }}
 
-                            @else
-                            {{ '[Location]' }}
+                                 @if ($check == 'program')
+                                 @if (count($default_chapter))
+                                 {{ $default_chapter[0]->title . '-' . $default_chapter[0]->city->city_name }}
+                                 @else
+                                 {{ '[Location]' }}
 
-                                
-                            @endif
-                       </span> </span>program</h2>
+                                     
+                                 @endif
+                                 @elseif ($check == 'location')
+                                     {{ $data->title . '-' . $data->city->city_name }}
+                                 @else
+                                     {{ '[Location]' }}
+                                 @endif
+                             </span> </span>program</h2>
                      <div class="container">
 
                          <div class="row mb-2">
                              <div class="col-4 fw-bold noBreak ">Start Date:</div>
 
-                             
-                             <div class="col"> <span >
-                                @if (count($default_chapter))
-                                {{ $default_chapter[0]->start_date }}
-    
-                                    
-                                @elseif (isset($data))
-                                {{ $data->start_date }}
-    
-                                @else
-                                {{ 'Not defined Yet'}}
-    
-                                    
-                                @endif
-                                
-                                
-                                {{-- {{ isset($data) ? $data->start_date : 'Not defined Yet' }}  --}}
-                            
-                            </span></div>
+
+                             <div class="col"> <span>
+                                     @if ($check == 'program')
+                                     @if (count($default_chapter))
+                                     {{ $default_chapter[0]->start_date }}
+                                     @else
+                                     {{ 'Not defined Yet' }}
+
+                                         
+                                     @endif
+                                     @elseif ($check == 'location')
+                                         {{ $data->start_date }}
+                                     @else
+                                         {{ 'Not defined Yet' }}
+                                     @endif
+
+
+                                     {{-- {{ isset($data) ? $data->start_date : 'Not defined Yet' }}  --}}
+
+                                 </span></div>
                          </div>
                          <div class="row mb-2">
                              <div class="col-4 fw-bold noBreak">Duration:</div>
 
 
-                             <div class="col"><span >
-                                
-                                @if (count($default_chapter))
-                                {{ $default_chapter[0]->duration }}
-    
-                                    
-                                @elseif (isset($data))
-                                {{ $data->duration }}
-    
-                                @else
-                                {{ 'Not defined Yet'}}
-    
-                                    
-                                @endif
-                                Month 
-                                
-                                
-                            
-                            
-                            </span></div>
+                             <div class="col"><span>
+
+                                     @if ($check == 'program')
+                                     @if (count($default_chapter))
+                                     {{ $default_chapter[0]->duration }}
+                                     @else
+                                     {{ 'Not defined Yet' }}
+
+                                     
+                                         
+                                     @endif
+                                     @elseif ($check == 'location')
+                                         {{ $data->duration }}
+                                     @else
+                                         {{ 'Not defined Yet' }}
+                                     @endif
+                                     Month
+
+
+
+
+                                 </span></div>
                          </div>
                          <div class="row mb-2">
                              <div class="col-4 fw-bold noBreak">Fees:</div>
 
 
                              <div class="col">$
-                                @if (count($default_chapter))
-                                {{ $default_chapter[0]->fees }}
-    
-                                    
-                                @elseif (isset($data))
-                                {{ $data->fees }}
-    
+                                 @if ($check == 'program')
+                                 @if (count($default_chapter))
+                                 {{ $default_chapter[0]->fees }}
                                 @else
-                                {{ 'Not defined Yet'}}
-    
-                                    
-                                @endif
+                                {{ 'Not defined Yet' }}
 
-                            
-                            
-                            </div>
+                                @endif
+                                 @elseif ($check == 'location')
+                                     {{ $data->fees }}
+                                 @else
+                                     {{ 'Not defined Yet' }}
+                                 @endif
+
+
+
+                             </div>
                          </div>
                      </div>
 
                      <div class="mt-3 rounded-pill fw-bold mx-auto d-grid d-sm-inline-block">
 
-                         <a class="cw-btn btn-dark-blue px-3 mt-3 " href="{{ Auth::user() ? route('payment.index') : route('students.index')}}">Apply Now</a>
+                         <a class="cw-btn btn-dark-blue px-3 mt-3 "
+                             href="{{ Auth::user() ? route('payment.index') : route('students.index') }}">Apply Now</a>
                      </div>
                  </div>
 

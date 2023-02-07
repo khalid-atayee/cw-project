@@ -26,9 +26,7 @@ use App\Http\Controllers\OrganizerController;
 
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserManagementController;
-
-
-
+use App\Models\Chapter;
 
 /*
 |-----------------------------------------------
@@ -68,7 +66,8 @@ Route::resource('students', StudentController::class);
 
 // payment controller start here
 Route::get('payment', function () {
-    return view('payment.payment');
+    $chapters = Chapter::all();
+    return view('payment.payment',compact('chapters'));
 })->name('payment.index');
 
 Route::post('payment', [PaymentGateWayController::class, 'call']);

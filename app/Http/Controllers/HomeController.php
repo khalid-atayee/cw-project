@@ -27,7 +27,8 @@ class HomeController extends Controller
         $default_chapter = Chapter::take(1)->get();
         $chapters = Chapter::all();
         $teams = Team::take(4)->get();
-        return view('home.home', compact('chapters', 'teams','default_chapter'));
+        $check = 'program';
+        return view('home.home', compact('chapters', 'teams','default_chapter', 'check'));
     }
 
     function alumni()
@@ -62,29 +63,34 @@ class HomeController extends Controller
     {
         
         if ($request->home) {
-            $default_chapter = Chapter::take(1)->get();
             $data = Chapter::where('id', $request->home)->first(['title', 'city_id']);
             $chapters = Chapter::all();
             $teams = Team::all();
+            $check = 'location';
 
-            return view('home.home', compact('chapters', 'data', 'teams','default_chapter'));
+            return view('home.home', compact('chapters', 'data', 'teams','check'));
 
         } else if ($request->program) {
-            $default_chapter = Chapter::take(1)->get();
-             $curiculumn = Chapter::with('organizer', 'mentor', 'curriculumTemplate')->take(1)->get();
-
             $data = Chapter::with('organizer', 'mentor', 'curriculumTemplate')->where('id', $request->program)->first();
-            
+            $check = 'location';
             $chapters = Chapter::all();
-            return view('program.program', compact('data', 'chapters','default_chapter','curiculumn'));
+            return view('program.program', compact('data', 'chapters','check'));
 
         } else if ($request->about) {
-            dd('about');
+
+            $chapters = Chapter::all();
+            $alumnis = Alumni::take(6)->get();
+            return view('about.aboutUs',compact('alumnis','chapters'));
 
         } else if ($request->alumni) {
             $chapters = Chapter::all();
             $alumnis = Alumni::take(6)->get();
             return view('alumni.alumni',compact('alumnis','chapters'));
+        }
+
+        else if ($request->register){
+            $chapters = Chapter::all();
+            return view('register.studentRegister',compact('chapters'));
         }
         //    $chapter_id = $request->chapter_id;
 

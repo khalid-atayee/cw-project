@@ -51,11 +51,14 @@
                                 <i class="fa fa-eye"></i>
                             </a>
                         </div> --}}
+                        @role('admin|organizer')
                         <div>
                             <a class="tw-bg-blue-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white" href="{{ route('Mentors.edit',$mentor->id) }}">
                                 <i class="fa fa-edit"></i>
                             </a>
                         </div>
+                        @endrole
+                        @role('admin')
                         <div> 
                             
                             <form  action="{{ route('Mentors.destroy',$mentor->id) }}" onsubmit="return confirm('Are you sure to delete this mentor?')" method="POST">
@@ -67,6 +70,7 @@
                             </form>
                             
                         </div>
+                        @endrole
                        
                         
                     </td>

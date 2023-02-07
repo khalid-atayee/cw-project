@@ -6,7 +6,9 @@
         All Sessions
     </x-slot>
     <x-slot name="button">
+        @role('admin|chapter')
         <a class="tw-bg-blue-500 tw-text-white tw-rounded-md tw-p-2" href="{{ route('sessions.create') }}">New Session</a>
+        @endrole
     </x-slot>
     <div>
         <table class="tw-w-full tw-divide-y-2">
@@ -35,15 +37,11 @@
                     
                     <td class="tw-flex tw-space-x-2 tw-p-2 tw-items-center">
                         <div>
-                            <a class="tw-bg-orange-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white" href="">
-                                <i class="fa fa-eye"></i>
-                            </a>
-                        </div>
-                        <div>
                             <a class="tw-bg-blue-500 tw-px-2 tw-py-1 tw-rounded-md tw-text-white" href="{{ route('sessions.edit', $session->id) }}">
                                 <i class="fa fa-edit"></i>
                             </a>
                         </div>
+                        @role('admin|chapter|organizer')
                         <div> 
                             
                             <form class="" action="{{ route('sessions.destroy',$session->id) }}" onsubmit="return confirm('Are you sure to delete this chapter?')" method="POST">
@@ -55,6 +53,7 @@
                             </form>
                             
                         </div>
+                        @endrole
                        
                         
                     </td>

@@ -25,7 +25,7 @@
                 <p class="header-typo">location</p>
 
                 <p class="select-location-par">
-                    <select class="js-example-basic-single" style="width: 100%" name="alumni">
+                    <select class="js-example-basic-single" style="width: 100%" name="about">
                         @foreach ($chapters as $chapter)
                             <option value="{{ $chapter->id }}">{{ $chapter->title }} - {{ $chapter->city->city_name }}
                             </option>
