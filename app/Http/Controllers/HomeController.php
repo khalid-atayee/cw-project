@@ -13,6 +13,7 @@ namespace App\Http\Controllers;
 use App\Models\Chapter;
 
 use App\Models\Alumni;
+use App\Models\Faq;
 use App\Models\News;
 use App\Models\Team;
 
@@ -29,8 +30,9 @@ class HomeController extends Controller
         $chapters = Chapter::all();
         $teams = Team::take(4)->get();
         $newses = News::take(3)->get();
+        $faqs = Faq::take(4)->get();
         $check = 'program';
-        return view('home.home', compact('chapters', 'teams','default_chapter', 'check','newses'));
+        return view('home.home', compact('chapters', 'teams','default_chapter', 'check','newses','faqs'));
     }
 
     function alumni()
@@ -73,15 +75,17 @@ class HomeController extends Controller
             $teams = Team::all();
             $check = 'location';
             $newses = News::take(3)->get();
+            $faqs = Faq::take(4)->get();
 
-            return view('home.home', compact('chapters', 'data', 'teams','check','newses'));
+            return view('home.home', compact('chapters', 'data', 'teams','check','newses','faqs'));
 
         } else if ($request->program) {
             $data = Chapter::with('organizer', 'mentor', 'curriculumTemplate')->where('id', $request->program)->first();
             $check = 'location';
             $chapters = Chapter::all();
             $newses = News::take(3)->get();
-            return view('program.program', compact('data', 'chapters','check','newses'));
+            $faqs = Faq::take(4)->get();
+            return view('program.program', compact('data', 'chapters','check','newses','faqs'));
 
         } else if ($request->about) {
 
