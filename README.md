@@ -3,7 +3,7 @@
 
 ### a quick review about project requirements
 
-#### CodeWeekend v2 - A global platform to launch coding bootcamp chapters in different cities around the world. See fi.co for what I mean. fi.co is for founders. Building something similar for developers.
+#### CodeWeekend v2 - A global platform to launch coding bootcamp chapters in different cities around the world.
 
 ##### Must Haves
 ##### 1. A new responsive and easy to use website
