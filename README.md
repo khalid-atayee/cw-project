@@ -38,10 +38,12 @@
 #### 3 run php artisan key:generate
 ###
 #### 4 configure .env  
-#### a) add database to .env
+#### a) add database name to .env
 #### b) add your mail host for email services 
 #### for now you can use mine, i used zohomail services for that
 ### here is the configuration
+### php artisan storage:link please run this function aswell because it will create a link to storage folder according to loading images from storage folder 
+
 
 ##### MAIL_MAILER=smtp
 ##### MAIL_HOST=smtp.zoho.com
