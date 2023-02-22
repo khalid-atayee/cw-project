@@ -64,7 +64,7 @@
 ## we used stripe integration for online payments and we created an account in https://stripe.com , but if you wish to have your own account then go to https://stripe.com and create an account for yourself then, change secret and api keys inside project
 ### Now you can move on
 
-#### if you something went wrong or could not be able to run this project please feel free to reach me at khalid.atayee101@gmail.com , i will be happy to help you out
+#### if there is something went wrong or could not be able to run this project please feel free to reach me at khalid.atayee101@gmail.com , i will be happy to help you out
 # All the best
 
 
